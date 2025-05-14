@@ -9,6 +9,7 @@ import { UpdateProdutoById, updateProdutoValidation } from "../controllers/contr
 import { createCategoraValidation, CreateCategoria } from "../controllers/controllerCategoria/CreateCategoria";
 import { GetAllCategorias } from "../controllers/controllerCategoria/GetAllCategoria";
 import { DeleteCategoria, deleteCategoriaValidation } from "../controllers/controllerCategoria/DeleteCategoria";
+import { CreateFornecedor, createFornecedorValidation } from "../controllers/controllerFornecedor/CreateFornecedor.";
 
 const appRouter = Router();
 
@@ -31,5 +32,5 @@ const appRouter = Router();
 //appRouter.delete('/:id', deleteCategoriaValidation, DeleteCategoria);
 
 //Rotas fornecedor
-
+appRouter.post('/', createFornecedorValidation, CreateFornecedor);
 export {appRouter}
