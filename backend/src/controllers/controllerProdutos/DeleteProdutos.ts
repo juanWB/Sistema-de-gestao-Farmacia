@@ -4,12 +4,12 @@ import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
 
-interface IParamsProps{
+interface IParamProps{
     id?: number;
 }
 
 export const deleteProdutoValidation = validation((getSchema) => ({
-    params: getSchema<IParamsProps>(z.object({
+    params: getSchema<IParamProps>(z.object({
         id: z.coerce.number({
             invalid_type_error: "O id precisar ser um número."
         }).positive('Deve ser maior que 0.').optional()
@@ -17,7 +17,7 @@ export const deleteProdutoValidation = validation((getSchema) => ({
 }));
 
 
-export const DeleteProduto = async(req: Request<IParamsProps>, res: Response) => {
+export const DeleteProduto = async(req: Request<IParamProps>, res: Response) => {
     console.log(req.params);
 
     res.status(StatusCodes.BAD_REQUEST).json({

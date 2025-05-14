@@ -3,6 +3,9 @@ import { createFuncionarioValidation, CreateNewFuncionario } from "../controller
 import { UpdateFuncionarioById, updateFuncionarioValidation } from "../controllers/controllerFuncionario/UpdateFuncionario";
 import { CreateProduto, createProdutoValidation } from "../controllers/controllerProdutos/CreateProduto";
 import { DeleteProduto, deleteProdutoValidation } from "../controllers/controllerProdutos/DeleteProdutos";
+import { GetProdutoById, getProdutoByIdValidation } from "../controllers/controllerProdutos/GetById";
+import { GetAllProdutos, getAllProdutosValidation } from "../controllers/controllerProdutos/GetAllProdutos";
+import { UpdateProdutoById, updateProdutoValidation } from "../controllers/controllerProdutos/UpdateProduto";
 
 const appRouter = Router();
 
@@ -13,5 +16,9 @@ const appRouter = Router();
 
 //Rotas Produto
 appRouter.post('/',createProdutoValidation, CreateProduto);
+appRouter.get('/', getAllProdutosValidation, GetAllProdutos);
+appRouter.get('/:id', getProdutoByIdValidation, GetProdutoById);
+appRouter.put('/:id', updateProdutoValidation, UpdateProdutoById);
 appRouter.delete('/:id', deleteProdutoValidation, DeleteProduto);
+
 export {appRouter}
