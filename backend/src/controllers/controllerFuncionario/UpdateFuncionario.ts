@@ -1,7 +1,11 @@
-import z from "zod";
+import { z } from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+
+interface IParamProps {
+  id?: number;
+}
 
 interface IBodyProps {
   nome: string;
@@ -9,7 +13,16 @@ interface IBodyProps {
   senha: string;
 }
 
-export const createFuncionarioValidation = validation((getSchema) => ({
+export const updateFuncionarioValidation = validation((getSchema) => ({
+  params: getSchema<IParamProps>(
+    z.object({
+      id: z.coerce
+        .number()
+        .positive("Deve ser maior que 0.")
+        .int("Deve ser um número inteiro.")
+        .optional(),
+    })
+  ),
   body: getSchema<IBodyProps>(
     z.object({
       nome: z
@@ -47,14 +60,15 @@ export const createFuncionarioValidation = validation((getSchema) => ({
   ),
 }));
 
-export const CreateNewFuncionario = async(
-  req: Request<{}, {}, IBodyProps>,
+export const UpdateFuncionarioById = async (
+  req: Request<IParamProps, {}, IBodyProps>,
   res: Response
 ) => {
+  console.log(req.params);
   console.log(req.body);
-  
+
   res.status(StatusCodes.BAD_REQUEST).json({
-  message: "Método ainda não implementado.",
+    message: "Método ainda não implementado.",
   });
   return;
 };
