@@ -8,7 +8,7 @@ import { Request, Response } from "express";
 interface IBodyProps{
     nome: string;
     preco: number;
-    validade: Date;
+    validade: Date | string;
     quantidade: number;
     categoria_id: number;
     fornecedor_id: number;
@@ -26,12 +26,16 @@ export const createProdutoValidation = validation((getSchema) => ({
         .trim(),
         preco: z.coerce.number({
             required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
+            invalid_type_error: 'Campo obrigatório',
         }).positive('O preço precisar ser maior do que 0.'),
-        validade: z.coerce.date({
+        validade:z.string({
             required_error: 'Campo obrigatório.',
             invalid_type_error: 'Campo obrigatório'
-        }),
+        })
+        .nonempty('Campo obrigatório')
+        .regex(/^\d{4}-\d{2}-\d{2}$/, 'O formato deve ser YYYY-MM-DD')
+        .transform((str) => new Date(str))
+        .refine((date) => !isNaN(date.getTime()), { message: 'Data inválida' }),
         quantidade: z.coerce.number({
             required_error: 'Campo obrigatório.',
             invalid_type_error: 'Campo obrigatório'
@@ -39,11 +43,11 @@ export const createProdutoValidation = validation((getSchema) => ({
         categoria_id: z.coerce.number({
             required_error: 'Campo obrigatório.',
             invalid_type_error: 'Campo obrigatório'
-        }).positive('O preço precisar ser maior do que 0.'),
+        }).positive('O id precisar ser maior do que 0.'),
         fornecedor_id: z.coerce.number({
             required_error: 'Campo obrigatório.',
             invalid_type_error: 'Campo obrigatório'
-        }).positive('O preço precisar ser maior do que 0.')
+        }).positive('O id precisar ser maior do que 0.')
     }))
 }))
 

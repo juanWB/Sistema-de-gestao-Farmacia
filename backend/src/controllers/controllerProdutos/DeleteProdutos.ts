@@ -10,7 +10,9 @@ interface IParamsProps{
 
 export const deleteProdutoValidation = validation((getSchema) => ({
     params: getSchema<IParamsProps>(z.object({
-        id: z.coerce.number().optional()
+        id: z.coerce.number({
+            invalid_type_error: "O id precisar ser um número."
+        }).positive('Deve ser maior que 0.').optional()
     }))
 }));
 
