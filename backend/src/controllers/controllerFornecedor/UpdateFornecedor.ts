@@ -1,5 +1,7 @@
 import { z } from "zod"
 import { validation } from "../../service/middleware/Validation"
+import { Request, Response } from "express"
+import { StatusCodes } from "http-status-codes"
 
 
 interface IParamProps {
@@ -52,3 +54,13 @@ export const updateFornecedorValidation = validation((getSchema) => ({
           .nonempty("Campo obrigatório")
     }))
 }))
+
+export const UpdateFornecedor = (req: Request< IParamProps, {}, IBodyProps>, res: Response) => {
+    console.log(req.body);
+    console.log(req.params);
+    res.status(StatusCodes.BAD_REQUEST).json({
+        message: 'Ainda não implementado'
+    });
+
+    return;
+}
