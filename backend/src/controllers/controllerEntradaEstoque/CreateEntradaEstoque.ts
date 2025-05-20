@@ -14,7 +14,7 @@ export const createEntradaValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(z.object({
         produto_id: z.coerce.number({
             invalid_type_error: "O id precisar ser um número."
-        }).positive('Deve ser maior que 0.').optional(),
+        }).positive('Deve ser maior que 0.'),
         quantidade: z.coerce.number({
             invalid_type_error: "O id precisar ser um número."
         }).positive('Deve ser maior que 0.'),
@@ -32,7 +32,7 @@ export const createEntradaValidation = validation((getSchema) => ({
 export const CreateEntradaEstoque = (req: Request<{}, {}, IBodyProps>, res: Response) => {
     console.log(req.body);
 
-    res.status(StatusCodes.BAD_REQUEST).json({
+    res.status(StatusCodes.CREATED).json({
         message: 'Ainda não implementado'
    })
 

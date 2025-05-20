@@ -35,7 +35,7 @@ export const UpdateCategoria = (req: Request<{}, {}, IBodyProps>, res: Response)
     console.log(req.body);
     console.log(req.params);
 
-    res.status(StatusCodes.BAD_REQUEST).json({
+    res.status(StatusCodes.OK).json({
         message: 'Ainda não implementado'
     })
     return;

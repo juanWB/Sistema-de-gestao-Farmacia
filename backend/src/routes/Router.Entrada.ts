@@ -3,7 +3,7 @@ import { controllerEntradaEstoque } from "../controllers/controllerEntradaEstoqu
 const router = Router();
 
 //Rotas Entrada Estoque
-router.post('/',controllerEntradaEstoque.createEntradaValidation, controllerEntradaEstoque.CreateEntradaEstoque);
-router.get('/', controllerEntradaEstoque.GetAllEntradas);
+router.post('/entrada',controllerEntradaEstoque.createEntradaValidation, controllerEntradaEstoque.CreateEntradaEstoque);
+router.get('/entrada', controllerEntradaEstoque.GetAllEntradas);
 
 export {router}
