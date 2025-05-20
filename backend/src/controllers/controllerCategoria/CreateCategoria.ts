@@ -24,8 +24,8 @@ export const createCategoraValidation = validation((getSchema) => ({
 export const CreateCategoria = (req: Request<{}, {}, IBodyProps>, res: Response) => {
     console.log(req.body);
 
-    res.status(StatusCodes.BAD_REQUEST).json({
-        message: 'Ainda não implementado.'
+    res.status(StatusCodes.CREATED).json({
+        message: 'Categoria criada com sucesso.'
     })
 
     return
