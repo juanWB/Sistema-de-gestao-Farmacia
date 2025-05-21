@@ -7,14 +7,14 @@ import { Request, Response } from "express";
 interface IBodyProps{
     produto_id?: number;
     quantidade: number;
-    entrada_data: string | Date;
+    entrada_data: Date | string;
 }
 
 export const createEntradaValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(z.object({
         produto_id: z.coerce.number({
             invalid_type_error: "O id precisar ser um número."
-        }).positive('Deve ser maior que 0.'),
+        }).positive('Deve ser maior que 0.').optional(),
         quantidade: z.coerce.number({
             invalid_type_error: "O id precisar ser um número."
         }).positive('Deve ser maior que 0.'),
@@ -22,10 +22,11 @@ export const createEntradaValidation = validation((getSchema) => ({
             required_error: 'Campo obrigatório.',
             invalid_type_error: 'Campo obrigatório'
         })
-        .nonempty('Campo obrigatório')
-        .regex(/^\d{4}-\d{2}-\d{2}$/, 'O formato deve ser YYYY-MM-DD')
+        .nonempty('Campo obrigatório').
+        regex(/^\d{4}-\d{2}-\d{2}$/, 'O formato deve ser YYYY-MM-DD')
         .transform((str) => new Date(str))
-        .refine((date) => !isNaN(date.getTime()), { message: 'Data inválida' }),
+        .refine((date) => !isNaN(date.getTime()), { message: 'Data inválida' })
+        ,
     }))
 }))
 
@@ -33,7 +34,7 @@ export const CreateEntradaEstoque = (req: Request<{}, {}, IBodyProps>, res: Resp
     console.log(req.body);
 
     res.status(StatusCodes.CREATED).json({
-        message: 'Ainda não implementado'
+        message: 'Criada com sucesso'
    })
 
     return;

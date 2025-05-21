@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { controllerFuncionario } from "../controllers/controllerFuncionario";
-const router = Router();
+const routerFuncionario = Router();
 
 //Rotas Produto
-router.post('/',controllerFuncionario.createFuncionarioValidation, controllerFuncionario.CreateNewFuncionario);
-router.put('/:id', controllerFuncionario.updateFuncionarioValidation, controllerFuncionario.UpdateFuncionarioById);
+routerFuncionario.post('/',controllerFuncionario.createFuncionarioValidation, controllerFuncionario.CreateNewFuncionario);
+routerFuncionario.put('/:id', controllerFuncionario.updateFuncionarioValidation, controllerFuncionario.UpdateFuncionarioById);
 
-export {router}
+export {routerFuncionario}

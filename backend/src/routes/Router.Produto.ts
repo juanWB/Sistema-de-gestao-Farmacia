@@ -1,12 +1,12 @@
 import { Router } from "express";
 import { controllerProduto } from "../controllers/controllerProduto";
-const router = Router();
+const routerProduto = Router();
 
 //Rotas Produto
-router.post('/',controllerProduto.createProdutoValidation, controllerProduto.CreateProduto);
-router.get('/', controllerProduto.GetAllProdutos);
-router.get('/:id', controllerProduto.getProdutoByIdValidation, controllerProduto.GetProdutoById);
-router.put('/:id', controllerProduto.updateProdutoValidation, controllerProduto.UpdateProdutoById);
-router.delete('/:id', controllerProduto.deleteProdutoValidation, controllerProduto.DeleteProduto);
+routerProduto.post('/',controllerProduto.createProdutoValidation, controllerProduto.CreateProduto);
+routerProduto.get('/', controllerProduto.GetAllProdutos);
+routerProduto.get('/:id', controllerProduto.getProdutoByIdValidation, controllerProduto.GetProdutoById);
+routerProduto.put('/:id', controllerProduto.updateProdutoValidation, controllerProduto.UpdateProdutoById);
+routerProduto.delete('/:id', controllerProduto.deleteProdutoValidation, controllerProduto.DeleteProduto);
 
-export {router}
+export {routerProduto}

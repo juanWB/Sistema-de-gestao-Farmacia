@@ -14,14 +14,26 @@ describe('Create - EntradaEstoque', () => {
         expect(typeof res.body).toEqual('object');
     });
 
-    it('Cria uma entrada no estoque com parametros errados.', async() => {
+    it('Tenta criar uma entrada no estoque com letras errados.', async() => {
         const res = await serverTest.post('/entrada').send({
-            produto_id: '7',
-            quantidade: '4',
-            entrada_data: '17-06-2000',
+            produto_id: 'dois',
+            quantidade: 'quatro',
+            entrada_data: '2000-06-17',
         });
 
-        expect(res.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);
+        expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(typeof res.body).toEqual('object');
     });
+
+     it('Tenta criar uma entrada no estoque com parametros vazios.', async() => {
+        const res = await serverTest.post('/entrada').send({
+            produto_id: '   ',
+            quantidade: '   ',
+            entrada_data: '2000-06-17',
+        });
+
+        expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+        expect(typeof res.body).toEqual('object');
+    });
+
 })

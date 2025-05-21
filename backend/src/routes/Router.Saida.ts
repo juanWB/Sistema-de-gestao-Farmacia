@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { controllerSaidaEstoque } from "../controllers/controllerSaidaEstoque";
-const router = Router();
+const routerSaida = Router();
 
 //Rotas Saida Estoque
-router.post('/',controllerSaidaEstoque.createSaidaValidation, controllerSaidaEstoque.CreateSaidaEstoque);
-router.get('/', controllerSaidaEstoque.GetAllSaidas);
+routerSaida.post('/',controllerSaidaEstoque.createSaidaValidation, controllerSaidaEstoque.CreateSaidaEstoque);
+routerSaida.get('/', controllerSaidaEstoque.GetAllSaidas);
 
-export {router}
+export {routerSaida}

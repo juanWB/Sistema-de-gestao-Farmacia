@@ -6,6 +6,7 @@ describe('GetAll - EntradaEstoque', () => {
     it('Busca todas entradas no estoque', async() => {
         const res = await serverTest.get('/entrada');
 
+        console.log('rodou')
         expect(res.statusCode).toEqual(StatusCodes.OK);
         expect(typeof res.body).toEqual('object');
     });

@@ -1,11 +1,11 @@
 import { Router } from "express";
 import { controllerFornecedor } from "../controllers/controllerFornecedor";
-const router = Router();
+const routerFornecedor = Router();
 
 //Rotas Fornecedor
-router.post('/',controllerFornecedor.createFornecedorValidation, controllerFornecedor.CreateFornecedor);
-router.get('/', controllerFornecedor.GetAllFornecedor);
-router.put('/:id', controllerFornecedor.updateFornecedorValidation, controllerFornecedor.UpdateFornecedor);
-router.delete('/:id', controllerFornecedor.deleteFornecedorValidation, controllerFornecedor.DeleteFornecedor);
+routerFornecedor.post('/fornecedor',controllerFornecedor.createFornecedorValidation, controllerFornecedor.CreateFornecedor);
+routerFornecedor.get('/fornecedor', controllerFornecedor.GetAllFornecedor);
+routerFornecedor.put('/fornecedor/:id', controllerFornecedor.updateFornecedorValidation, controllerFornecedor.UpdateFornecedor);
+routerFornecedor.delete('/fornecedor/:id', controllerFornecedor.deleteFornecedorValidation, controllerFornecedor.DeleteFornecedor);
 
-export {router}
+export {routerFornecedor}
