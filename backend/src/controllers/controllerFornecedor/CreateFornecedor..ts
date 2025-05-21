@@ -35,8 +35,10 @@ export const createFornecedorValidation = validation((getSchema) => ({
           invalid_type_error: "Campo obrigatório",
         })
         .nonempty("Campo obrigatório")
-        .min(10, 'Precisa ter ao menos 10 digitos.')
-        .max(15, 'Precisa ter no máximo 15 digitos.'),
+        .transform(val => val.replace(/\D/g, ''))
+        .refine(val => val.length >= 10 || val.length <= 15, {
+            message: "telefone precisa ter enter 10 e 14 dígitos"
+        }),
     endereco: z.string({
          required_error: "Campo obrigatório.",
           invalid_type_error: "Campo obrigatório",
@@ -49,7 +51,7 @@ export const createFornecedorValidation = validation((getSchema) => ({
 export const CreateFornecedor = (req: Request<{}, {}, IBodyProps>, res: Response) => {
     console.log(req.body);
 
-    res.status(StatusCodes.BAD_REQUEST).json({
+    res.status(StatusCodes.CREATED).json({
         message: 'Ainda não implementado'
     })
 
