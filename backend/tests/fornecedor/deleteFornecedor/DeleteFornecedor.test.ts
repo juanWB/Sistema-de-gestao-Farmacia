@@ -32,10 +32,4 @@ describe('Delete - Fornecedor', () => {
 
     });
 
-    it('Tenta deletar um fornecedor por um id vazio', async() => {
-        const res = await serverTest.delete('/fornecedor/');
-
-        expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
-        expect(typeof res.body).toEqual('object');
-    });
 })

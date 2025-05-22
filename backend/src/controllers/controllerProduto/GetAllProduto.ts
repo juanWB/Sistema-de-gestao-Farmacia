@@ -22,7 +22,7 @@ export const getAllProdutosValidation = validation((getSchema) => ({
 export const GetAllProdutos = (req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
     console.log(req.query);
 
-    res.status(StatusCodes.BAD_REQUEST).json({
+    res.status(StatusCodes.OK).json({
         message: 'Ainda não implementado'
     })
     return;

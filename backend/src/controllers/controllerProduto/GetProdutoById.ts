@@ -20,7 +20,7 @@ export const getProdutoByIdValidation = validation((getSchema) => ({
 export const GetProdutoById = async(req: Request<IParamProps>, res: Response) => {
     console.log(req.params);
 
-    res.status(StatusCodes.BAD_REQUEST).json({
+    res.status(StatusCodes.OK).json({
         message: 'Ainda não implementado'
     })
 

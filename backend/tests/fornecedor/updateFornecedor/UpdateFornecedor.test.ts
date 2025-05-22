@@ -86,5 +86,7 @@ describe('Update - Fornecedor', () => {
         expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(typeof res.body).toEqual('object');
     });
+
+    
 });
 

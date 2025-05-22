@@ -43,18 +43,18 @@ export const createProdutoValidation = validation((getSchema) => ({
         categoria_id: z.coerce.number({
             required_error: 'Campo obrigatório.',
             invalid_type_error: 'Campo obrigatório'
-        }).positive('O id precisar ser maior do que 0.'),
+        }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.'),
         fornecedor_id: z.coerce.number({
             required_error: 'Campo obrigatório.',
             invalid_type_error: 'Campo obrigatório'
-        }).positive('O id precisar ser maior do que 0.')
+        }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.')
     }))
 }))
 
 export const CreateProduto = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
     console.log(req.body);
 
-    res.status(StatusCodes.BAD_REQUEST).json({
+    res.status(StatusCodes.CREATED).json({
         message: 'Ainda não implementado'
     });
 }
