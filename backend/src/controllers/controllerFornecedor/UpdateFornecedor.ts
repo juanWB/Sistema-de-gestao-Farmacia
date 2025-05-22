@@ -19,7 +19,7 @@ export const updateFornecedorValidation = validation((getSchema) => ({
     params: getSchema<IParamProps>(z.object({
         id: z.coerce.number({
             invalid_type_error: "O id precisar ser um número."
-        }).positive('Deve ser maior que 0.').optional()
+        }).positive('Deve ser maior que 0.').int('Deve ser um inteiro')
     })),
     body: getSchema<IBodyProps>(z.object({
         nome: z.string({
@@ -58,7 +58,7 @@ export const updateFornecedorValidation = validation((getSchema) => ({
 export const UpdateFornecedor = (req: Request< IParamProps, {}, IBodyProps>, res: Response) => {
     console.log(req.body);
     console.log(req.params);
-    res.status(StatusCodes.BAD_REQUEST).json({
+    res.status(StatusCodes.OK).json({
         message: 'Ainda não implementado'
     });
 

@@ -9,11 +9,11 @@ import { routerFuncionario } from "./Router.Funcionario";
 
 const appRouter = Router();
 
+appRouter.use(routerFornecedor);
 appRouter.use(routerEntrada);
 appRouter.use(routerCategoria);
 appRouter.use(routerProduto);
 appRouter.use(routerSaida);
-appRouter.use(routerFornecedor);
 appRouter.use(routerFuncionario);
 
 

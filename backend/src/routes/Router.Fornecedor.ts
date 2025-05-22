@@ -4,8 +4,8 @@ const routerFornecedor = Router();
 
 //Rotas Fornecedor
 routerFornecedor.post('/fornecedor',controllerFornecedor.createFornecedorValidation, controllerFornecedor.CreateFornecedor);
-routerFornecedor.get('/fornecedor', controllerFornecedor.GetAllFornecedor);
 routerFornecedor.put('/fornecedor/:id', controllerFornecedor.updateFornecedorValidation, controllerFornecedor.UpdateFornecedor);
 routerFornecedor.delete('/fornecedor/:id', controllerFornecedor.deleteFornecedorValidation, controllerFornecedor.DeleteFornecedor);
+routerFornecedor.get('/fornecedor', controllerFornecedor.GetAllFornecedor);
 
 export {routerFornecedor}
