@@ -32,7 +32,7 @@ export const createSaidaValidation = validation((getSchema) => ({
 export const CreateSaidaEstoque = (req: Request<{}, {}, IBodyProps>, res: Response) => {
     console.log(req.body);
 
-    res.status(StatusCodes.BAD_REQUEST).json({
+    res.status(StatusCodes.CREATED).json({
         message: 'Ainda não implementado'
     })
     return;
