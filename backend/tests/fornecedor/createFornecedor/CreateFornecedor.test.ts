@@ -64,4 +64,15 @@ describe('Create- Fornecedor', () => {
         expect(typeof res.body).toEqual('object');
     });
     
+    it("Tenta criar um fornecedor com telefone curto.", async() => {
+        const res = await serverTest.post('/fornecedor').send({
+            nome: 'Atacamax',
+            cnpj: '12345678912345',
+            telefone: '8199883',
+            endereco: 'Rua 1'
+        })
+
+        expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
+        expect(typeof res.body).toEqual('object');
+    });
 })

@@ -35,8 +35,9 @@ export const createFornecedorValidation = validation((getSchema) => ({
           invalid_type_error: "Campo obrigatório",
         })
         .nonempty("Campo obrigatório")
-        .transform(val => val.replace(/\D/g, ''))
-        .refine(val => val.length >= 10 || val.length <= 15, {
+        .regex(/^[\s\d()\-./]{10,15}$/, 'O telefone precisa ter entre 10 e 15 caracteres válidos')
+        .transform(val => val.replace(/[^\d]/g, ''))
+        .refine(val => val.length >= 10 && val.length <= 15, {
             message: "telefone precisa ter enter 10 e 14 dígitos"
         }),
     endereco: z.string({

@@ -8,6 +8,5 @@ describe('GetAll - Categorias', () => {
 
         expect(res.statusCode).toEqual(StatusCodes.OK);
         expect(typeof res.body).toEqual('object');
-        //expect(typeof res.body).toHaveProperty('res.body.categorias')
     })
 })
