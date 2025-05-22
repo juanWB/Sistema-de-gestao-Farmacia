@@ -53,7 +53,7 @@ export const CreateNewFuncionario = async(
 ) => {
   console.log(req.body);
   
-  res.status(StatusCodes.BAD_REQUEST).json({
+  res.status(StatusCodes.CREATED).json({
   message: "Método ainda não implementado.",
   });
   return;

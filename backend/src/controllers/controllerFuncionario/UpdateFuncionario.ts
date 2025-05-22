@@ -16,7 +16,7 @@ interface IBodyProps{
 
 export const updateFuncionarioValidation = validation((getSchema) => ({
     params: getSchema<IParamProps>(z.object({
-        id: z.coerce.number().positive('Deve ser maior que 0.').int('Deve ser um número inteiro.').optional()
+        id: z.coerce.number().positive('Deve ser maior que 0.').int('Deve ser um número inteiro.')
     })),
     body: getSchema<IBodyProps>(z.object({
         nome: z.string({
@@ -56,7 +56,7 @@ export const UpdateFuncionarioById = async(req: Request<IParamProps, {}, IBodyPr
     console.log(req.params);
     console.log(req.body);
 
-    res.status(StatusCodes.BAD_REQUEST).json({
+    res.status(StatusCodes.OK).json({
         message: 'Método ainda não implementado.'
     })
     return;
