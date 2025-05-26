@@ -11,8 +11,8 @@ interface IParamProps{
 export const getProdutoByIdValidation = validation((getSchema) => ({
     params: getSchema<IParamProps>(z.object({
         id: z.coerce.number({
-            invalid_type_error: "O id precisar ser um número."
-        }).positive('Deve ser maior que 0.').optional()
+            invalid_type_error: "O id precisa ser um número."
+        }).positive('Deve ser maior que 0.').int('Deve ser um inteiro')
     }))
 }));
 

@@ -13,11 +13,13 @@ interface IBodyProps{
 export const createEntradaValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(z.object({
         produto_id: z.coerce.number({
+            required_error: "Campo obrigatório",
             invalid_type_error: "O id precisar ser um número."
-        }).positive('Deve ser maior que 0.').optional(),
+        }).positive('Deve ser maior que 0.').int('O id deve ser um inteiro.'),
         quantidade: z.coerce.number({
-            invalid_type_error: "O id precisar ser um número."
-        }).positive('Deve ser maior que 0.'),
+            required_error: "",
+            invalid_type_error: "A quantidade precisar ser um número."
+        }).positive('Deve ser maior que 0.').int('A quantidade precisa ser um inteiro.'),
        entrada_data: z.string({
             required_error: 'Campo obrigatório.',
             invalid_type_error: 'Campo obrigatório'
@@ -33,9 +35,7 @@ export const createEntradaValidation = validation((getSchema) => ({
 export const CreateEntradaEstoque = (req: Request<{}, {}, IBodyProps>, res: Response) => {
     console.log(req.body);
 
-    res.status(StatusCodes.CREATED).json({
-        message: 'Criada com sucesso'
-   })
+    res.status(StatusCodes.CREATED).json()
 
     return;
 }

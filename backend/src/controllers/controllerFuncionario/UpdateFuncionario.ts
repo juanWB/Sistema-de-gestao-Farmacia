@@ -16,7 +16,10 @@ interface IBodyProps{
 
 export const updateFuncionarioValidation = validation((getSchema) => ({
     params: getSchema<IParamProps>(z.object({
-        id: z.coerce.number().positive('Deve ser maior que 0.').int('Deve ser um número inteiro.')
+        id: z.coerce.number({
+            required_error: ('Campo obrigatório.'),
+            invalid_type_error: ('Deve ser um número')
+        }).positive('Deve ser maior que 0.').int('Deve ser um número inteiro.')
     })),
     body: getSchema<IBodyProps>(z.object({
         nome: z.string({
@@ -24,7 +27,7 @@ export const updateFuncionarioValidation = validation((getSchema) => ({
                   invalid_type_error: "Somente letras",
                 })
                 .nonempty("Campo obrigatório")
-                .min(3, "O nome precisa ter 3 no mínimo caracteres")
+                .min(3, "O nome precisa ter no mínimo 3 caracteres")
                 .max(100, "O nome não pode ultrapassar 100 caracteres.")
                 .regex(/^[a-zA-ZÀ-ÿ\s]+$/, "Apenas letras e espaços são permitidos")
                 .trim(),
@@ -53,11 +56,6 @@ export const updateFuncionarioValidation = validation((getSchema) => ({
 }));
 
 export const UpdateFuncionarioById = async(req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
-    console.log(req.params);
-    console.log(req.body);
-
-    res.status(StatusCodes.OK).json({
-        message: 'Método ainda não implementado.'
-    })
+    res.status(StatusCodes.NO_CONTENT).json()
     return;
 }

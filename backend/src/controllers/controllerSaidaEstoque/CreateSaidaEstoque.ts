@@ -13,10 +13,10 @@ interface IBodyProps {
 export const createSaidaValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(z.object({
         produto_id: z.coerce.number({
-            invalid_type_error: "O id precisar ser um número."
+            invalid_type_error: "O id precisa ser um número."
         }).positive('Deve ser maior que 0.').optional(),
         quantidade: z.coerce.number({
-            invalid_type_error: "O id precisar ser um número."
+            invalid_type_error: "A quantidade precisa ser um número."
         }).positive('Deve ser maior que 0.'),
        saida_data: z.string({
             required_error: 'Campo obrigatório.',

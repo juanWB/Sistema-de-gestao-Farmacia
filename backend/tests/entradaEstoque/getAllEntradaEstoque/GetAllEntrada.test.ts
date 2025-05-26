@@ -2,7 +2,7 @@ import { StatusCodes } from "http-status-codes";
 import { serverTest } from "../../jest.setup"
 
 
-describe('GetAll - EntradaEstoque', () => {
+describe('EntradaEstoqueController - GetAll', () => {
     it('Busca todas entradas no estoque', async() => {
         const res = await serverTest.get('/entrada');
 
