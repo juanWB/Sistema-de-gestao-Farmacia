@@ -1,12 +1,17 @@
 import { StatusCodes } from "http-status-codes";
-import { serverTest } from "../../jest.setup"
+import { serverTest } from "../../jest.setup";
 
+describe("GetAll - Categorias", () => {
+  it("Busca todas categorias", async () => {
+    const categoriaValida = { nome: "Medicamentos" };
 
-describe('GetAll - Categorias', () => {
-    it('Busca todas categorias', async() => {
-        const res = await serverTest.get('/categorias');
+    const response = await serverTest.post("/categorias").send(categoriaValida);
 
-        expect(res.statusCode).toEqual(StatusCodes.OK);
-        expect(typeof res.body).toEqual('object');
-    })
-})
+    expect(response.statusCode).toEqual(StatusCodes.CREATED);
+
+    const res = await serverTest.get("/categorias");
+
+    expect(res.statusCode).toEqual(StatusCodes.OK);
+    expect(typeof res.body).toEqual("object");
+  });
+});

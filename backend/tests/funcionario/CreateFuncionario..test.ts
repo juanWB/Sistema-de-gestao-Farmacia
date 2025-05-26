@@ -1,59 +1,75 @@
 import { StatusCodes } from "http-status-codes";
 import { serverTest } from "../jest.setup";
 
-describe('Create - Funcionario', () => {
-    it('Cria um funcionario com parametros corretos.', async() => {
-        const res = await serverTest.post('/funcionario').send({
-            nome: 'Jorge',
-            email: 'jorge@email.com',
-            senha: '123456aA@'
-        });
+describe("FuncionarioController - Create", () => {
+  describe("Criação válida", () => {
+    it("Cria um funcionario com parametros corretos.", async () => {
+      const res = await serverTest.post("/funcionario").send({
+        nome: "Jorge",
+        email: "jorge@email.com",
+        senha: "123456aA@",
+      });
 
-        expect(res.statusCode).toBe(StatusCodes.CREATED);
-        expect(typeof res.body).toEqual('object');
+      expect(res.statusCode).toBe(StatusCodes.CREATED);
     });
+  });
 
-    it('Tenta criar um funcionario com senha não segura.', async() => {
-        const res = await serverTest.post('/funcionario').send({
-            nome: 'Jorge',
-            email: 'jorge@email.com',
-            senha: '123456'
-        });
+  describe("Validação de entradas", () => {
+    const testCases = [
+      {
+        description: "Não deve criar um funcionario com senha não segura.",
+        data: { nome: "Jorge", email: "jorge@email.com", senha: "123456" },
+        expectedErrors: {
+          errors: {
+            body: {
+              senha: "A senha deve conter pelo menos um caractere especial",
+            },
+          },
+        },
+      },
+      {
+        description: "Não deve criar um funcionario com nome curto.",
+        data: { nome: "Jo", email: "jorge@email.com", senha: "123456aA@" },
+        expectedErrors: {
+          errors: {
+            body: {
+              nome: "O nome precisa ter 3 no mínimo caracteres",
+            },
+          },
+        },
+      },
+      {
+        description: "Não deve criar um funcionario com email incompleto.",
+        data: { nome: "Jorge", email: "jorge@email", senha: "123456aA@" },
+        expectedErrors: {
+          errors: {
+            body: {
+              email: "O email precisa ter no mínimo 13 caracteres",
+            },
+          },
+        },
+      },
+      {
+        description:
+          "Não deve criar um funcionario com senha sem letras maiusculas e minusculas.",
+        data: { nome: "Jorge", email: "jorge@email.com", senha: "123456@@@@@" },
+        expectedErrors: {
+          errors: {
+            body: {
+              senha: "A senha deve conter pelo menos uma letra maiúscula",
+            },
+          },
+        },
+      },
+    ];
 
-        expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
-        expect(typeof res.body).toEqual('object');
-    });
+    testCases.map(({description, data, expectedErrors}) => {
+        it(description, async() => {
+            const response = await serverTest.post('/funcionario').send(data);
 
-    it('Tenta criar um funcionario com nome curto.', async() => {
-        const res = await serverTest.post('/funcionario').send({
-            nome: 'Jo',
-            email: 'jorge@email.com',
-            senha: '123456aA@'
-        });
-
-        expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
-        expect(typeof res.body).toEqual('object');
-    });
-
-    it('Tenta criar um funcionario com email incompleto.', async() => {
-        const res = await serverTest.post('/funcionario').send({
-            nome: 'Jorge',
-            email: 'jorge@email',
-            senha: '123456aA@'
-        });
-
-        expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
-        expect(typeof res.body).toEqual('object');
-    });
-
-    it('Tenta criar um funcionario com senha sem letras maiusculas e minusculas.', async() => {
-        const res = await serverTest.post('/funcionario').send({
-            nome: 'Jorge',
-            email: 'jorge@email.com',
-            senha: '123456@@@@@'
-        });
-
-        expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
-        expect(typeof res.body).toEqual('object');
-    });
-})
+            expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+            expect(response.body).toEqual(expectedErrors);
+        })
+    })
+  });
+});

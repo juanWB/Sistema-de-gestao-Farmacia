@@ -1,78 +1,118 @@
-import { StatusCodes } from "http-status-codes"
-import { serverTest } from "../../jest.setup"
+import { StatusCodes } from "http-status-codes";
+import { serverTest } from "../../jest.setup";
 
+describe("FornecedorController - Create", () => {
+  describe("Cria um fornecedor", () => {
+    const testCases = [
+      {
+        description: "Cria um fornecedor com parametros corretos.",
+        data: {
+          nome: "Atacamax",
+          cnpj: "12345678912345",
+          telefone: "81998837891",
+          endereco: "Rua Major",
+        },
+      },
+      {
+        description:
+          "Cria um fornecedor com parametros corretos com caracteres especiais.",
+        data: {
+          nome: "Atacamax",
+          cnpj: "12.345.678/9123-45",
+          telefone: "(81) - 998837891",
+          endereco: "Rua Major",
+        },
+      },
+    ];
 
-describe('Create- Fornecedor', () => {
-    it("Cria um fornecedor com parametros corretos.", async() => {
-        const res = await serverTest.post('/fornecedor').send({
-            nome: 'Atacamax',
-            cnpj: '12345678912345',
-            telefone: '81998837891',
-            endereco: 'Rua 1'
-        })
+    testCases.map(({ description, data }) => {
+      it(description, async () => {
+        const response = await serverTest.post("/fornecedor").send(data);
 
-
-        expect(res.statusCode).toBe(StatusCodes.CREATED);
-        expect(typeof res.body).toEqual('object');
+        expect(response.statusCode).toEqual(StatusCodes.CREATED);
+      });
     });
+  });
 
-    it("Cria um fornecedor com parametros corretos com caracteres especiais.", async() => {
-        const res = await serverTest.post('/fornecedor').send({
-            nome: 'Atacamax',
-            cnpj: '12.345.678/9123-45',
-            telefone: '(81) - 998837891',
-            endereco: 'Rua 1'
-        })
+  describe("Validação de entradas", () => {
+    const testCases = [
+      {
+        description: "Não deve criar um fornecedor entradas incorretas.",
+        data: {
+          nome: "1245",
+          cnpj: "aaaaaaa",
+          telefone: "aaaaaaaaa",
+          endereco: "4515",
+        },
+        expectedErrors: {
+          errors: {
+            body: {
+              nome: "Nome inválido apenas letras e espaços são permitidos",
+              cnpj: "CNPJ inválido, precisa ter exatamente 14 dígitos",
+              telefone: "Telefone inválido, precisa ter enter 10 e 14 dígitos",
+              endereco: "Rua inválida apenas letras e espaços são permitidos",
+            },
+          },
+        },
+      },
+      {
+        description: "Não deve criar um fornecedor com cnpj com letras.",
+        data: {
+          nome: "Atacamax",
+          cnpj: "aaaaaaa",
+          telefone: "81998837891",
+          endereco: "Rua Major",
+        },
+        expectedErrors: {
+          errors: {
+            body: {
+              cnpj: "CNPJ inválido, precisa ter exatamente 14 dígitos",
+            },
+          },
+        },
+      },
+      {
+        description: "Não deve criar um fornecedor com nome curto.",
+        data: {
+          nome: "At",
+          cnpj: "12345678912345",
+          telefone: "81998837891",
+          endereco: "Rua Major",
+        },
+        expectedErrors: {
+          errors: {
+            body: {
+              nome: "O nome precisa ter 3 no mínimo caracteres",
+            },
+          },
+        },
+      },
+      {
+        description: "Não deve criar um fornecedor com telefone curto.",
+        data: {
+          nome: "Atacamax",
+          cnpj: "12345678912345",
+          telefone: "8199883",
+          endereco: "Rua Major",
+        },
+        expectedErrors: {
+          errors: {
+            body: {
+              telefone:
+                "Telefone inválido, precisa ter enter 10 e 14 dígitos",
+            },
+          },
+        },
+      },
+    ];
 
-        expect(res.statusCode).toBe(StatusCodes.CREATED);
-        expect(typeof res.body).toEqual('object');
+    testCases.map(({ description, data, expectedErrors }) => {
+      it(description, async () => {
+        const response = await serverTest.post("/fornecedor").send(data);
+
+        expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+        expect(response.body).toEqual(expectedErrors);
+      });
     });
-
-    it("Tenta criar um fornecedor com parametros incorretos.", async() => {
-        const res = await serverTest.post('/fornecedor').send({
-            nome: '1245',
-            cnpj: 'aaaaaaa',
-            telefone: 'aaaaaaaaa',
-            endereco: '4515'
-        })
-
-        expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
-        expect(typeof res.body).toEqual('object');
-    });
-
-        it("Tenta criar um fornecedor com cnpj incorreto.", async() => {
-        const res = await serverTest.post('/fornecedor').send({
-            nome: 'Atacamax',
-            cnpj: 'aaaaaaa',
-            telefone: '81998837891',
-            endereco: 'Rua 1'
-        })
-
-        expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
-        expect(typeof res.body).toEqual('object');
-    });
-
-      it("Tenta criar um fornecedor com nome curto.", async() => {
-        const res = await serverTest.post('/fornecedor').send({
-            nome: 'At',
-            cnpj: '12345678912345',
-            telefone: '81998837891',
-            endereco: 'Rua 1'
-        })
-
-        expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
-        expect(typeof res.body).toEqual('object');
-    });
-    
-    it("Tenta criar um fornecedor com telefone curto.", async() => {
-        const res = await serverTest.post('/fornecedor').send({
-            nome: 'Atacamax',
-            cnpj: '12345678912345',
-            telefone: '8199883',
-            endereco: 'Rua 1'
-        })
-
-        expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
-        expect(typeof res.body).toEqual('object');
-    });
-})
+  });
+});

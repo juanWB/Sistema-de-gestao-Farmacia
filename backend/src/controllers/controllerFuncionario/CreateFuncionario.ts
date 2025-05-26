@@ -47,14 +47,12 @@ export const createFuncionarioValidation = validation((getSchema) => ({
   ),
 }));
 
-export const CreateNewFuncionario = async(
+export const CreateNewFuncionario = async (
   req: Request<{}, {}, IBodyProps>,
   res: Response
 ) => {
   console.log(req.body);
-  
-  res.status(StatusCodes.CREATED).json({
-  message: "Método ainda não implementado.",
-  });
+
+  res.status(StatusCodes.CREATED).json();
   return;
 };

@@ -52,9 +52,6 @@ export const createProdutoValidation = validation((getSchema) => ({
 }))
 
 export const CreateProduto = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
-    console.log(req.body);
 
-    res.status(StatusCodes.CREATED).json({
-        message: 'Ainda não implementado'
-    });
+    res.status(StatusCodes.CREATED).json();
 }
