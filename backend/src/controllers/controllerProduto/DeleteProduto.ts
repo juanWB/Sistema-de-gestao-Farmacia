@@ -11,18 +11,15 @@ interface IParamProps{
 export const deleteProdutoValidation = validation((getSchema) => ({
     params: getSchema<IParamProps>(z.object({
         id: z.coerce.number({
-            invalid_type_error: "O id precisar ser um número."
+            invalid_type_error: "O id precisa ser um número."
         }).positive('Deve ser maior que 0.').int('Deve ser um inteiro')
     }))
 }));
 
 
 export const DeleteProduto = async(req: Request<IParamProps>, res: Response) => {
-    console.log(req.params);
 
-    res.status(StatusCodes.OK).json({
-        message: 'Ainda não implementado'
-    })
+    res.status(StatusCodes.NO_CONTENT).json()
 
     return
 }
