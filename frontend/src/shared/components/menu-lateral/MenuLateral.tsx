@@ -1,0 +1,84 @@
+import { Avatar, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useTheme } from "@mui/material"
+import { Box, useMediaQuery } from "@mui/system";
+import logo from "./assets/logo.png";
+import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
+import { useDrawerContext } from "../../contexts";
+interface IListItemLinkProps {
+    label: string;
+    path: string;
+    icon:  React.ReactNode;
+    onClick: (() => void) | undefined;
+}
+
+const ListItemLink: React.FC<IListItemLinkProps> = ({ icon, label, onClick, path }) => {
+
+    const navigate = useNavigate();
+
+    const resolvedPath = useResolvedPath(path);
+    const match = useMatch({ path: resolvedPath.pathname, end: false });
+
+    const handleClick = () => {
+        navigate(path);
+        onClick?.();
+    }
+    return (
+        <ListItemButton selected={!!match} onClick={handleClick}>
+            <ListItemIcon>
+                {icon}
+            </ListItemIcon>
+            <ListItemText primary={label}/>
+        </ListItemButton>
+    )
+}
+
+
+interface IMenuLateralProps {
+    children: React.ReactNode;
+}
+
+
+
+export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
+    const theme = useTheme();
+    const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+    
+    const { drawerOptions, isDrawerOpen, toggleDrawerOpen } = useDrawerContext()
+    return (
+        <>
+            <Drawer open={isDrawerOpen} variant={smDown ? "temporary" : "permanent"} onClose={toggleDrawerOpen}>
+                <Box width={theme.spacing(28)} height='100%' display='flex' flexDirection='column'>
+                    
+                    <Box component='img' src={logo} alt='Logo' sx={{
+                        width: '100%'
+                    }} />
+
+                    <Divider />
+
+
+                    <Box sx={{width:"90%", height:theme.spacing(8), display:'flex', alignItems:"center", margin: "10px" }} >
+                        <Avatar /> 
+                    </Box>
+
+
+                    <Box flex={1}>
+                        <List component='nav'>
+                            {drawerOptions.map(drawerOptions => (
+                                <ListItemLink
+                                    key={drawerOptions.path}
+                                    icon={drawerOptions.icon}
+                                    label={drawerOptions.label}
+                                    path={drawerOptions.path}
+                                    onClick={smDown ? toggleDrawerOpen : undefined}
+                                />
+                            ))}
+                        </List>
+                    </Box>
+                </Box>
+            </Drawer>
+
+            <Box flex={1} marginLeft={smDown ? 0 : theme.spacing(28)}>
+                {children}
+            </Box>
+        </>
+    )
+}
