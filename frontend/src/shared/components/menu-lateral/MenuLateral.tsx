@@ -47,7 +47,8 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
                 <Box width={theme.spacing(28)} height='100%' display='flex' flexDirection='column'>
 
                     <Box component='img' src={logo} alt='Logo' sx={{
-                        width: '100%'
+                        width: '70%', marginLeft: "30px", marginBottom: 0, paddingBottom: 0
+
                     }} />
 
                     <Divider />
