@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDrawerContext } from '../shared/contexts';
 import { useEffect } from 'react';
 import { AddBox, Category, Dashboard, IndeterminateCheckBox, Inventory2, LocalShipping } from '@mui/icons-material';
+import { AppDashboard } from '../pages';
 
 export const AppRoutes = () => {
     const { setDrawerOptions, toggleDrawerOpen } = useDrawerContext();
@@ -44,7 +45,7 @@ export const AppRoutes = () => {
 
     return (
         <Routes>
-            <Route path='/pagina-inicial' element={<Button variant='contained' color='primary' onClick={toggleDrawerOpen} >Salvar</Button>}></Route>
+            <Route path='/pagina-inicial' element={<AppDashboard/>}></Route>
             <Route path='/produtos' element={<Button variant='contained' color='primary' onClick={toggleDrawerOpen}  >Salvar</Button>}></Route>
             <Route path='/categorias' element={<Button variant='contained' color='primary' onClick={toggleDrawerOpen}  >Salvar</Button>}></Route>
             <Route path='/fornecedores' element={<Button variant='contained' color='primary' onClick={toggleDrawerOpen}  >Salvar</Button>}></Route>
