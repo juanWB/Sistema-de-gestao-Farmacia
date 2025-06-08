@@ -2,11 +2,10 @@ import { z } from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import { ICategoria } from "../../database/models/index";
 
 
-interface IBodyProps{
-    nome: string;
-}
+interface IBodyProps extends Omit<ICategoria, 'id'>{}
 
 export const createCategoraValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(z.object({

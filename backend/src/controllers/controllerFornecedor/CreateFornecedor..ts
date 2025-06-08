@@ -2,13 +2,9 @@ import { z } from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import { IFornecedor } from "../../database/models/index";
 
-interface IBodyProps {
-  nome: string;
-  cnpj: string;
-  telefone: string;
-  endereco: string;
-}
+interface IBodyProps extends Omit<IFornecedor, 'id'>{};
 
 export const createFornecedorValidation = validation((getSchema) => ({
   body: getSchema<IBodyProps>(

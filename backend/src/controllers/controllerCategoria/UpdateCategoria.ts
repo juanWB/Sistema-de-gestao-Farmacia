@@ -2,6 +2,7 @@ import { z } from "zod"
 import { validation } from "../../service/middleware/Validation"
 import { Request, Response } from "express"
 import { StatusCodes } from "http-status-codes"
+import { ICategoria } from "../../database/models/index"
 
 
 
@@ -9,9 +10,7 @@ interface IParamProps {
     id?: number
 }
 
-interface IBodyProps {
-    nome: string
-}
+interface IBodyProps extends Omit<ICategoria, 'id'>{}
 
 export const updateCategoriaValidation = validation((getSchema) => ({
     params: getSchema<IParamProps>(z.object({

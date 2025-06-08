@@ -2,13 +2,10 @@ import { z } from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { StatusCodes } from "http-status-codes";
 import { Request, Response } from "express";
+import { IEntradaEstoque } from "../../database/models";
 
 
-interface IBodyProps{
-    produto_id?: number;
-    quantidade: number;
-    entrada_data: Date | string;
-}
+interface IBodyProps extends Omit<IEntradaEstoque, 'id'>{}
 
 export const createEntradaValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(z.object({

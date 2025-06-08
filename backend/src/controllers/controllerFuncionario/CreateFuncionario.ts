@@ -2,12 +2,9 @@ import z from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import { IFuncionario } from "../../database/models/index";
 
-interface IBodyProps {
-  nome: string;
-  email: string;
-  senha: string;
-}
+interface IBodyProps extends Omit<IFuncionario, 'id'>{};
 
 export const createFuncionarioValidation = validation((getSchema) => ({
   body: getSchema<IBodyProps>(

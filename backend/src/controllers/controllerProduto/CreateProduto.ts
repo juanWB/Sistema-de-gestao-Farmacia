@@ -2,17 +2,11 @@ import { z } from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { StatusCodes } from "http-status-codes";
 import { Request, Response } from "express";
+import { IProduto } from "../../database/models";
 
 
 
-interface IBodyProps{
-    nome: string;
-    preco: number;
-    validade: Date | string;
-    quantidade: number;
-    categoria_id: number;
-    fornecedor_id: number;
-}
+interface IBodyProps extends Omit<IProduto, 'id'>{};
 
 export const createProdutoValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(z.object({
