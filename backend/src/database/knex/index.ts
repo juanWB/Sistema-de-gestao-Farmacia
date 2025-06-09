@@ -4,14 +4,14 @@ import { development, production, test } from './Enviroment';
 const getEnviroment = () => {
   switch (process.env.NODE_ENV) {
     case 'dev':
-      return 'development';
+      return development;
     case 'test':
-      return 'test';
+      return test;
     case 'prod':
-      return 'production';
+      return production;
 
     default:
-        return 'development'
+        return development
   }
 };
 
