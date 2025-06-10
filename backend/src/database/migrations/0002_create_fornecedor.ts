@@ -6,9 +6,9 @@ export async function up(knex: Knex): Promise<void> {
     .createTable(ETableNames.fornecedor, (table) => {
       table.bigIncrements("id").primary().index();
       table.string("nome", 150).index().notNullable().unique();
-      table.string("cnpj", 14).index().notNullable().unique().checkRegex('^\\d{14}$', 'cnpj_check');
-      table.string("telefone", 15).index().notNullable().unique();
-      table.string("endereco", 150).index().notNullable();
+      table.string("cnpj", 14).index().notNullable().unique();
+      table.string("telefone", 15).notNullable().unique();
+      table.string("endereco", 150).notNullable();
 
       table.comment(
         "Tabela para armazenar os dados de fornecedores de produtos da farmácia."
