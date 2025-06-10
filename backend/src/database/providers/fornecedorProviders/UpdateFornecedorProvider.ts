@@ -1,22 +1,26 @@
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
-import { ICategoria } from "../../models";
+import { IFornecedor } from "../../models";
 
 
-export const UpdateCategoriaProvider = async(categoria: ICategoria) => {
+export const UpdateFornecedorProvider = async(fornecedor: IFornecedor) => {
     try{
-        const [result] = await Knex(ETableNames.categoria)
-                                .where('id',categoria.id)
-                                .update({'nome': categoria.nome})
-                                .returning('*');
+        const [result] = await Knex(ETableNames.fornecedor)
+                                .where('id',fornecedor.id)
+                                .update({'nome': fornecedor.nome,
+                                         'cnpj': fornecedor.cnpj,
+                                         'telefone': fornecedor.telefone,
+                                         'endereco': fornecedor.endereco
+                                })
+                                .returning<IFornecedor[]>('*');
 
         if(result){
             return result
         }
     
-        throw new Error("Error ao buscar atualizar categoria")
+        throw new Error("Error ao atualizar fornecedor")
     }catch(err){
         console.log(err);
-        throw new Error("Error ao buscar atualizar categoria")
+        throw new Error("Error ao atualizar fornecedor")
     }
 }

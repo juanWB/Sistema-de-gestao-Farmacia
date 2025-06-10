@@ -1,8 +1,9 @@
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
+import { IFornecedor } from "../../models";
 
 
-export const GetFornecedorProvider = async()=> {
+export const GetFornecedorProvider = async():Promise<IFornecedor[] | Error> => {
     try{
         const [result] = await Knex(ETableNames.fornecedor).select('*')
 
