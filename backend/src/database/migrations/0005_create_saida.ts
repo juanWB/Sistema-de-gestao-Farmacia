@@ -6,7 +6,7 @@ export async function up(knex: Knex): Promise<void> {
     .createTable(ETableNames.saidaEstoque, (table) => {
       table.bigIncrements("id").primary().index();
       table.bigInteger("produto_id").unsigned().references('id').inTable(ETableNames.produto).onDelete('RESTRICT')
-      table.integer("quantidade").index().notNullable().checkPositive('quantidade_positiva_check');
+      table.integer("quantidade").notNullable()
       table.timestamps(true);
 
       table.comment(
