@@ -3,6 +3,7 @@ import { validation } from "../../service/middleware/Validation"
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { IFuncionario } from "../../database/models/index";
+import { FuncionarioProvider } from "../../database/providers/funcionarioProviders";
 
 
 interface IParamProps{
@@ -53,6 +54,20 @@ export const updateFuncionarioValidation = validation((getSchema) => ({
 }));
 
 export const UpdateFuncionarioById = async(req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
-    res.status(StatusCodes.NO_CONTENT).json()
+    const {id} = req.params
+    const funcionario = req.body
+
+    const result = await FuncionarioProvider.UpdateFuncionarioProvider(id!, funcionario)
+
+    if(result instanceof Error){
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            errors:{
+                default: result.message
+            }
+        })
+        return;
+    }
+
+    res.status(StatusCodes.NO_CONTENT).json(result);
     return;
 }

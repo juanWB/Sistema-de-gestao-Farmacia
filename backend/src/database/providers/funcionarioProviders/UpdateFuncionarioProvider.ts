@@ -3,10 +3,10 @@ import { Knex } from "../../knex";
 import { IFuncionario } from "../../models";
 
 
-export const UpdateFuncionarioProvider = async(funcionario: IFuncionario):Promise< IFuncionario | Error> => {
+export const UpdateFuncionarioProvider = async(id: number, funcionario: Omit<IFuncionario, 'id'>):Promise< IFuncionario | Error> => {
     try{
         const [result] = await Knex(ETableNames.funcionario)
-        .where('id',funcionario.id)
+        .where('id',id)
         .update({'nome': funcionario.nome,
             'email': funcionario.email,})
             .returning<IFuncionario[]>('*');

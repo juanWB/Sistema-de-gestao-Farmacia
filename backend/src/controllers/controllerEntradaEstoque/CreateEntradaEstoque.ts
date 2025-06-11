@@ -3,6 +3,7 @@ import { validation } from "../../service/middleware/Validation";
 import { StatusCodes } from "http-status-codes";
 import { Request, Response } from "express";
 import { IEntradaEstoque } from "../../database/models";
+import { EntradaEstoqueProvider } from "../../database/providers/entradaEstoqueProviders";
 
 
 interface IBodyProps extends Omit<IEntradaEstoque, 'id'>{}
@@ -29,10 +30,20 @@ export const createEntradaValidation = validation((getSchema) => ({
     }))
 }))
 
-export const CreateEntradaEstoque = (req: Request<{}, {}, IBodyProps>, res: Response) => {
-    console.log(req.body);
+export const CreateEntradaEstoque = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
+    const novaCategoria = req.body
+    
+    const result = await EntradaEstoqueProvider.CreateEntradaProvider(novaCategoria);
 
-    res.status(StatusCodes.CREATED).json()
+    if(result instanceof Error){
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            errors: {
+                default: result.message
+            }
+        })
+        return
+    }
 
+    res.status(StatusCodes.CREATED).json(result)
     return;
 }

@@ -2,6 +2,7 @@ import { z } from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import { FornecedorProvider } from "../../database/providers/fornecedorProviders";
 
 
 interface IParamProps {
@@ -17,11 +18,18 @@ export const deleteFornecedorValidation = validation((getSchema) => ({
 }));
 
 export const DeleteFornecedor = async(req: Request<IParamProps>, res: Response) => {
-    if(req.params.id != 99999){
-        res.status(StatusCodes.NO_CONTENT).json();
-        return;
+    const {id} = req.params
+    const result = await FornecedorProvider.DeleteFornecedorProvider(id!);
+
+    if(result instanceof Error){
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            errors:{
+                default: result.message
+            }
+        })
+        return
     }
 
-    res.status(StatusCodes.NOT_FOUND).json();
+    res.status(StatusCodes.NOT_FOUND).json(result);
     return;
 }

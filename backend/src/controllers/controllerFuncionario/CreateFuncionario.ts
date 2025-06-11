@@ -3,6 +3,7 @@ import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { IFuncionario } from "../../database/models/index";
+import { FuncionarioProvider } from "../../database/providers/funcionarioProviders";
 
 interface IBodyProps extends Omit<IFuncionario, 'id'>{};
 
@@ -44,12 +45,21 @@ export const createFuncionarioValidation = validation((getSchema) => ({
   ),
 }));
 
-export const CreateNewFuncionario = async (
-  req: Request<{}, {}, IBodyProps>,
-  res: Response
-) => {
-  console.log(req.body);
+export const CreateNewFuncionario = async (req: Request<{}, {}, IBodyProps>, res: Response) => {
+  const novoFuncionario = req.body;
+  
+  const result = await FuncionarioProvider.CreateFuncionarioProvider(novoFuncionario)
 
-  res.status(StatusCodes.CREATED).json();
+  if(result instanceof Error){
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+          errors:{
+              default: result.message
+          }
+      })
+      return
+  }
+
+
+  res.status(StatusCodes.CREATED).json(result);
   return;
 };

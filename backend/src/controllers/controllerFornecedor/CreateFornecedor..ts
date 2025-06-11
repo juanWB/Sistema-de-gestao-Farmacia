@@ -3,6 +3,7 @@ import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { IFornecedor } from "../../database/models/index";
+import { FornecedorProvider } from "../../database/providers/fornecedorProviders";
 
 interface IBodyProps extends Omit<IFornecedor, 'id'>{};
 
@@ -58,11 +59,18 @@ export const createFornecedorValidation = validation((getSchema) => ({
   ),
 }));
 
-export const CreateFornecedor = (
-  req: Request<{}, {}, IBodyProps>,
-  res: Response
-) => {
-  res.status(StatusCodes.CREATED).json();
+export const CreateFornecedor = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
+  const result = await FornecedorProvider.CreateFornecedorProvider(req.body);
 
+  if(result instanceof Error){
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      errors:{
+        default: result.message
+      }
+    })
+    return
+  }
+  
+  res.status(StatusCodes.CREATED).json(result);
   return;
 };

@@ -3,6 +3,7 @@ import { validation } from "../../service/middleware/Validation";
 import { StatusCodes } from "http-status-codes";
 import { Request, Response } from "express";
 import { IProduto } from "../../database/models";
+import { ProdutoProvider } from "../../database/providers/produtoProviders";
 
 
 
@@ -46,6 +47,17 @@ export const createProdutoValidation = validation((getSchema) => ({
 }))
 
 export const CreateProduto = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
+    const result = await ProdutoProvider.CreateProdutoProvider(req.body);
 
-    res.status(StatusCodes.CREATED).json();
+    if(result instanceof Error){
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            errors:{
+                default: result.message
+            }
+        })
+        return
+    }
+
+    res.status(StatusCodes.CREATED).json(result);
+    return
 }

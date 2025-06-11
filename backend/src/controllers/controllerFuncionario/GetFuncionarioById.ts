@@ -2,6 +2,7 @@ import { z } from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import { FuncionarioProvider } from "../../database/providers/funcionarioProviders";
 
 
 interface IParamsProps{
@@ -18,11 +19,18 @@ export const getFuncionarioByIdValidation = validation((getSchema) => ({
 
 
 export const GetFuncionarioById = async(req: Request<IParamsProps>, res: Response) => {
-    console.log(req.params);
+    const {id} = req.params
+    const result = await FuncionarioProvider.GetFuncionarioByIdProvider(id!);
 
-    res.status(StatusCodes.OK).json({
-        message: 'Ainda não implementado'
-    })
+    if(result instanceof Error){
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            errors:{
+                default: result.message
+            }
+        })
+        return
+    }
 
+    res.status(StatusCodes.OK).json(result)
     return
 }

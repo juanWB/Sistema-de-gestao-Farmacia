@@ -3,6 +3,7 @@ import { validation } from "../../service/middleware/Validation"
 import { Request, Response } from "express"
 import { StatusCodes } from "http-status-codes"
 import { ICategoria } from "../../database/models/index"
+import { CategoriaProvider } from "../../database/providers/categoriaProviders"
 
 
 
@@ -31,10 +32,21 @@ export const updateCategoriaValidation = validation((getSchema) => ({
     }))
 }))
 
-export const UpdateCategoria = (req: Request<{}, {}, IBodyProps>, res: Response) => {  
-    console.log(req.body);
-    console.log(req.params);
+export const UpdateCategoria = async(req: Request<IParamProps, {}, IBodyProps>, res: Response) => {  
+    const { id }  = req.params
+    const categoria = req.body
 
-    res.status(StatusCodes.NO_CONTENT).json();
+    const result = await CategoriaProvider.UpdateCategoriaProvider(id!, categoria); 
+
+    if(result instanceof Error){
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            errors: {
+                default: result.message
+            }
+        })
+        return
+    }
+
+    res.status(StatusCodes.NO_CONTENT).json(result);
     return;
 }

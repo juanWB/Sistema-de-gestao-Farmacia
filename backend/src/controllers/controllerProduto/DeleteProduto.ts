@@ -2,6 +2,7 @@ import { z } from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import { ProdutoProvider } from "../../database/providers/produtoProviders";
 
 
 interface IParamProps{
@@ -18,8 +19,21 @@ export const deleteProdutoValidation = validation((getSchema) => ({
 
 
 export const DeleteProduto = async(req: Request<IParamProps>, res: Response) => {
+    const {id} = req.params;
+    
+    const result = await ProdutoProvider.DeleteProdutoProvider(id!);
+    
+    if(result instanceof Error){
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            errors:{
+                default: result.message
+            }
+        })
+        return
+    }
 
-    res.status(StatusCodes.NO_CONTENT).json()
+
+    res.status(StatusCodes.NO_CONTENT).json(result)
 
     return
 }

@@ -4,6 +4,14 @@ import { serverTest } from "../../jest.setup";
 describe("Categorias - Update", () => {
   describe("Atualização válida", () => {
     it("Atualiza uma categoria com parametros corretos", async () => {
+      const categoriaValida = { nome: "Medicamentos" };
+
+      const response = await serverTest
+        .post("/categorias")
+        .send(categoriaValida);
+
+      expect(response.statusCode).toEqual(StatusCodes.CREATED);
+      
       const res = await serverTest.put("/categorias/1").send({
         nome: "Medicamento",
       });
@@ -31,7 +39,7 @@ describe("Categorias - Update", () => {
         description: "Não deve aceitar nome curto",
         data: { nome: "Me" },
         params: 1,
-        expectedError:{
+        expectedError: {
           errors: {
             body: {
               nome: "O nome precisa ter 3 no mínimo caracteres",
@@ -41,7 +49,7 @@ describe("Categorias - Update", () => {
       },
       {
         description: "Não deve aceitar nome composto por numeros",
-        data: { nome: '123' },
+        data: { nome: "123" },
         params: "1",
         expectedError: {
           errors: {
@@ -79,7 +87,7 @@ describe("Categorias - Update", () => {
         description: "Não deve aceitar id sendo um número decimal",
         data: { nome: "Medicamento" },
         params: 1.5,
-        expectedError:  {
+        expectedError: {
           errors: {
             params: {
               id: "Deve ser um inteiro",

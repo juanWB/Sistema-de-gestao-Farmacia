@@ -3,6 +3,7 @@ import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { ICategoria } from "../../database/models/index";
+import { CategoriaProvider } from "../../database/providers/categoriaProviders/index";
 
 
 interface IBodyProps extends Omit<ICategoria, 'id'>{}
@@ -20,9 +21,18 @@ export const createCategoraValidation = validation((getSchema) => ({
     }))
 }))
 
-export const CreateCategoria = (req: Request<{}, {}, IBodyProps>, res: Response) => {
+export const CreateCategoria = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
+    const result = await CategoriaProvider.CreateCategoriaProvider(req.body);
+    
+    if(result instanceof Error){
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+           errors: {
+            default: result.message
+           }
+        });
+        return;
+    }
 
-    res.status(StatusCodes.CREATED).json();
-
+    res.status(StatusCodes.CREATED).json(result);
     return
 }

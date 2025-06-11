@@ -3,9 +3,9 @@ import { Knex } from "../../knex";
 import { IFuncionario } from "../../models";
 
 
-export const GetFuncionarioProvider = async():Promise<IFuncionario[] | Error> => {
+export const GetFuncionarioByIdProvider = async(id: number):Promise<IFuncionario[] | Error> => {
     try{
-        const [result] = await Knex(ETableNames.funcionario).select('*');
+        const [result] = await Knex(ETableNames.funcionario).where('id', id).select('*');
 
         if(result > 0){
             return result;

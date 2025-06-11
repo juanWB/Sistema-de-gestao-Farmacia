@@ -2,6 +2,7 @@ import { z } from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import { CategoriaProvider } from "../../database/providers/categoriaProviders";
 
 interface IParamProps {
   id?: number;
@@ -20,15 +21,19 @@ export const deleteCategoriaValidation = validation((getSchema) => ({
   ),
 }));
 
-export const DeleteCategoria = async (
-  req: Request<IParamProps>,
-  res: Response
-) => {
-  console.log(req.params);
-  if (req.params.id != 99999) {
-    res.status(StatusCodes.NO_CONTENT).json();
-    return;
+export const DeleteCategoria = async (req: Request<IParamProps>, res: Response) => {
+  const {id} = req.params
+
+  const result = await CategoriaProvider.DeleteCategoriaProvider(id!);
+
+  if(result instanceof Error){
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      errors:{
+        default: result.message
+      }
+    })
   }
-  res.status(StatusCodes.NOT_FOUND).json();
+
+  res.status(StatusCodes.NO_CONTENT).json(result);
   return;
 };

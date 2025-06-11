@@ -4,6 +4,18 @@ import { serverTest } from "../../jest.setup";
 describe("EntradaEstoqueController - Create", () => {
   describe("Criação válida", () => {
     it("Cria uma entrada no estoque com parametros corretos.", async () => {
+       const produtoValido = {
+        id: 1,
+        nome: "Sabonete",
+        preco: "1.99",
+        validade: "2025-01-01",
+        quantidade: "100",
+        categoria_id: 1,
+        fornecedor_id: 1,
+      };
+
+      const response = await serverTest.post("/produto").send(produtoValido);
+
       const res = await serverTest.post("/entrada").send({
         produto_id: 1,
         quantidade: 2,

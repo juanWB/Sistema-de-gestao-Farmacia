@@ -5,7 +5,7 @@ import { ICategoria } from "../../models";
 
 export const GetCategoriaProvider = async():Promise<ICategoria[] | Error> => {
     try{
-        const [result] = await Knex(ETableNames.categoria).select('*')
+        const result = await Knex(ETableNames.categoria).select('*')
 
         if(result.length > 0){
             return result

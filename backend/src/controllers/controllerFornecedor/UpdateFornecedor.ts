@@ -3,6 +3,7 @@ import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { IFornecedor } from "../../database/models/index";
+import { FornecedorProvider } from "../../database/providers/fornecedorProviders";
 
 interface IParamProps {
   id?: number;
@@ -69,12 +70,23 @@ export const updateFornecedorValidation = validation((getSchema) => ({
   ),
 }));
 
-export const UpdateFornecedor = (
-  req: Request<IParamProps, {}, IBodyProps>,
-  res: Response
-) => {
+export const UpdateFornecedor = async(req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
+  const {id} = req.params;
+  const fornecedor = req.body
 
-  res.status(StatusCodes.NO_CONTENT).json();
+  const result = await FornecedorProvider.UpdateFornecedorProvider(id!, fornecedor);
+  
+  if(result instanceof Error){
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+          errors:{
+              default: result.message
+          }
+      })
+      return
+  }
+
+
+  res.status(StatusCodes.NO_CONTENT).json(result);
 
   return;
 };

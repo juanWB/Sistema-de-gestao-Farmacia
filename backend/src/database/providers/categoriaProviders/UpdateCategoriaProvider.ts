@@ -3,10 +3,10 @@ import { Knex } from "../../knex";
 import { ICategoria } from "../../models";
 
 
-export const UpdateCategoriaProvider = async(categoria: ICategoria):Promise<number | Error> => {
+export const UpdateCategoriaProvider = async(id: number, categoria: Omit<ICategoria, 'id'>):Promise<number | Error> => {
     try{
         const [result] = await Knex(ETableNames.categoria)
-                                .where('id',categoria.id)
+                                .where('id',id)
                                 .update({'nome': categoria.nome})
                                 .returning('*');
 
