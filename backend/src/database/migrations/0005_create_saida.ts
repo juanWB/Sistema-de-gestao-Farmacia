@@ -7,7 +7,7 @@ export async function up(knex: Knex): Promise<void> {
       table.bigIncrements("id").primary().index();
       table.bigInteger("produto_id").unsigned().references('id').inTable(ETableNames.produto).onDelete('RESTRICT')
       table.integer("quantidade").notNullable()
-      table.timestamps(true);
+      table.date('saida_data').notNullable;
 
       table.comment(
         "Tabela para armazenar os dados de saida no estoque da farmácia."

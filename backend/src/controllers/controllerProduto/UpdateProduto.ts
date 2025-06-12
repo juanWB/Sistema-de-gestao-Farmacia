@@ -3,6 +3,7 @@ import { validation } from "../../service/middleware/Validation";
 import { StatusCodes } from "http-status-codes";
 import { Request, Response } from "express";
 import { IProduto } from "../../database/models";
+import { ProdutoProvider } from "../../database/providers/produtoProviders";
 
 interface IParamProps {
   id?: number;
@@ -71,14 +72,21 @@ export const updateProdutoValidation = validation((getSchema) => ({
   ),
 }));
 
-export const UpdateProdutoById = async (
-  req: Request<IParamProps, {}, IBodyProps>,
-  res: Response
-) => {
-  console.log(req.body);
-  console.log(req.params);
+export const UpdateProdutoById = async (req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
+  
+  const {id} = req.params
+  const produto = req.body
+  
+      const result = await ProdutoProvider.UpdateProdutoProvider(id!, produto);
+  
+       if(result instanceof Error){
+          res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+              errors:{
+                  default: result.message
+              }
+          })
+          return
+      }
 
-  res.status(StatusCodes.OK).json({
-    message: "Ainda não implementado",
-  });
+  res.status(StatusCodes.OK).json(result);
 };

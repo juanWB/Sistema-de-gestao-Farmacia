@@ -2,6 +2,7 @@ import { z } from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import { ProdutoProvider } from "../../database/providers/produtoProviders";
 
 
 
@@ -19,11 +20,18 @@ export const getAllProdutosValidation = validation((getSchema) => ({
     }))
 }))
 
-export const GetAllProdutos = (req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
-    console.log(req.query);
+export const GetAllProdutos = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
+    const result = await ProdutoProvider.GetProdutoProvider();
 
-    res.status(StatusCodes.OK).json({
-        message: 'Ainda não implementado'
-    })
+     if(result instanceof Error){
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            errors:{
+                default: result.message
+            }
+        })
+        return
+    }
+
+    res.status(StatusCodes.OK).json(result)
     return;
 }

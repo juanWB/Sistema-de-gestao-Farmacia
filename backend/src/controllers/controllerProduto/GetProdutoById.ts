@@ -2,6 +2,7 @@ import { z } from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import { ProdutoProvider } from "../../database/providers/produtoProviders";
 
 
 interface IParamProps{
@@ -18,11 +19,19 @@ export const getProdutoByIdValidation = validation((getSchema) => ({
 
 
 export const GetProdutoById = async(req: Request<IParamProps>, res: Response) => {
-    console.log(req.params);
+    const {id} = req.params
 
-    res.status(StatusCodes.OK).json({
-        message: 'Ainda não implementado'
-    })
+    const result = await ProdutoProvider.GetProdutoByIdProvider(id!)
 
+     if(result instanceof Error){
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            errors:{
+                default: result.message
+            }
+        })
+        return
+    }
+
+    res.status(StatusCodes.OK).json(result)
     return
 }

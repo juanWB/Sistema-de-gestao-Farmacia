@@ -33,7 +33,7 @@ export const DeleteProduto = async(req: Request<IParamProps>, res: Response) => 
     }
 
 
-    res.status(StatusCodes.NO_CONTENT).json(result)
+    res.status(StatusCodes.NO_CONTENT).json(result);
 
     return
 }
