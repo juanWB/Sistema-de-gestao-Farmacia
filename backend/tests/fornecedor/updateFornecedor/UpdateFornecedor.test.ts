@@ -5,6 +5,15 @@ import { response } from "express";
 describe("FornecedorController - Update", () => {
   describe("Atualização válida", () => {
     it("Atualiza um fornecedor por um id", async () => {
+      const fornecedor = {
+          nome: "Atacamax",
+          cnpj: "12.345.678/9123-45",
+          telefone: "(81) - 998837891",
+          endereco: "Rua Major"
+      }
+
+      const response1 = await serverTest.post("/fornecedor").send(fornecedor);
+
       const res = await serverTest.put("/fornecedor/1").send({
         nome: "Atacamax",
         cnpj: "12345678912345",

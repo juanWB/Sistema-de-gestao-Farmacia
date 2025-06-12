@@ -5,7 +5,7 @@ import { IFornecedor } from "../../models";
 
 export const GetFornecedorProvider = async():Promise<IFornecedor[] | Error> => {
     try{
-        const [result] = await Knex(ETableNames.fornecedor).select('*')
+        const result = await Knex(ETableNames.fornecedor).select('*')
 
         if(result.length > 0){
             return result

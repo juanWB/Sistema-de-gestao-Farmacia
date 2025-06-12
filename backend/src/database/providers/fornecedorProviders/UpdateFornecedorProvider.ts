@@ -12,7 +12,7 @@ export const UpdateFornecedorProvider = async(id: number, fornecedor: Omit<IForn
                                          'telefone': fornecedor.telefone,
                                          'endereco': fornecedor.endereco
                                 })
-                                .returning<IFornecedor[]>('*');
+                                .returning('*');
 
         if(result){
             return result

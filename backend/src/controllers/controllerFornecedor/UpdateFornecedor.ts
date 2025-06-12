@@ -87,6 +87,5 @@ export const UpdateFornecedor = async(req: Request<IParamProps, {}, IBodyProps>,
 
 
   res.status(StatusCodes.NO_CONTENT).json(result);
-
   return;
 };

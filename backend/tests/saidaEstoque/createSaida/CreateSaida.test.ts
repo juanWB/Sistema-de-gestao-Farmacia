@@ -4,13 +4,33 @@ import { serverTest } from "../../jest.setup";
 describe("SaidaEstoqueController - Create", () => {
   describe("Criação válida", () => {
     it("Cria uma saida no estoque com parametros corretos.", async () => {
-      const res = await serverTest.post("/saida").send({
-        produto_id: 1,
-        quantidade: 2,
-        saida_data: "2000-06-17",
+
+      await serverTest.post("/fornecedor").send({
+        nome: "Atacamax",
+        cnpj: "12.345.678/9123-45",
+        telefone: "(81) - 998837891",
+        endereco: "Rua Major",
       });
 
-      expect(res.statusCode).toEqual(StatusCodes.CREATED);
+      await serverTest.post("/categorias").send({ nome: "Medicamentos" });
+
+      await serverTest.post("/produto").send({
+        nome: "Sabonete",
+        preco: "1.99",
+        validade: "2025-01-01",
+        quantidade: "100",
+        categoria_id: 1,
+        fornecedor_id: 1,});
+
+        
+
+        const res = await serverTest.post("/saida").send({
+          produto_id: 1,
+          quantidade: 2,
+          saida_data: "2000-06-17",
+        });
+
+        expect(res.statusCode).toEqual(StatusCodes.CREATED);
     });
   });
 

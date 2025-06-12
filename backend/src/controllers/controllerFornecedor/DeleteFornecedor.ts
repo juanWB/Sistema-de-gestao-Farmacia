@@ -30,6 +30,6 @@ export const DeleteFornecedor = async(req: Request<IParamProps>, res: Response) 
         return
     }
 
-    res.status(StatusCodes.NOT_FOUND).json(result);
+    res.status(StatusCodes.NO_CONTENT).json(result);
     return;
 }

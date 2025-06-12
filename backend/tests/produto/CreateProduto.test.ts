@@ -4,6 +4,21 @@ import { serverTest } from "../jest.setup";
 describe("ProdutoController - Create", () => {
   describe("Criação válida", () => {
     it("Cria um produto com parametros corretos.", async () => {
+      const fornecedor = {
+          nome: "Atacamax",
+          cnpj: "12.345.678/9123-45",
+          telefone: "(81) - 998837891",
+          endereco: "Rua Major"
+      }
+
+      const response1 = await serverTest.post("/fornecedor").send(fornecedor);
+
+       const categoriaValida = { nome: "Medicamentos" };
+
+      const response2 = await serverTest
+        .post("/categorias")
+        .send(categoriaValida);
+
       const res = await serverTest.post("/produto").send({
         nome: "Sabonete",
         preco: "1.99",

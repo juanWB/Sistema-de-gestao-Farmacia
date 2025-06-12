@@ -5,7 +5,7 @@ import { IEntradaEstoque } from "../../models";
 
 export const GetEntradaProvider = async():Promise<IEntradaEstoque[] | Error> => {
     try{
-        const [result] = await Knex(ETableNames.entradaEstoque).select('*')
+        const result = await Knex(ETableNames.entradaEstoque).select('*')
 
         if(result.length > 0){
             return result

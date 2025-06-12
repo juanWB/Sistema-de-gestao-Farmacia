@@ -5,7 +5,7 @@ import { IProduto } from "../../models";
 
 export const GetProdutoProvider = async():Promise<IProduto[] | Error> => {
     try{
-        const [result] = await Knex(ETableNames.produto).select('*')
+        const result = await Knex(ETableNames.produto).select('*')
 
         if(result.length > 0){
             return result

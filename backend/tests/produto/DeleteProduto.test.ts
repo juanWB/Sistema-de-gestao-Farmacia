@@ -4,8 +4,22 @@ import { serverTest } from "../jest.setup";
 describe("ProdutoController - Delete", () => {
   describe("Deleção válida", () => {
     it("Deve retornar 204 ao deletar categoria existente", async () => {
+      const fornecedor = {
+        nome: "Atacamax",
+        cnpj: "12.345.678/9123-45",
+        telefone: "(81) - 998837891",
+        endereco: "Rua Major",
+      };
+
+      const response1 = await serverTest.post("/fornecedor").send(fornecedor);
+
+      const categoriaValida = { nome: "Medicamentos" };
+
+      const response2 = await serverTest
+        .post("/categorias")
+        .send(categoriaValida);
+
       const produtoValido = {
-        id: 1,
         nome: "Sabonete",
         preco: "1.99",
         validade: "2025-01-01",
@@ -18,18 +32,18 @@ describe("ProdutoController - Delete", () => {
 
       expect(res.statusCode).toEqual(StatusCodes.CREATED);
 
-      const response = await serverTest.delete(`/produto/${produtoValido.id}`);
+      const response = await serverTest.delete(`/produto/1`);
 
       expect(response.statusCode).toEqual(StatusCodes.NO_CONTENT);
     });
   });
 
   describe("Validação de parametros", () => {
-     const testCases = [
+    const testCases = [
       {
         description: "Não deve deletar um produto com id composto por letras",
-        params: {id: "1as"},
-        expectedError:   {
+        params: { id: "1as" },
+        expectedError: {
           errors: {
             params: {
               id: "O id precisa ser um número.",
@@ -39,8 +53,8 @@ describe("ProdutoController - Delete", () => {
       },
       {
         description: "Não deve deletar um produto com id 0",
-        params: {id: 0},
-        expectedError:   {
+        params: { id: 0 },
+        expectedError: {
           errors: {
             params: {
               id: "Deve ser maior que 0.",
@@ -50,8 +64,8 @@ describe("ProdutoController - Delete", () => {
       },
       {
         description: "Não deve deletar um produto por um id negativo",
-        params: {id: -1},
-        expectedError:   {
+        params: { id: -1 },
+        expectedError: {
           errors: {
             params: {
               id: "Deve ser maior que 0.",
@@ -60,9 +74,10 @@ describe("ProdutoController - Delete", () => {
         },
       },
       {
-        description: "Não deve deletar um produto com id composto por número decimal",
-        params: {id: 1.5},
-        expectedError:  {
+        description:
+          "Não deve deletar um produto com id composto por número decimal",
+        params: { id: 1.5 },
+        expectedError: {
           errors: {
             params: {
               id: "Deve ser um inteiro",

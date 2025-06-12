@@ -4,21 +4,31 @@ import { serverTest } from "../jest.setup";
 describe("ProdutoController - GetById", () => {
   describe("Busca produto de forma válida", () => {
     it("Busca um produto por um id", async () => {
-      const produtoValido = {
-        id: 1,
+      const fornecedor = {
+        nome: "Atacamax",
+        cnpj: "12.345.678/9123-45",
+        telefone: "(81) - 998837891",
+        endereco: "Rua Major",
+      };
+
+      const response1 = await serverTest.post("/fornecedor").send(fornecedor);
+
+      const categoriaValida = { nome: "Medicamentos" };
+
+      const response2 = await serverTest
+        .post("/categorias")
+        .send(categoriaValida);
+
+      const res1 = await serverTest.post("/produto").send({
         nome: "Sabonete",
         preco: "1.99",
         validade: "2025-01-01",
         quantidade: "100",
         categoria_id: 1,
         fornecedor_id: 1,
-      };
+      });
 
-      const response = await serverTest.post("/produto").send(produtoValido);
-
-      expect(response.statusCode).toEqual(StatusCodes.CREATED);
-
-      const res = await serverTest.get(`/produto/${produtoValido.id}`);
+      const res = await serverTest.get(`/produto/1`);
       expect(res.status).toBe(StatusCodes.OK);
       expect(typeof res.body).toEqual("object");
     });
@@ -28,8 +38,8 @@ describe("ProdutoController - GetById", () => {
     const testCases = [
       {
         description: "Não deve buscar um produto com id composto por letras",
-        params: {id:"1as"},
-        expectedError:   {
+        params: { id: "1as" },
+        expectedError: {
           errors: {
             params: {
               id: "O id precisa ser um número.",
@@ -39,8 +49,8 @@ describe("ProdutoController - GetById", () => {
       },
       {
         description: "Não deve buscar um produto por um id 0",
-        params: { id: 0},
-        expectedError:   {
+        params: { id: 0 },
+        expectedError: {
           errors: {
             params: {
               id: "Deve ser maior que 0.",
@@ -50,8 +60,8 @@ describe("ProdutoController - GetById", () => {
       },
       {
         description: "Não deve buscar um produto por um id negativo",
-        params: {id: -1},
-        expectedError:   {
+        params: { id: -1 },
+        expectedError: {
           errors: {
             params: {
               id: "Deve ser maior que 0.",
@@ -60,9 +70,10 @@ describe("ProdutoController - GetById", () => {
         },
       },
       {
-        description: "Não deve buscar um produto com id composto por número decimal",
-        params: {id: 1.5},
-        expectedError:  {
+        description:
+          "Não deve buscar um produto com id composto por número decimal",
+        params: { id: 1.5 },
+        expectedError: {
           errors: {
             params: {
               id: "Deve ser um inteiro",

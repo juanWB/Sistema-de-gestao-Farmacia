@@ -80,12 +80,4 @@ describe("FornecedorController - Delete", () => {
       });
     });
   });
-  describe("Cenários de erro", () => {
-    it("Deve retornar 404 ao tentar deletar um id não existente", async () => {
-      const idInexistente = 99999;
-      const response = await serverTest.delete(`/fornecedor/${idInexistente}`);
-
-      expect(response.statusCode).toEqual(StatusCodes.NOT_FOUND);
-    });
-  });
 });

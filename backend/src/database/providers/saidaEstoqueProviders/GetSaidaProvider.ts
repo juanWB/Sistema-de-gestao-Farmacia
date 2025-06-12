@@ -6,7 +6,7 @@ import { ISaidaEstoque } from "../../models";
 
 export const GetSaidaProvider = async():Promise<ISaidaEstoque[] | Error> => {
     try{
-        const [result] = await Knex(ETableNames.saidaEstoque).select('*');
+        const result = await Knex(ETableNames.saidaEstoque).select('*');
 
         if(result.length > 0){
             return result

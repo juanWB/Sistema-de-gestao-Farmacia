@@ -4,17 +4,24 @@ import { serverTest } from "../../jest.setup";
 describe("EntradaEstoqueController - Create", () => {
   describe("Criação válida", () => {
     it("Cria uma entrada no estoque com parametros corretos.", async () => {
-       const produtoValido = {
-        id: 1,
-        nome: "Sabonete",
-        preco: "1.99",
-        validade: "2025-01-01",
-        quantidade: "100",
-        categoria_id: 1,
-        fornecedor_id: 1,
-      };
+       const response1 = await serverTest.post("/fornecedor").send({
+      nome: "Atacamax",
+      cnpj: "12.345.678/9123-45",
+      telefone: "(81) - 998837891",
+      endereco: "Rua Major",
+    });
 
-      const response = await serverTest.post("/produto").send(produtoValido);
+    const response2 = await serverTest.post("/categorias").send({ nome: "Medicamentos" });
+
+    const response = await serverTest.post("/produto").send({
+      id: 1,
+      nome: "Sabonete",
+      preco: "1.99",
+      validade: "2025-01-01",
+      quantidade: "100",
+      categoria_id: 1,
+      fornecedor_id: 1,});
+
 
       const res = await serverTest.post("/entrada").send({
         produto_id: 1,
@@ -60,7 +67,7 @@ describe("EntradaEstoqueController - Create", () => {
           },
         },
       },
-       {
+      {
         description: "Não deve aceitar uma entrada vazia.",
         data: {
           produto_id: "   ",
@@ -77,13 +84,13 @@ describe("EntradaEstoqueController - Create", () => {
         },
       },
     ];
-      testCases.forEach(({ description, data, expectedError }) => {
-        it(description, async () => {
-          const response = await serverTest.post("/entrada").send(data);
+    testCases.forEach(({ description, data, expectedError }) => {
+      it(description, async () => {
+        const response = await serverTest.post("/entrada").send(data);
 
-          expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
-          expect(response.body).toEqual(expectedError);
-        });
+        expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+        expect(response.body).toEqual(expectedError);
       });
     });
+  });
 });
