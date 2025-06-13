@@ -1,20 +1,26 @@
 import { Add, ArrowBack, Delete, Save } from "@mui/icons-material";
-import { Box, Button, Divider, Paper, useTheme } from "@mui/material"
+import { Box, Button, Divider, Paper, Skeleton, useTheme } from "@mui/material"
 
 interface IFerramentasDeDetalhes {
-    textoBotao: string;
+    textoBotao?: string;
 
-    mostraBotaoNovo: boolean;
-    mostraBotaoSalvar: boolean;
-    mostraBotaoSalvarEFechar: boolean;
-    mostraBotaoApagar: boolean;
-    mostraBotaoVoltar: boolean;
+    mostraBotaoNovo?: boolean;
+    mostraBotaoSalvar?: boolean;
+    mostraBotaoSalvarEFechar?: boolean;
+    mostraBotaoApagar?: boolean;
+    mostraBotaoVoltar?: boolean;
 
-    aoClicarNovo: () => void;
-    aoClicarSalvar: () => void;
-    aoClicarVoltar: () => void;
-    aoClicarSalvarEFechar: () => void;
-    aoClicarApagar: () => void;
+    mostraBotaoNovoCarregando?: boolean;
+    mostraBotaoSalvarCarregando?: boolean;
+    mostraBotaoSalvarEFecharCarregando?: boolean;
+    mostraBotaoApagarCarregando?: boolean;
+    mostraBotaoVoltarCarregando?: boolean;
+
+    aoClicarNovo?: () => void;
+    aoClicarSalvar?: () => void;
+    aoClicarVoltar?: () => void;
+    aoClicarSalvarEFechar?: () => void;
+    aoClicarApagar?: () => void;
 }
 
 
@@ -26,6 +32,12 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhes> = ({
     mostraBotaoSalvar = true,
     mostraBotaoNovo = true,
     mostraBotaoApagar = true,
+
+    mostraBotaoNovoCarregando = false,
+    mostraBotaoSalvarCarregando = false,
+    mostraBotaoSalvarEFecharCarregando = false,
+    mostraBotaoApagarCarregando = false,
+    mostraBotaoVoltarCarregando = false,
 
     aoClicarApagar,
     aoClicarNovo,
@@ -45,7 +57,7 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhes> = ({
             component={Paper}
             height={theme.spacing(8)}>
 
-            {mostraBotaoSalvar && (<Button
+            {(mostraBotaoSalvar && !mostraBotaoSalvarCarregando) && (<Button
                 variant="contained"
                 color="primary"
                 disableElevation={true}
@@ -55,7 +67,9 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhes> = ({
                 Salvar
             </Button>)}
 
-            {mostraBotaoNovo && (<Button
+            {mostraBotaoSalvarCarregando && (<Skeleton width={110} height={60} />)}
+
+            {(mostraBotaoNovo && !mostraBotaoNovoCarregando) && (<Button
                 variant="outlined"
                 color="primary"
                 disableElevation={true}
@@ -64,8 +78,10 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhes> = ({
             >
                 Novo
             </Button>)}
-            
-            {mostraBotaoSalvarEFechar && (<Button
+
+            {mostraBotaoNovoCarregando && (<Skeleton width={100} height={60} />)}
+
+            {(mostraBotaoSalvarEFechar && !mostraBotaoSalvarEFecharCarregando) && (<Button
                 variant="outlined"
                 color="primary"
                 disableElevation={true}
@@ -75,7 +91,9 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhes> = ({
                 Salvar e voltar
             </Button>)}
 
-           {mostraBotaoApagar && ( <Button
+            {mostraBotaoSalvarEFecharCarregando && (<Skeleton width={180} height={60} />)}
+
+            {(mostraBotaoApagar && !mostraBotaoApagarCarregando) && (<Button
                 variant="outlined"
                 color="primary"
                 disableElevation={true}
@@ -85,9 +103,12 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhes> = ({
                 Apagar
             </Button>)}
 
+            {mostraBotaoApagarCarregando && (<Skeleton width={100} height={60} />)}
+
+
             <Divider variant="middle" orientation="vertical" />
 
-            {mostraBotaoVoltar && (<Button
+            {(mostraBotaoVoltar && !mostraBotaoVoltarCarregando) && (<Button
                 variant="outlined"
                 color="primary"
                 disableElevation={true}
@@ -96,6 +117,9 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhes> = ({
             >
                 Voltar
             </Button>)}
+
+            {mostraBotaoVoltarCarregando && (<Skeleton width={100} height={60} />)}
+
 
         </Box>
     )
