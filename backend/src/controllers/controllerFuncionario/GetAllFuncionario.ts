@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-import { FornecedorProvider } from "../../database/providers/fornecedorProviders";
 import { validation } from "../../service/middleware/Validation";
 import { z } from "zod";
+import { FuncionarioProvider } from "../../database/providers/funcionarioProviders";
 
 interface IQueryProps{
     page?: number,
@@ -11,7 +11,7 @@ interface IQueryProps{
     id?: number
 }
 
-export const getAllFornecedorValidation = validation((getSchema) => ({
+export const getAllFuncionarioValidation = validation((getSchema) => ({
     query: getSchema<IQueryProps>(z.object({
         page: z.coerce.number().positive('Deve ser maior que zero').int('Deve ser um inteiro').optional(),
         limit: z.coerce.number().positive('Deve ser maior que zero').int('Deve ser um inteiro').optional(),
@@ -20,9 +20,9 @@ export const getAllFornecedorValidation = validation((getSchema) => ({
     }))
 }))
 
-export const GetAllFornecedor = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
-    const result = await FornecedorProvider.GetFornecedorProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.id || 0);
-    const count = await FornecedorProvider.Count();
+export const GetAllFuncionario = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
+    const result = await FuncionarioProvider.GetFuncionarioProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.id || 0);
+    const count = await FuncionarioProvider.Count();
     
 
 

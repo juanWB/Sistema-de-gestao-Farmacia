@@ -36,7 +36,18 @@ export const UpdateCategoria = async(req: Request<IParamProps, {}, IBodyProps>, 
     const { id }  = req.params
     const categoria = req.body
 
-    const result = await CategoriaProvider.UpdateCategoriaProvider(id!, categoria); 
+    
+    if(!id){
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+        errors:{
+            default: 'O id é um parametro obrigatório.'
+        }
+        })
+        return
+    }
+
+
+    const result = await CategoriaProvider.UpdateCategoriaProvider(id, categoria); 
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

@@ -2,14 +2,14 @@ import { z } from "zod";
 import { validation } from "../../service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-import { FornecedorProvider } from "../../database/providers/fornecedorProviders";
+import { FuncionarioProvider } from "../../database/providers/funcionarioProviders";
 
 
 interface IParamProps {
     id?: number;
 }
 
-export const deleteFornecedorValidation = validation((getSchema) => ({
+export const deleteFuncionarioValidation = validation((getSchema) => ({
     params: getSchema<IParamProps>(z.object({
         id: z.coerce.number({
             invalid_type_error: "O id precisa ser um número"
@@ -17,7 +17,7 @@ export const deleteFornecedorValidation = validation((getSchema) => ({
     }))
 }));
 
-export const DeleteFornecedor = async(req: Request<IParamProps>, res: Response) => {
+export const DeleteFuncionario = async(req: Request<IParamProps>, res: Response) => {
     const {id} = req.params
 
     if(!id){
@@ -29,7 +29,7 @@ export const DeleteFornecedor = async(req: Request<IParamProps>, res: Response) 
         return
     }
 
-    const result = await FornecedorProvider.DeleteFornecedorProvider(id);
+    const result = await FuncionarioProvider.DeleteFuncionarioProvider(id);
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

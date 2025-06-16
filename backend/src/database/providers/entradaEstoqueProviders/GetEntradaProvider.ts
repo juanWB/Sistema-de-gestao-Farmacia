@@ -12,7 +12,7 @@ export const GetEntradaProvider = async (
     const result = await Knex(ETableNames.entradaEstoque)
       .select("*")
       .where("id", id)
-      .orWhere("nome", "like", `%${filter}%`)
+      .orWhere("entrada_data", "like", `%${filter}%`)
       .offset((page - 1) * limit)
       .limit(limit);
 

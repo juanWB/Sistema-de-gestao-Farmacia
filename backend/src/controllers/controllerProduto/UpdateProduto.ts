@@ -76,17 +76,27 @@ export const UpdateProdutoById = async (req: Request<IParamProps, {}, IBodyProps
   
   const {id} = req.params
   const produto = req.body
-  
-      const result = await ProdutoProvider.UpdateProdutoProvider(id!, produto);
-  
-       if(result instanceof Error){
-          res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-              errors:{
-                  default: result.message
-              }
-          })
-          return
+
+  if(!id){
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      errors:{
+          default: 'O id é um parametro obrigatório.'
       }
+      })
+      return
+  }
+
+  
+  const result = await ProdutoProvider.UpdateProdutoProvider(id!, produto);
+
+    if(result instanceof Error){
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+          errors:{
+              default: result.message
+          }
+      })
+      return
+  }
 
   res.status(StatusCodes.OK).json(result);
 };

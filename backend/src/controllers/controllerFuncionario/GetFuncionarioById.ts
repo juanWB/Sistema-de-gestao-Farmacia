@@ -6,7 +6,7 @@ import { FuncionarioProvider } from "../../database/providers/funcionarioProvide
 
 
 interface IParamsProps{
-    id: number;
+    id?: number;
 }
 
 export const getFuncionarioByIdValidation = validation((getSchema) => ({
@@ -20,7 +20,17 @@ export const getFuncionarioByIdValidation = validation((getSchema) => ({
 
 export const GetFuncionarioById = async(req: Request<IParamsProps>, res: Response) => {
     const {id} = req.params
-    const result = await FuncionarioProvider.GetFuncionarioByIdProvider(id!);
+
+    if(!id){
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      errors:{
+          default: 'O id é um parametro obrigatório.'
+          }
+      })
+      return
+    }
+
+    const result = await FuncionarioProvider.GetFuncionarioByIdProvider(id);
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
@@ -31,6 +41,6 @@ export const GetFuncionarioById = async(req: Request<IParamsProps>, res: Respons
         return
     }
 
-    res.status(StatusCodes.OK).json(result)
+    res.status(StatusCodes.OK).json(result);
     return
 }

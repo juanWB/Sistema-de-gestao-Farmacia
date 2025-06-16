@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-import { serverTest } from "../../jest.setup";
+import { serverTest } from "../jest.setup";
 
 describe("GetAll - SaidaEstoque", () => {
   it("Busca todas saidas no estoque", async () => {
@@ -10,7 +10,7 @@ describe("GetAll - SaidaEstoque", () => {
       endereco: "Rua Major",
     });
 
-    await serverTest.post("/categorias").send({ nome: "Medicamentos" });
+    await serverTest.post("/categorias").send({nome: "Medicamentos" });
 
     await serverTest.post("/produto").send({
       nome: "Sabonete",

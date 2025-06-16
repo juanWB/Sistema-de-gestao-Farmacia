@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-import { serverTest } from "../../jest.setup";
+import { serverTest } from "../jest.setup";
 import { response } from "express";
 
 describe("FornecedorController - Update", () => {

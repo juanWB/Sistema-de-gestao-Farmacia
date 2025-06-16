@@ -72,7 +72,17 @@ export const updateFornecedorValidation = validation((getSchema) => ({
 
 export const UpdateFornecedor = async(req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
   const {id} = req.params;
-  const fornecedor = req.body
+  const fornecedor = req.body;
+
+  
+  if(!id){
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      errors:{
+          default: 'O id é um parametro obrigatório.'
+      }
+      })
+      return
+  }
 
   const result = await FornecedorProvider.UpdateFornecedorProvider(id!, fornecedor);
   

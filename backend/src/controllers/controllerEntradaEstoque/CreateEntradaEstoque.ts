@@ -31,9 +31,7 @@ export const createEntradaValidation = validation((getSchema) => ({
 }))
 
 export const CreateEntradaEstoque = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
-    const novaCategoria = req.body
-    
-    const result = await EntradaEstoqueProvider.CreateEntradaProvider(novaCategoria);
+    const result = await EntradaEstoqueProvider.CreateEntradaProvider(req.body);
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

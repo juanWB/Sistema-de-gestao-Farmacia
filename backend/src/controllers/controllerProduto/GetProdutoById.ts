@@ -21,6 +21,15 @@ export const getProdutoByIdValidation = validation((getSchema) => ({
 export const GetProdutoById = async(req: Request<IParamProps>, res: Response) => {
     const {id} = req.params
 
+     if(!id){
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+        errors:{
+            default: 'O id é um parametro obrigatório.'
+        }
+        })
+        return
+    }
+
     const result = await ProdutoProvider.GetProdutoByIdProvider(id!)
 
      if(result instanceof Error){

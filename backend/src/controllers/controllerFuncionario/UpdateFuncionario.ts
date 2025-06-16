@@ -57,7 +57,16 @@ export const UpdateFuncionarioById = async(req: Request<IParamProps, {}, IBodyPr
     const {id} = req.params
     const funcionario = req.body
 
-    const result = await FuncionarioProvider.UpdateFuncionarioProvider(id!, funcionario)
+    if(!id){
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      errors:{
+          default: 'O id é um parametro obrigatório.'
+      }
+      })
+      return
+    }
+
+    const result = await FuncionarioProvider.UpdateFuncionarioProvider(id, funcionario)
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
