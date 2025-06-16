@@ -2,17 +2,16 @@ import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 
 
-export const DeleteCategoriaProvider = async(id: number):Promise<number | Error> => {
+export const DeleteCategoriaProvider = async(id: number):Promise<void | Error> => {
     try{
         const result = await Knex(ETableNames.categoria).where('id', id).del()
 
-        if(result > 0){
-            return result;
-        } 
+        if(result > 0)return;
+       
 
-        throw new Error("Error ao tentar deletar categoria")
+        return new Error("Error ao deletar categoria")
     }catch(err){
         console.log(err);
-        throw new Error("Error ao tentar deletar categoria")
+        return new Error("Error ao deletar categoria")
     }
 }

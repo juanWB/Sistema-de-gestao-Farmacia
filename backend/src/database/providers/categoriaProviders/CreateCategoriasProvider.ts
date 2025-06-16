@@ -13,9 +13,9 @@ export const CreateCategoriaProvider = async(categoria: Omit<ICategoria, 'id'>):
             return result;
         }
 
-        throw new Error("Error ao criar nova categoria");
+        return new Error("Error ao criar nova categoria");
     }catch(err){
         console.log(err);
-        throw new Error("Error ao criar nova categoria");
+        return new Error("Error ao criar nova categoria");
     }
 }

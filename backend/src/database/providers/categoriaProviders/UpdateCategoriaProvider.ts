@@ -3,20 +3,18 @@ import { Knex } from "../../knex";
 import { ICategoria } from "../../models";
 
 
-export const UpdateCategoriaProvider = async(id: number, categoria: Omit<ICategoria, 'id'>):Promise<number | Error> => {
+export const UpdateCategoriaProvider = async(id: number, categoria: Omit<ICategoria, 'id'>):Promise<void | Error> => {
     try{
-        const [result] = await Knex(ETableNames.categoria)
+        const result = await Knex(ETableNames.categoria)
                                 .where('id',id)
                                 .update({'nome': categoria.nome})
-                                .returning('*');
+                              
 
-        if(result){
-            return result
-        }
-    
-        throw new Error("Error ao buscar atualizar categoria")
+        if(result > 0)return 
+        
+        return new Error("Error ao atualizar categoria")
     }catch(err){
         console.log(err);
-        throw new Error("Error ao buscar atualizar categoria")
+        return new Error("Error ao atualizar categoria")
     }
 }

@@ -10,9 +10,9 @@ export const DeleteFornecedorProvider = async(id: number):Promise<number | Error
             return result;
         } 
 
-        throw new Error("Error ao tentar deletar fornecedor")
+        return new Error("Error ao tentar deletar fornecedor")
     }catch(err){
         console.log(err);
-        throw new Error("Error ao tentar deletar fornecedor")
+        return new Error("Error ao tentar deletar fornecedor")
     }
 }

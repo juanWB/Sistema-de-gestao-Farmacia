@@ -13,9 +13,9 @@ export const CreateSaidaProvider = async(saida: Omit<ISaidaEstoque, 'id'>):Promi
             return result;
         }
 
-        throw new Error("Error ao criar nova saida do estoque");
+        return new Error("Error ao criar nova saida do estoque");
     }catch(err){
         console.log(err);
-        throw new Error("Error ao criar nova saida do estoque");
+        return new Error("Error ao criar nova saida do estoque");
     }
 }

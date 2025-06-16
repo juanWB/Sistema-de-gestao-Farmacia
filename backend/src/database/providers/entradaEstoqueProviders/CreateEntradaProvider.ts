@@ -13,9 +13,9 @@ export const CreateEntradaProvider = async(entrada: Omit<IEntradaEstoque, 'id'>)
             return result;
         }
 
-        throw new Error("Error ao criar nova entrada no estoque");
+        return new Error("Error ao criar nova entrada no estoque");
     }catch(err){
         console.log(err);
-        throw new Error("Error ao criar nova entrada no estoque");
+        return new Error("Error ao criar nova entrada no estoque");
     }
 }

@@ -1,20 +1,32 @@
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
-import { ISaidaEstoque } from "../../models";
+import { IProduto } from "../../models";
 
+export const GetSaidaProvider = async (
+  page: number,
+  limit: number,
+  filter: string,
+  id = 0
+): Promise<IProduto[] | Error> => {
+  try {
+    const result = await Knex(ETableNames.saidaEstoque)
+      .select("*")
+      .where("id", id)
+      .orWhere("nome", "like", `%${filter}%`)
+      .offset((page - 1) * limit)
+      .limit(limit);
 
+    if (id > 0 && result.every((item) => item.id !== id)) {
+      const resultById = await Knex(ETableNames.saidaEstoque)
+        .select("*")
+        .where("id", id).first;
 
-export const GetSaidaProvider = async():Promise<ISaidaEstoque[] | Error> => {
-    try{
-        const result = await Knex(ETableNames.saidaEstoque).select('*');
-
-        if(result.length > 0){
-            return result
-        }
-
-        throw new Error('Nenhuma saída do estoque encontrada.');
-    }catch(err){
-        console.log(err)
-        throw new Error('Nenhuma saída do estoque encontrada.');
+      if (resultById) return [...result, resultById];
     }
-}
+
+    return result;
+  } catch (err) {
+    console.log(err);
+    return new Error("Error ao buscar saidas do estoque");
+  }
+};

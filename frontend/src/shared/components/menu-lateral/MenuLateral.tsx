@@ -55,7 +55,7 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
 
                     <Divider />
 
-                    <Box sx={{ width: "90%", height: theme.spacing(8), display: 'flex', alignItems: "center", margin: "10px" }} >
+                    <Box sx={{ width: "90%", height: theme.spacing(10), display: 'flex', alignItems: "center", margin: "10px", marginBottom: "15px" }} >
                         <Avatar />
                     </Box>
 

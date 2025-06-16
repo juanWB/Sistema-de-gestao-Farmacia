@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDrawerContext } from '../shared/contexts';
 import { useEffect } from 'react';
-import { AddBox, Category, Dashboard, IndeterminateCheckBox, Inventory2, LocalShipping } from '@mui/icons-material';
+import { AddBox, IndeterminateCheckBox, Inventory2, LocalShipping } from '@mui/icons-material';
 import { AppDashboard } from '../pages';
 
 export const AppRoutes = () => {
@@ -11,19 +11,9 @@ export const AppRoutes = () => {
     useEffect(() => {
         setDrawerOptions([
             {
-                icon: <Dashboard color='primary' />,
-                label: 'Página inicial',
-                path: '/pagina-inicial'
-            },
-            {
                 icon: <Inventory2 color='primary' />,
                 label: 'Produtos',
                 path: '/produtos'
-            },
-            {
-                icon: <Category color='primary' />,
-                label: 'Categorias',
-                path: '/categorias'
             },
             {
                 icon: <LocalShipping color='primary' />,

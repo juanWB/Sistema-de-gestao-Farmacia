@@ -13,9 +13,9 @@ export const CreateProdutoProvider = async(produto: Omit<IProduto, 'id'>):Promis
             return result;
         }
 
-        throw new Error("Error ao criar novo produto");
+        return new Error("Error ao criar novo produto");
     }catch(err){
         console.log(err);
-        throw new Error("Error ao criar novo produto");
+        return new Error("Error ao criar novo produto");
     }
 }

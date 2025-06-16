@@ -15,9 +15,9 @@ export const UpdateFuncionarioProvider = async(id: number, funcionario: Omit<IFu
             return result
         }
     
-        throw new Error("Error ao atualizar funcionario")
+        return new Error("Error ao atualizar funcionario")
     }catch(err){
         console.log(err);
-        throw new Error("Error ao atualizar funcionario")
+        return new Error("Error ao atualizar funcionario")
     }
 }

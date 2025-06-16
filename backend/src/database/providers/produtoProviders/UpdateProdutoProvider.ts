@@ -17,9 +17,9 @@ export const UpdateProdutoProvider = async(id: number, produto: Omit<IProduto, '
             return result
         }
     
-        throw new Error("Error ao atualizar Produto")
+       return new Error("Error ao atualizar Produto")
     }catch(err){
         console.log(err);
-        throw new Error("Error ao atualizar Produto")
+       return new Error("Error ao atualizar Produto")
     }
 }

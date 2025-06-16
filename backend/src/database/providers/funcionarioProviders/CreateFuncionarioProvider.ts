@@ -13,9 +13,9 @@ export const CreateFuncionarioProvider = async(funcionario: Omit<IFuncionario, '
             return result;
         }
 
-        throw new Error("Error ao criar novo funcionario");
+        return new Error("Error ao criar novo funcionario");
     }catch(err){
         console.log(err);
-        throw new Error("Error ao criar novo funcionario");
+        return new Error("Error ao criar novo funcionario");
     }
 }

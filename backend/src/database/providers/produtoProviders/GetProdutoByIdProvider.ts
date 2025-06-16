@@ -11,9 +11,9 @@ export const GetProdutoByIdProvider = async(id: number):Promise<IProduto | Error
             return result
         }
         
-        throw new Error('Produto não encontrado');
+        return new Error('Produto não encontrado');
     }catch(err){
         console.log(err);
-        throw new Error('Erro ao buscar produto');
+        return new Error('Erro ao buscar produto');
     }
 }
