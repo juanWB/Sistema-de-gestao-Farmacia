@@ -20,10 +20,10 @@ export const GetCategoriaProvider = async (page: number, limit: number, filter: 
       if (resultById) return [...result, resultById];
     }
 
-    logger.info(`GetCategorias executado com sucesso.`);
+    logger.info(`GetCategoriaProvider executado com sucesso.`);
     return result;
   } catch (err) {
-    logger.error(`GetCategorias falhou ao buscar vategorias: ${err}`);
+    logger.error(`GetCategoriaProvider falhou ao buscar vategorias: ${JSON.stringify(err)}`);
     return new Error("Error ao buscar categorias");
   }
 };

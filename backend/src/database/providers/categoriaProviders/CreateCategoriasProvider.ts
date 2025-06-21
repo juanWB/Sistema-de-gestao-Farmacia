@@ -9,11 +9,7 @@ export const CreateCategoriaProvider = async (categoria: Omit<ICategoria, "id">)
       .insert(categoria)
       .returning("id");
 
-    logger.info(
-      `Categoria criada com ID: ${
-        typeof result === "object" ? result.id : result
-      }`
-    );
+    logger.info(`Categoria criada com ID: ${typeof result === "object" ? result.id : result}`);
 
     if (typeof result === "object") {
       return result.id;

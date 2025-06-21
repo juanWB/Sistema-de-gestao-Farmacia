@@ -9,18 +9,14 @@ export const Count = async (filter = ""): Promise<number | Error> => {
       .count<[{ count: number }]>("* as count");
 
     if (Number.isInteger(Number(count))) {
-      logger.info(
-        `[Categoria] Count executado com sucesso. Total encontrado: ${count}`
-      );
+      logger.info(`[Categoria] Count executado com sucesso. Total encontrado: ${count}`);
       return Number(count);
     }
 
     logger.warn(`[Categoria] Count retornou valor inválido: ${count}`);
     return new Error("Erro ao consultar a quantidade total de registros");
   } catch (err) {
-    logger.error(
-      `[Categoria] Erro na execução do Count: ${JSON.stringify(err)}`
-    );
+    logger.error(`[Categoria] Erro na execução do Count: ${JSON.stringify(err)}`);
     return new Error("Erro ao consultar a quantidade total de registros");
   }
 };
