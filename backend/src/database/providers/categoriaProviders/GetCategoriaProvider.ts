@@ -1,13 +1,9 @@
+import { logger } from "../../../shared/logger";
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 import { ICategoria, IProduto } from "../../models";
 
-export const GetCategoriaProvider = async (
-  page: number,
-  limit: number,
-  filter: string,
-  id = 0
-): Promise<ICategoria[] | Error> => {
+export const GetCategoriaProvider = async (page: number, limit: number, filter: string, id = 0): Promise<ICategoria[] | Error> => {
   try {
     const result = await Knex(ETableNames.categoria)
       .select("*")
@@ -24,9 +20,10 @@ export const GetCategoriaProvider = async (
       if (resultById) return [...result, resultById];
     }
 
+    logger.info(`GetCategorias executado com sucesso.`);
     return result;
   } catch (err) {
-    console.log(err);
+    logger.error(`GetCategorias falhou ao buscar vategorias: ${err}`);
     return new Error("Error ao buscar categorias");
   }
 };
