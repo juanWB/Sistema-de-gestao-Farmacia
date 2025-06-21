@@ -1,3 +1,4 @@
+import { logger } from "../../../shared/logger";
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 import { IFuncionario } from "../../models";
@@ -12,12 +13,14 @@ export const UpdateFuncionarioProvider = async(id: number, funcionario: Omit<IFu
             .returning<IFuncionario[]>('*');
 
         if(result){
-            return result
+            logger.info(`Fornecedor com id ${id} atualizada com sucesso`);
+            return result;
         }
-    
+        
+        logger.warn(`UpdateFuncionarioProvider falhou em atualizar categoria com id ${id}`);
         return new Error("Error ao atualizar funcionario")
     }catch(err){
-        console.log(err);
+        logger.error(`UpdateFuncionarioProvider falhou em atualizar categoria: ${JSON.stringify(err)}`);
         return new Error("Error ao atualizar funcionario")
     }
 }

@@ -11,16 +11,10 @@ export const DeleteCategoriaProvider = async (id: number): Promise<void | Error>
       return;
     }
 
-    logger.warn(
-      `DeleteCategoriaProvider falhou ao tentar deletar categoria com id ${id}`
-    );
+    logger.warn(`DeleteCategoriaProvider falhou ao tentar deletar categoria com id ${id}`);
     return new Error("Error ao deletar categoria");
   } catch (err) {
-    logger.error(
-      `DeleteCategoriaProvider falhou ao tentar deletar categoria: ${JSON.stringify(
-        err
-      )}`
-    );
+    logger.error(`DeleteCategoriaProvider falhou ao tentar deletar categoria: ${JSON.stringify(err)}`);
     return new Error("Error ao deletar categoria");
   }
 };
