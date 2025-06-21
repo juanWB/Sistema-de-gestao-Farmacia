@@ -13,7 +13,7 @@ export const UpdateFuncionarioProvider = async(id: number, funcionario: Omit<IFu
             .returning<IFuncionario[]>('*');
 
         if(result){
-            logger.info(`Fornecedor com id ${id} atualizada com sucesso`);
+            logger.info(`Funcionario com id ${id} atualizada com sucesso`);
             return result;
         }
         

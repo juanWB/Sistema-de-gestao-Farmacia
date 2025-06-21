@@ -1,3 +1,4 @@
+import { logger } from "../../../shared/logger";
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 import { IProduto } from "../../models";
@@ -14,12 +15,14 @@ export const UpdateProdutoProvider = async(id: number, produto: Omit<IProduto, '
             .returning<IProduto[]>('*');
 
         if(result){
-            return result
+            logger.info(`Produto com id ${id} atualizada com sucesso`);
+            return result;
         }
-    
+
+       logger.warn(`UpdateProdutoProvider falhou em atualizar categoria com id ${id}`);
        return new Error("Error ao atualizar Produto")
     }catch(err){
-        console.log(err);
+       logger.error(`UpdateProdutoProvider falhou em atualizar categoria: ${JSON.stringify(err)}`);
        return new Error("Error ao atualizar Produto")
     }
 }
