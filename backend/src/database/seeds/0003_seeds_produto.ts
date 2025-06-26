@@ -4,14 +4,14 @@ import { IProduto } from "../models";
 
 
 export const seed = async(knex: Knex) =>{
-    const [{ count }] = await knex(ETableNames.fornecedor).count<[{ count: number}]>('* as count');
+    const [{ count }] = await knex(ETableNames.produto).count<[{ count: number}]>('* as count');
     if(!Number.isInteger(count) || Number(count) > 0) return;
     
-    const fornecedoresToInsert = fornecedores;
-    await knex(ETableNames.fornecedor).insert(fornecedoresToInsert);
+    const produtosToInsert = produtos;
+    await knex(ETableNames.produto).insert(produtosToInsert);
 }
 
-const fornecedores: IProduto[] = [
+const produtos: IProduto[] = [
     {
         id: 1,
         nome: 'Dipirona',
