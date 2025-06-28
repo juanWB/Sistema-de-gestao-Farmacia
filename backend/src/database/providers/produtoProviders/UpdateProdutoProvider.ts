@@ -6,6 +6,20 @@ import { IProduto } from "../../models";
 
 export const UpdateProdutoProvider = async(id: number, produto: Omit<IProduto, 'id'>):Promise<IProduto | Error> => {
     try{
+        const [{ count: countCategoriaRaw }] = await Knex(ETableNames.categoria)
+            .where('id', produto.categoria_id)
+            .count<[{ count: number}]>('* as count');
+        const countCategoria =  countCategoriaRaw;
+            
+        const [{ count: countFornecedorRaw }] = await Knex(ETableNames.fornecedor)
+            .where('id', produto.fornecedor_id)
+            .count<[{ count: number}]>('* as count');
+        const countFornecedor =  countFornecedorRaw;
+
+        if(countCategoria === 0)return new Error('Categoria não encontrada.');
+        
+        if(countFornecedor === 0)return new Error('Fornecedor não encontrada.');
+
         const [result] = await Knex(ETableNames.produto)
         .where('id',id)
         .update({'nome': produto.nome,

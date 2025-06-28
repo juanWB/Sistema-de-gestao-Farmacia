@@ -6,7 +6,7 @@ export async function up(knex: Knex): Promise<void> {
     .createTable(ETableNames.funcionario, (table) => {
       table.bigIncrements("id").primary().index();
       table.string("nome", 150).index().notNullable();
-      table.string("email", 150).notNullable();
+      table.string("email", 150).notNullable().unique();
       table.string("senha", 255).notNullable();
       table.timestamps(true, true);
 

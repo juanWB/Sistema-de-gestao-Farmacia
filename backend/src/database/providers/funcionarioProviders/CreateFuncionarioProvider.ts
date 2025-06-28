@@ -8,11 +8,11 @@ export const CreateFuncionarioProvider = async(funcionario: Omit<IFuncionario, '
     try{
         const [result] = await Knex(ETableNames.funcionario).insert(funcionario).returning('id');
         
-        logger.info(`Funcionario criado com ID: ${typeof result === "object" ? result.id : result}`);
-
         if(typeof result === 'object'){
+            logger.info(`Funcionario criado com ID: ${result.id}`);
             return result.id;
         } else if(typeof result === 'number'){
+            logger.info(`Funcionario criado com ID: ${result}`);
             return result;
         }
 

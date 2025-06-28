@@ -1,3 +1,4 @@
+import { logger } from "../../../shared/logger";
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 import { IProduto } from "../../models";
@@ -24,9 +25,10 @@ export const GetSaidaProvider = async (
       if (resultById) return [...result, resultById];
     }
 
+    logger.info(`GetSaidaProvider executado com sucesso.`);
     return result;
   } catch (err) {
-    console.log(err);
+    logger.error(`GetSaidaProvider falhou ao buscar vategorias: ${JSON.stringify(err)}`);
     return new Error("Error ao buscar saidas do estoque");
   }
 };

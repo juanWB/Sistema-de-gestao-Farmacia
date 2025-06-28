@@ -7,12 +7,12 @@ import { IFornecedor } from "../../models";
 export const CreateFornecedorProvider = async(fornecedor: Omit<IFornecedor, 'id'>):Promise<number | Error> => {
     try{
         const [result] = await Knex(ETableNames.fornecedor).insert(fornecedor).returning('id');
-        
-        logger.info(`Fornecedor criado com ID: ${typeof result === "object" ? result.id : result}`);
-        
+                
         if(typeof result === 'object'){
+        logger.info(`Fornecedor criado com ID: ${result.id}`);            
             return result.id;
         } else if(typeof result === 'number'){
+        logger.info(`Fornecedor criado com ID: ${result}`);
             return result;
         }
 
