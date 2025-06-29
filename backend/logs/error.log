@@ -1,0 +1,14 @@
+[2025-06-29 15:10:06] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:10:06] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:10:06] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:10:10] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:10:11] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:10:11] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:10:13] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:12:36] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:12:36] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:12:36] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:12:36] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:12:36] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:12:38] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:12:38] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
