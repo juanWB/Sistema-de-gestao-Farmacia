@@ -14,11 +14,11 @@ export const seed = async(knex: Knex) =>{
 const categorias: ICategoria[] = [
     {
         id: 1,
-        nome: 'Medicamento'
+        nome: 'Medicamentos'
     },
     {
         id: 2,
-        nome: 'Cosmético',
+        nome: 'Cosméticos',
     },
     {
         id: 3,

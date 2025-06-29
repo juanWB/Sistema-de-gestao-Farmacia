@@ -5,7 +5,6 @@ describe("FornecedorController - Delete", () => {
   describe("Deleção válida", () => {
     it("Deve retornar 204 ao deletar fornecedor existente", async () => {
       const fornecedorValido = {
-        id: 1,
         nome: "Atacamax",
         cnpj: "12345678912345",
         telefone: "81998837891",
@@ -16,7 +15,7 @@ describe("FornecedorController - Delete", () => {
       expect(res.statusCode).toEqual(StatusCodes.CREATED);
 
       const response = await serverTest.delete(
-        `/fornecedor/${fornecedorValido.id}`
+        `/fornecedor/${res.body}`
       );
 
       expect(response.statusCode).toEqual(StatusCodes.NO_CONTENT);

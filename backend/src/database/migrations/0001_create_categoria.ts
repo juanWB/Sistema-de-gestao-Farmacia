@@ -5,7 +5,7 @@ export async function up(knex: Knex): Promise<void> {
   return knex.schema
     .createTable(ETableNames.categoria, (table) => {
       table.bigIncrements("id").primary().index();
-      table.string("nome", 150).index().notNullable();
+      table.string("nome", 150).index().notNullable().unique();
       
       table.comment(
         "Tabela para armazenar os dados de categorias de produtos da farmácia."

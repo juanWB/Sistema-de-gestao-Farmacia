@@ -138,3 +138,2247 @@
 [2025-06-29 15:12:39] INFO: Categoria criada com ID: 4
 [2025-06-29 15:12:39] INFO: GetEntradaProvider executado com sucesso.
 [2025-06-29 15:12:39] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 15:41:49] INFO: Categoria criada com ID: 4
+[2025-06-29 15:41:49] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:41:49] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:41:49] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 15:41:49] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:41:49] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:41:49] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:41:49] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:41:49] INFO: Categoria criada com ID: 4
+[2025-06-29 15:41:49] INFO: Produto criado com ID: 4
+[2025-06-29 15:41:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:41:51] INFO: Categoria criada com ID: 4
+[2025-06-29 15:41:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:41:51] INFO: Categoria criada com ID: 4
+[2025-06-29 15:41:51] INFO: Produto criado com ID: 4
+[2025-06-29 15:41:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:41:51] INFO: Categoria criada com ID: 4
+[2025-06-29 15:41:51] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:41:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:41:51] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:41:51] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:41:51] INFO: Categoria criada com ID: 4
+[2025-06-29 15:41:51] INFO: Produto criado com ID: 4
+[2025-06-29 15:41:51] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 15:41:51] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 15:41:51] INFO: Categoria criada com ID: 5
+[2025-06-29 15:41:51] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 15:41:51] INFO: Produto criado com ID: 5
+[2025-06-29 15:41:51] INFO: Produto criado com ID: 4
+[2025-06-29 15:41:51] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:41:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:41:51] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 15:41:51] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:41:51] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 15:41:51] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 15:41:51] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:41:51] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:41:51] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:41:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:41:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:41:51] INFO: Categoria criada com ID: 4
+[2025-06-29 15:41:51] INFO: Categoria criada com ID: 4
+[2025-06-29 15:41:51] INFO: Produto criado com ID: 4
+[2025-06-29 15:41:52] INFO: Produto criado com ID: 4
+[2025-06-29 15:41:52] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:41:52] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:41:52] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:41:52] INFO: Categoria criada com ID: 4
+[2025-06-29 15:41:52] INFO: Produto criado com ID: 4
+[2025-06-29 15:41:52] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 15:41:53] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:41:53] INFO: Categoria criada com ID: 4
+[2025-06-29 15:41:53] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:41:53] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:41:53] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 15:41:53] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:41:53] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:41:53] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:41:53] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:41:53] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:41:53] INFO: Categoria criada com ID: 4
+[2025-06-29 15:41:53] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:41:53] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:41:53] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 15:41:53] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 15:41:53] INFO: Categoria criada com ID: 4
+[2025-06-29 15:41:53] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:41:53] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 15:41:53] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:46:08] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:46:08] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:46:08] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:46:08] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:08] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:08] INFO: Produto criado com ID: 4
+[2025-06-29 15:46:08] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:46:08] INFO: Produto criado com ID: 4
+[2025-06-29 15:46:08] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:46:08] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:08] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:46:08] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:46:08] INFO: Produto criado com ID: 4
+[2025-06-29 15:46:08] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:46:09] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:09] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 15:46:09] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:46:09] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:46:09] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:09] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:09] INFO: Produto criado com ID: 4
+[2025-06-29 15:46:09] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:46:09] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 15:46:09] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:46:09] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:46:10] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:46:11] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:46:11] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:11] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:46:11] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:46:11] INFO: Produto criado com ID: 4
+[2025-06-29 15:46:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:46:11] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:46:11] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:11] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:46:11] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:46:11] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:46:11] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:46:11] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 15:46:11] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:46:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:46:11] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 15:46:11] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 15:46:11] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 15:46:11] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 15:46:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:46:11] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:11] INFO: Produto criado com ID: 4
+[2025-06-29 15:46:11] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 15:46:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:46:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:46:11] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:46:11] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:11] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 15:46:11] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:46:11] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 15:46:11] INFO: Produto criado com ID: 4
+[2025-06-29 15:46:11] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:46:11] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:46:11] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:11] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:46:11] INFO: Categoria criada com ID: 5
+[2025-06-29 15:46:11] INFO: Produto criado com ID: 5
+[2025-06-29 15:46:11] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:46:11] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 15:46:12] INFO: Categoria criada com ID: 4
+[2025-06-29 15:46:12] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 15:46:12] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:47:53] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:47:53] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:47:53] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:47:53] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:47:53] INFO: Categoria criada com ID: 4
+[2025-06-29 15:47:53] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:47:53] INFO: Categoria criada com ID: 4
+[2025-06-29 15:47:53] INFO: Categoria criada com ID: 4
+[2025-06-29 15:47:53] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:47:53] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:47:53] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:47:53] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 15:47:53] INFO: Produto criado com ID: 4
+[2025-06-29 15:47:53] INFO: Produto criado com ID: 4
+[2025-06-29 15:47:53] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:47:53] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:47:53] INFO: Categoria criada com ID: 4
+[2025-06-29 15:47:53] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:47:54] INFO: Produto criado com ID: 4
+[2025-06-29 15:47:54] INFO: Categoria criada com ID: 4
+[2025-06-29 15:47:54] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 15:47:54] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:47:54] INFO: Categoria criada com ID: 4
+[2025-06-29 15:47:54] INFO: Produto criado com ID: 4
+[2025-06-29 15:47:54] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:47:55] INFO: Categoria criada com ID: 4
+[2025-06-29 15:47:56] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:47:56] INFO: Categoria criada com ID: 4
+[2025-06-29 15:47:56] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:47:56] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:47:56] INFO: Categoria criada com ID: 4
+[2025-06-29 15:47:56] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:47:56] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:47:56] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 15:47:56] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:47:56] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:47:56] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 15:47:56] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 15:47:56] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:47:56] INFO: Categoria criada com ID: 4
+[2025-06-29 15:47:56] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 15:47:56] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:47:56] INFO: Categoria criada com ID: 4
+[2025-06-29 15:47:56] INFO: Produto criado com ID: 4
+[2025-06-29 15:47:56] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:47:56] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:47:56] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 15:47:56] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:47:56] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:47:56] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 15:47:56] INFO: Categoria criada com ID: 4
+[2025-06-29 15:47:56] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 15:47:56] INFO: Produto criado com ID: 4
+[2025-06-29 15:47:56] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 15:47:56] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:47:56] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:47:56] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:47:56] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:47:56] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 15:47:56] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:47:56] INFO: Produto criado com ID: 4
+[2025-06-29 15:47:56] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:47:56] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:47:56] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:47:56] INFO: Categoria criada com ID: 5
+[2025-06-29 15:47:56] INFO: Produto criado com ID: 5
+[2025-06-29 15:47:56] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:47:56] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 15:47:57] INFO: Categoria criada com ID: 4
+[2025-06-29 15:50:56] INFO: Categoria criada com ID: 4
+[2025-06-29 15:50:56] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:50:56] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:50:56] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:50:56] INFO: Categoria criada com ID: 4
+[2025-06-29 15:50:56] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 15:50:56] INFO: Categoria criada com ID: 4
+[2025-06-29 15:50:56] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:50:56] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:50:56] INFO: Categoria criada com ID: 4
+[2025-06-29 15:50:56] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:50:56] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:50:56] INFO: Produto criado com ID: 4
+[2025-06-29 15:50:56] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:50:56] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:50:56] INFO: Categoria criada com ID: 4
+[2025-06-29 15:50:56] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:50:56] INFO: Produto criado com ID: 4
+[2025-06-29 15:50:56] INFO: Categoria criada com ID: 4
+[2025-06-29 15:50:56] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:50:56] INFO: Produto criado com ID: 4
+[2025-06-29 15:50:56] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:50:56] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:50:56] INFO: Categoria criada com ID: 4
+[2025-06-29 15:50:57] INFO: Produto criado com ID: 4
+[2025-06-29 15:50:57] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 15:51:03] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:03] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:03] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 15:51:03] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 15:51:03] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:03] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:03] INFO: Produto criado com ID: 4
+[2025-06-29 15:51:03] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:51:03] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 15:51:03] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:51:03] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:03] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 15:51:03] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:03] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:03] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:03] INFO: Produto criado com ID: 4
+[2025-06-29 15:51:03] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 15:51:03] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:51:03] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 15:51:03] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:03] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:04] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:51:04] INFO: Produto criado com ID: 4
+[2025-06-29 15:51:04] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:51:04] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:51:04] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:51:04] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:51:04] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:51:04] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:51:04] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 15:51:04] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:51:04] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:51:04] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:51:04] INFO: Categoria criada com ID: 5
+[2025-06-29 15:51:04] INFO: Produto criado com ID: 5
+[2025-06-29 15:51:04] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:51:04] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 15:51:04] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:04] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 15:51:04] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:51:04] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:04] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 15:51:04] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:51:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:32] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:32] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:51:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:32] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:51:32] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:51:32] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:51:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:32] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:32] INFO: Produto criado com ID: 4
+[2025-06-29 15:51:32] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:51:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:32] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:32] INFO: Produto criado com ID: 4
+[2025-06-29 15:51:32] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:33] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:33] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:33] INFO: Produto criado com ID: 4
+[2025-06-29 15:51:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:33] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 15:51:33] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:33] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 15:51:33] INFO: Produto criado com ID: 4
+[2025-06-29 15:51:33] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:51:33] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:51:34] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:34] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:34] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:51:34] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 15:51:34] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:51:34] INFO: Produto criado com ID: 4
+[2025-06-29 15:51:34] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:51:34] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:51:34] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:51:34] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:51:34] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:51:34] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:51:34] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:51:34] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:51:34] INFO: Categoria criada com ID: 5
+[2025-06-29 15:51:34] INFO: Produto criado com ID: 5
+[2025-06-29 15:51:34] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:51:34] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 15:51:34] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:34] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 15:51:35] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:35] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 15:51:35] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:51:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:35] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:35] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 15:51:35] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:51:35] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 15:51:35] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 15:51:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:35] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:35] INFO: Produto criado com ID: 4
+[2025-06-29 15:51:35] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:51:35] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 15:51:35] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:51:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:51:35] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:51:35] INFO: Categoria criada com ID: 4
+[2025-06-29 15:51:35] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 15:51:35] INFO: Produto criado com ID: 4
+[2025-06-29 15:51:35] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 15:51:35] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:16] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:53:16] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:53:16] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:16] INFO: Produto criado com ID: 4
+[2025-06-29 15:53:16] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:53:16] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:53:16] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:53:16] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:16] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:53:16] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:53:16] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:16] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:16] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 15:53:16] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:53:16] INFO: Produto criado com ID: 4
+[2025-06-29 15:53:16] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 15:53:16] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:16] INFO: Produto criado com ID: 4
+[2025-06-29 15:53:16] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:53:16] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:53:16] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:53:16] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:53:16] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:16] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:53:16] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:16] INFO: Produto criado com ID: 4
+[2025-06-29 15:53:18] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:53:18] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:53:18] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 15:53:18] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:53:18] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:53:18] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:18] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:53:18] INFO: Produto criado com ID: 4
+[2025-06-29 15:53:18] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 15:53:18] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:53:18] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:53:18] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 15:53:18] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:18] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:53:18] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:53:18] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:53:18] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 15:53:18] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:53:18] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:53:18] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:53:18] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:53:18] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:53:18] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:53:18] INFO: Categoria criada com ID: 5
+[2025-06-29 15:53:18] INFO: Produto criado com ID: 5
+[2025-06-29 15:53:18] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 15:53:18] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:53:19] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:53:19] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:53:19] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 15:53:19] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:19] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:19] INFO: Produto criado com ID: 4
+[2025-06-29 15:53:19] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:53:19] INFO: Produto criado com ID: 4
+[2025-06-29 15:53:19] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 15:53:19] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 15:53:19] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:53:19] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:53:19] INFO: Categoria criada com ID: 4
+[2025-06-29 15:53:19] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 15:53:19] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 15:53:19] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:55:11] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:55:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:55:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:55:11] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:11] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:11] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:11] INFO: Produto criado com ID: 4
+[2025-06-29 15:55:11] INFO: Produto criado com ID: 4
+[2025-06-29 15:55:11] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 15:55:11] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:55:12] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:55:12] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:12] INFO: Produto criado com ID: 4
+[2025-06-29 15:55:12] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:55:12] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:55:12] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:12] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:12] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 15:55:12] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:55:12] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:55:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:55:13] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:13] INFO: Produto criado com ID: 4
+[2025-06-29 15:55:13] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:55:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:55:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:55:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:55:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:55:13] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 15:55:13] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:13] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 15:55:13] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:55:13] INFO: Produto criado com ID: 4
+[2025-06-29 15:55:13] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:55:13] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:55:13] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:55:13] INFO: Categoria criada com ID: 5
+[2025-06-29 15:55:13] INFO: Produto criado com ID: 5
+[2025-06-29 15:55:13] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:55:13] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 15:55:13] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:55:13] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:55:13] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:55:13] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 15:55:13] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 15:55:13] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:55:14] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:14] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 15:55:14] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:55:14] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:14] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:55:14] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 15:55:14] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:55:14] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:14] INFO: Produto criado com ID: 4
+[2025-06-29 15:55:14] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 15:55:14] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:55:14] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:14] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 15:55:14] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 15:55:14] INFO: Fornecedor criado com ID: 4
+[2025-06-29 15:55:14] INFO: Categoria criada com ID: 4
+[2025-06-29 15:55:14] INFO: Produto criado com ID: 4
+[2025-06-29 15:55:14] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 15:55:15] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 15:55:15] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 15:55:15] INFO: Funcionario criado com ID: 4
+[2025-06-29 15:55:15] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:05:12] ERROR: DeleteCategoriaProvider falhou ao tentar deletar categoria: {"errno":1,"code":"SQLITE_ERROR"}
+[2025-06-29 16:05:52] ERROR: Erro em CreateCategoriaProvider: {"errno":1,"code":"SQLITE_ERROR"}
+[2025-06-29 16:07:17] INFO: Categoria criada com ID: 1
+[2025-06-29 16:07:22] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:07:22] INFO: [Categoria] Count executado com sucesso. Total encontrado: 1
+[2025-06-29 16:07:32] INFO: Categoria deletada com id 1 sucesso
+[2025-06-29 16:08:25] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:08:25] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:08:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:08:25] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:25] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:08:25] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:25] INFO: Produto criado com ID: 4
+[2025-06-29 16:08:25] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:08:25] INFO: Produto criado com ID: 4
+[2025-06-29 16:08:25] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:08:25] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:08:25] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:08:26] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:08:26] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:26] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:26] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:08:26] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:08:26] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:26] INFO: Produto criado com ID: 4
+[2025-06-29 16:08:26] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:08:26] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:08:26] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:26] INFO: Produto criado com ID: 4
+[2025-06-29 16:08:26] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:08:26] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:08:27] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:08:27] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:08:27] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:08:27] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:08:27] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:08:27] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:08:27] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:08:27] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:08:27] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:27] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:08:27] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:08:27] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:08:27] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:08:28] INFO: Produto criado com ID: 4
+[2025-06-29 16:08:28] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:28] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:08:28] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:08:28] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:08:28] INFO: Categoria criada com ID: 5
+[2025-06-29 16:08:28] INFO: Produto criado com ID: 5
+[2025-06-29 16:08:28] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:08:28] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:08:28] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:28] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:08:28] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:08:28] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:28] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:08:28] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:08:28] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:08:28] INFO: Produto criado com ID: 4
+[2025-06-29 16:08:28] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:08:28] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:08:28] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:28] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:08:28] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:08:28] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:08:28] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:08:28] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:08:28] INFO: Categoria criada com ID: 4
+[2025-06-29 16:08:28] INFO: Produto criado com ID: 4
+[2025-06-29 16:08:28] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:08:28] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:08:28] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:13:20] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:20] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:13:20] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:13:20] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:13:20] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:13:20] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:20] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:13:20] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:20] INFO: Produto criado com ID: 4
+[2025-06-29 16:13:20] INFO: Produto criado com ID: 4
+[2025-06-29 16:13:20] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:13:21] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:13:21] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:21] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:13:21] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:21] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:13:21] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:13:21] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:13:21] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:13:21] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:21] INFO: Produto criado com ID: 4
+[2025-06-29 16:13:21] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:13:21] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:13:21] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:22] INFO: Produto criado com ID: 4
+[2025-06-29 16:13:22] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:13:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:13:22] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:13:22] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:13:22] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:13:22] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:22] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:13:22] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:13:22] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:13:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:13:22] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:13:22] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:22] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:13:22] INFO: Produto criado com ID: 4
+[2025-06-29 16:13:22] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:13:22] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:13:22] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:13:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:13:22] INFO: Categoria criada com ID: 5
+[2025-06-29 16:13:23] INFO: Produto criado com ID: 5
+[2025-06-29 16:13:22] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:13:23] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:13:23] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:13:24] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:13:24] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:13:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:24] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:13:24] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:13:24] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:13:24] INFO: Produto criado com ID: 4
+[2025-06-29 16:13:24] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:13:24] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:13:24] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:13:24] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:13:24] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:13:24] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:13:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:13:24] INFO: Produto criado com ID: 4
+[2025-06-29 16:13:24] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:13:24] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:13:24] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:13:24] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:19:10] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:19:10] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:19:10] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:10] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:10] INFO: Produto criado com ID: 4
+[2025-06-29 16:19:10] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:10] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:19:11] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:11] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:19:11] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:19:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:19:13] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:19:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:19:13] INFO: Produto criado com ID: 4
+[2025-06-29 16:19:13] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:19:13] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:19:13] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:13] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:19:13] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:19:13] INFO: Produto criado com ID: 4
+[2025-06-29 16:19:13] INFO: Categoria criada com ID: 5
+[2025-06-29 16:19:13] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:19:13] INFO: Produto criado com ID: 5
+[2025-06-29 16:19:13] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:19:13] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:19:13] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:19:13] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:19:13] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:19:13] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:19:13] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:19:13] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:19:13] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:19:13] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:19:13] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:19:13] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:19:13] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:19:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:19:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:19:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:19:13] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:19:13] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:13] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:13] INFO: Produto criado com ID: 4
+[2025-06-29 16:19:13] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:19:13] INFO: Produto criado com ID: 4
+[2025-06-29 16:19:14] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:19:15] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:19:15] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:15] INFO: Produto criado com ID: 4
+[2025-06-29 16:19:15] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:15] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:15] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:19:15] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:19:15] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:19:15] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:19:15] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:15] INFO: Categoria criada com ID: 4
+[2025-06-29 16:19:15] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:19:15] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:19:15] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:19:15] INFO: Produto criado com ID: 4
+[2025-06-29 16:19:15] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:19:15] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:19:15] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:19:15] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:19:15] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:19:15] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:19:15] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:21:08] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:21:08] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:21:08] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:08] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:08] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:21:08] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:21:08] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:08] INFO: Produto criado com ID: 4
+[2025-06-29 16:21:08] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:21:08] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:21:08] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:21:08] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:08] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:08] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:21:08] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:21:08] INFO: Produto criado com ID: 4
+[2025-06-29 16:21:08] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:21:08] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:08] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:21:08] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:21:08] INFO: Produto criado com ID: 4
+[2025-06-29 16:21:08] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:21:08] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:21:09] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:21:09] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:09] INFO: Produto criado com ID: 4
+[2025-06-29 16:21:10] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:21:10] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:21:10] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:10] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:21:10] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:21:10] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:21:10] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:10] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:10] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:10] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:10] INFO: Categoria criada com ID: 4
+[2025-06-29 16:21:10] INFO: Produto criado com ID: 4
+[2025-06-29 16:21:10] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:21:10] INFO: Produto criado com ID: 4
+[2025-06-29 16:21:10] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:21:10] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:21:10] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:21:10] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:21:10] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:21:10] INFO: Produto criado com ID: 4
+[2025-06-29 16:21:10] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:21:10] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:21:10] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:21:10] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:21:10] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:21:10] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:21:10] INFO: Categoria criada com ID: 5
+[2025-06-29 16:21:10] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:21:10] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:21:10] INFO: Produto criado com ID: 5
+[2025-06-29 16:21:10] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:21:10] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:21:10] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:21:11] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:21:11] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:21:11] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:21:11] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:21:11] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:21:11] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:21:11] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:21:11] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:21:11] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:21:11] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:22:17] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:22:17] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:22:17] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:22:17] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:22:17] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:22:17] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:17] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:17] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:17] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:17] INFO: Produto criado com ID: 4
+[2025-06-29 16:22:17] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:17] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:22:17] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:22:17] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:22:17] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:22:17] INFO: Produto criado com ID: 4
+[2025-06-29 16:22:17] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:22:17] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:17] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:22:17] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:22:17] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:22:17] INFO: Produto criado com ID: 4
+[2025-06-29 16:22:17] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:22:18] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:22:18] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:18] INFO: Produto criado com ID: 4
+[2025-06-29 16:22:18] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:22:18] INFO: Categoria criada com ID: 5
+[2025-06-29 16:22:19] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:22:19] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:22:19] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:22:19] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:22:19] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:22:19] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:22:19] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:19] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:22:19] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:22:19] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:19] INFO: Produto criado com ID: 4
+[2025-06-29 16:22:19] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:19] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:19] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:22:19] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:22:20] INFO: Produto criado com ID: 4
+[2025-06-29 16:22:20] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:22:20] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:22:20] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:22:20] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:22:20] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:22:20] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:22:20] INFO: Categoria criada com ID: 5
+[2025-06-29 16:22:20] INFO: Produto criado com ID: 5
+[2025-06-29 16:22:20] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:22:20] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:22:20] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:22:20] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:20] INFO: Categoria criada com ID: 4
+[2025-06-29 16:22:20] INFO: Produto criado com ID: 4
+[2025-06-29 16:22:20] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:22:20] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:22:20] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:22:20] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:22:20] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:22:20] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:22:20] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:22:20] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:22:20] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:22:20] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:22:20] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:22:21] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:22:21] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:25:28] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:28] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:25:28] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:25:28] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:25:28] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:25:28] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:28] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:25:30] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:25:30] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:25:30] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:25:30] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:25:30] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:25:30] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:30] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:30] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:30] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:30] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:30] INFO: Produto criado com ID: 4
+[2025-06-29 16:25:30] INFO: Produto criado com ID: 4
+[2025-06-29 16:25:30] INFO: Produto criado com ID: 4
+[2025-06-29 16:25:30] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:25:30] INFO: Produto criado com ID: 4
+[2025-06-29 16:25:30] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:25:30] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:25:30] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:25:30] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:25:30] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:30] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:25:30] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:25:30] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:30] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:25:30] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:25:30] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:25:30] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:25:30] INFO: Produto criado com ID: 4
+[2025-06-29 16:25:30] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:30] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:25:30] INFO: Produto criado com ID: 4
+[2025-06-29 16:25:31] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:25:31] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:25:31] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:25:31] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:25:31] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:25:31] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:25:31] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:25:31] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:25:31] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:25:31] INFO: Categoria criada com ID: 5
+[2025-06-29 16:25:31] INFO: Produto criado com ID: 5
+[2025-06-29 16:25:31] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:25:31] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:25:32] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:25:32] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:25:32] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:25:32] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:25:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:25:32] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:32] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:25:32] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:25:32] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:25:32] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:25:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:25:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:25:32] INFO: Categoria criada com ID: 4
+[2025-06-29 16:25:32] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:25:32] INFO: Produto criado com ID: 4
+[2025-06-29 16:25:32] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:25:32] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:37:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:37:13] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:37:13] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:37:13] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:37:13] INFO: Fornecedor criado com ID: 5
+[2025-06-29 16:37:13] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:13] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:37:13] INFO: Produto criado com ID: 4
+[2025-06-29 16:37:14] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:37:14] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:14] INFO: Produto criado com ID: 4
+[2025-06-29 16:37:14] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:37:14] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:37:14] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:37:14] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:14] INFO: Produto criado com ID: 4
+[2025-06-29 16:37:15] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:37:15] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:37:15] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:37:15] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:37:15] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:15] INFO: Produto criado com ID: 4
+[2025-06-29 16:37:15] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:37:15] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:16] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:37:16] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:37:16] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:37:16] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:37:16] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:16] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:16] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:37:16] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:16] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:37:16] INFO: Produto criado com ID: 4
+[2025-06-29 16:37:16] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:37:16] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:37:16] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:37:16] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:37:16] INFO: Produto criado com ID: 4
+[2025-06-29 16:37:16] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:37:16] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:37:16] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:37:16] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:37:16] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:37:16] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:37:16] INFO: Categoria criada com ID: 5
+[2025-06-29 16:37:16] INFO: Produto criado com ID: 5
+[2025-06-29 16:37:16] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:37:16] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:37:17] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:37:17] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:37:17] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:37:17] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:17] INFO: Produto criado com ID: 4
+[2025-06-29 16:37:17] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:37:17] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:37:17] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:37:17] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:17] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:37:17] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:37:17] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:37:17] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:37:17] INFO: Categoria criada com ID: 4
+[2025-06-29 16:37:17] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:37:17] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:37:17] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:37:17] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:39:22] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:39:22] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:39:22] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:39:22] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:22] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:39:22] INFO: Produto criado com ID: 4
+[2025-06-29 16:39:22] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:39:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:39:22] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:39:22] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:22] INFO: Produto criado com ID: 4
+[2025-06-29 16:39:22] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:39:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:39:23] INFO: Fornecedor criado com ID: 5
+[2025-06-29 16:39:23] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:39:23] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:39:23] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:23] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:23] INFO: Produto criado com ID: 4
+[2025-06-29 16:39:23] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:39:23] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:39:23] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:23] INFO: Produto criado com ID: 4
+[2025-06-29 16:39:23] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:39:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:24] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:39:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:24] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:39:24] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:39:24] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:39:24] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:39:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:24] INFO: Produto criado com ID: 4
+[2025-06-29 16:39:24] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:39:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:39:25] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:25] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:39:25] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:39:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:39:25] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:25] INFO: Produto criado com ID: 4
+[2025-06-29 16:39:25] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:39:25] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:39:25] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:39:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:39:25] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:25] INFO: Produto criado com ID: 4
+[2025-06-29 16:39:25] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:39:25] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:39:25] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:39:25] INFO: Categoria criada com ID: 5
+[2025-06-29 16:39:25] INFO: Produto criado com ID: 5
+[2025-06-29 16:39:25] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:39:25] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:39:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:39:25] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:39:25] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:39:25] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:39:25] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:39:25] INFO: Categoria criada com ID: 4
+[2025-06-29 16:39:25] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:39:25] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:39:25] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:39:25] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:39:25] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:39:25] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:39:26] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:39:26] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:43:39] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:43:39] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:43:39] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:39] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:43:39] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:43:39] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:43:39] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:43:39] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:39] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:39] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:39] INFO: Fornecedor criado com ID: 5
+[2025-06-29 16:43:39] INFO: Produto criado com ID: 4
+[2025-06-29 16:43:39] INFO: Produto criado com ID: 4
+[2025-06-29 16:43:39] INFO: Produto criado com ID: 4
+[2025-06-29 16:43:39] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:43:39] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:43:39] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:43:39] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:43:39] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:39] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:43:39] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:43:39] ERROR: UpdateFuncionarioProvider falhou em atualizar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:43:39] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:39] INFO: Produto criado com ID: 4
+[2025-06-29 16:43:40] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:40] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:43:41] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:43:41] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:43:41] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:43:41] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:41] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:43:41] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:43:41] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:43:41] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:41] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:43:41] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:43:41] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:43:41] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:43:41] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:43:41] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:43:41] INFO: Produto criado com ID: 4
+[2025-06-29 16:43:41] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:43:41] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:43:41] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:41] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:41] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:43:41] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:41] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:43:41] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:43:41] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:43:41] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:43:41] INFO: Produto criado com ID: 4
+[2025-06-29 16:43:41] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:43:41] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:43:41] INFO: Produto criado com ID: 4
+[2025-06-29 16:43:41] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:43:41] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:43:41] INFO: Categoria criada com ID: 5
+[2025-06-29 16:43:41] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:43:41] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:43:41] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:43:41] INFO: Produto criado com ID: 5
+[2025-06-29 16:43:41] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:43:41] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:43:41] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:43:41] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:43:41] INFO: Categoria criada com ID: 4
+[2025-06-29 16:43:42] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:43:42] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:45:48] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:45:48] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:45:48] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:45:48] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:48] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:48] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:45:48] INFO: Produto criado com ID: 4
+[2025-06-29 16:45:48] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:45:48] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:48] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:45:48] INFO: Produto criado com ID: 4
+[2025-06-29 16:45:48] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:45:49] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:45:49] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:49] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:45:49] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:45:49] INFO: Fornecedor criado com ID: 5
+[2025-06-29 16:45:49] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:49] INFO: Produto criado com ID: 4
+[2025-06-29 16:45:49] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:49] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:45:49] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:49] INFO: Produto criado com ID: 4
+[2025-06-29 16:45:49] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:45:50] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:45:50] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 16:45:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:45:51] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:51] INFO: Produto criado com ID: 4
+[2025-06-29 16:45:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:45:51] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:45:51] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:45:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:45:51] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:45:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:45:51] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:51] INFO: Categoria criada com ID: 5
+[2025-06-29 16:45:51] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:45:51] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:51] INFO: Produto criado com ID: 4
+[2025-06-29 16:45:51] INFO: Produto criado com ID: 5
+[2025-06-29 16:45:51] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:45:51] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:45:51] INFO: Produto criado com ID: 4
+[2025-06-29 16:45:51] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:45:51] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:45:51] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:45:51] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:45:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:45:51] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:51] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:45:51] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:45:51] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:51] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:45:51] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:45:51] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:45:51] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:45:51] INFO: Categoria criada com ID: 4
+[2025-06-29 16:45:51] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:45:52] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:45:52] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:45:52] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:45:52] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:45:52] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:45:52] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:45:52] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:45:52] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:45:52] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:45:52] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:47:31] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:47:31] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:47:31] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:47:31] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:31] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:31] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:47:31] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:47:31] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:47:31] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:47:31] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:47:31] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:31] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:31] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:31] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:31] INFO: Fornecedor criado com ID: 5
+[2025-06-29 16:47:31] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 16:47:31] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:47:31] INFO: Produto criado com ID: 4
+[2025-06-29 16:47:31] INFO: Produto criado com ID: 4
+[2025-06-29 16:47:31] INFO: Produto criado com ID: 4
+[2025-06-29 16:47:31] INFO: Produto criado com ID: 4
+[2025-06-29 16:47:31] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:47:31] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:47:31] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:47:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:47:32] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:33] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:33] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:33] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:47:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:47:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:47:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:47:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:47:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:47:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:47:33] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:33] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:33] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:33] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:47:33] INFO: Categoria criada com ID: 4
+[2025-06-29 16:47:33] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:47:33] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:47:33] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:47:33] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:47:33] INFO: Produto criado com ID: 4
+[2025-06-29 16:47:33] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:47:33] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:47:33] INFO: Produto criado com ID: 4
+[2025-06-29 16:47:33] INFO: Produto criado com ID: 4
+[2025-06-29 16:47:33] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:47:33] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:47:33] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:47:33] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:47:33] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:47:33] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:47:33] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:47:33] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:47:33] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:47:33] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:47:33] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:47:33] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:47:33] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:47:33] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:47:33] INFO: Categoria criada com ID: 5
+[2025-06-29 16:47:33] INFO: Produto criado com ID: 5
+[2025-06-29 16:47:33] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:47:33] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:47:34] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:47:34] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:48:43] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:48:43] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:48:43] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:48:43] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 16:48:43] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:48:43] INFO: Fornecedor criado com ID: 5
+[2025-06-29 16:48:43] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:43] INFO: Produto criado com ID: 4
+[2025-06-29 16:48:43] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:45] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:48:45] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:48:45] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:48:45] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:45] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:48:45] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:45] INFO: Produto criado com ID: 4
+[2025-06-29 16:48:45] INFO: Produto criado com ID: 4
+[2025-06-29 16:48:45] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:48:45] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:48:45] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:48:45] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:48:45] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:48:45] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:45] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:48:45] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:48:45] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:48:46] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:46] INFO: Produto criado com ID: 4
+[2025-06-29 16:48:46] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:48:46] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:48:46] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:48:46] INFO: Categoria criada com ID: 5
+[2025-06-29 16:48:46] INFO: Produto criado com ID: 5
+[2025-06-29 16:48:46] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:48:46] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:48:47] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:48:47] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:48:47] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:48:47] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:48:47] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:48:47] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:47] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:48:47] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:48:47] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:48:47] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:48:47] INFO: Produto criado com ID: 4
+[2025-06-29 16:48:47] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:48:47] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:47] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:47] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:47] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:48:47] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:48:47] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:48:47] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:48:47] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:48:47] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:48:47] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:48:47] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:48:47] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:47] INFO: Produto criado com ID: 4
+[2025-06-29 16:48:47] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:48:47] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:47] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:48:48] INFO: Produto criado com ID: 4
+[2025-06-29 16:48:48] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:48:48] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:48:48] INFO: Categoria criada com ID: 4
+[2025-06-29 16:48:49] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:48:49] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:50:40] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:50:41] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:50:40] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:50:41] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:50:41] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:50:41] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:41] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:41] INFO: Fornecedor criado com ID: 5
+[2025-06-29 16:50:41] INFO: Produto criado com ID: 4
+[2025-06-29 16:50:41] INFO: Produto criado com ID: 4
+[2025-06-29 16:50:41] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:50:41] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:50:42] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:50:42] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:42] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:42] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:50:42] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:42] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:50:42] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:50:42] INFO: Produto criado com ID: 4
+[2025-06-29 16:50:42] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:42] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:50:42] INFO: Produto criado com ID: 4
+[2025-06-29 16:50:42] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 16:50:43] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:50:43] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:50:43] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:50:43] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:50:43] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:50:43] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:43] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:43] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:43] INFO: Produto criado com ID: 4
+[2025-06-29 16:50:43] INFO: Produto criado com ID: 4
+[2025-06-29 16:50:43] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:50:43] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:50:43] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:50:43] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:50:43] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:50:43] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:50:43] INFO: Categoria criada com ID: 5
+[2025-06-29 16:50:43] INFO: Produto criado com ID: 5
+[2025-06-29 16:50:43] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:50:43] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:50:43] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:50:43] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:50:43] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:50:43] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:44] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:50:44] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:50:44] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:50:44] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:50:44] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:50:44] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:50:44] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:44] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:44] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:50:44] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:50:44] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:50:44] INFO: Produto criado com ID: 4
+[2025-06-29 16:50:44] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:50:44] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:50:44] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:50:44] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:50:44] INFO: Categoria criada com ID: 4
+[2025-06-29 16:50:44] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:50:44] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:50:44] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:50:44] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:54:16] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:54:17] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:17] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:17] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:17] INFO: Fornecedor criado com ID: 5
+[2025-06-29 16:54:17] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:17] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 16:54:17] INFO: Produto criado com ID: 4
+[2025-06-29 16:54:17] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:54:18] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:18] INFO: Fornecedor deletado com id 4 sucesso
+[2025-06-29 16:54:18] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:18] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:18] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:54:18] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:18] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:18] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:18] INFO: Produto criado com ID: 4
+[2025-06-29 16:54:18] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:54:18] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:18] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:18] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:18] INFO: Produto criado com ID: 4
+[2025-06-29 16:54:18] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:18] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:54:18] INFO: Produto criado com ID: 4
+[2025-06-29 16:54:18] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:54:19] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:19] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:19] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:19] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:19] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:54:19] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:54:19] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:19] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:19] INFO: Produto criado com ID: 4
+[2025-06-29 16:54:19] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:54:19] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:54:19] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:19] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:54:19] INFO: Produto criado com ID: 4
+[2025-06-29 16:54:19] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:54:19] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:54:19] INFO: Categoria criada com ID: 5
+[2025-06-29 16:54:19] INFO: Produto criado com ID: 5
+[2025-06-29 16:54:19] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:54:19] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:54:20] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:54:20] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:54:20] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:20] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:20] INFO: Produto criado com ID: 4
+[2025-06-29 16:54:20] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:54:20] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:54:20] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:54:20] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:54:20] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:54:20] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:54:20] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:20] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:54:20] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:54:20] INFO: Categoria criada com ID: 4
+[2025-06-29 16:54:20] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:54:20] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:54:20] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:54:21] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:54:21] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:54:21] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:54:21] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:54:21] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:57:24] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:57:24] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:24] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:24] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:24] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:24] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:24] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:24] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:57:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:24] INFO: Fornecedor deletado com id 4 sucesso
+[2025-06-29 16:57:24] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:57:24] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:24] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 16:57:24] INFO: Produto criado com ID: 4
+[2025-06-29 16:57:24] INFO: Fornecedor criado com ID: 5
+[2025-06-29 16:57:24] INFO: Produto criado com ID: 4
+[2025-06-29 16:57:24] INFO: Produto criado com ID: 4
+[2025-06-29 16:57:24] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:57:24] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:57:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:25] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:26] INFO: Produto criado com ID: 4
+[2025-06-29 16:57:26] ERROR: DeleteProdutoProvider falhou ao tentar deletar categoria: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:57:27] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:27] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:27] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:27] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:27] INFO: Produto criado com ID: 4
+[2025-06-29 16:57:27] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:27] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:57:27] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:57:27] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:57:27] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:57:27] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:27] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:57:27] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:57:27] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:57:27] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:57:27] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:57:27] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:57:27] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:57:27] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:57:27] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:27] INFO: Produto criado com ID: 4
+[2025-06-29 16:57:27] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:57:27] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:27] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:57:27] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:27] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:57:27] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:57:27] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:57:27] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:57:27] INFO: Produto criado com ID: 4
+[2025-06-29 16:57:27] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:27] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:57:27] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:57:27] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:57:27] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:57:27] INFO: Categoria criada com ID: 5
+[2025-06-29 16:57:27] INFO: Produto criado com ID: 5
+[2025-06-29 16:57:27] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:57:27] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:57:28] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:57:28] INFO: Categoria criada com ID: 4
+[2025-06-29 16:57:28] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:57:28] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 16:59:01] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:59:01] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:01] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:01] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:01] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:01] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:01] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:01] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:59:01] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:01] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:01] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:01] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:01] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 16:59:01] INFO: Fornecedor deletado com id 4 sucesso
+[2025-06-29 16:59:01] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 16:59:01] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:01] INFO: Fornecedor criado com ID: 5
+[2025-06-29 16:59:01] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:01] INFO: Produto criado com ID: 4
+[2025-06-29 16:59:01] INFO: Produto criado com ID: 4
+[2025-06-29 16:59:01] INFO: Produto criado com ID: 4
+[2025-06-29 16:59:01] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 16:59:01] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:59:02] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:02] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:02] INFO: Produto criado com ID: 4
+[2025-06-29 16:59:02] INFO: Produto deletado com id 4 sucesso
+[2025-06-29 16:59:03] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:59:03] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:59:03] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 16:59:03] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:03] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:59:03] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:03] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:59:03] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:03] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:59:03] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:03] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 16:59:03] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:03] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:59:03] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:03] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:59:03] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:59:03] INFO: Produto criado com ID: 4
+[2025-06-29 16:59:03] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:03] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 16:59:03] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 16:59:03] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:03] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:03] INFO: Produto criado com ID: 4
+[2025-06-29 16:59:03] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:03] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 16:59:03] INFO: Funcionario criado com ID: 4
+[2025-06-29 16:59:03] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:59:03] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:59:03] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 16:59:03] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:59:03] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 16:59:03] INFO: Produto criado com ID: 4
+[2025-06-29 16:59:03] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 16:59:03] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 16:59:03] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 16:59:03] INFO: Categoria criada com ID: 5
+[2025-06-29 16:59:03] INFO: Produto criado com ID: 5
+[2025-06-29 16:59:03] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 16:59:04] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 16:59:04] INFO: Fornecedor criado com ID: 4
+[2025-06-29 16:59:04] INFO: Categoria criada com ID: 4
+[2025-06-29 16:59:04] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 16:59:04] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 17:00:44] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:44] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:44] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:44] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:44] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:44] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:44] INFO: Produto criado com ID: 4
+[2025-06-29 17:00:44] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:00:44] INFO: Produto criado com ID: 4
+[2025-06-29 17:00:44] INFO: Fornecedor deletado com id 4 sucesso
+[2025-06-29 17:00:44] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 17:00:45] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:45] INFO: Fornecedor criado com ID: 5
+[2025-06-29 17:00:46] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:00:46] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:46] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 17:00:46] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:46] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:46] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:46] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:46] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 17:00:46] INFO: Produto criado com ID: 4
+[2025-06-29 17:00:46] INFO: Produto deletado com id 4 sucesso
+[2025-06-29 17:00:46] INFO: Produto criado com ID: 4
+[2025-06-29 17:00:47] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:00:47] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:47] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:47] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 17:00:47] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:00:47] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 17:00:47] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:47] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:47] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:47] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:47] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:47] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:47] INFO: Produto criado com ID: 4
+[2025-06-29 17:00:47] INFO: Produto criado com ID: 4
+[2025-06-29 17:00:47] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:00:47] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 17:00:47] INFO: Produto criado com ID: 4
+[2025-06-29 17:00:47] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:00:47] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:00:47] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:00:47] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 17:00:47] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:00:47] INFO: Categoria criada com ID: 5
+[2025-06-29 17:00:47] INFO: Produto criado com ID: 5
+[2025-06-29 17:00:47] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:00:47] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 17:00:48] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:48] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:48] INFO: Produto criado com ID: 4
+[2025-06-29 17:00:48] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:00:48] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:00:48] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 17:00:48] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:00:48] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:00:48] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 17:00:48] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:00:48] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:00:48] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:00:48] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:48] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:00:48] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:00:48] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 17:00:48] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:00:48] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:48] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:00:48] INFO: Categoria criada com ID: 4
+[2025-06-29 17:00:48] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 17:00:48] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 17:02:32] INFO: Categoria criada com ID: 4
+[2025-06-29 17:02:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:32] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 17:02:33] INFO: Categoria criada com ID: 4
+[2025-06-29 17:02:33] INFO: Fornecedor deletado com id 4 sucesso
+[2025-06-29 17:02:33] INFO: Produto criado com ID: 4
+[2025-06-29 17:02:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:33] INFO: Fornecedor criado com ID: 5
+[2025-06-29 17:02:33] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:02:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:33] INFO: Categoria criada com ID: 4
+[2025-06-29 17:02:33] INFO: Produto criado com ID: 4
+[2025-06-29 17:02:33] INFO: Produto deletado com id 4 sucesso
+[2025-06-29 17:02:33] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:02:33] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 17:02:33] INFO: Categoria criada com ID: 4
+[2025-06-29 17:02:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:33] INFO: Categoria criada com ID: 4
+[2025-06-29 17:02:34] INFO: Produto criado com ID: 4
+[2025-06-29 17:02:34] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:02:34] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:34] INFO: Categoria criada com ID: 4
+[2025-06-29 17:02:34] INFO: Produto criado com ID: 4
+[2025-06-29 17:02:34] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:02:34] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:34] INFO: Categoria criada com ID: 4
+[2025-06-29 17:02:34] INFO: Produto criado com ID: 4
+[2025-06-29 17:02:34] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 17:02:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:35] INFO: Categoria criada com ID: 4
+[2025-06-29 17:02:35] INFO: Categoria criada com ID: 4
+[2025-06-29 17:02:35] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 17:02:35] INFO: Categoria criada com ID: 4
+[2025-06-29 17:02:35] INFO: Produto criado com ID: 4
+[2025-06-29 17:02:35] INFO: Produto criado com ID: 4
+[2025-06-29 17:02:35] INFO: Produto criado com ID: 4
+[2025-06-29 17:02:35] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:02:35] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:02:35] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 17:02:35] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:02:35] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:02:35] INFO: Categoria criada com ID: 5
+[2025-06-29 17:02:35] INFO: Produto criado com ID: 5
+[2025-06-29 17:02:35] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 17:02:35] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:02:35] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:02:35] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 17:02:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:35] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 17:02:35] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:02:35] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:02:35] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 17:02:35] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:02:35] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 17:02:36] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:02:36] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:02:36] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:02:36] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:02:36] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:02:36] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:02:36] INFO: Categoria criada com ID: 4
+[2025-06-29 17:02:36] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 17:02:36] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:02:36] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:02:36] INFO: Categoria criada com ID: 4
+[2025-06-29 17:02:36] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 17:02:36] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 17:02:36] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:11] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:04:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:11] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:11] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:11] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:11] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:11] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:11] INFO: Fornecedor deletado com id 4 sucesso
+[2025-06-29 17:04:11] INFO: Fornecedor criado com ID: 5
+[2025-06-29 17:04:11] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 17:04:11] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:11] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:11] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:11] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:04:11] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:11] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:11] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:11] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:11] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 17:04:11] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:11] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:04:11] INFO: Produto deletado com id 4 sucesso
+[2025-06-29 17:04:11] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:04:11] INFO: Categoria com id 1 atualizada com sucesso
+[2025-06-29 17:04:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:13] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:13] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 17:04:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:13] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:13] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:04:13] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:13] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 17:04:13] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:13] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:04:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:13] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 17:04:13] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:04:13] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:04:13] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:13] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 17:04:13] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:04:13] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:04:13] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:13] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:04:13] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:13] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 17:04:13] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 17:04:13] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:04:13] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:04:13] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:04:13] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:13] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:04:13] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:04:13] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:13] INFO: Categoria criada com ID: 5
+[2025-06-29 17:04:13] INFO: Produto criado com ID: 5
+[2025-06-29 17:04:13] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:04:13] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 17:04:13] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:04:13] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 17:04:13] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:13] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:13] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 17:04:13] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 17:04:14] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:52] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:04:52] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:52] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:52] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:52] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:52] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:04:52] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:52] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:52] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:52] INFO: Fornecedor deletado com id 4 sucesso
+[2025-06-29 17:04:52] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:52] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:52] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:52] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 17:04:52] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:52] INFO: Produto deletado com id 4 sucesso
+[2025-06-29 17:04:52] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:52] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:52] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:52] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:04:52] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:52] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:52] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:52] INFO: Fornecedor criado com ID: 5
+[2025-06-29 17:04:52] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:52] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:04:52] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:52] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 17:04:55] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:55] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:55] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:04:55] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:04:55] INFO: Categoria criada com ID: 4
+[2025-06-29 17:04:55] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:55] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:55] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:55] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:55] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:55] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:04:55] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:55] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:55] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 17:04:55] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 17:04:55] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 17:04:55] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:55] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:55] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:55] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:04:55] INFO: Produto criado com ID: 4
+[2025-06-29 17:04:55] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 17:04:55] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:04:55] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:04:55] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:04:55] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:04:55] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 17:04:55] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:04:55] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:04:55] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 17:04:55] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 17:04:55] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:55] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 17:04:55] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:04:55] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:04:55] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:04:55] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:55] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:04:55] INFO: Produto criado com ID: 5
+[2025-06-29 17:04:55] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:04:55] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 17:06:57] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:06:57] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:06:57] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:06:57] INFO: Fornecedor criado com ID: 5
+[2025-06-29 17:06:57] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 17:06:57] INFO: Categoria criada com ID: 4
+[2025-06-29 17:06:57] INFO: Produto criado com ID: 4
+[2025-06-29 17:06:57] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:06:57] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:06:57] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:06:57] INFO: Produto criado com ID: 4
+[2025-06-29 17:06:57] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 17:06:57] INFO: Categoria criada com ID: 4
+[2025-06-29 17:06:59] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:06:59] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:06:59] INFO: Fornecedor deletado com id 4 sucesso
+[2025-06-29 17:06:59] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:06:59] INFO: Produto criado com ID: 4
+[2025-06-29 17:06:59] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:06:59] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:06:59] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:06:59] INFO: Produto criado com ID: 4
+[2025-06-29 17:06:59] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:06:59] INFO: Categoria criada com ID: 4
+[2025-06-29 17:06:59] INFO: Produto criado com ID: 4
+[2025-06-29 17:06:59] INFO: Produto deletado com id 4 sucesso
+[2025-06-29 17:06:59] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:06:59] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:06:59] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:06:59] INFO: Produto criado com ID: 4
+[2025-06-29 17:07:00] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:07:00] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:07:00] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:07:00] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:07:00] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:07:00] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:07:00] INFO: Produto criado com ID: 4
+[2025-06-29 17:07:00] INFO: Produto criado com ID: 5
+[2025-06-29 17:07:00] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:07:00] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 17:07:00] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 17:07:00] INFO: Categoria criada com ID: 4
+[2025-06-29 17:07:00] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:07:00] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 17:07:00] INFO: Categoria criada com ID: 4
+[2025-06-29 17:07:00] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 17:07:00] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:07:01] INFO: Categoria criada com ID: 4
+[2025-06-29 17:07:01] INFO: Categoria com id 4 atualizada com sucesso
+[2025-06-29 17:07:01] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:07:01] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:07:01] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 17:07:01] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 17:07:01] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:07:01] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:07:01] INFO: Produto criado com ID: 4
+[2025-06-29 17:07:01] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:07:01] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:07:01] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:07:01] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:07:01] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 17:07:01] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 17:07:02] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:07:02] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:07:02] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:07:02] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:07:02] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:07:02] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:07:02] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:07:02] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:07:02] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 17:07:02] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 17:08:22] INFO: Categoria criada com ID: 4
+[2025-06-29 17:08:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:22] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:08:22] INFO: Fornecedor criado com ID: 5
+[2025-06-29 17:08:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:22] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 17:08:22] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:08:22] INFO: Categoria criada com ID: 4
+[2025-06-29 17:08:22] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:08:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:22] INFO: Produto criado com ID: 4
+[2025-06-29 17:08:22] INFO: Fornecedor deletado com id 4 sucesso
+[2025-06-29 17:08:22] INFO: Produto criado com ID: 4
+[2025-06-29 17:08:22] INFO: Categoria criada com ID: 4
+[2025-06-29 17:08:22] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 17:08:22] INFO: Categoria criada com ID: 4
+[2025-06-29 17:08:22] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:08:22] INFO: Produto criado com ID: 4
+[2025-06-29 17:08:22] INFO: Produto criado com ID: 4
+[2025-06-29 17:08:22] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:08:22] INFO: Produto deletado com id 4 sucesso
+[2025-06-29 17:08:22] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:08:22] INFO: Categoria com id 4 atualizada com sucesso
+[2025-06-29 17:08:22] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:22] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:08:22] INFO: Produto criado com ID: 4
+[2025-06-29 17:08:22] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 17:08:23] INFO: Categoria criada com ID: 4
+[2025-06-29 17:08:25] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:08:25] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 17:08:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:25] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 17:08:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:25] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:08:25] INFO: Produto criado com ID: 4
+[2025-06-29 17:08:25] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:08:25] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:08:25] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:08:25] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:08:25] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:08:25] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 17:08:25] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:08:25] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:08:25] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:08:25] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:08:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:25] INFO: Categoria criada com ID: 4
+[2025-06-29 17:08:25] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:08:25] INFO: Produto criado com ID: 4
+[2025-06-29 17:08:25] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:08:25] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:08:25] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:08:25] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:08:25] INFO: Produto criado com ID: 5
+[2025-06-29 17:08:25] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:08:25] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 17:08:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:25] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:08:25] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 17:08:25] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 17:08:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:25] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:08:25] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:08:25] INFO: Produto criado com ID: 4
+[2025-06-29 17:08:25] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 17:08:25] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 17:08:25] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:08:25] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 17:08:25] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:10:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:32] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:10:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:32] INFO: Produto criado com ID: 4
+[2025-06-29 17:10:32] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:10:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:32] INFO: Categoria criada com ID: 4
+[2025-06-29 17:10:32] INFO: Produto criado com ID: 4
+[2025-06-29 17:10:32] INFO: Categoria criada com ID: 4
+[2025-06-29 17:10:32] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 17:10:32] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 17:10:32] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:10:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:32] INFO: Produto criado com ID: 4
+[2025-06-29 17:10:32] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:32] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:10:32] INFO: Fornecedor deletado com id 4 sucesso
+[2025-06-29 17:10:32] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:10:33] INFO: Produto criado com ID: 4
+[2025-06-29 17:10:33] INFO: Categoria criada com ID: 4
+[2025-06-29 17:10:33] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:10:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:33] INFO: Categoria com id 4 atualizada com sucesso
+[2025-06-29 17:10:33] INFO: Categoria criada com ID: 4
+[2025-06-29 17:10:33] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:10:33] INFO: Produto criado com ID: 4
+[2025-06-29 17:10:33] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 17:10:33] INFO: Produto deletado com id 4 sucesso
+[2025-06-29 17:10:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:33] INFO: Fornecedor criado com ID: 5
+[2025-06-29 17:10:34] INFO: Categoria criada com ID: 4
+[2025-06-29 17:10:37] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:37] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:10:37] INFO: Produto criado com ID: 4
+[2025-06-29 17:10:37] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:10:37] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:10:37] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:10:37] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:10:37] INFO: Produto criado com ID: 5
+[2025-06-29 17:10:37] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:10:37] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 17:10:37] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:10:37] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 17:10:37] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:37] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:10:37] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:10:37] INFO: Categoria criada com ID: 4
+[2025-06-29 17:10:37] INFO: Produto criado com ID: 4
+[2025-06-29 17:10:37] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 17:10:37] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 17:10:37] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:37] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:37] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:10:37] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:10:37] INFO: Produto criado com ID: 4
+[2025-06-29 17:10:37] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:10:37] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 17:10:37] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 17:10:37] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 17:10:37] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:10:37] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:10:37] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:38] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 17:10:38] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:10:38] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:10:38] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:10:38] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:10:38] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:10:38] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:10:39] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:10:39] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 17:10:39] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:11:43] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:43] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:43] INFO: Categoria criada com ID: 4
+[2025-06-29 17:11:43] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:43] INFO: Categoria criada com ID: 4
+[2025-06-29 17:11:43] INFO: Categoria criada com ID: 4
+[2025-06-29 17:11:44] INFO: Fornecedor criado com ID: 5
+[2025-06-29 17:11:43] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:44] INFO: Categoria criada com ID: 4
+[2025-06-29 17:11:44] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:11:44] INFO: Categoria com id 4 atualizada com sucesso
+[2025-06-29 17:11:44] INFO: Fornecedor deletado com id 4 sucesso
+[2025-06-29 17:11:44] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 17:11:44] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:44] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:11:44] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:44] INFO: Produto criado com ID: 4
+[2025-06-29 17:11:44] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:11:44] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:44] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 17:11:44] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:11:44] INFO: Produto criado com ID: 4
+[2025-06-29 17:11:44] INFO: Categoria criada com ID: 4
+[2025-06-29 17:11:44] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:11:44] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:11:44] INFO: Produto criado com ID: 4
+[2025-06-29 17:11:44] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 17:11:44] INFO: Produto criado com ID: 4
+[2025-06-29 17:11:44] INFO: Produto criado com ID: 4
+[2025-06-29 17:11:44] INFO: Produto deletado com id 4 sucesso
+[2025-06-29 17:11:44] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:11:46] INFO: Categoria criada com ID: 4
+[2025-06-29 17:11:46] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:46] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:46] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:11:46] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:46] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:46] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:11:46] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:46] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:11:46] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:11:46] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:11:46] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:11:46] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:11:46] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:11:46] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 17:11:46] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 17:11:46] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 17:11:46] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:11:46] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:11:46] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 17:11:46] INFO: Produto criado com ID: 4
+[2025-06-29 17:11:46] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:11:46] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:11:46] INFO: Produto criado com ID: 4
+[2025-06-29 17:11:46] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:11:46] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:11:46] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 17:11:46] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:11:46] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:11:46] INFO: Produto criado com ID: 4
+[2025-06-29 17:11:46] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:11:46] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:11:46] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 17:11:46] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 17:11:46] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:11:46] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 17:11:46] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:11:46] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:11:46] INFO: Produto criado com ID: 5
+[2025-06-29 17:11:46] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:11:46] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 17:13:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:33] INFO: Categoria criada com ID: 4
+[2025-06-29 17:13:33] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:13:33] INFO: Categoria criada com ID: 4
+[2025-06-29 17:13:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:33] INFO: Produto criado com ID: 4
+[2025-06-29 17:13:33] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:13:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:33] INFO: Categoria criada com ID: 4
+[2025-06-29 17:13:33] INFO: Funcionario com id 4 atualizada com sucesso
+[2025-06-29 17:13:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:33] INFO: Categoria com id 4 atualizada com sucesso
+[2025-06-29 17:13:33] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:13:33] INFO: Produto criado com ID: 4
+[2025-06-29 17:13:33] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:13:33] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:13:33] INFO: Fornecedor criado com ID: 5
+[2025-06-29 17:13:33] INFO: Fornecedor deletado com id 4 sucesso
+[2025-06-29 17:13:33] INFO: Produto criado com ID: 4
+[2025-06-29 17:13:33] INFO: GetCategoriaProvider executado com sucesso.
+[2025-06-29 17:13:33] INFO: Categoria criada com ID: 4
+[2025-06-29 17:13:33] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:33] INFO: [Categoria] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:13:33] INFO: Produto com id 1 atualizada com sucesso
+[2025-06-29 17:13:33] INFO: Produto criado com ID: 4
+[2025-06-29 17:13:33] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:13:33] INFO: Produto deletado com id 4 sucesso
+[2025-06-29 17:13:33] INFO: Produto criado com ID: 4
+[2025-06-29 17:13:34] INFO: Categoria criada com ID: 4
+[2025-06-29 17:13:34] INFO: Categoria deletada com id 4 sucesso
+[2025-06-29 17:13:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:35] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:13:35] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:13:35] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:13:35] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:35] INFO: Produto criado com ID: 4
+[2025-06-29 17:13:35] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:13:35] INFO: Produto criado com ID: 4
+[2025-06-29 17:13:35] INFO: GetProdutoByIdProvider executado com sucesso.
+[2025-06-29 17:13:35] INFO: EntradaEstoque criada com ID: 4
+[2025-06-29 17:13:36] INFO: GetEntradaProvider executado com sucesso.
+[2025-06-29 17:13:36] INFO: Produto criado com ID: 4
+[2025-06-29 17:13:35] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:13:36] INFO: [EntradaEstoque] Count executado com sucesso. Total encontrado: 3
+[2025-06-29 17:13:36] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:13:36] INFO: GetSaidaProvider executado com sucesso.
+[2025-06-29 17:13:36] INFO: [SaidaEstoque] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:13:36] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:36] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:13:36] INFO: [Produto] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:13:36] ERROR: Erro em CreateFornecedorProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:13:36] INFO: Fornecedor com id 1 atualizada com sucesso
+[2025-06-29 17:13:36] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:13:36] INFO: GetFuncionarioByIdProvider executado com sucesso.
+[2025-06-29 17:13:36] ERROR: Erro em CreateCategoriaProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:13:36] INFO: Funcionario criado com ID: 4
+[2025-06-29 17:13:36] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:13:36] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:13:36] INFO: Funcionario deletado com id 1 sucesso
+[2025-06-29 17:13:36] ERROR: Erro em CreateFuncionarioProvider: {"errno":19,"code":"SQLITE_CONSTRAINT"}
+[2025-06-29 17:13:36] INFO: Produto criado com ID: 5
+[2025-06-29 17:13:36] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:13:36] INFO: [Produto] Count executado com sucesso. Total encontrado: 5
+[2025-06-29 17:13:36] INFO: Categoria criada com ID: 4
+[2025-06-29 17:13:36] INFO: GetFuncionarioProvider executado com sucesso.
+[2025-06-29 17:13:36] INFO: [Funcionario] Count executado com sucesso. Total encontrado: 4
+[2025-06-29 17:13:36] INFO: Fornecedor criado com ID: 4
+[2025-06-29 17:13:36] INFO: GetFornecedorProvider executado com sucesso.
+[2025-06-29 17:13:36] INFO: [Fornecedor] Count executado com sucesso. Total encontrado: 4

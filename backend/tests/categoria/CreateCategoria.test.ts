@@ -4,7 +4,7 @@ import { serverTest } from "../jest.setup";
 describe("CategoriaController - Create ", () => {
   describe("Criação válida", () => {
     it("Deve criar uma categoria com nome válido", async () => {
-      const categoriaValida = { nome: "Medicamentos" };
+      const categoriaValida = { nome: "Perfumaria" };
 
       const response = await serverTest
         .post("/categorias")

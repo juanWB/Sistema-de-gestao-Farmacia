@@ -22,18 +22,16 @@ export const deleteCategoriaValidation = validation((getSchema) => ({
 }));
 
 export const DeleteCategoria = async (req: Request<IParamProps>, res: Response) => {
-  const {id} = req.params
-
-  if(!id){
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+  if(!req.params.id){
+      res.status(StatusCodes.BAD_REQUEST).json({
       errors:{
         default: 'O id é um parametro obrigatório.'
       }
     })
-    return
+    return;
   }
 
-  const result = await CategoriaProvider.DeleteCategoriaProvider(id);
+  const result = await CategoriaProvider.DeleteCategoriaProvider(req.params.id);
 
   if(result instanceof Error){
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
@@ -41,8 +39,10 @@ export const DeleteCategoria = async (req: Request<IParamProps>, res: Response) 
         default: result.message
       }
     })
+    return;
   }
 
-  res.status(StatusCodes.NO_CONTENT).json(result);
+
+  res.status(StatusCodes.NO_CONTENT).send();
   return;
 };

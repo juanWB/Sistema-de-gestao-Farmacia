@@ -4,16 +4,14 @@ import { serverTest } from "../jest.setup";
 describe("Categorias - Update", () => {
   describe("Atualização válida", () => {
     it("Atualiza uma categoria com parametros corretos", async () => {
-      const categoriaValida = { nome: "Medicamentos" };
-
-      const response = await serverTest
+      const responseCategoria = await serverTest
         .post("/categorias")
-        .send(categoriaValida);
+        .send({ nome: "Perfumaria" });
 
-      expect(response.statusCode).toEqual(StatusCodes.CREATED);
+      expect(responseCategoria.statusCode).toEqual(StatusCodes.CREATED);
       
-      const res = await serverTest.put("/categorias/1").send({
-        nome: "Medicamento",
+      const res = await serverTest.put(`/categorias/${responseCategoria.body}`).send({
+        nome: "Higiene",
       });
 
       expect(res.statusCode).toEqual(StatusCodes.NO_CONTENT);

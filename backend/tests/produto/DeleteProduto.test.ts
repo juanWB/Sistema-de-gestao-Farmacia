@@ -4,35 +4,31 @@ import { serverTest } from "../jest.setup";
 describe("ProdutoController - Delete", () => {
   describe("Deleção válida", () => {
     it("Deve retornar 204 ao deletar categoria existente", async () => {
-      const fornecedor = {
+      const responseFornecedor = await serverTest.post("/fornecedor").send({
         nome: "Atacamax",
         cnpj: "12.345.678/9123-45",
         telefone: "(81) - 998837891",
         endereco: "Rua Major",
-      };
+      });
 
-      const response1 = await serverTest.post("/fornecedor").send(fornecedor);
-
-      const categoriaValida = { nome: "Medicamentos" };
-
-      const response2 = await serverTest
+      const responseCategoria = await serverTest
         .post("/categorias")
-        .send(categoriaValida);
+        .send({ nome: "Perfumaria" });
 
-      const produtoValido = {
-        nome: "Sabonete",
-        preco: "1.99",
-        validade: "2025-01-01",
-        quantidade: "100",
-        categoria_id: 1,
-        fornecedor_id: 1,
-      };
+      const responseProduto = await serverTest
+        .post("/produto")
+        .send({
+          nome: "Sabonete",
+          preco: "1.99",
+          validade: "2025-01-01",
+          quantidade: "100",
+          categoria_id: responseCategoria.body,
+          fornecedor_id: responseFornecedor.body,
+        });
 
-      const res = await serverTest.post("/produto").send(produtoValido);
+      expect(responseProduto.statusCode).toEqual(StatusCodes.CREATED);
 
-      expect(res.statusCode).toEqual(StatusCodes.CREATED);
-
-      const response = await serverTest.delete(`/produto/1`);
+      const response = await serverTest.delete(`/produto/${responseProduto.body}`);
 
       expect(response.statusCode).toEqual(StatusCodes.NO_CONTENT);
     });

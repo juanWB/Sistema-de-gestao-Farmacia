@@ -4,19 +4,17 @@ import { serverTest } from "../jest.setup";
 describe("CategoriasController - Delete", () => {
   describe("Deleção válida", () => {
     it("Deve retornar 204 ao deletar categoria existente", async () => {
-      const categoriaValida = { id: 1, nome: "Medicamentos" };
-
-      const res = await serverTest
+      const responsePost = await serverTest
         .post("/categorias")
-        .send(categoriaValida);
+        .send({ nome: "Perfumaria" });
 
-      expect(res.statusCode).toEqual(StatusCodes.CREATED);
+      expect(responsePost.statusCode).toEqual(StatusCodes.CREATED);
 
-      const response = await serverTest.delete(
-        `/categorias/${categoriaValida.id}`
+      const responseDelete = await serverTest.delete(
+        `/categorias/${responsePost.body}`
       );
 
-      expect(response.statusCode).toEqual(StatusCodes.NO_CONTENT);
+      expect(responseDelete.statusCode).toEqual(StatusCodes.NO_CONTENT);
     });
   });
 

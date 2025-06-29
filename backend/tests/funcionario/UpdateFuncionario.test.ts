@@ -10,7 +10,9 @@ describe("FuncionarioController - Update", () => {
         senha: "123456aA@",
       });
 
-      const res = await serverTest.put("/funcionario/1").send({
+      const funcionarioId = response.body;
+
+      const res = await serverTest.put(`/funcionario/${funcionarioId}`).send({
         nome: "Jorge",
         email: "jorge@email.com",
         senha: "123456aA@",

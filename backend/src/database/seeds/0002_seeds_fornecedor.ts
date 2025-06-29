@@ -15,7 +15,7 @@ const fornecedores: IFornecedor[] = [
     {
         id: 1,
         nome: 'Bob Alimentos',
-        cnpj: '12345678912345',
+        cnpj: '12345678912349',
         telefone: '08199999999',
         endereco: 'Rua Major',
     },
