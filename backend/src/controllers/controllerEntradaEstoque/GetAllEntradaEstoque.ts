@@ -8,7 +8,7 @@ interface IQueryProps{
     page?: number,
     limit?: number,
     filter?: string,
-    id?: number
+    produto_id?: number
 }
 
 export const getAllEntradasValidation = validation((getSchema) => ({
@@ -16,12 +16,12 @@ export const getAllEntradasValidation = validation((getSchema) => ({
         page: z.coerce.number().positive('Deve ser maior que zero').int('Deve ser um inteiro').optional(),
         limit: z.coerce.number().positive('Deve ser maior que zero').int('Deve ser um inteiro').optional(),
         filter: z.string().optional(),
-        id: z.coerce.number().positive('Deve ser maior que zero').int('Deve ser um inteiro').optional()
+        produto_id: z.coerce.number().int('Deve ser um inteiro').positive('Deve ser maior que zero').optional()
     }))
 }))
 
-export const GetAllEntradas = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
-    const result = await EntradaEstoqueProvider.GetEntradaProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.id || 0);
+export const getAllEntradas = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
+    const result = await EntradaEstoqueProvider.getEntradaProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.produto_id || 0);
     const count = await EntradaEstoqueProvider.Count();
     
 

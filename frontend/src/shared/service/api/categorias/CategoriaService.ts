@@ -1,4 +1,4 @@
-import { Api } from "../api/axiosConfig";
+import { Api } from "../axiosConfig";
 
 interface IListagemCategorias {
     nome: string;
