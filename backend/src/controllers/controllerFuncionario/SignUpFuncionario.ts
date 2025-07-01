@@ -7,7 +7,7 @@ import { FuncionarioProvider } from "../../database/providers/funcionarioProvide
 
 interface IBodyProps extends Omit<IFuncionario, 'id'>{};
 
-export const createFuncionarioValidation = validation((getSchema) => ({
+export const signUpFuncionarioValidation = validation((getSchema) => ({
   body: getSchema<IBodyProps>(
     z.object({
       nome: z
@@ -26,7 +26,7 @@ export const createFuncionarioValidation = validation((getSchema) => ({
         })
         .email("Informe um e-mail válido.")
         .nonempty("Campo obrigatório")
-        .min(13, "O email precisa ter no mínimo 13 caracteres")
+        .min(10, "O email precisa ter no mínimo 13 caracteres")
         .max(100, "O campo não pode ultrapassar 100 caracteres.")
         .trim(),
       senha: z
@@ -35,7 +35,6 @@ export const createFuncionarioValidation = validation((getSchema) => ({
         })
         .nonempty("Campo obrigatório")
         .min(8, "A senha precisa ter no mínimo 8 caracteres")
-        .max(100, "O campo não pode ultrapassar 100 caracteres.")
         .trim()
         .regex(/[a-z]/, "A senha deve conter pelo menos uma letra minúscula")
         .regex(/[A-Z]/, "A senha deve conter pelo menos uma letra maiúscula")
@@ -45,7 +44,7 @@ export const createFuncionarioValidation = validation((getSchema) => ({
   ),
 }));
 
-export const createNewFuncionario = async (req: Request<{}, {}, IBodyProps>, res: Response) => {
+export const signUpFuncionario = async (req: Request<{}, {}, IBodyProps>, res: Response) => {
   const novoFuncionario = req.body;
   
   const result = await FuncionarioProvider.createFuncionarioProvider(novoFuncionario)
