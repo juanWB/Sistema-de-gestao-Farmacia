@@ -17,10 +17,10 @@ export const updateFuncionarioProvider = async(id: number, funcionario: Omit<IFu
             return result;
         }
         
-        logger.warn(`UpdateFuncionarioProvider falhou em atualizar categoria com id ${id}`);
+        logger.warn(`updateFuncionarioProvider falhou em atualizar funcionario com id ${id}`);
         return new Error("Error ao atualizar funcionario")
     }catch(err){
-        logger.error(`UpdateFuncionarioProvider falhou em atualizar categoria: ${JSON.stringify(err)}`);
+        logger.error(`updateFuncionarioProvider falhou em atualizar funcionario: ${JSON.stringify(err)}`);
         return new Error("Error ao atualizar funcionario")
     }
 }

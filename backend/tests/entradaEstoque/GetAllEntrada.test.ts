@@ -11,14 +11,12 @@ describe("EntradaEstoqueController - GetAll", () => {
         endereco: "Rua Major",
       });
 
-      const categoriaId = await serverTest.post("/categorias").send({ nome: "Medicamentos" });
-
       const response = await serverTest.post("/produto").send({
         nome: "Sabonete",
         preco: "1.99",
         validade: "2025-01-01",
         quantidade: "100",
-        categoria_id: categoriaId,
+        categoria_id: 1,
         fornecedor_id: fonercedorId,
       });
 

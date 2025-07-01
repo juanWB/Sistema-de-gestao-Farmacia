@@ -11,10 +11,6 @@ describe("ProdutoController - Delete", () => {
         endereco: "Rua Major",
       });
 
-      const responseCategoria = await serverTest
-        .post("/categorias")
-        .send({ nome: "Perfumaria" });
-
       const responseProduto = await serverTest
         .post("/produto")
         .send({
@@ -22,7 +18,7 @@ describe("ProdutoController - Delete", () => {
           preco: "1.99",
           validade: "2025-01-01",
           quantidade: "100",
-          categoria_id: responseCategoria.body,
+          categoria_id: 1,
           fornecedor_id: responseFornecedor.body,
         });
 

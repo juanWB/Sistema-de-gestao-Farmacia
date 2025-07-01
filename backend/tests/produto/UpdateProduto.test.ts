@@ -3,32 +3,24 @@ import { serverTest } from "../jest.setup";
 
 describe("Update - Produto", () => {
   it("Atualiza um produto por um id", async () => {
-    const fornecedor = {
+    const responseFornecedor = await serverTest.post("/fornecedor").send({
       nome: "Atacamax",
       cnpj: "12.345.678/9123-45",
       telefone: "(81) - 998837891",
       endereco: "Rua Major",
-    };
+    });
 
-    const response1 = await serverTest.post("/fornecedor").send(fornecedor);
-
-    const categoriaValida = { nome: "Medicamentos" };
-
-    const response2 = await serverTest
-      .post("/categorias")
-      .send(categoriaValida);
-
-    const res1 = await serverTest.post("/produto").send({
+    const resCreateProduto = await serverTest.post("/produto").send({
       nome: "Sabonete",
       preco: "1.99",
       validade: "2025-01-01",
       quantidade: "100",
       categoria_id: 1,
-      fornecedor_id: 1,
+      fornecedor_id: responseFornecedor.body,
     });
 
-    const res = await serverTest.put("/produto/1").send({
-      nome: "Sabonete",
+    const res = await serverTest.put(`/produto/${resCreateProduto.body}`).send({
+      nome: "Sabão",
       preco: "1.99",
       validade: "2025-01-01",
       quantidade: "100",

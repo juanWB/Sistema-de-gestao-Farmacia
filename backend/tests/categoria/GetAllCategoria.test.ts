@@ -3,9 +3,6 @@ import { serverTest } from "../jest.setup";
 
 describe("GetAll - Categorias", () => {
   it("Busca todas categorias", async () => {
-    const response = await serverTest.post("/categorias").send({ nome: "Perfumaria" });
-
-    expect(response.statusCode).toEqual(StatusCodes.CREATED);
 
     const res = await serverTest.get("/categorias");
 

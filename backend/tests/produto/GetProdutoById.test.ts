@@ -4,20 +4,13 @@ import { serverTest } from "../jest.setup";
 describe("ProdutoController - GetById", () => {
   describe("Busca produto de forma válida", () => {
     it("Busca um produto por um id", async () => {
-      const fornecedor = {
+
+      const responseFornecedor = await serverTest.post("/fornecedor").send({
         nome: "Atacamax",
         cnpj: "12.345.678/9123-45",
         telefone: "(81) - 998837891",
         endereco: "Rua Major",
-      };
-
-      const response1 = await serverTest.post("/fornecedor").send(fornecedor);
-
-      const categoriaValida = { nome: "Medicamentos" };
-
-      const response2 = await serverTest
-        .post("/categorias")
-        .send(categoriaValida);
+      });
 
       const res1 = await serverTest.post("/produto").send({
         nome: "Sabonete",
@@ -25,7 +18,7 @@ describe("ProdutoController - GetById", () => {
         validade: "2025-01-01",
         quantidade: "100",
         categoria_id: 1,
-        fornecedor_id: 1,
+        fornecedor_id: responseFornecedor.body,
       });
 
       const res = await serverTest.get(`/produto/1`);

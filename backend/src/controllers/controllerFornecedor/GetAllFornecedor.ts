@@ -20,7 +20,7 @@ export const getAllFornecedorValidation = validation((getSchema) => ({
     }))
 }))
 
-export const GetAllFornecedor = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
+export const getAllFornecedor = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
     const result = await FornecedorProvider.getFornecedorProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.id || 0);
     const count = await FornecedorProvider.count();
     
