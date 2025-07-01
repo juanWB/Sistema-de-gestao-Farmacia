@@ -30,7 +30,7 @@ export const getFuncionarioById = async(req: Request<IParamsProps>, res: Respons
       return
     }
 
-    const result = await FuncionarioProvider.GetFuncionarioByIdProvider(id);
+    const result = await FuncionarioProvider.getFuncionarioByIdProvider(id);
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

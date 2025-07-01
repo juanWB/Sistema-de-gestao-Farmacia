@@ -21,8 +21,8 @@ export const getAllFuncionarioValidation = validation((getSchema) => ({
 }))
 
 export const getAllFuncionario = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
-    const result = await FuncionarioProvider.GetFuncionarioProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.id || 0);
-    const count = await FuncionarioProvider.Count();
+    const result = await FuncionarioProvider.getFuncionarioProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.id || 0);
+    const count = await FuncionarioProvider.count();
     
 
 

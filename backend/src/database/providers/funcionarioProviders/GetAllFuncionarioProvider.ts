@@ -3,7 +3,7 @@ import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 import { IFuncionario } from "../../models";
 
-export const GetFuncionarioProvider = async (page: number, limit: number, filter: string, id = 0): Promise<IFuncionario[] | Error> => {
+export const getFuncionarioProvider = async (page: number, limit: number, filter: string, id = 0): Promise<IFuncionario[] | Error> => {
   try {
     const result = await Knex(ETableNames.funcionario)
       .select("*")

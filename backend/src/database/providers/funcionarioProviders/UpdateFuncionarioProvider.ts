@@ -4,7 +4,7 @@ import { Knex } from "../../knex";
 import { IFuncionario } from "../../models";
 
 
-export const UpdateFuncionarioProvider = async(id: number, funcionario: Omit<IFuncionario, 'id'>):Promise< IFuncionario | Error> => {
+export const updateFuncionarioProvider = async(id: number, funcionario: Omit<IFuncionario, 'id'>):Promise< IFuncionario | Error> => {
     try{
         const [result] = await Knex(ETableNames.funcionario)
         .where('id',id)

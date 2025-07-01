@@ -29,7 +29,7 @@ export const deleteFuncionario = async(req: Request<IParamProps>, res: Response)
         return
     }
 
-    const result = await FuncionarioProvider.DeleteFuncionarioProvider(id);
+    const result = await FuncionarioProvider.deleteFuncionarioProvider(id);
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

@@ -4,7 +4,7 @@ import { Knex } from "../../knex";
 import { IFuncionario } from "../../models";
 
 
-export const CreateFuncionarioProvider = async(funcionario: Omit<IFuncionario, 'id'>):Promise<number | Error> => {
+export const createFuncionarioProvider = async(funcionario: Omit<IFuncionario, 'id'>):Promise<number | Error> => {
     try{
         const [result] = await Knex(ETableNames.funcionario).insert(funcionario).returning('id');
         

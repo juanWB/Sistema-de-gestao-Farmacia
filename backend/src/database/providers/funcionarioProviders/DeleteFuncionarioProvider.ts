@@ -3,7 +3,7 @@ import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 
 
-export const DeleteFuncionarioProvider = async(id: number):Promise<void | Error> => {
+export const deleteFuncionarioProvider = async(id: number):Promise<void | Error> => {
     try{
         const result = await Knex(ETableNames.funcionario).where('id', id).del()
 

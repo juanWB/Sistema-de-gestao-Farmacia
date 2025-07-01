@@ -48,7 +48,7 @@ export const createFuncionarioValidation = validation((getSchema) => ({
 export const createNewFuncionario = async (req: Request<{}, {}, IBodyProps>, res: Response) => {
   const novoFuncionario = req.body;
   
-  const result = await FuncionarioProvider.CreateFuncionarioProvider(novoFuncionario)
+  const result = await FuncionarioProvider.createFuncionarioProvider(novoFuncionario)
 
   if(result instanceof Error){
       res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

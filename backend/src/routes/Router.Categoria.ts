@@ -3,6 +3,6 @@ import { controllerCategoria } from "../controllers/controllerCategoria";
 const routerCategoria = Router();
 
 //Rotas Categoria
-routerCategoria.get('/categorias', controllerCategoria.getAllCategoriasValidation ,controllerCategoria.GetAllCategorias);
+routerCategoria.get('/categorias', controllerCategoria.getAllCategoriasValidation ,controllerCategoria.getAllCategorias);
 
 export {routerCategoria}

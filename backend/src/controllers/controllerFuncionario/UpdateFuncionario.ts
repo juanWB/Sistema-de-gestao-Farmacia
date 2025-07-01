@@ -66,7 +66,7 @@ export const updateFuncionarioById = async(req: Request<IParamProps, {}, IBodyPr
       return
     }
 
-    const result = await FuncionarioProvider.UpdateFuncionarioProvider(id, funcionario)
+    const result = await FuncionarioProvider.updateFuncionarioProvider(id, funcionario)
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
