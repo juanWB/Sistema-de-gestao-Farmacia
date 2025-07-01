@@ -3,7 +3,7 @@ import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 import { IFornecedor } from "../../models";
 
-export const GetFornecedorProvider = async (page: number, limit: number, filter: string, id = 0): Promise<IFornecedor[] | Error> => {
+export const getFornecedorProvider = async (page: number, limit: number, filter: string, id = 0): Promise<IFornecedor[] | Error> => {
   try {
     const result = await Knex(ETableNames.fornecedor)
       .select("*")

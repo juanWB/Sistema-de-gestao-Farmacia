@@ -4,7 +4,7 @@ import { Knex } from "../../knex";
 import { IProduto } from "../../models";
 
 
-export const UpdateProdutoProvider = async(id: number, produto: Omit<IProduto, 'id'>):Promise<IProduto | Error> => {
+export const updateProdutoProvider = async(id: number, produto: Omit<IProduto, 'id'>):Promise<IProduto | Error> => {
     try{
         const [{ count: countCategoriaRaw }] = await Knex(ETableNames.categoria)
             .where('id', produto.categoria_id)

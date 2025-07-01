@@ -4,7 +4,7 @@ import { Knex } from "../../knex";
 import { IFornecedor } from "../../models";
 
 
-export const CreateFornecedorProvider = async(fornecedor: Omit<IFornecedor, 'id'>):Promise<number | Error> => {
+export const createFornecedorProvider = async(fornecedor: Omit<IFornecedor, 'id'>):Promise<number | Error> => {
     try{
         const [result] = await Knex(ETableNames.fornecedor).insert(fornecedor).returning('id');
                 

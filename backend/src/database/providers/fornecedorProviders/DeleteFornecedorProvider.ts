@@ -3,7 +3,7 @@ import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 
 
-export const DeleteFornecedorProvider = async(id: number):Promise<void | Error> => {
+export const deleteFornecedorProvider = async(id: number):Promise<void | Error> => {
     try{
         const result = await Knex(ETableNames.fornecedor).where('id', id).del()
 

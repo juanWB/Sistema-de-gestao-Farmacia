@@ -4,7 +4,7 @@ import { Knex } from "../../knex";
 import { IFornecedor } from "../../models";
 
 
-export const UpdateFornecedorProvider = async(id: number, fornecedor: Omit<IFornecedor, 'id'>) => {
+export const updateFornecedorProvider = async(id: number, fornecedor: Omit<IFornecedor, 'id'>) => {
     try{
         const [result] = await Knex(ETableNames.fornecedor)
         .where('id',id)
@@ -20,10 +20,10 @@ export const UpdateFornecedorProvider = async(id: number, fornecedor: Omit<IForn
             return result;
         }
     
-        logger.warn(`UpdateFornecedorProvider falhou em atualizar categoria com id ${id}`);
+        logger.warn(`updateFornecedorProvider falhou em atualizar categoria com id ${id}`);
         return new Error("Error ao atualizar fornecedor")
     }catch(err){
-        logger.error(`UpdateFornecedorProvider falhou em atualizar categoria: ${JSON.stringify(err)}`);
+        logger.error(`updateFornecedorProvider falhou em atualizar categoria: ${JSON.stringify(err)}`);
         return new Error("Error ao atualizar fornecedor")
     }
 }

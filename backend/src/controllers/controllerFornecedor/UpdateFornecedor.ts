@@ -70,7 +70,7 @@ export const updateFornecedorValidation = validation((getSchema) => ({
   ),
 }));
 
-export const UpdateFornecedor = async(req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
+export const updateFornecedor = async(req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
   const {id} = req.params;
   const fornecedor = req.body;
 
@@ -84,7 +84,7 @@ export const UpdateFornecedor = async(req: Request<IParamProps, {}, IBodyProps>,
       return
   }
 
-  const result = await FornecedorProvider.UpdateFornecedorProvider(id!, fornecedor);
+  const result = await FornecedorProvider.updateFornecedorProvider(id!, fornecedor);
   
   if(result instanceof Error){
       res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

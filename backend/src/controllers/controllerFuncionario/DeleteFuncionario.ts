@@ -17,7 +17,7 @@ export const deleteFuncionarioValidation = validation((getSchema) => ({
     }))
 }));
 
-export const DeleteFuncionario = async(req: Request<IParamProps>, res: Response) => {
+export const deleteFuncionario = async(req: Request<IParamProps>, res: Response) => {
     const {id} = req.params
 
     if(!id){

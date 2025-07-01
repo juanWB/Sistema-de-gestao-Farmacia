@@ -4,7 +4,7 @@ import { Knex } from "../../knex";
 import { ISaidaEstoque } from "../../models";
 
 
-export const CreateSaidaProvider = async(saida: Omit<ISaidaEstoque, 'id'>):Promise<number | Error> => {
+export const createSaidaProvider = async(saida: Omit<ISaidaEstoque, 'id'>):Promise<number | Error> => {
     try{
         const [{count: countProdutoRaw}] = await Knex(ETableNames.produto)
             .where('id', saida.produto_id)

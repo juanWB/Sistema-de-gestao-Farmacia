@@ -20,10 +20,10 @@ export const getAllSaidasValidation = validation((getSchema) => ({
     }))
 }))
 
-export const GetAllSaidas = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
+export const getAllSaidas = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
     
     const result = await SaidaProvider.getSaidaProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.produto_id || 0);
-    const count = await SaidaProvider.Count();
+    const count = await SaidaProvider.count();
 
      if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

@@ -59,8 +59,8 @@ export const createFornecedorValidation = validation((getSchema) => ({
   ),
 }));
 
-export const CreateFornecedor = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
-  const result = await FornecedorProvider.CreateFornecedorProvider(req.body);
+export const createFornecedor = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
+  const result = await FornecedorProvider.createFornecedorProvider(req.body);
 
   if(result instanceof Error){
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

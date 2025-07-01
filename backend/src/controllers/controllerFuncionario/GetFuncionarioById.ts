@@ -18,7 +18,7 @@ export const getFuncionarioByIdValidation = validation((getSchema) => ({
 }));
 
 
-export const GetFuncionarioById = async(req: Request<IParamsProps>, res: Response) => {
+export const getFuncionarioById = async(req: Request<IParamsProps>, res: Response) => {
     const {id} = req.params
 
     if(!id){

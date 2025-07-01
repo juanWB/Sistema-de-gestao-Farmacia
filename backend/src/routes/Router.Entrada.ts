@@ -3,7 +3,7 @@ import { controllerEntradaEstoque } from "../controllers/controllerEntradaEstoqu
 const routerEntrada = Router();
 
 //Rotas Entrada Estoque
-routerEntrada.get('/entrada', controllerEntradaEstoque.getAllEntradasValidation,controllerEntradaEstoque.GetAllEntradas);
-routerEntrada.post('/entrada',controllerEntradaEstoque.createEntradaValidation, controllerEntradaEstoque.CreateEntradaEstoque);
+routerEntrada.get('/entrada', controllerEntradaEstoque.getAllEntradasValidation,controllerEntradaEstoque.getAllEntradas);
+routerEntrada.post('/entrada',controllerEntradaEstoque.createEntradaValidation, controllerEntradaEstoque.createEntradaEstoque);
 
 export {routerEntrada}

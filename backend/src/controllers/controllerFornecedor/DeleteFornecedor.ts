@@ -17,7 +17,7 @@ export const deleteFornecedorValidation = validation((getSchema) => ({
     }))
 }));
 
-export const DeleteFornecedor = async(req: Request<IParamProps>, res: Response) => {
+export const deleteFornecedor = async(req: Request<IParamProps>, res: Response) => {
     const {id} = req.params
 
     if(!id){
@@ -29,7 +29,7 @@ export const DeleteFornecedor = async(req: Request<IParamProps>, res: Response) 
         return
     }
 
-    const result = await FornecedorProvider.DeleteFornecedorProvider(id);
+    const result = await FornecedorProvider.deleteFornecedorProvider(id);
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

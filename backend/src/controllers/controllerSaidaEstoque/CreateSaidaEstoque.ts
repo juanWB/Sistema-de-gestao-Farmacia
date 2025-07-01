@@ -30,9 +30,9 @@ export const createSaidaValidation = validation((getSchema) => ({
     }))
 }))
 
-export const CreateSaidaEstoque = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
+export const createSaidaEstoque = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
 
-    const result = await SaidaProvider.CreateSaidaProvider(req.body)
+    const result = await SaidaProvider.createSaidaProvider(req.body)
 
      if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

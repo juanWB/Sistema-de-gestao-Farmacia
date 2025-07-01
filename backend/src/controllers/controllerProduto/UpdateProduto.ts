@@ -72,7 +72,7 @@ export const updateProdutoValidation = validation((getSchema) => ({
   ),
 }));
 
-export const UpdateProdutoById = async (req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
+export const updateProdutoById = async (req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
   
   const {id} = req.params
   const produto = req.body
@@ -87,7 +87,7 @@ export const UpdateProdutoById = async (req: Request<IParamProps, {}, IBodyProps
   }
 
   
-  const result = await ProdutoProvider.UpdateProdutoProvider(id!, produto);
+  const result = await ProdutoProvider.updateProdutoProvider(id!, produto);
 
     if(result instanceof Error){
       res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

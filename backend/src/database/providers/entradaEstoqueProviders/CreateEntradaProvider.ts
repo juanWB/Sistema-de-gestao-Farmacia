@@ -4,7 +4,7 @@ import { Knex } from "../../knex";
 import { IEntradaEstoque } from "../../models";
 
 
-export const CreateEntradaProvider = async(entrada: Omit<IEntradaEstoque, 'id'>):Promise<number | Error> => {
+export const createEntradaProvider = async(entrada: Omit<IEntradaEstoque, 'id'>):Promise<number | Error> => {
     try{
         const [{count: countProdutoRaw}] = await Knex(ETableNames.produto)
             .where('id', entrada.produto_id)

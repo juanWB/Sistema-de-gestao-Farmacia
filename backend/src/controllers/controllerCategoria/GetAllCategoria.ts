@@ -18,7 +18,7 @@ interface IQueryProps{
 
 
 
-export const GetAllCategorias = async (req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
+export const getAllCategorias = async (req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
   const result = await CategoriaProvider.GetCategoriaProvider(req.query.filter || '');
 
   if (result instanceof Error) {

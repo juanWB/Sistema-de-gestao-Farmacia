@@ -18,7 +18,7 @@ export const deleteProdutoValidation = validation((getSchema) => ({
 }));
 
 
-export const DeleteProduto = async(req: Request<IParamProps>, res: Response) => {
+export const deleteProduto = async(req: Request<IParamProps>, res: Response) => {
     const {id} = req.params;
     
      if(!id){
@@ -30,7 +30,7 @@ export const DeleteProduto = async(req: Request<IParamProps>, res: Response) => 
         return
     }
 
-    const result = await ProdutoProvider.DeleteProdutoProvider(id!);
+    const result = await ProdutoProvider.deleteProdutoProvider(id!);
     
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

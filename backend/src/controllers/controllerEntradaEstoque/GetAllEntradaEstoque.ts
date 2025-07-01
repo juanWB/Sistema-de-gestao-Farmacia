@@ -22,7 +22,7 @@ export const getAllEntradasValidation = validation((getSchema) => ({
 
 export const getAllEntradas = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
     const result = await EntradaEstoqueProvider.getEntradaProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.produto_id || 0);
-    const count = await EntradaEstoqueProvider.Count();
+    const count = await EntradaEstoqueProvider.count();
     
 
     if(result instanceof Error){

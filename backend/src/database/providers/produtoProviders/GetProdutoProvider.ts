@@ -3,7 +3,7 @@ import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 import { IProduto } from "../../models";
 
-export const GetProdutoProvider = async (
+export const getProdutoProvider = async (
   page: number,
   limit: number,
   filter: string,

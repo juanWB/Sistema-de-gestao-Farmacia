@@ -46,8 +46,8 @@ export const createProdutoValidation = validation((getSchema) => ({
     }))
 }))
 
-export const CreateProduto = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
-    const result = await ProdutoProvider.CreateProdutoProvider(req.body);
+export const createProduto = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
+    const result = await ProdutoProvider.createProdutoProvider(req.body);
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

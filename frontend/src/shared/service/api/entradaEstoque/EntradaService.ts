@@ -1,3 +1,6 @@
+import { Enviroments } from "../../../enviroments";
+import { Api } from "../axiosConfig";
+
 interface IListagemEntrada {
   id: number;
   produto_id: number;
@@ -7,11 +10,27 @@ interface IListagemEntrada {
 
 type TEntradaComTotalCount = {
   data: IListagemEntrada;
-  count: "x-total-count";
+  totalCount: number;
 };
 
-const getAll = async (): Promise<TEntradaComTotalCount | Error> => {
+const getAll = async (
+  page: number,
+  filter = ""
+): Promise<TEntradaComTotalCount | Error> => {
   try {
+    const urlRelativa = `/entradas&_page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&entrada_data=${filter}`;
+
+    const { data, headers } = await Api.get(urlRelativa);
+
+    if (data) {
+      return {
+        data,
+        totalCount: Number(
+          headers["x-total-count"] || Enviroments.LIMITE_DE_LINHAS
+        ),
+      };
+    }
+
     return new Error("Error ao buscar registros");
   } catch (error) {
     console.error(error);
@@ -21,8 +40,10 @@ const getAll = async (): Promise<TEntradaComTotalCount | Error> => {
   }
 };
 
-const create = () => {};
+const create = async(): Promise<number | Error> => {
+};
 
-export const entradaService = () => {
-  create, getAll;
+export const entradaService = {
+  create,
+  getAll,
 };

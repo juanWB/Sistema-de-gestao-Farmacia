@@ -3,7 +3,7 @@ import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 import { ICategoria, IProduto } from "../../models";
 
-export const GetCategoriaProvider = async (filter: string): Promise<ICategoria[] | Error> => {
+export const getCategoriaProvider = async (filter: string): Promise<ICategoria[] | Error> => {
   try {
     const result = await Knex(ETableNames.categoria)
       .select("*")

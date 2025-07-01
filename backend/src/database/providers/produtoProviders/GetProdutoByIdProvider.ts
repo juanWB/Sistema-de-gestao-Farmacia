@@ -4,7 +4,7 @@ import { Knex } from "../../knex";
 import { IProduto } from "../../models";
 
 
-export const GetProdutoByIdProvider = async(id: number):Promise<IProduto | Error> => {
+export const getProdutoByIdProvider = async(id: number):Promise<IProduto | Error> => {
     try{
         const [result] = await Knex(ETableNames.produto).where('id', id).select('*');
 

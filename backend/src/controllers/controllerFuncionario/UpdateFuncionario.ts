@@ -53,7 +53,7 @@ export const updateFuncionarioValidation = validation((getSchema) => ({
     }))
 }));
 
-export const UpdateFuncionarioById = async(req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
+export const updateFuncionarioById = async(req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
     const {id} = req.params
     const funcionario = req.body
 

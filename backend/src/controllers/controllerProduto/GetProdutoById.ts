@@ -18,7 +18,7 @@ export const getProdutoByIdValidation = validation((getSchema) => ({
 }));
 
 
-export const GetProdutoById = async(req: Request<IParamProps>, res: Response) => {
+export const getProdutoById = async(req: Request<IParamProps>, res: Response) => {
     const {id} = req.params
 
      if(!id){
@@ -30,7 +30,7 @@ export const GetProdutoById = async(req: Request<IParamProps>, res: Response) =>
         return
     }
 
-    const result = await ProdutoProvider.GetProdutoByIdProvider(id!)
+    const result = await ProdutoProvider.getProdutoByIdProvider(id!)
 
      if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

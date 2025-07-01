@@ -45,7 +45,7 @@ export const createFuncionarioValidation = validation((getSchema) => ({
   ),
 }));
 
-export const CreateNewFuncionario = async (req: Request<{}, {}, IBodyProps>, res: Response) => {
+export const createNewFuncionario = async (req: Request<{}, {}, IBodyProps>, res: Response) => {
   const novoFuncionario = req.body;
   
   const result = await FuncionarioProvider.CreateFuncionarioProvider(novoFuncionario)

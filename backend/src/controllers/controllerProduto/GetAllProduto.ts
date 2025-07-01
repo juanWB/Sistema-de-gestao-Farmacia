@@ -22,9 +22,9 @@ export const getAllProdutosValidation = validation((getSchema) => ({
     }))
 }))
 
-export const GetAllProdutos = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
-    const result = await ProdutoProvider.GetProdutoProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.id || 0);
-    const count = await ProdutoProvider.Count();
+export const getAllProdutos = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
+    const result = await ProdutoProvider.getProdutoProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.id || 0);
+    const count = await ProdutoProvider.count();
     
 
      if(result instanceof Error){
