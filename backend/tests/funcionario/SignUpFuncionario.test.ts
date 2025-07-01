@@ -1,10 +1,10 @@
 import { StatusCodes } from "http-status-codes";
 import { serverTest } from "../jest.setup";
 
-describe("FuncionarioController - Create", () => {
+describe("FuncionarioController - SignUp", () => {
   describe("Criação válida", () => {
     it("Cria um funcionario com parametros corretos.", async () => {
-      const res = await serverTest.post("/funcionario").send({
+      const res = await serverTest.post("/cadastrar").send({
         nome: "Jorge",
         email: "jorge@email.com",
         senha: "123456aA@",
@@ -44,7 +44,7 @@ describe("FuncionarioController - Create", () => {
         expectedErrors: {
           errors: {
             body: {
-              email: "O email precisa ter no mínimo 13 caracteres",
+              email: "Informe um e-mail válido.",
             },
           },
         },
@@ -65,7 +65,7 @@ describe("FuncionarioController - Create", () => {
 
     testCases.map(({description, data, expectedErrors}) => {
         it(description, async() => {
-            const response = await serverTest.post('/funcionario').send(data);
+            const response = await serverTest.post('/cadastrar').send(data);
 
             expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
             expect(response.body).toEqual(expectedErrors);
