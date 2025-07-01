@@ -19,7 +19,7 @@ interface IQueryProps{
 
 
 export const getAllCategorias = async (req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
-  const result = await CategoriaProvider.GetCategoriaProvider(req.query.filter || '');
+  const result = await CategoriaProvider.getCategoriaProvider(req.query.filter || '');
 
   if (result instanceof Error) {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
