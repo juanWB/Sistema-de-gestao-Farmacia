@@ -8,7 +8,7 @@ interface IQueryProps{
     page?: number,
     limit?: number,
     filter?: string,
-    id?: number
+    produto_id?: number
 }
 
 export const getAllSaidasValidation = validation((getSchema) => ({
@@ -16,13 +16,13 @@ export const getAllSaidasValidation = validation((getSchema) => ({
             page: z.coerce.number().positive('Deve ser maior que zero').int('Deve ser um inteiro').optional(),
             limit: z.coerce.number().positive('Deve ser maior que zero').int('Deve ser um inteiro').optional(),
             filter: z.string().optional(),
-            id: z.coerce.number().positive('Deve ser maior que zero').int('Deve ser um inteiro').optional()
+            produto_id: z.coerce.number().positive('Deve ser maior que zero').int('Deve ser um inteiro').optional()
     }))
 }))
 
 export const GetAllSaidas = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
     
-    const result = await SaidaProvider.GetSaidaProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.id || 0);
+    const result = await SaidaProvider.getSaidaProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.produto_id || 0);
     const count = await SaidaProvider.Count();
 
      if(result instanceof Error){
