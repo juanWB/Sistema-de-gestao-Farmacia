@@ -3,6 +3,9 @@ npm-debug.log*
 
 /build
 /coverage
+logs/
+*.log
+
 
 .env
 *sqlite
