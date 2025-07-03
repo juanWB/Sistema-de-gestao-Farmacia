@@ -14,10 +14,7 @@ type TFornecedorComCount = {
   totalCount: number;
 };
 
-const getAll = async (
-  page: number,
-  filter: ""
-): Promise<TFornecedorComCount | Error> => {
+const getAll = async (page: number, filter: ""): Promise<TFornecedorComCount | Error> => {
   try {
     const urlRelativa = `/fornecedor&_page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&nome=${filter}`;
 
@@ -58,14 +55,12 @@ const getById = async (id: number): Promise<IListagemFornecedor | Error> => {
   }
 };
 
-const create = async (
-  fornecedor: Omit<IListagemFornecedor, "id">
-): Promise<number | Error> => {
+const create = async (fornecedor: Omit<IListagemFornecedor, "id">): Promise<number | Error> => {
   try {
-    const { data } = await Api.post("/fornecedor", fornecedor);
+    const { data } = await Api.post<IListagemFornecedor>("/fornecedor", fornecedor);
 
-    if (data && data > 0) {
-      return data;
+    if (data) {
+      return data.id;
     }
 
     return new Error("Error ao criar registro");
@@ -77,16 +72,9 @@ const create = async (
   }
 };
 
-const updateById = async (
-  id: number,
-  fornecedor: Omit<IListagemFornecedor, "id">
-): Promise<void | Error> => {
+const updateById = async (id: number, fornecedor: Omit<IListagemFornecedor, "id">): Promise<void | Error> => {
   try {
-    const { data } = await Api.put(`/fornecedor/${id}`, fornecedor);
-
-    if (data) {
-      return;
-    }
+    await Api.put(`/fornecedor/${id}`, fornecedor);
 
     return new Error("Error ao atualizar registro");
   } catch (error) {
@@ -99,18 +87,12 @@ const updateById = async (
 
 const deleteById = async (id: number): Promise<void | Error> => {
   try {
-    const { data } = await Api.delete(`/fornecedor/${id}`);
-
-    if (data) {
-      return data;
-    }
+    await Api.delete(`/fornecedor/${id}`);
 
     return new Error("Error ao deletar registro");
   } catch (error) {
     console.error(error);
-    return new Error(
-      (error as { message: string }).message || "Error ao deletar registro"
-    );
+    return new Error((error as { message: string }).message || "Error ao deletar registro");
   }
 };
 

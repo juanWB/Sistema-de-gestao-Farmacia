@@ -13,10 +13,7 @@ type TEntradaComTotalCount = {
   totalCount: number;
 };
 
-const getAll = async (
-  page: number,
-  filter = ""
-): Promise<TEntradaComTotalCount | Error> => {
+const getAll = async (page: number, filter = ""):Promise<TEntradaComTotalCount | Error> => {
   try {
     const urlRelativa = `/entradas&_page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&entrada_data=${filter}`;
 
@@ -40,12 +37,12 @@ const getAll = async (
   }
 };
 
-const create = async (entrada: IListagemEntrada): Promise<number | Error> => {
+const create = async (entrada: Omit<IListagemEntrada, 'id'>): Promise<number | Error> => {
   try {
-    const { data } = await Api.post("/entrada", entrada);
+    const { data } = await Api.post<IListagemEntrada>("/entrada", entrada);
 
-    if(data && data > 0){
-      return data;
+    if(data){
+      return data.id;
     }
 
     return new Error("Erro ao criar registro");

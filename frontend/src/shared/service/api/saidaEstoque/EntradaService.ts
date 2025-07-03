@@ -40,12 +40,12 @@ const getAll = async (
   }
 };
 
-const create = async (saida: IListagemSaida): Promise<number | Error> => {
+const create = async (saida: Omit<IListagemSaida, 'id'>): Promise<number | Error> => {
   try {
-    const { data } = await Api.post("/saida", saida);
+    const { data } = await Api.post<IListagemSaida>("/saida", saida);
 
-    if(data && data > 0){
-      return data;
+    if(data){
+      return data.id;
     }
 
     return new Error("Erro ao criar registro");

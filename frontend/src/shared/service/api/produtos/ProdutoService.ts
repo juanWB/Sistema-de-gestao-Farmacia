@@ -16,10 +16,7 @@ type TProdutoComCount = {
   totalCount: number;
 };
 
-const getAll = async (
-  page: number,
-  filter: ""
-): Promise<TProdutoComCount | Error> => {
+const getAll = async (page: number, filter: ""): Promise<TProdutoComCount | Error> => {
   try {
     const urlRelativa = `/produto&_page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&nome=${filter}`;
 
@@ -60,14 +57,12 @@ const getById = async (id: number): Promise<IListagemProduto | Error> => {
   }
 };
 
-const create = async (
-  produto: Omit<IListagemProduto, "id">
-): Promise<number | Error> => {
+const create = async (produto: Omit<IListagemProduto, "id">): Promise<number | Error> => {
   try {
-    const { data } = await Api.post("/produto", produto);
+    const { data } = await Api.post<IListagemProduto>("/produto", produto);
 
-    if (data && data > 0) {
-      return data;
+    if (data) {
+      return data.id;
     }
 
     return new Error("Error ao criar registro");
@@ -79,16 +74,9 @@ const create = async (
   }
 };
 
-const updateById = async (
-  id: number,
-  produto: Omit<IListagemProduto, 'id'>
-): Promise<void | Error> => {
+const updateById = async (id: number, produto: Omit<IListagemProduto, 'id'>): Promise<void | Error> => {
   try {
-    const { data } = await Api.put(`/produto/${id}`, produto);
-
-    if(data){
-        return;
-    } 
+    await Api.put(`/produto/${id}`, produto);
 
     return new Error("Error ao atualizar registro")
   } catch (error) {
@@ -101,11 +89,7 @@ const updateById = async (
 
 const deleteById = async (id: number):Promise<void | Error> => {
 try {
-    const { data } = await Api.delete(`/produto/${id}`);
-
-    if (data) {
-      return data;
-    }
+    await Api.delete(`/produto/${id}`);
 
     return new Error("Error ao deletar registro");
   } catch (error) {
