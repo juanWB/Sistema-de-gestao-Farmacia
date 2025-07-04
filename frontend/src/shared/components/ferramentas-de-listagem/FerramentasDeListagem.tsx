@@ -5,19 +5,19 @@ import { Enviroments } from "../../enviroments";
 interface IFerramentasDeListagemProps {
     textoCampoBusca?: string;
     mostrarCampoBusca?: boolean; 
-    handleChange?: (novoTexto: string) => void;
+    aoMudarTextoDeBusca?: (novoTexto: string) => void;
     textoButton?: string;
     mostrarButton?: boolean;
-    handleClick?: () => void;
+    aoClicarEmNovo?: () => void;
 }
 
 export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
     textoCampoBusca = '',
     mostrarCampoBusca = false,
-    handleChange,
+    aoMudarTextoDeBusca,
     textoButton = 'Novo',
     mostrarButton = true,
-    handleClick
+    aoClicarEmNovo,
 
 }) => {
     const theme = useTheme();
@@ -37,7 +37,7 @@ export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
                 size="small"
                 placeholder={Enviroments.TEXTO_INPUT}
                 value={textoCampoBusca}
-                onChange={(e) => handleChange?.(e.target.value)}
+                onChange={(e) => aoMudarTextoDeBusca?.(e.target.value)}
             />)}
             <Box
                 flex={1}
@@ -47,7 +47,7 @@ export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
                     variant="contained"
                     color="primary"
                     disableElevation={true}
-                    onClick={handleClick}
+                    onClick={aoClicarEmNovo}
                     startIcon={<Add/>}
                     >
                     {textoButton}

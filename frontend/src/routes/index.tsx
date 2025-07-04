@@ -1,12 +1,12 @@
-import { Button } from '@mui/material';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDrawerContext } from '../shared/contexts';
 import { useEffect } from 'react';
 import { AddBox, IndeterminateCheckBox, Inventory2, LocalShipping } from '@mui/icons-material';
 import { AppDashboard } from '../pages';
+import { ListagemDeProdutos } from '../pages/produtos/ListagemDeProdutos';
 
 export const AppRoutes = () => {
-    const { setDrawerOptions, toggleDrawerOpen } = useDrawerContext();
+    const { setDrawerOptions } = useDrawerContext();
 
     useEffect(() => {
         setDrawerOptions([
@@ -35,13 +35,9 @@ export const AppRoutes = () => {
 
     return (
         <Routes>
-            <Route path='/pagina-inicial' element={<AppDashboard/>}></Route>
-            <Route path='/produtos' element={<Button variant='contained' color='primary' onClick={toggleDrawerOpen}  >Salvar</Button>}></Route>
-            <Route path='/categorias' element={<Button variant='contained' color='primary' onClick={toggleDrawerOpen}  >Salvar</Button>}></Route>
-            <Route path='/fornecedores' element={<Button variant='contained' color='primary' onClick={toggleDrawerOpen}  >Salvar</Button>}></Route>
-            <Route path='/entradas' element={<Button variant='contained' color='primary' onClick={toggleDrawerOpen}  >Salvar</Button>}></Route>
-            <Route path='/saidas' element={<Button variant='contained' color='primary' onClick={toggleDrawerOpen}  >Salvar</Button>}></Route>
-            <Route path='*' element={<Navigate to={'/pagina-inicial'} />} />
+            <Route path='/pagina-inicial' element={<AppDashboard/>}/>
+            <Route path='/produtos' element={<ListagemDeProdutos/>}/>
+            <Route path='*' element={<Navigate to={'/pagina-inicial'} />}/>
         </Routes>
     )
 }
