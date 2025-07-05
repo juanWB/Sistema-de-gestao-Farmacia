@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { CategoriaProvider } from "../../database/providers/categoriaProviders";
-import { validation } from "../../service/middleware/Validation";
+import { validation } from "../../shared/service/middleware/Validation";
 import { z } from "zod";
 
 interface IQueryProps{

@@ -1,9 +1,10 @@
 import z from "zod";
-import { validation } from "../../service/middleware/Validation";
+import { validation } from "../../shared/service/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { IFuncionario } from "../../database/models/index";
 import { FuncionarioProvider } from "../../database/providers/funcionarioProviders";
+import { passwordCrypto } from "../../shared/service/PasswordCrypto";
 
 interface IBodyProps extends Omit<IFuncionario, 'id' | 'nome'>{};
 
@@ -44,7 +45,11 @@ export const signInFuncionario = async (req: Request<{}, {}, IBodyProps>, res: R
       return
   }
 
-   if(senha !== result.senha){
+
+
+  const passwordVerified = await passwordCrypto.verifyPassword(senha, result.senha);
+
+   if(!passwordVerified){
       res.status(StatusCodes.UNAUTHORIZED).json({
           errors:{
               default: 'E-mail ou senha inválidos'

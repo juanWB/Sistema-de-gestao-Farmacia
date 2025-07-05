@@ -1,4 +1,5 @@
 import { logger } from "../../../shared/logger";
+import { passwordCrypto } from "../../../shared/service/PasswordCrypto";
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 import { IFuncionario } from "../../models";
@@ -6,7 +7,10 @@ import { IFuncionario } from "../../models";
 
 export const createFuncionarioProvider = async(funcionario: Omit<IFuncionario, 'id'>):Promise<number | Error> => {
     try{
-        const [result] = await Knex(ETableNames.funcionario).insert(funcionario).returning('id');
+
+        const hashedPassword = await passwordCrypto.hashPassword(funcionario.senha);
+
+        const [result] = await Knex(ETableNames.funcionario).insert({...funcionario, senha: hashedPassword}).returning('id');
         
         if(typeof result === 'object'){
             logger.info(`Funcionario criado com ID: ${result.id}`);
