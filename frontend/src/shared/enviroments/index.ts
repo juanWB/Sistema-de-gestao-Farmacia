@@ -20,5 +20,5 @@ export const Enviroments = {
     /**
      * Define url base padrão de consulta de dados desta aplicação
      */
-    URL_BASE: 'http://localhost:3000'
+    URL_BASE: 'http://localhost:3333'
 }

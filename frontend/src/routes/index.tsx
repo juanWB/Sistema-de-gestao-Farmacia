@@ -31,7 +31,7 @@ export const AppRoutes = () => {
                 path: '/saidas'
             },
         ])
-    })
+    },[])
 
     return (
         <Routes>

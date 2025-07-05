@@ -8,7 +8,7 @@ interface IListagemProduto {
   validade: Date | string;
   quantidade: number;
   categoria_id: number;
-  produto_id: number;
+  fornecedor_id: number;
 }
 
 type TProdutoComCount = {
@@ -16,9 +16,9 @@ type TProdutoComCount = {
   totalCount: number;
 };
 
-const getAll = async (page: number, filter: ""): Promise<TProdutoComCount | Error> => {
+const getAll = async (page: number, filter: string | ""): Promise<TProdutoComCount | Error> => {
   try {
-    const urlRelativa = `/produto&_page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&nome=${filter}`;
+    const urlRelativa = `/produtos?page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&nome=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -42,7 +42,7 @@ const getAll = async (page: number, filter: ""): Promise<TProdutoComCount | Erro
 
 const getById = async (id: number): Promise<IListagemProduto | Error> => {
   try {
-    const { data } = await Api.get(`/produto/${id}`);
+    const { data } = await Api.get(`/produtos/${id}`);
 
     if (data) {
       return data;
@@ -59,7 +59,7 @@ const getById = async (id: number): Promise<IListagemProduto | Error> => {
 
 const create = async (produto: Omit<IListagemProduto, "id">): Promise<number | Error> => {
   try {
-    const { data } = await Api.post<IListagemProduto>("/produto", produto);
+    const { data } = await Api.post<IListagemProduto>("/produtos", produto);
 
     if (data) {
       return data.id;
@@ -76,7 +76,7 @@ const create = async (produto: Omit<IListagemProduto, "id">): Promise<number | E
 
 const updateById = async (id: number, produto: Omit<IListagemProduto, 'id'>): Promise<void | Error> => {
   try {
-    await Api.put(`/produto/${id}`, produto);
+    await Api.put(`/produtos/${id}`, produto);
 
     return new Error("Error ao atualizar registro")
   } catch (error) {
@@ -89,7 +89,7 @@ const updateById = async (id: number, produto: Omit<IListagemProduto, 'id'>): Pr
 
 const deleteById = async (id: number):Promise<void | Error> => {
 try {
-    await Api.delete(`/produto/${id}`);
+    await Api.delete(`/produtos/${id}`);
 
     return new Error("Error ao deletar registro");
   } catch (error) {
