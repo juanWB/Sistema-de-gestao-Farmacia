@@ -9,7 +9,7 @@ describe("ProdutoController - Delete", () => {
         cnpj: "12.345.678/9123-45",
         telefone: "(81) - 998837891",
         endereco: "Rua Major",
-      });
+      }).set("authorization", "Bearer teste-teste-teste");
 
       const responseProduto = await serverTest
         .post("/produto")
@@ -20,11 +20,11 @@ describe("ProdutoController - Delete", () => {
           quantidade: "100",
           categoria_id: 1,
           fornecedor_id: responseFornecedor.body,
-        });
+        }).set("authorization", "Bearer teste-teste-teste");
 
       expect(responseProduto.statusCode).toEqual(StatusCodes.CREATED);
 
-      const response = await serverTest.delete(`/produto/${responseProduto.body}`);
+      const response = await serverTest.delete(`/produto/${responseProduto.body}`).set("authorization", "Bearer teste-teste-teste");
 
       expect(response.statusCode).toEqual(StatusCodes.NO_CONTENT);
     });
@@ -81,7 +81,7 @@ describe("ProdutoController - Delete", () => {
 
     testCases.forEach(({ description, params, expectedError }) => {
       it(description, async () => {
-        const response = await serverTest.delete(`/produto/${params.id}`);
+        const response = await serverTest.delete(`/produto/${params.id}`).set("authorization", "Bearer teste-teste-teste");
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedError);

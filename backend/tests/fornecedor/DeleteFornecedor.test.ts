@@ -10,13 +10,13 @@ describe("FornecedorController - Delete", () => {
         telefone: "81998837891",
         endereco: "Rua Major",
       };
-      const res = await serverTest.post("/fornecedor").send(fornecedorValido);
+      const res = await serverTest.post("/fornecedor").send(fornecedorValido).set("authorization", "Bearer teste-teste-teste");
 
       expect(res.statusCode).toEqual(StatusCodes.CREATED);
 
       const response = await serverTest.delete(
         `/fornecedor/${res.body}`
-      );
+      ).set("authorization", "Bearer teste-teste-teste");
 
       expect(response.statusCode).toEqual(StatusCodes.NO_CONTENT);
     });
@@ -72,7 +72,7 @@ describe("FornecedorController - Delete", () => {
 
     testCases.forEach(({ description, params, expectedError }) => {
       it(description, async () => {
-        const response = await serverTest.delete(`/fornecedor/${params}`);
+        const response = await serverTest.delete(`/fornecedor/${params}`).set("authorization", "Bearer teste-teste-teste");
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedError);

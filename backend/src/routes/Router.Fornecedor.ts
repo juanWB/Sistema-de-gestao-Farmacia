@@ -1,12 +1,13 @@
 import { Router } from "express";
 import { controllerFornecedor } from "../controllers/controllerFornecedor";
+import { verifyAuthentication } from "../shared/service/middleware/VerifyAuthentication";
 const routerFornecedor = Router();
 
 //Rotas Fornecedor
-routerFornecedor.get('/fornecedor',controllerFornecedor.getAllFornecedorValidation ,controllerFornecedor.getAllFornecedor);
-routerFornecedor.post('/fornecedor',controllerFornecedor.createFornecedorValidation, controllerFornecedor.createFornecedor);
-routerFornecedor.get('/fornecedor/:id',controllerFornecedor.getFornecedorByIdValidation ,controllerFornecedor.getFornecedorById);
-routerFornecedor.put('/fornecedor/:id', controllerFornecedor.updateFornecedorValidation, controllerFornecedor.updateFornecedor);
-routerFornecedor.delete('/fornecedor/:id', controllerFornecedor.deleteFornecedorValidation, controllerFornecedor.deleteFornecedor);
+routerFornecedor.get('/fornecedor', verifyAuthentication, controllerFornecedor.getAllFornecedorValidation ,controllerFornecedor.getAllFornecedor);
+routerFornecedor.post('/fornecedor', verifyAuthentication, controllerFornecedor.createFornecedorValidation, controllerFornecedor.createFornecedor);
+routerFornecedor.get('/fornecedor/:id', verifyAuthentication, controllerFornecedor.getFornecedorByIdValidation ,controllerFornecedor.getFornecedorById);
+routerFornecedor.put('/fornecedor/:id', verifyAuthentication,  controllerFornecedor.updateFornecedorValidation, controllerFornecedor.updateFornecedor);
+routerFornecedor.delete('/fornecedor/:id', verifyAuthentication,  controllerFornecedor.deleteFornecedorValidation, controllerFornecedor.deleteFornecedor);
 
 export {routerFornecedor}

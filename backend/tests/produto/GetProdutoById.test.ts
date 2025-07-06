@@ -19,9 +19,9 @@ describe("ProdutoController - GetById", () => {
         quantidade: "100",
         categoria_id: 1,
         fornecedor_id: responseFornecedor.body,
-      });
+      }).set("authorization", "Bearer teste-teste-teste");
 
-      const res = await serverTest.get(`/produto/1`);
+      const res = await serverTest.get(`/produto/1`).set("authorization", "Bearer teste-teste-teste");
       expect(res.status).toBe(StatusCodes.OK);
       expect(typeof res.body).toEqual("object");
     });
@@ -78,7 +78,7 @@ describe("ProdutoController - GetById", () => {
 
     testCases.forEach(({ description, params, expectedError }) => {
       it(description, async () => {
-        const response = await serverTest.get(`/produto/${params.id}`);
+        const response = await serverTest.get(`/produto/${params.id}`).set("authorization", "Bearer teste-teste-teste");
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedError);

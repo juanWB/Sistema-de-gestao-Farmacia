@@ -8,7 +8,7 @@ describe("Update - Produto", () => {
       cnpj: "12.345.678/9123-45",
       telefone: "(81) - 998837891",
       endereco: "Rua Major",
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     const resCreateProduto = await serverTest.post("/produto").send({
       nome: "Sabonete",
@@ -17,7 +17,7 @@ describe("Update - Produto", () => {
       quantidade: "100",
       categoria_id: 1,
       fornecedor_id: responseFornecedor.body,
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     const res = await serverTest.put(`/produto/${resCreateProduto.body}`).send({
       nome: "Sabão",
@@ -26,7 +26,7 @@ describe("Update - Produto", () => {
       quantidade: "100",
       categoria_id: 1,
       fornecedor_id: 1,
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     expect(res.statusCode).toBe(StatusCodes.OK);
     expect(typeof res.body).toEqual("object");
@@ -40,7 +40,7 @@ describe("Update - Produto", () => {
       quantidade: "100",
       categoria_id: 1,
       fornecedor_id: 1,
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
     expect(typeof res.body).toEqual("object");
@@ -54,7 +54,7 @@ describe("Update - Produto", () => {
       quantidade: "100",
       categoria_id: 1,
       fornecedor_id: 1,
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
     expect(typeof res.body).toEqual("object");
@@ -68,7 +68,7 @@ describe("Update - Produto", () => {
       quantidade: "100",
       categoria_id: 1,
       fornecedor_id: 1,
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
     expect(typeof res.body).toEqual("object");
@@ -82,7 +82,7 @@ describe("Update - Produto", () => {
       quantidade: "-100",
       categoria_id: 1,
       fornecedor_id: 1,
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
     expect(typeof res.body).toEqual("object");
@@ -96,7 +96,7 @@ describe("Update - Produto", () => {
       quantidade: "100",
       categoria_id: 0,
       fornecedor_id: 1,
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
     expect(typeof res.body).toEqual("object");
@@ -110,7 +110,7 @@ describe("Update - Produto", () => {
       quantidade: "100",
       categoria_id: 1,
       fornecedor_id: 0,
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
     expect(typeof res.body).toEqual("object");
@@ -124,7 +124,7 @@ describe("Update - Produto", () => {
       quantidade: "100",
       categoria_id: 1,
       fornecedor_id: 1,
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
     expect(typeof res.body).toEqual("object");
@@ -138,7 +138,7 @@ describe("Update - Produto", () => {
       quantidade: "100",
       categoria_id: 1,
       fornecedor_id: 1,
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     expect(res.statusCode).toBe(StatusCodes.BAD_REQUEST);
     expect(typeof res.body).toEqual("object");

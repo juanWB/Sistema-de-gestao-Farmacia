@@ -12,14 +12,14 @@ describe("FornecedorController - Update", () => {
           endereco: "Rua Major"
       }
 
-      const response1 = await serverTest.post("/fornecedor").send(fornecedor);
+      const response1 = await serverTest.post("/fornecedor").send(fornecedor).set("authorization", "Bearer teste-teste-teste");
 
       const res = await serverTest.put("/fornecedor/1").send({
         nome: "Atacamax",
         cnpj: "12345678912345",
         telefone: "81998837891",
         endereco: "Rua Major",
-      });
+      }).set("authorization", "Bearer teste-teste-teste");
 
       expect(res.statusCode).toEqual(StatusCodes.NO_CONTENT);
     });
@@ -139,7 +139,8 @@ describe("FornecedorController - Update", () => {
       it(description, async () => {
         const response = await serverTest
                               .put(`/fornecedor/${params.id}`)
-                              .send(data);
+                              .send(data)
+                              .set("authorization", "Bearer teste-teste-teste");
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedErrors);

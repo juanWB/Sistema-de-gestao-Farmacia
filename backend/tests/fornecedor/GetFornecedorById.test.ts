@@ -9,9 +9,9 @@ describe("FornecedorController - GetById", () => {
         cnpj: "12.345.678/9123-45",
         telefone: "(81) - 998837891",
         endereco: "Rua Major",
-      });
+      }).set("authorization", "Bearer teste-teste-teste");
 
-      const res = await serverTest.get(`/fornecedor/${responseFornecedor.body}`);
+      const res = await serverTest.get(`/fornecedor/${responseFornecedor.body}`).set("authorization", "Bearer teste-teste-teste");
       expect(res.status).toBe(StatusCodes.OK);
       expect(typeof res.body).toEqual("object");
     });
@@ -68,7 +68,7 @@ describe("FornecedorController - GetById", () => {
 
     testCases.forEach(({ description, params, expectedError }) => {
       it(description, async () => {
-        const response = await serverTest.get(`/fornecedor/${params.id}`);
+        const response = await serverTest.get(`/fornecedor/${params.id}`).set("authorization", "Bearer teste-teste-teste");
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedError);

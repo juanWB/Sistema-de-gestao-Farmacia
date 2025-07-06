@@ -27,7 +27,7 @@ describe("FornecedorController - Create", () => {
 
     testCases.map(({ description, data }) => {
       it(description, async () => {
-        const response = await serverTest.post("/fornecedor").send(data);
+        const response = await serverTest.post("/fornecedor").send(data).set("authorization", "Bearer teste-teste-teste");
 
         expect(response.statusCode).toEqual(StatusCodes.CREATED);
       });
@@ -108,7 +108,7 @@ describe("FornecedorController - Create", () => {
 
     testCases.map(({ description, data, expectedErrors }) => {
       it(description, async () => {
-        const response = await serverTest.post("/fornecedor").send(data);
+        const response = await serverTest.post("/fornecedor").send(data).set("authorization", "Bearer teste-teste-teste");
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedErrors);

@@ -11,9 +11,9 @@ describe('GetAll - Fornecedor', () => {
           endereco: "Rua Major",
         }
 
-        const response = await serverTest.post("/fornecedor").send(fornecedor);
+        const response = await serverTest.post("/fornecedor").send(fornecedor).set("authorization", "Bearer teste-teste-teste");
 
-        const res = await serverTest.get('/fornecedor');
+        const res = await serverTest.get('/fornecedor').set("authorization", "Bearer teste-teste-teste");
 
         expect(res.statusCode).toEqual(StatusCodes.OK);
         expect(typeof res.body).toEqual('object');

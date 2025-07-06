@@ -9,7 +9,7 @@ describe("SaidaEstoqueController - Create", () => {
         cnpj: "12.345.678/9123-45",
         telefone: "(81) - 998837891",
         endereco: "Rua Major",
-      });
+      }).set("authorization", "Bearer teste-teste-teste");
 
       const resCreateProduto = await serverTest.post("/produto").send({
         nome: "Sabonete",
@@ -18,13 +18,13 @@ describe("SaidaEstoqueController - Create", () => {
         quantidade: "100",
         categoria_id: 1,
         fornecedor_id: resFornercedor.body,
-      });
+      }).set("authorization", "Bearer teste-teste-teste");
 
       const res = await serverTest.post("/saida").send({
         produto_id: resCreateProduto.body,
         quantidade: 2,
         saida_data: "2000-06-17",
-      });
+      }).set("authorization", "Bearer teste-teste-teste");
 
       expect(res.statusCode).toEqual(StatusCodes.CREATED);
     });
@@ -83,7 +83,7 @@ describe("SaidaEstoqueController - Create", () => {
     ];
     testCases.forEach(({ description, data, expectedError }) => {
       it(description, async () => {
-        const response = await serverTest.post("/saida").send(data);
+        const response = await serverTest.post("/saida").send(data).set("authorization", "Bearer teste-teste-teste");
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedError);

@@ -9,7 +9,7 @@ describe("EntradaEstoqueController - GetAll", () => {
         cnpj: "12.345.678/9123-45",
         telefone: "(81) - 998837891",
         endereco: "Rua Major",
-      });
+      }).set("authorization", "Bearer teste-teste-teste");
 
       const response = await serverTest.post("/produto").send({
         nome: "Sabonete",
@@ -18,7 +18,7 @@ describe("EntradaEstoqueController - GetAll", () => {
         quantidade: "100",
         categoria_id: 1,
         fornecedor_id: fonercedorId,
-      });
+      }).set("authorization", "Bearer teste-teste-teste");
 
       produto_id = response.body;
     });
@@ -27,9 +27,9 @@ describe("EntradaEstoqueController - GetAll", () => {
       produto_id,
       quantidade: 2,
       entrada_data: "2000-06-17",
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
-    const res2 = await serverTest.get("/entrada");
+    const res2 = await serverTest.get("/entrada").set("authorization", "Bearer teste-teste-teste");
 
     expect(res2.statusCode).toEqual(StatusCodes.OK);
     expect(typeof res2.body).toEqual("object");

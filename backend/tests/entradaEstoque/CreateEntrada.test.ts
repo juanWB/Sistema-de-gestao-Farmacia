@@ -9,7 +9,7 @@ describe("EntradaEstoqueController - Create", () => {
       cnpj: "12.345.678/9123-45",
       telefone: "(81) - 998837891",
       endereco: "Rua Major",
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     const responseProduto = await serverTest.post("/produto").send({
       nome: "Sabonete",
@@ -18,7 +18,7 @@ describe("EntradaEstoqueController - Create", () => {
       quantidade: "100",
       categoria_id: 1,
       fornecedor_id: responseFornecedor.body,
-    });
+    }).set("authorization", "Bearer teste-teste-teste");
 
     produtoId = responseProduto.body;
   });
@@ -28,7 +28,7 @@ describe("EntradaEstoqueController - Create", () => {
         quantidade: 2,
         entrada_data: "2000-06-17",
         produto_id: produtoId,
-      });
+      }).set("authorization", "Bearer teste-teste-teste");
 
       expect(res.statusCode).toEqual(StatusCodes.CREATED);
     });
@@ -87,7 +87,7 @@ describe("EntradaEstoqueController - Create", () => {
     ];
     testCases.forEach(({ description, data, expectedError }) => {
       it(description, async () => {
-        const response = await serverTest.post("/entrada").send(data);
+        const response = await serverTest.post("/entrada").send(data).set("authorization", "Bearer teste-teste-teste");
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedError);
