@@ -62,7 +62,7 @@ export const ListagemDeProdutos: React.FC = () => {
                         display={'flex'}
                         alignItems={'center'}
                         justifyContent={'center'} >
-                        <CircularProgress size={40} />
+                        <CircularProgress size={60} />
                     </Stack>
             )}
 
