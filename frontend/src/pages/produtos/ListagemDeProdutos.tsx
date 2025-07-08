@@ -5,7 +5,8 @@ import { produtoService, type IListagemProduto } from "../../shared/service/api/
 import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina"
 import { FerramentasDeListagem } from "../../shared/components"
 import { useDebounce } from "../../shared/hooks/UseDebounce";
-import { CircularProgress, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import { CircularProgress, LinearProgress, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material";
+import { Enviroments } from "../../shared/enviroments";
 
 
 export const ListagemDeProdutos: React.FC = () => {
@@ -15,7 +16,7 @@ export const ListagemDeProdutos: React.FC = () => {
 
     const [rows, setRows] = useState<IListagemProduto[]>([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [count, setTotalCount] = useState(0);
+    const [totalCount, setTotalCount] = useState(0);
 
     const { debounce } = useDebounce();
 
@@ -26,7 +27,9 @@ export const ListagemDeProdutos: React.FC = () => {
 
     useEffect(() => {
         setIsLoading(true)
+
         debounce(() => {
+
             produtoService.getAll(1, busca)
                 .then((result) => {
                     setIsLoading(false);
@@ -55,42 +58,68 @@ export const ListagemDeProdutos: React.FC = () => {
             }
         >
 
-            {isLoading && (
-                    <Stack
-                        margin={30}
-                        spacing={4}
-                        display={'flex'}
-                        alignItems={'center'}
-                        justifyContent={'center'} >
-                        <CircularProgress size={60} />
-                    </Stack>
-            )}
-
-            {!isLoading && (<TableContainer component={Paper} variant="outlined" sx={{ m: 2, width: 'auto' }}>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Ações</TableCell>
-                            <TableCell>Nome</TableCell>
-                            <TableCell>Preço</TableCell>
-                            <TableCell>Quantidade</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-
-
-                        {rows && rows.length > 0 && (rows.map((row) => (
-                            <TableRow key={row.id}>
+            {isLoading && rows.length === 0 ? (
+                <Stack
+                    margin={30}
+                    spacing={4}
+                    display={'flex'}
+                    alignItems={'center'}
+                    justifyContent={'center'} >
+                    <CircularProgress size={60} />
+                </Stack>
+            ) : (
+                <TableContainer component={Paper} variant="outlined" sx={{ m: 2, width: 'auto' }}>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
                                 <TableCell>Ações</TableCell>
-                                <TableCell>{row.nome}</TableCell>
-                                <TableCell>{row.preco}</TableCell>
-                                <TableCell>{row.quantidade}</TableCell>
+                                <TableCell>Nome</TableCell>
+                                <TableCell>Preço</TableCell>
+                                <TableCell>Quantidade</TableCell>
                             </TableRow>
-                        )))}
+                        </TableHead>
 
-                    </TableBody>
-                </Table>
-            </TableContainer>)}
+                        <TableBody>
+
+                            {rows.map((row) => (
+                                <TableRow key={row.id}>
+                                    <TableCell>Ações</TableCell>
+                                    <TableCell>{row.nome}</TableCell>
+                                    <TableCell>{row.preco}</TableCell>
+                                    <TableCell>{row.quantidade}</TableCell>
+                                </TableRow>
+                            ))}
+
+                        </TableBody>
+                        
+                        {totalCount === 0 && !isLoading && (
+                            <TableFooter>
+                                <TableRow>
+                                    <TableCell colSpan={4}>
+                                        <Typography
+                                            fontSize={15}
+                                            variant="caption"
+                                        >
+                                            {Enviroments.LISTAGEM_VAZIA}
+                                        </Typography>
+                                    </TableCell>
+                                </TableRow>
+                            </TableFooter>
+                        )}
+
+                        {isLoading && rows.length > 0 && (
+                            <TableFooter>
+                                <TableRow>
+                                    <TableCell colSpan={4}>
+                                        <LinearProgress variant="indeterminate"/>
+                                    </TableCell>
+                                </TableRow>
+                            </TableFooter>
+                        )}
+
+                    </Table>
+                </TableContainer>
+            )}
 
         </LayoutBaseDePagina>
     )
