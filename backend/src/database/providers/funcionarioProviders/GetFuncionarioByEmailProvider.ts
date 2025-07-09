@@ -1,4 +1,4 @@
-import { logger } from "../../../shared/logger";
+import { logger } from "../../../shared/service/logger";
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 import { IFuncionario } from "../../models";

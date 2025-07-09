@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import z from 'zod'
 import { StatusCodes } from "http-status-codes";
 import { EntradaEstoqueProvider } from "../../database/providers/entradaEstoqueProviders";
-import { validation } from "../../shared/service/middleware/Validation";
+import { validation } from "../../shared/middleware/Validation";
 
 interface IQueryProps{
     page?: number,

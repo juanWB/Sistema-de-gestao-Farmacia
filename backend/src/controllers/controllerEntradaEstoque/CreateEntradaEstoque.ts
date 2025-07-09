@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { validation } from "../../shared/service/middleware/Validation";
+import { validation } from "../../shared/middleware/Validation";
 import { StatusCodes } from "http-status-codes";
 import { Request, Response } from "express";
 import { IEntradaEstoque } from "../../database/models";

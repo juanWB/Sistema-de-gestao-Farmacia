@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { controllerSaidaEstoque } from "../controllers/controllerSaidaEstoque";
-import { verifyAuthentication } from "../shared/service/middleware/VerifyAuthentication";
+import { verifyAuthentication } from "../shared/middleware/VerifyAuthentication";
 const routerSaida = Router();
 
 //Rotas Saida Estoque

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { controllerProduto } from "../controllers/controllerProduto";
-import { verifyAuthentication } from "../shared/service/middleware/VerifyAuthentication";
+import { verifyAuthentication } from "../shared/middleware/VerifyAuthentication";
 const routerProduto = Router();
 
 //Rotas Produto

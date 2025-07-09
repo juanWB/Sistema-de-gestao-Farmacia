@@ -1,10 +1,11 @@
 import z from "zod";
-import { validation } from "../../shared/service/middleware/Validation";
+import { validation } from "../../shared/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { IFuncionario } from "../../database/models/index";
 import { FuncionarioProvider } from "../../database/providers/funcionarioProviders";
 import { passwordCrypto } from "../../shared/service/PasswordCrypto";
+import { JWTService } from "../../shared/service";
 
 interface IBodyProps extends Omit<IFuncionario, 'id' | 'nome'>{};
 
@@ -57,8 +58,20 @@ export const signInFuncionario = async (req: Request<{}, {}, IBodyProps>, res: R
       })
       return
   }else{
-     res.status(StatusCodes.OK).json({accessToken: 'teste-teste-teste'});
+    const accessToken = JWTService.sign({uid: result.id});
+
+     if(accessToken === 'JWT_SECRET not found'){
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+        errors: {
+          default: 'Erro ao gerar token de acesso',
+        },
+      });
+    
      return;
+    }
+
+    res.status(StatusCodes.OK).json({accessToken});
+    return;
   }
  
 };

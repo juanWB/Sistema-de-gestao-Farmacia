@@ -1,5 +1,5 @@
 import { query } from "winston";
-import { logger } from "../../../shared/logger";
+import { logger } from "../../../shared/service/logger";
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 import { IEntradaEstoque } from "../../models";

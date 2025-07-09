@@ -1,4 +1,4 @@
-import { logger } from "../../../shared/logger";
+import { logger } from "../../../shared/service/logger";
 import { passwordCrypto } from "../../../shared/service/PasswordCrypto";
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
