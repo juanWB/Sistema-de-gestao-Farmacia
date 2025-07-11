@@ -2,6 +2,19 @@ import { StatusCodes } from "http-status-codes";
 import { serverTest } from "../jest.setup";
 
 describe("FornecedorController - Create", () => {
+  let accessToken = "";
+  beforeAll(async () => {
+    const email = "create.fornecedor@gmail.com";
+    await serverTest
+      .post("/cadastrar")
+      .send({ nome: "Kevin", email, senha: "123456789aA@" });
+    const sign = await serverTest
+      .post("/entrar")
+      .send({ email, senha: "123456789aA@" });
+
+    accessToken = sign.body.accessToken;
+  });
+
   describe("Cria um fornecedor", () => {
     const testCases = [
       {
@@ -27,10 +40,29 @@ describe("FornecedorController - Create", () => {
 
     testCases.map(({ description, data }) => {
       it(description, async () => {
-        const response = await serverTest.post("/fornecedor").send(data).set("authorization", "Bearer teste-teste-teste");
+        const response = await serverTest
+          .post("/fornecedor")
+          .send(data)
+          .set({ Authorization: `Bearer ${accessToken}` });
 
         expect(response.statusCode).toEqual(StatusCodes.CREATED);
       });
+    });
+  });
+
+  describe("Validação de token de acesso", () => {
+    it("Tenta criar fornecedor sem token de acesso", async () => {
+      const response = await serverTest
+        .post("/fornecedor")
+        .send({
+          nome: "Atacamax",
+          cnpj: "12.345.678/9123-45",
+          telefone: "(81) - 998837891",
+          endereco: "Rua Major",
+        });
+
+        expect(response.statusCode).toBe(StatusCodes.UNAUTHORIZED);
+        expect(response.body).toHaveProperty("errors.default");
     });
   });
 
@@ -98,8 +130,7 @@ describe("FornecedorController - Create", () => {
         expectedErrors: {
           errors: {
             body: {
-              telefone:
-                "Telefone inválido, precisa ter enter 10 e 14 dígitos",
+              telefone: "Telefone inválido, precisa ter enter 10 e 14 dígitos",
             },
           },
         },
@@ -108,7 +139,10 @@ describe("FornecedorController - Create", () => {
 
     testCases.map(({ description, data, expectedErrors }) => {
       it(description, async () => {
-        const response = await serverTest.post("/fornecedor").send(data).set("authorization", "Bearer teste-teste-teste");
+        const response = await serverTest
+          .post("/fornecedor")
+          .send(data)
+          .set({ Authorization: `Bearer ${accessToken}` });
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedErrors);

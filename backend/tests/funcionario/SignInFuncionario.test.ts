@@ -18,7 +18,7 @@ describe("FuncionarioController - SignIn", () => {
       });
 
       expect(res.status).toBe(StatusCodes.OK);
-      expect(typeof res.body).toEqual("object");
+      expect(res.body).toHaveProperty("accessToken");
     });
   });
 

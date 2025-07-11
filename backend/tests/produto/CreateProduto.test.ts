@@ -2,17 +2,32 @@ import { StatusCodes } from "http-status-codes";
 import { serverTest } from "../jest.setup";
 
 describe("ProdutoController - Create", () => {
+  let accessToken = "";
+  beforeAll(async () => {
+    const email = "create.produto@gmail.com";
+
+    await serverTest
+      .post("/cadastrar")
+      .send({ nome: "Kevin", email, senha: "123456789aA@" });
+
+    const sign = await serverTest
+      .post("/entrar")
+      .send({ email, senha: "123456789aA@" });
+
+    accessToken = sign.body.accessToken;
+  });
+
   describe("Criação válida", () => {
     it("Cria um produto com parametros corretos.", async () => {
 
       const responseFornecedor = await serverTest
         .post("/fornecedor")
         .send({
-          nome: "Atacamax",
+          nome: "Atacado",
           cnpj: "12.345.678/9123-45",
           telefone: "(81) - 998837891",
           endereco: "Rua Major",
-        }).set("authorization", "Bearer teste-teste-teste");
+        }).set({ Authorization: `Bearer ${accessToken}` });
 
       const res = await serverTest.post("/produto").send({
         nome: "Sabonete",
@@ -21,9 +36,36 @@ describe("ProdutoController - Create", () => {
         quantidade: "100",
         categoria_id: 1,
         fornecedor_id: responseFornecedor.body,
-      }).set("authorization", "Bearer teste-teste-teste");
+      }).set({ Authorization: `Bearer ${accessToken}` });
 
       expect(res.statusCode).toBe(StatusCodes.CREATED);
+    });
+  });
+
+   describe("Validação de token de acesso", () => {
+    it("Tenta criar um produto sem token de acesso.", async () => {
+
+      const responseFornecedor = await serverTest
+        .post("/fornecedor")
+        .send({
+          nome: "Atacado",
+          cnpj: "12.345.678/9123-45",
+          telefone: "(81) - 998837891",
+          endereco: "Rua Major",
+        }).set({ Authorization: `Bearer ${accessToken}` });
+
+      const res = await serverTest.post("/produto").send({
+        nome: "Sabonete",
+        preco: "1.99",
+        validade: "2025-01-01",
+        quantidade: "100",
+        categoria_id: 1,
+        fornecedor_id: responseFornecedor.body,
+      });
+
+      expect(res.statusCode).toBe(StatusCodes.UNAUTHORIZED);
+      expect(res.body).toHaveProperty('errors.default');
+
     });
   });
 
@@ -182,7 +224,7 @@ describe("ProdutoController - Create", () => {
 
     testCases.forEach(({ description, data, expectedError }) => {
       it(description, async () => {
-        const response = await serverTest.post("/produto").send(data).set("authorization", "Bearer teste-teste-teste");
+        const response = await serverTest.post("/produto").send(data).set({ Authorization: `Bearer ${accessToken}` });
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedError);

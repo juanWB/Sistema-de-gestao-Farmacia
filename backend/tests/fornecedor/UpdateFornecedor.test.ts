@@ -3,6 +3,21 @@ import { serverTest } from "../jest.setup";
 import { response } from "express";
 
 describe("FornecedorController - Update", () => {
+  let accessToken = "";
+  beforeAll(async () => {
+    const email = "update.fornecedor@gmail.com";
+
+    await serverTest
+      .post("/cadastrar")
+      .send({ nome: "Kevin", email, senha: "123456789aA@" });
+
+    const sign = await serverTest
+      .post("/entrar")
+      .send({ email, senha: "123456789aA@" });
+
+    accessToken = sign.body.accessToken;
+  });
+
   describe("Atualização válida", () => {
     it("Atualiza um fornecedor por um id", async () => {
       const fornecedor = {
@@ -12,14 +27,17 @@ describe("FornecedorController - Update", () => {
           endereco: "Rua Major"
       }
 
-      const response1 = await serverTest.post("/fornecedor").send(fornecedor).set("authorization", "Bearer teste-teste-teste");
+      const response1 = await serverTest
+        .post("/fornecedor")
+        .send(fornecedor)
+        .set({ Authorization: `Bearer ${accessToken}` });
 
       const res = await serverTest.put("/fornecedor/1").send({
         nome: "Atacamax",
         cnpj: "12345678912345",
         telefone: "81998837891",
         endereco: "Rua Major",
-      }).set("authorization", "Bearer teste-teste-teste");
+      }).set({ Authorization: `Bearer ${accessToken}` });
 
       expect(res.statusCode).toEqual(StatusCodes.NO_CONTENT);
     });
@@ -140,7 +158,7 @@ describe("FornecedorController - Update", () => {
         const response = await serverTest
                               .put(`/fornecedor/${params.id}`)
                               .send(data)
-                              .set("authorization", "Bearer teste-teste-teste");
+                              .set({ Authorization: `Bearer ${accessToken}` });
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedErrors);
