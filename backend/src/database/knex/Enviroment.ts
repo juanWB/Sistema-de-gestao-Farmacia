@@ -27,5 +27,15 @@ export const test = {
 };
 
 export const production = {
-    ...development
+  client: "pg",
+  migrations: {
+    directory: path.resolve(__dirname, '..', 'migrations'),
+  },
+  seeds: {
+    directory: path.resolve(__dirname, '..', 'seeds')
+  },
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false}
+  },
 }
