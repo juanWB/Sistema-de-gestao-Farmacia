@@ -25,6 +25,7 @@
     "@types/jest": "^29.5.14",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/knex": "^0.16.1",
+    "@types/node": "^24.0.13",
     "@types/pg": "^8.15.4",
     "@types/sqlite3": "^5.1.0",
     "@types/supertest": "^6.0.3",
