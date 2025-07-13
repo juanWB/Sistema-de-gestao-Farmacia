@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev ./src/index.ts",
-    "build": "tsc",
     "start": "node ./build/index.js",
+    "build": "tsc",
     "test": "jest",
     "knex:rollback-all": "knex --knexfile ./src/database/knex/Enviroment.ts migrate:rollback --all",
     "knex:rollback": "knex --knexfile ./src/database/knex/Enviroment.ts migrate:rollback",
@@ -20,13 +20,9 @@
     "@types/bcryptjs": "^3.0.0",
     "@types/cors": "^2.8.18",
     "@types/dotenv": "^8.2.3",
-    "@types/express": "^5.0.3",
     "@types/http-status-codes": "^1.2.0",
     "@types/jest": "^29.5.14",
-    "@types/jsonwebtoken": "^9.0.10",
     "@types/knex": "^0.16.1",
-    "@types/node": "^24.0.13",
-    "@types/pg": "^8.15.4",
     "@types/sqlite3": "^5.1.0",
     "@types/supertest": "^6.0.3",
     "@types/winston": "^2.4.4",
@@ -37,6 +33,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@types/pg": "^8.15.4",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.0.13",
