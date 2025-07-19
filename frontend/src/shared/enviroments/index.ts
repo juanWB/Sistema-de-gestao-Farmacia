@@ -5,7 +5,7 @@ export const Enviroments = {
     /**
      * Define quantidade padrão de linhas a serem exibidas nas listagens
      */
-    LIMITE_DE_LINHAS: 10,
+    LIMITE_DE_LINHAS: 7,
 
     /**
      * Define um texto listagens vazias

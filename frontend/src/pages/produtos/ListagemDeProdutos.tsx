@@ -1,11 +1,11 @@
 import { useSearchParams } from "react-router-dom"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import { produtoService, type IListagemProduto } from "../../shared/service/api/produtos/ProdutoService";
 import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina"
 import { FerramentasDeListagem } from "../../shared/components"
 import { useDebounce } from "../../shared/hooks/UseDebounce";
-import { CircularProgress, LinearProgress, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material";
+import { CircularProgress, LinearProgress, Pagination, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material";
 import { Enviroments } from "../../shared/enviroments";
 
 
@@ -25,12 +25,16 @@ export const ListagemDeProdutos: React.FC = () => {
         setSearchParams({ busca: novoTexto }, { replace: true });
     }
 
+    const pagina = useMemo(() => {
+        return Number(searchParams.get('pagina') || 1);
+    }, [searchParams]);
+
     useEffect(() => {
         setIsLoading(true)
 
         debounce(() => {
 
-            produtoService.getAll(1, busca)
+            produtoService.getAll(pagina, busca)
                 .then((result) => {
                     setIsLoading(false);
                     if (result instanceof Error) {
@@ -43,7 +47,7 @@ export const ListagemDeProdutos: React.FC = () => {
                     }
                 });
         });
-    }, [busca, debounce]);
+    }, [busca, pagina, debounce]);
 
     return (
         <LayoutBaseDePagina
@@ -107,15 +111,27 @@ export const ListagemDeProdutos: React.FC = () => {
                             </TableFooter>
                         )}
 
+                    <TableFooter>
                         {isLoading && rows.length > 0 && (
-                            <TableFooter>
                                 <TableRow>
                                     <TableCell colSpan={4}>
                                         <LinearProgress variant="indeterminate"/>
                                     </TableCell>
                                 </TableRow>
-                            </TableFooter>
                         )}
+
+                         {(totalCount > 0 && Enviroments.LIMITE_DE_LINHAS) && (
+                                <TableRow>
+                                    <TableCell colSpan={4}>
+                                        <Pagination
+                                            onChange={(_, newPage) => setSearchParams({busca, page: newPage.toString()}, {replace: true})}
+                                            count={Math.ceil(totalCount / Enviroments.LIMITE_DE_LINHAS)}
+                                            page={pagina}
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                        )}
+                    </TableFooter>
 
                     </Table>
                 </TableContainer>
