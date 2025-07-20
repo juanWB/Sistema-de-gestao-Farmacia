@@ -1,12 +1,13 @@
-import { useSearchParams } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import { useState, useEffect, useMemo } from "react";
 
 import { produtoService, type IListagemProduto } from "../../shared/service/api/produtos/ProdutoService";
 import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina"
 import { FerramentasDeListagem } from "../../shared/components"
 import { useDebounce } from "../../shared/hooks/UseDebounce";
-import { CircularProgress, LinearProgress, Pagination, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material";
+import { CircularProgress, IconButton, LinearProgress, Pagination, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material";
 import { Enviroments } from "../../shared/enviroments";
+import { Delete, Edit } from "@mui/icons-material";
 
 
 export const ListagemDeProdutos: React.FC = () => {
@@ -17,6 +18,8 @@ export const ListagemDeProdutos: React.FC = () => {
     const [rows, setRows] = useState<IListagemProduto[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [totalCount, setTotalCount] = useState(0);
+
+    const navigate = useNavigate();
 
     const { debounce } = useDebounce();
 
@@ -48,6 +51,25 @@ export const ListagemDeProdutos: React.FC = () => {
                 });
         });
     }, [busca, pagina, debounce]);
+
+    const handleDelete = async(id: number) => {
+        if(confirm('Realmente deseja deletar o registro?')){
+            try{
+                const result = await produtoService.deleteById(id);
+
+                 if(result instanceof Error){
+                    return alert(result.message);
+                 }
+
+                 setRows(oldRows => {
+                   return [...oldRows].filter(rows => rows.id !== id)
+                 });
+                 alert('Registro deletado com sucesso!');
+            }catch(error){
+                console.log(`${(error as {message: string}).message} - Error ao deletar registro`);
+            }
+        }
+    }
 
     return (
         <LayoutBaseDePagina
@@ -87,7 +109,14 @@ export const ListagemDeProdutos: React.FC = () => {
 
                             {rows.map((row) => (
                                 <TableRow key={row.id}>
-                                    <TableCell>Ações</TableCell>
+                                    <TableCell>
+                                        <IconButton onClick={() => handleDelete(row.id)}>
+                                            <Delete/>
+                                        </IconButton>
+                                        <IconButton onClick={() => navigate(`/produtos/detalhes/${row.id}`)}>
+                                            <Edit/>
+                                        </IconButton>
+                                    </TableCell>
                                     <TableCell>{row.nome}</TableCell>
                                     <TableCell>{row.preco}</TableCell>
                                     <TableCell>{row.quantidade}</TableCell>

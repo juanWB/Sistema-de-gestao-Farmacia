@@ -1,22 +1,13 @@
 {
-    "produtos":[
-        {
-        "id": 1,
-        "nome": "Produto 1",
-        "preco": 2.99,
-        "validade": "2023-12-31",
-        "quantidade": 10,
-        "categoria_id": 1,
-        "fornecedor_id": 1
-        },
-        {
-        "id": 2,
-        "nome": "Produto 2",
-        "preco": 4.99,
-        "validade": "2023-12-31",
-        "quantidade": 5,
-        "categoria_id": 2,
-        "fornecedor_id": 2
-        }
-    ]
+  "produtos": [
+    {
+      "id": "2",
+      "nome": "Produto 2",
+      "preco": 4.99,
+      "validade": "2023-12-31",
+      "quantidade": 5,
+      "categoria_id": 2,
+      "fornecedor_id": 2
+    }
+  ]
 }

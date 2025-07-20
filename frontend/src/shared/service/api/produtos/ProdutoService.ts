@@ -89,9 +89,12 @@ const updateById = async (id: number, produto: Omit<IListagemProduto, 'id'>): Pr
 
 const deleteById = async (id: number):Promise<void | Error> => {
 try {
-    await Api.delete(`/produtos/${id}`);
+    const result = await Api.delete(`/produtos/${id}`);
 
-    return new Error("Error ao deletar registro");
+    if(result instanceof Error){
+      return new Error("Error ao deletar registro");
+    }
+
   } catch (error) {
     console.error(error);
     return new Error(
