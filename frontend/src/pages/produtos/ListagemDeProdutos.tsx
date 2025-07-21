@@ -79,6 +79,7 @@ export const ListagemDeProdutos: React.FC = () => {
                     mostrarCampoBusca
                     mostrarButton
                     textoCampoBusca={busca}
+                    aoClicarEmNovo={() => navigate('/produtos/detalhes/novo')}
                     aoMudarTextoDeBusca={handleBuscaChange}
                 />
             }

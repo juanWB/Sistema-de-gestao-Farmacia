@@ -2,8 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDrawerContext } from '../shared/contexts';
 import { useEffect } from 'react';
 import { AddBox, IndeterminateCheckBox, Inventory2, LocalShipping } from '@mui/icons-material';
-import { AppDashboard } from '../pages';
-import { ListagemDeProdutos } from '../pages/produtos/ListagemDeProdutos';
+import { AppDashboard, DetalheDeProduto, ListagemDeProdutos } from '../pages';
 
 export const AppRoutes = () => {
     const { setDrawerOptions } = useDrawerContext();
@@ -37,7 +36,7 @@ export const AppRoutes = () => {
         <Routes>
             <Route path='/pagina-inicial' element={<AppDashboard/>}/>
             <Route path='/produtos' element={<ListagemDeProdutos/>}/>
-            <Route path='/produtos/detalhes/:id' element={<ListagemDeProdutos/>}/>
+            <Route path='/produtos/detalhes/:id' element={<DetalheDeProduto/>}/>
             <Route path='*' element={<Navigate to={'/pagina-inicial'} />}/>
         </Routes>
     )
