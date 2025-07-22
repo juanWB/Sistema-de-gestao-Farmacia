@@ -1,14 +1,56 @@
 import { useNavigate, useParams } from "react-router-dom"
-import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
+import { useEffect, useState } from "react";
+
 import { FerramentasDeDetalhes } from "../../shared/components";
+import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
+import { produtoService } from "../../shared/service/api/produtos/ProdutoService";
+import { LinearProgress } from "@mui/material";
 
 
 export const DetalheDeProduto: React.FC = () => {
     const { id = 'novo'} = useParams<'id'>();
     const navigate = useNavigate();
 
-    const handleDelete = () =>{
-        console.log('Delete');
+    const [isLoading, setIsLoading ] = useState(false);
+    const [nome, setNome] = useState('');
+
+    useEffect(() => {
+        if(id !== 'novo'){
+           
+            setIsLoading(true);
+
+            produtoService.getById(Number(id))
+                .then(result => {
+                    
+                    setIsLoading(false);
+
+                    if(result instanceof Error){
+                        alert(result.message);
+                        navigate('/produtos');
+                    }else{
+                        setNome(result.nome);
+                        console.log(result);
+                    }
+                })
+        } 
+    },[id]);
+
+    const handleDelete = async(id: number) => {
+        if(confirm('Realmente deseja deletar o registro?')){
+            try{
+                const result = await produtoService.deleteById(id);
+
+                 if(result instanceof Error){
+                    return alert(result.message);
+                 }
+
+                 alert('Registro deletado com sucesso!');
+                 navigate('/produtos');
+            }catch(error){
+                console.log(`${(error as {message: string}).message} - Error ao deletar registro`); 
+                navigate('/produtos');
+            }
+        }
     }
     
     const handleSave = () =>{
@@ -17,7 +59,7 @@ export const DetalheDeProduto: React.FC = () => {
 
     return(
         <LayoutBaseDePagina 
-            titulo="Detalhes de produto"
+            titulo={id === 'novo' ? 'Novo produto' : nome}
             barraDeFerramentas={
                 <FerramentasDeDetalhes
                     mostrarBotaoSalvarEFechar
@@ -27,11 +69,16 @@ export const DetalheDeProduto: React.FC = () => {
                     aoClicarSalvar={handleSave}
                     aoClicarSalvarEFechar={handleSave}
                     aoClicarVoltar={() => navigate('/produtos')}
-                    aoClicarApagar={handleDelete}
+                    aoClicarApagar={() => handleDelete(Number(id))}
                     aoClicarNovo={() => navigate('/produtos/detalhes/novo')}
                 />
             }
         >
+            {isLoading && (
+                <LinearProgress variant="indeterminate"/>
+            )}
+
+
                     <p>DetalheDeProduto: {id}</p>
         </LayoutBaseDePagina>
     )

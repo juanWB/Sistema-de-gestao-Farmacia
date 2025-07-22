@@ -76,9 +76,13 @@ const create = async (produto: Omit<IListagemProduto, "id">): Promise<number | E
 
 const updateById = async (id: number, produto: Omit<IListagemProduto, 'id'>): Promise<void | Error> => {
   try {
-    await Api.put(`/produtos/${id}`, produto);
+    const result = await Api.put(`/produtos/${id}`, produto);
 
-    return new Error("Error ao atualizar registro")
+    if(result instanceof Error){
+      return new Error("Error ao atualizar registro")
+    }
+    
+    return
   } catch (error) {
     console.error(error);
     return new Error(
