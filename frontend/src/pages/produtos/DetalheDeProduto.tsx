@@ -1,11 +1,21 @@
 import { useNavigate, useParams } from "react-router-dom"
-import { useEffect, useState } from "react";
-
-import { FerramentasDeDetalhes } from "../../shared/components";
-import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
-import { produtoService } from "../../shared/service/api/produtos/ProdutoService";
-import { Form } from "@unform/web";
+import { useEffect, useRef, useState } from "react";
+import type { FormHandles } from "@unform/core";
 import { VTextField } from "../../shared/forms";
+import { Form } from "@unform/web";
+
+import { produtoService } from "../../shared/service/api/produtos/ProdutoService";
+import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
+import { FerramentasDeDetalhes } from "../../shared/components";
+
+interface IProductProps {
+    nome: string;
+    preco: number;
+    validade: Date | string;
+    quantidade: number;
+    categoria_id: number;
+    fornecedor_id: number;
+}
 
 export const DetalheDeProduto: React.FC = () => {
     const { id = 'novo'} = useParams<'id'>();
@@ -13,6 +23,7 @@ export const DetalheDeProduto: React.FC = () => {
 
     const [isLoading, setIsLoading ] = useState(false);
     const [nome, setNome] = useState('');
+    const formRef = useRef<FormHandles>(null);
 
     useEffect(() => {
         if(id !== 'novo'){
@@ -53,8 +64,8 @@ export const DetalheDeProduto: React.FC = () => {
         }
     }
     
-    const handleSave = () =>{
-        console.log('Save');
+    const handleSave = (dados: IProductProps) =>{
+        console.log(dados);
     }
 
     return(
@@ -66,8 +77,8 @@ export const DetalheDeProduto: React.FC = () => {
                     mostrarBotaoNovo={id !== 'nova'}
                     mostrarBotaoApagar={id !== 'nova'}
 
-                    aoClicarSalvar={handleSave}
-                    aoClicarSalvarEFechar={handleSave}
+                    aoClicarSalvar={() => formRef.current?.submitForm()}
+                    aoClicarSalvarEFechar={() => formRef.current?.submitForm()}
                     aoClicarVoltar={() => navigate('/produtos')}
                     aoClicarApagar={() => handleDelete(Number(id))}
                     aoClicarNovo={() => navigate('/produtos/detalhes/novo')}
@@ -76,12 +87,15 @@ export const DetalheDeProduto: React.FC = () => {
         >  
 
             <Form 
-                onSubmit={(data) => console.log(data)}
+                onSubmit={(data) => handleSave(data)}
             >
 
-                <VTextField
-                    name="nome"
-                />
+                <VTextField name="nome"/>
+                <VTextField name="preco"/>
+                <VTextField name="validade"/>
+                <VTextField name="quantidade"/>
+                <VTextField name="categoria_id"/>
+                <VTextField name="fornecedor_id"/>
 
             </Form>
 
