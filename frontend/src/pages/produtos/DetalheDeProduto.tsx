@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { FerramentasDeDetalhes } from "../../shared/components";
 import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
 import { produtoService } from "../../shared/service/api/produtos/ProdutoService";
-import { LinearProgress } from "@mui/material";
-
+import { Form } from "@unform/web";
+import { VTextField } from "../../shared/forms";
 
 export const DetalheDeProduto: React.FC = () => {
     const { id = 'novo'} = useParams<'id'>();
@@ -73,13 +73,18 @@ export const DetalheDeProduto: React.FC = () => {
                     aoClicarNovo={() => navigate('/produtos/detalhes/novo')}
                 />
             }
-        >
-            {isLoading && (
-                <LinearProgress variant="indeterminate"/>
-            )}
+        >  
 
+            <Form 
+                onSubmit={(data) => console.log(data)}
+            >
 
-                    <p>DetalheDeProduto: {id}</p>
+                <VTextField
+                    name="nome"
+                />
+
+            </Form>
+
         </LayoutBaseDePagina>
     )
 }
