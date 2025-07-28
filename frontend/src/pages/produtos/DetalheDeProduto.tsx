@@ -18,58 +18,83 @@ interface IProductProps {
 }
 
 export const DetalheDeProduto: React.FC = () => {
-    const { id = 'novo'} = useParams<'id'>();
+    const { id = 'novo' } = useParams<'id'>();
     const navigate = useNavigate();
 
-    const [isLoading, setIsLoading ] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [nome, setNome] = useState('');
     const formRef = useRef<FormHandles>(null);
 
     useEffect(() => {
-        if(id !== 'novo'){
-           
+        if (id !== 'novo') {
+
             setIsLoading(true);
 
             produtoService.getById(Number(id))
                 .then(result => {
-                    
+
                     setIsLoading(false);
 
-                    if(result instanceof Error){
+                    if (result instanceof Error) {
                         alert(result.message);
                         navigate('/produtos');
-                    }else{
+                    } else {
                         setNome(result.nome);
                         console.log(result);
+                        formRef.current?.setData(result);
                     }
                 })
-        } 
-    },[id]);
+        }
+    }, [id]);
 
-    const handleDelete = async(id: number) => {
-        if(confirm('Realmente deseja deletar o registro?')){
-            try{
+    const handleDelete = async (id: number) => {
+        if (confirm('Realmente deseja deletar o registro?')) {
+            try {
                 const result = await produtoService.deleteById(id);
 
-                 if(result instanceof Error){
+                if (result instanceof Error) {
                     return alert(result.message);
-                 }
+                }
 
-                 alert('Registro deletado com sucesso!');
-                 navigate('/produtos');
-            }catch(error){
-                console.log(`${(error as {message: string}).message} - Error ao deletar registro`); 
+                alert('Registro deletado com sucesso!');
+                navigate('/produtos');
+            } catch (error) {
+                console.log(`${(error as { message: string }).message} - Error ao deletar registro`);
                 navigate('/produtos');
             }
         }
     }
-    
-    const handleSave = (dados: IProductProps) =>{
-        console.log(dados);
+
+    const handleSave = async(dados: IProductProps) => {
+        if (id === 'novo') {
+            try {
+                const result = await produtoService.create(dados);
+
+                if(result instanceof Error){
+                    alert("Error ao criar registro")
+                }else{
+                    navigate(`/produtos/detalhes/${result}`);
+                }
+
+            } catch(error) {
+                console.log(error);
+            }
+        } else {
+            try {
+                const result = await produtoService.updateById(Number(id), dados);
+
+                if(result instanceof Error){
+                   return alert("Error ao criar registro")
+                }
+                
+            } catch(error) {
+                console.log(error);
+            }
+        }
     }
 
-    return(
-        <LayoutBaseDePagina 
+    return (
+        <LayoutBaseDePagina
             titulo={id === 'novo' ? 'Novo produto' : nome}
             barraDeFerramentas={
                 <FerramentasDeDetalhes
@@ -84,18 +109,16 @@ export const DetalheDeProduto: React.FC = () => {
                     aoClicarNovo={() => navigate('/produtos/detalhes/novo')}
                 />
             }
-        >  
+        >
 
-            <Form 
-                onSubmit={(data) => handleSave(data)}
-            >
+            <Form ref={formRef} onSubmit={(data) => handleSave(data)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
 
-                <VTextField name="nome"/>
-                <VTextField name="preco"/>
-                <VTextField name="validade"/>
-                <VTextField name="quantidade"/>
-                <VTextField name="categoria_id"/>
-                <VTextField name="fornecedor_id"/>
+                <VTextField placeholder="Nome" name="nome" />
+                <VTextField placeholder="Preço" name="preco" />
+                <VTextField placeholder="DD/MM/AAAA" name="validade" />
+                <VTextField placeholder="Quantidade" name="quantidade" />
+                <VTextField placeholder="Categoria ID" name="categoria_id" />
+                <VTextField placeholder="Fornecedor ID" name="fornecedor_id" />
 
             </Form>
 
