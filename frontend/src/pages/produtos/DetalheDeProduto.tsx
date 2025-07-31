@@ -7,6 +7,7 @@ import { Form } from "@unform/web";
 import { produtoService } from "../../shared/service/api/produtos/ProdutoService";
 import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
 import { FerramentasDeDetalhes } from "../../shared/components";
+import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 
 interface IProductProps {
     nome: string;
@@ -45,7 +46,7 @@ export const DetalheDeProduto: React.FC = () => {
                     }
                 })
         }
-    }, [id]);
+    }, [id, navigate]);
 
     const handleDelete = async (id: number) => {
         if (confirm('Realmente deseja deletar o registro?')) {
@@ -65,29 +66,30 @@ export const DetalheDeProduto: React.FC = () => {
         }
     }
 
-    const handleSave = async(dados: IProductProps) => {
+    const handleSave = async (dados: IProductProps) => {
         if (id === 'novo') {
             try {
                 const result = await produtoService.create(dados);
 
-                if(result instanceof Error){
+                if (result instanceof Error) {
                     alert("Error ao criar registro")
-                }else{
+                } else {
                     navigate(`/produtos/detalhes/${result}`);
                 }
 
-            } catch(error) {
+            } catch (error) {
                 console.log(error);
             }
         } else {
             try {
                 const result = await produtoService.updateById(Number(id), dados);
 
-                if(result instanceof Error){
-                   return alert("Error ao criar registro")
+                if (result instanceof Error) {
+                    return alert("Error ao criar registro")
                 }
-                
-            } catch(error) {
+
+                navigate(`/produtos/detalhes/${result}`);
+            } catch (error) {
                 console.log(error);
             }
         }
@@ -112,13 +114,56 @@ export const DetalheDeProduto: React.FC = () => {
         >
 
             <Form ref={formRef} onSubmit={(data) => handleSave(data)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                <Box
+                    margin={2}
+                    component={Paper}
+                    display='flex'
+                    flexDirection='column'
+                >
+                    <Grid container direction='column'padding={2} spacing={2}>
 
-                <VTextField placeholder="Nome" name="nome" />
-                <VTextField placeholder="Preço" name="preco" />
-                <VTextField placeholder="DD/MM/AAAA" name="validade" />
-                <VTextField placeholder="Quantidade" name="quantidade" />
-                <VTextField placeholder="Categoria ID" name="categoria_id" />
-                <VTextField placeholder="Fornecedor ID" name="fornecedor_id" />
+                        {isLoading && (<Grid>
+                            <LinearProgress variant="indeterminate"/>
+                        </Grid>)}
+
+                        <Grid>
+                            <Typography variant="h6">
+                                Geral
+                            </Typography>
+                        </Grid>
+
+                        <Grid container direction='row' padding={2} spacing={2}>
+                            <Grid size={{xs: 12, sm: 12, md: 6, lg: 4, xl: 2}}>
+                                <VTextField label="Nome" name="nome" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                            </Grid>
+                            <Grid size={{xs: 12, sm: 12, md: 6, lg: 4, xl: 2}}>
+                                <VTextField label="Preço" name="preco" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                            </Grid>
+                        </Grid>
+
+                        <Grid container direction='row' padding={2} spacing={2}>
+                            <Grid size={{xs: 12, sm: 12, md: 6, lg: 4, xl: 2}}>
+                                <VTextField label="DD/MM/AAAA" name="validade" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                            </Grid>
+                            <Grid size={{xs: 12, sm: 12, md: 6, lg: 4, xl: 2}} >
+                                <VTextField label="Quantidade" name="quantidade" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                            </Grid>
+                        </Grid>
+
+                        <Grid container direction='row' padding={2} spacing={2}>
+                            <Grid size={{xs: 12, sm: 12, md: 6, lg: 4, xl: 2}}>
+                                <VTextField label="Categoria" name="categoria_id" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                            </Grid>
+                            <Grid size={{xs: 12, sm: 12, md: 6, lg: 4, xl: 2}}>
+                                <VTextField label="Fornecedor" name="fornecedor_id" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                            </Grid>
+                        </Grid>
+
+                    </Grid>
+
+
+
+                </Box>
 
             </Form>
 
