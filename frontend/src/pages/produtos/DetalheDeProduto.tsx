@@ -5,17 +5,45 @@ import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 import { produtoService } from "../../shared/service/api/produtos/ProdutoService";
 import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
 import { FerramentasDeDetalhes } from "../../shared/components";
-import { useVFormRef } from "../../shared/forms/useVFormRef";
-import { VTextField, VForm } from "../../shared/forms";
+import { VTextField, VForm, useVFormRef } from "../../shared/forms";
+import z from "zod";
 
-interface IProductProps {
-    nome: string;
-    preco: number;
-    validade: Date | string;
-    quantidade: number;
-    categoria_id: number;
-    fornecedor_id: number;
-}
+const formValidationSchema = z.object({
+        nome: z.string({
+            required_error: 'Campo obrigatório.',
+            invalid_type_error: 'Campo obrigatório'
+        }).nonempty("Campo obrigatório")
+        .min(3, "O nome precisa ter 3 no mínimo caracteres")
+        .max(100, "O nome não pode ultrapassar 100 caracteres.")
+        .regex(/^[a-zA-ZÀ-ÿ\s]+$/, "Apenas letras e espaços são permitidos")
+        .trim(),
+        preco: z.coerce.number({
+            required_error: 'Campo obrigatório.',
+            invalid_type_error: 'Campo obrigatório',
+        }).positive('O preço precisar ser maior do que 0.'),
+        validade:z.string({
+            required_error: 'Campo obrigatório.',
+            invalid_type_error: 'Campo obrigatório'
+        })
+        .nonempty('Campo obrigatório')
+        .regex(/^\d{4}-\d{2}-\d{2}$/, 'O formato deve ser YYYY-MM-DD')
+        .transform((str) => new Date(str))
+        .refine((date) => !isNaN(date.getTime()), { message: 'Data inválida' }),
+        quantidade: z.coerce.number({
+            required_error: 'Campo obrigatório.',
+            invalid_type_error: 'Campo obrigatório'
+        }).nonnegative('O campo quantidade não pode ser menor que 0').int('O campo quantidade precisar ser um inteiro.'),
+        categoria_id: z.coerce.number({
+            required_error: 'Campo obrigatório.',
+            invalid_type_error: 'Campo obrigatório'
+        }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.'),
+        fornecedor_id: z.coerce.number({
+            required_error: 'Campo obrigatório.',
+            invalid_type_error: 'Campo obrigatório'
+        }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.')
+});
+
+type TProductProps = z.infer<typeof formValidationSchema>;
 
 export const DetalheDeProduto: React.FC = () => {
     const { id = 'novo' } = useParams<'id'>();
@@ -54,7 +82,7 @@ export const DetalheDeProduto: React.FC = () => {
                 fornecedor_id: '',
             });
         }
-    }, [id, navigate]);
+    }, [id, navigate, formRef]);
 
     const handleDelete = async (id: number) => {
         if (confirm('Realmente deseja deletar o registro?')) {
@@ -74,10 +102,26 @@ export const DetalheDeProduto: React.FC = () => {
         }
     }
 
-    const handleSave = async (dados: IProductProps) => {
+    const handleSave = async (dados: TProductProps) => {
+        let dadosValidados: TProductProps;
+
+        try{
+            dadosValidados =  formValidationSchema.parse(dados);
+        }catch(error){
+            if(error instanceof z.ZodError){
+                const errorValidation: Record<string, string> = {};
+                error.errors.map((err) => {
+                    errorValidation[err.path.toString()] = err.message;
+                });
+                console.log(errorValidation);
+                formRef.current?.setErrors(errorValidation);
+            }
+        }
+
+
         if (id === 'novo') {
             try {
-                const result = await produtoService.create(dados);
+                const result = await produtoService.create(dadosValidados!);
 
                 if (result instanceof Error) {
                     alert("Error ao criar registro")
@@ -95,7 +139,7 @@ export const DetalheDeProduto: React.FC = () => {
             }
         } else {
             try {
-                const result = await produtoService.updateById(Number(id), dados);
+                const result = await produtoService.updateById(Number(id), dadosValidados!);
 
                 if (result instanceof Error) {
                     return alert("Error ao criar registro")
