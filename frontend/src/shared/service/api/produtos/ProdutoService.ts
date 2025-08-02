@@ -79,10 +79,10 @@ const updateById = async (id: number, produto: Omit<IListagemProduto, 'id'>): Pr
     const result = await Api.put(`/produtos/${id}`, produto);
 
     if(result instanceof Error){
-      return new Error("Error ao atualizar registro")
+      return new Error("Error ao atualizar registro");
     }
     
-    return
+    return;
   } catch (error) {
     console.error(error);
     return new Error(
@@ -99,6 +99,7 @@ try {
       return new Error("Error ao deletar registro");
     }
 
+    return;
   } catch (error) {
     console.error(error);
     return new Error(
