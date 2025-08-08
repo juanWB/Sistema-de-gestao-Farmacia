@@ -1,6 +1,7 @@
 import { Api } from "../axiosConfig";
 
 interface IListagemCategorias {
+    id: number;
     nome: string;
 }
 
@@ -10,9 +11,10 @@ const getAll = async(filter = ''):Promise<IListagemCategorias[] | Error> => {
         
         const { data } = await Api.get(`/categorias?nome_like=${filter}`);
         
-        if(Array.isArray(data)){
+        if(data){
             return data;
         }
+
         return new Error('Erro ao buscar registros.')
     }catch(error){
         console.error(error);

@@ -7,6 +7,7 @@ import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
 import { FerramentasDeDetalhes } from "../../shared/components";
 import { VTextField, VForm, useVFormRef } from "../../shared/forms";
 import z from "zod";
+import { AutoCompleteCategorias } from "./component/AutoCompleteCategorias";
 
 const formValidationSchema = z.object({
         nome: z.string({
@@ -214,7 +215,7 @@ export const DetalheDeProduto: React.FC = () => {
 
                         <Grid container direction='row' padding={2} spacing={2}>
                             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="Categoria" name="categoria_id" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                                <AutoCompleteCategorias isExternalLoading={isLoading}/>
                             </Grid>
                             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
                                 <VTextField label="Fornecedor" name="fornecedor_id" disabled={isLoading} onChange={e => setNome(e.target.value)} />

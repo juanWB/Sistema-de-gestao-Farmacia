@@ -1,13 +1,27 @@
 {
   "produtos": [
     {
-      "id": "2",
-      "nome": "Produto 2",
-      "preco": 4.99,
-      "validade": "2023-12-31",
-      "quantidade": 5,
-      "categoria_id": 2,
+      "id": "18f3",
+      "nome": "bob",
+      "preco": 1,
+      "validade": "2014-06-20T00:00:00.000Z",
+      "quantidade": 2,
+      "categoria_id": 3,
       "fornecedor_id": 2
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nome": "Categoria 1"
+    },
+    {
+      "id": "2",
+      "nome": "Categoria 2"
+    },
+    {
+      "id": "3",
+      "nome": "Categoria 3"
     }
   ]
 }
