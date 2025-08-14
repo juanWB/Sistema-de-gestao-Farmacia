@@ -1,4 +1,3 @@
-import React from 'react'
 import { AppRoutes } from './routes'
 import { MenuLateral } from './shared/components/index'
 import { BrowserRouter } from 'react-router-dom'

@@ -36,7 +36,6 @@ export const AuthContextProvider: React.FC<IAuthContextProvider> = ({children}) 
         if(result instanceof Error){
             return new Error(result.message);
         }
-
         return result;
     },[]);
 
