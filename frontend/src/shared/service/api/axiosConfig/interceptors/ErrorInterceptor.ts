@@ -8,7 +8,11 @@ export const errorInterceptor = (error: AxiosError) => {
     }
 
     if(error.response?.status === 401){
-        //Do something
+        return Promise.reject(new Error ('E-mail ou senha incorretos'));
+    }
+
+    if(error.response?.status === 400){
+        return Promise.reject(new Error('Algo deu errado, verifique os dados e tente novamente.'));
     }
 
     return Promise.reject(error);
