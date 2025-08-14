@@ -18,7 +18,7 @@ type TProdutoComCount = {
 
 const getAll = async (page: number, filter: string | ""): Promise<TProdutoComCount | Error> => {
   try {
-    const urlRelativa = `/produtos?page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&nome_like=${filter}`;
+    const urlRelativa = `/produtos?page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&filter_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 

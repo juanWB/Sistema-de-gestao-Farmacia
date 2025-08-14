@@ -13,12 +13,9 @@ type TSaidaComTotalCount = {
   totalCount: number;
 };
 
-const getAll = async (
-  page: number,
-  filter = ""
-): Promise<TSaidaComTotalCount | Error> => {
+const getAll = async ( page: number, filter = ""): Promise<TSaidaComTotalCount | Error> => {
   try {
-    const urlRelativa = `/saida&_page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&saida_data=${filter}`;
+    const urlRelativa = `/saida&_page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&filter=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
