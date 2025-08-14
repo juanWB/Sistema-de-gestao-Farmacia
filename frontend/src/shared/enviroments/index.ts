@@ -5,7 +5,7 @@ export const Enviroments = {
     /**
      * Define quantidade padrão de linhas a serem exibidas nas listagens
      */
-    LIMITE_DE_LINHAS: 7,
+    LIMITE_DE_LINHAS: 5,
 
     /**
      * Define um texto listagens vazias
@@ -16,9 +16,4 @@ export const Enviroments = {
      * Define um texto padrão para inputs
      */
     TEXTO_INPUT: 'Pesquisar...',
-
-    /**
-     * Define url base padrão de consulta de dados desta aplicação
-     */
-    URL_BASE: 'http://localhost:3333'
 }
