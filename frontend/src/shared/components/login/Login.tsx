@@ -72,7 +72,7 @@ export const Login: React.FC<ILoginsProps> = ({ children }) => {
                 const result = await cadastrar(dadosValidados.nome, dadosValidados.email, dadosValidados.senha);
 
                 if (result instanceof Error) {
-                    setEmailError('Email já cadastrado.');
+                    setEmailError(result.message);
                 } else {
                     alert('Conta criada com sucesso.');
                     setNome('');

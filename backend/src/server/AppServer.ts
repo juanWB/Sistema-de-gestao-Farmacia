@@ -6,7 +6,8 @@ import { appRouter } from "../routes/AppRoutes";
 const app = express();
 
 app.use(cors({
-     origin: process.env.ENABLE_CORS?.split('') || []
+     origin: process.env.ENABLE_CORS?.split('') || [],
+     credentials: true
 }))
 
 app.use(express.json());

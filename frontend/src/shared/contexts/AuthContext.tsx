@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { AuthService } from "../service/auth/AuthService";
 
-interface ICreateContext {
+interface IAuthContextData {
     isAuthenticaded: boolean;
 
     sair: () => void;
@@ -9,7 +9,7 @@ interface ICreateContext {
     cadastrar: (nome: string, email: string, senha: string) => Promise<number | Error>; 
 }
 
-const AuthContext = createContext({} as ICreateContext);
+const AuthContext = createContext({} as IAuthContextData);
 
 export const LOCAL_STORAGE_KEY_ACCESS_TOKEN = 'APP_ACCESS_TOKEN';
 
