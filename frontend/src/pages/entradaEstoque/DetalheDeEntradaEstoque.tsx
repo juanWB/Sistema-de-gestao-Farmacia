@@ -31,7 +31,7 @@ const formValidationSchema = z.object({
 
 type TEntradaEstoqueProps = z.infer<typeof formValidationSchema>;
 
-export const DetalheDeProduto: React.FC = () => {
+export const DetalheDeEntradaEstoque: React.FC = () => {
     const { id = 'nova' } = useParams<'id'>();
     const navigate = useNavigate();
 
