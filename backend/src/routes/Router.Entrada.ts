@@ -3,8 +3,10 @@ import { controllerEntradaEstoque } from "../controllers/controllerEntradaEstoqu
 import { verifyAuthentication } from "../shared/middleware/VerifyAuthentication";
 const routerEntrada = Router();
 
-//Rotas Entrada Estoque
-routerEntrada.get('/entrada', verifyAuthentication, controllerEntradaEstoque.getAllEntradasValidation,controllerEntradaEstoque.getAllEntradas);
-routerEntrada.post('/entrada', verifyAuthentication,controllerEntradaEstoque.createEntradaValidation, controllerEntradaEstoque.createEntradaEstoque);
+routerEntrada.get('/entradas', verifyAuthentication, controllerEntradaEstoque.getAllEntradasValidation,controllerEntradaEstoque.getAllEntradas);
+routerEntrada.get('/entradas/:id', verifyAuthentication, controllerEntradaEstoque.getAllEntradasValidation,controllerEntradaEstoque.getAllEntradas);
+routerEntrada.put('/entradas/:id', verifyAuthentication, controllerEntradaEstoque.getAllEntradasValidation,controllerEntradaEstoque.getAllEntradas);
+routerEntrada.delete('/entradas/:id', verifyAuthentication, controllerEntradaEstoque.getAllEntradasValidation,controllerEntradaEstoque.getAllEntradas);
+routerEntrada.post('/entradas', verifyAuthentication,controllerEntradaEstoque.createEntradaValidation, controllerEntradaEstoque.createEntradaEstoque);
 
 export {routerEntrada}

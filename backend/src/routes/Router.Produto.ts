@@ -3,7 +3,6 @@ import { controllerProduto } from "../controllers/controllerProduto";
 import { verifyAuthentication } from "../shared/middleware/VerifyAuthentication";
 const routerProduto = Router();
 
-//Rotas Produto
 routerProduto.get('/produto/:id', verifyAuthentication, controllerProduto.getProdutoByIdValidation, controllerProduto.getProdutoById);
 routerProduto.get('/produto', verifyAuthentication, controllerProduto.getAllProdutosValidation,controllerProduto.getAllProdutos);
 routerProduto.post('/produto', verifyAuthentication,controllerProduto.createProdutoValidation, controllerProduto.createProduto);
