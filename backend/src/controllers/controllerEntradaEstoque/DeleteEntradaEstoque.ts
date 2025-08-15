@@ -9,7 +9,7 @@ interface IParamProps {
     id?: number;
 }
 
-export const deleteFornecedorValidation = validation((getSchema) => ({
+export const deleteEntradaEstoqueValidation = validation((getSchema) => ({
     params: getSchema<IParamProps>(z.object({
         id: z.coerce.number({
             invalid_type_error: "O id precisa ser um número"
@@ -17,7 +17,7 @@ export const deleteFornecedorValidation = validation((getSchema) => ({
     }))
 }));
 
-export const deleteFornecedor = async(req: Request<IParamProps>, res: Response) => {
+export const deleteEntradaEstoque = async(req: Request<IParamProps>, res: Response) => {
     const {id} = req.params
 
     if(!id){
