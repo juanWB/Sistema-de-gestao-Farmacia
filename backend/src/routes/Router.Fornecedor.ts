@@ -3,10 +3,10 @@ import { controllerFornecedor } from "../controllers/controllerFornecedor";
 import { verifyAuthentication } from "../shared/middleware/VerifyAuthentication";
 const routerFornecedor = Router();
 
-routerFornecedor.get('/fornecedor', verifyAuthentication, controllerFornecedor.getAllFornecedorValidation ,controllerFornecedor.getAllFornecedor);
-routerFornecedor.post('/fornecedor', verifyAuthentication, controllerFornecedor.createFornecedorValidation, controllerFornecedor.createFornecedor);
-routerFornecedor.get('/fornecedor/:id', verifyAuthentication, controllerFornecedor.getFornecedorByIdValidation ,controllerFornecedor.getFornecedorById);
-routerFornecedor.put('/fornecedor/:id', verifyAuthentication,  controllerFornecedor.updateFornecedorValidation, controllerFornecedor.updateFornecedor);
-routerFornecedor.delete('/fornecedor/:id', verifyAuthentication,  controllerFornecedor.deleteFornecedorValidation, controllerFornecedor.deleteFornecedor);
+routerFornecedor.get('/fornecedores', verifyAuthentication, controllerFornecedor.getAllFornecedorValidation ,controllerFornecedor.getAllFornecedor);
+routerFornecedor.post('/fornecedores', verifyAuthentication, controllerFornecedor.createFornecedorValidation, controllerFornecedor.createFornecedor);
+routerFornecedor.get('/fornecedores/:id', verifyAuthentication, controllerFornecedor.getFornecedorByIdValidation ,controllerFornecedor.getFornecedorById);
+routerFornecedor.put('/fornecedores/:id', verifyAuthentication,  controllerFornecedor.updateFornecedorValidation, controllerFornecedor.updateFornecedor);
+routerFornecedor.delete('/fornecedores/:id', verifyAuthentication,  controllerFornecedor.deleteFornecedorValidation, controllerFornecedor.deleteFornecedor);
 
 export {routerFornecedor}
