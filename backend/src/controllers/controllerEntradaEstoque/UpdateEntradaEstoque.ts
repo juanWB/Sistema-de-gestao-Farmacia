@@ -11,7 +11,7 @@ interface IParamProps {
 
 interface IBodyProps extends Omit<IEntradaEstoque, 'id'>{};
 
-export const updateFornecedorValidation = validation((getSchema) => ({
+export const updateEntradaEstoqueValidation = validation((getSchema) => ({
   params: getSchema<IParamProps>(
     z.object({
       id: z.coerce
@@ -43,7 +43,7 @@ body: getSchema<IBodyProps>(z.object({
     }))
 }));
 
-export const updateFornecedor = async(req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
+export const updateEntradaEstoque = async(req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
   
   if(!req.params.id){
       res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
