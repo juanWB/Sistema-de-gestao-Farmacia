@@ -30,14 +30,25 @@ export const AppRoutes = () => {
                 path: '/saidas'
             },
         ])
-    },[])
+    }, [])
 
     return (
         <Routes>
-            <Route path='/pagina-inicial' element={<Dashboard/>}/>
-            <Route path='/produtos' element={<ListagemDeProdutos/>}/>
-            <Route path='/produtos/detalhes/:id' element={<DetalheDeProduto/>}/>
-            <Route path='*' element={<Navigate to={'/pagina-inicial'} />}/>
+            <Route path='/pagina-inicial' element={<Dashboard />} />
+
+            <Route path='/produtos' element={<ListagemDeProdutos />} />
+            <Route path='/produtos/detalhes/:id' element={<DetalheDeProduto />} />
+
+            <Route path='/fornecedores' element={<ListagemDeProdutos />} />
+            <Route path='/fornecedores/detalhes/:id' element={<DetalheDeProduto />} />
+
+            <Route path='/entradas' element={<ListagemDeProdutos />} />
+            <Route path='/entradas/detalhes/:id' element={<DetalheDeProduto />} />
+
+            <Route path='/saidas' element={<ListagemDeProdutos />} />
+            <Route path='/saidas/detalhes/:id' element={<DetalheDeProduto />} />
+
+            <Route path='*' element={<Navigate to={'/pagina-inicial'} />} />
         </Routes>
     )
 }
