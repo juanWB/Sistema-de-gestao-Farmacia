@@ -2,8 +2,8 @@ import { Avatar, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemTe
 import { Box, useMediaQuery } from "@mui/system";
 import logo from "./assets/logo.png";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
-import { useAppThemeContext, useDrawerContext } from "../../contexts";
-import { Nightlight, Sunny } from "@mui/icons-material";
+import { useAppThemeContext, useAuthContext, useDrawerContext } from "../../contexts";
+import { Logout, Nightlight, Sunny } from "@mui/icons-material";
 
 interface IListItemLinkProps {
     label: string;
@@ -40,8 +40,11 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
     const theme = useTheme();
     const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
+    const { sair } = useAuthContext();
     const { themeName, toggleTheme } = useAppThemeContext();
     const { drawerOptions, isDrawerOpen, toggleDrawerOpen } = useDrawerContext()
+
+
 
     return (
         <>
@@ -80,6 +83,14 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
                                     {themeName === 'light' ? <Nightlight /> : <Sunny />}
                                 </ListItemIcon>
                                 <ListItemText primary='Mudar tema' />
+                            </ListItemButton>
+                        </List>
+                        <List component='nav'>
+                            <ListItemButton onClick={() => sair()}>
+                                <ListItemIcon>
+                                    <Logout/>
+                                </ListItemIcon>
+                                <ListItemText primary='Sair' />
                             </ListItemButton>
                         </List>
                     </Box>

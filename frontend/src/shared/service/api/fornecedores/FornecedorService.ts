@@ -14,9 +14,9 @@ type TFornecedorComCount = {
   totalCount: number;
 };
 
-const getAll = async (page: number, filter: ""): Promise<TFornecedorComCount | Error> => {
+const getAll = async (page: number, filter= ''): Promise<TFornecedorComCount | Error> => {
   try {
-    const urlRelativa = `/fornecedor&_page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&nome=${filter}`;
+    const urlRelativa = `/fornecedores?_page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&filter=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -40,7 +40,7 @@ const getAll = async (page: number, filter: ""): Promise<TFornecedorComCount | E
 
 const getById = async (id: number): Promise<IListagemFornecedor | Error> => {
   try {
-    const { data } = await Api.get(`/fornecedor/${id}`);
+    const { data } = await Api.get(`/fornecedores/${id}`);
 
     if (data) {
       return data;
@@ -57,7 +57,7 @@ const getById = async (id: number): Promise<IListagemFornecedor | Error> => {
 
 const create = async (fornecedor: Omit<IListagemFornecedor, "id">): Promise<number | Error> => {
   try {
-    const { data } = await Api.post<IListagemFornecedor>("/fornecedor", fornecedor);
+    const { data } = await Api.post<IListagemFornecedor>("/fornecedores", fornecedor);
 
     if (data) {
       return data.id;
@@ -74,7 +74,7 @@ const create = async (fornecedor: Omit<IListagemFornecedor, "id">): Promise<numb
 
 const updateById = async (id: number, fornecedor: Omit<IListagemFornecedor, "id">): Promise<void | Error> => {
   try {
-    await Api.put(`/fornecedor/${id}`, fornecedor);
+    await Api.put(`/fornecedores/${id}`, fornecedor);
 
     return new Error("Error ao atualizar registro");
   } catch (error) {
@@ -87,7 +87,7 @@ const updateById = async (id: number, fornecedor: Omit<IListagemFornecedor, "id"
 
 const deleteById = async (id: number): Promise<void | Error> => {
   try {
-    await Api.delete(`/fornecedor/${id}`);
+    await Api.delete(`/fornecedores/${id}`);
 
     return new Error("Error ao deletar registro");
   } catch (error) {

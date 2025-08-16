@@ -1,47 +1,45 @@
+import z from "zod";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 
-import { produtoService } from "../../shared/service/api/produtos/ProdutoService";
-import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
 import { FerramentasDeDetalhes } from "../../shared/components";
 import { VTextField, VForm, useVFormRef } from "../../shared/forms";
-import z from "zod";
-import { AutoCompleteCategorias } from "./component/AutoCompleteCategorias";
+import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
+import { produtoService } from "../../shared/service/api/produtos/ProdutoService";
+import { AutoCompleteFornecedores, AutoCompleteCategorias } from "./component";
 
 const formValidationSchema = z.object({
-        nome: z.string({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
-        }).nonempty("Campo obrigatório")
+    nome: z.string({
+        required_error: 'Campo obrigatório.',
+        invalid_type_error: 'Campo obrigatório'
+    }).nonempty("Campo obrigatório")
         .min(3, "O nome precisa ter 3 no mínimo caracteres")
         .max(100, "O nome não pode ultrapassar 100 caracteres.")
         .regex(/^[a-zA-ZÀ-ÿ\s]+$/, "Apenas letras e espaços são permitidos")
         .trim(),
-        preco: z.coerce.number({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório',
-        }).positive('O preço precisar ser maior do que 0.'),
-        validade:z.string({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
-        })
+    preco: z.coerce.number({
+        required_error: 'Campo obrigatório.',
+        invalid_type_error: 'Campo obrigatório',
+    }).positive('O preço precisar ser maior do que 0.'),
+    validade: z.string({
+        required_error: 'Campo obrigatório.',
+        invalid_type_error: 'Campo obrigatório'
+    })
         .nonempty('Campo obrigatório')
-        .regex(/^\d{4}-\d{2}-\d{2}$/, 'O formato deve ser YYYY-MM-DD')
-        .transform((str) => new Date(str))
-        .refine((date) => !isNaN(date.getTime()), { message: 'Data inválida' }),
-        quantidade: z.coerce.number({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
-        }).nonnegative('O campo quantidade não pode ser menor que 0').int('O campo quantidade precisar ser um inteiro.'),
-        categoria_id: z.coerce.number({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
-        }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.'),
-        fornecedor_id: z.coerce.number({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
-        }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.')
+        .transform((str) => new Date(str)),
+    quantidade: z.coerce.number({
+        required_error: 'Campo obrigatório.',
+        invalid_type_error: 'Campo obrigatório'
+    }).nonnegative('O campo quantidade não pode ser menor que 0').int('O campo quantidade precisar ser um inteiro.'),
+    categoria_id: z.coerce.number({
+        required_error: 'Campo obrigatório.',
+        invalid_type_error: 'Campo obrigatório'
+    }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.'),
+    fornecedor_id: z.coerce.number({
+        required_error: 'Campo obrigatório.',
+        invalid_type_error: 'Campo obrigatório'
+    }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.')
 });
 
 type TProductProps = z.infer<typeof formValidationSchema>;
@@ -106,10 +104,10 @@ export const DetalheDeProduto: React.FC = () => {
     const handleSave = async (dados: TProductProps) => {
         let dadosValidados: TProductProps;
 
-        try{
-            dadosValidados =  formValidationSchema.parse(dados);
-        }catch(error){
-            if(error instanceof z.ZodError){
+        try {
+            dadosValidados = formValidationSchema.parse(dados);
+        } catch (error) {
+            if (error instanceof z.ZodError) {
                 const errorValidation: Record<string, string> = {};
                 error.errors.map((err) => {
                     errorValidation[err.path.toString()] = err.message;
@@ -205,6 +203,15 @@ export const DetalheDeProduto: React.FC = () => {
                         </Grid>
 
                         <Grid container direction='row' padding={2} spacing={2}>
+                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 1.9 }}>
+                                <AutoCompleteCategorias isExternalLoading={isLoading} />
+                            </Grid>
+                            <Grid marginLeft={1.5} size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 1.9 }}>
+                                <AutoCompleteFornecedores isExternalLoading={isLoading} />
+                            </Grid>
+                        </Grid>
+
+                        <Grid container direction='row' padding={2} spacing={2}>
                             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
                                 <VTextField label="DD/MM/AAAA" name="validade" disabled={isLoading} onChange={e => setNome(e.target.value)} />
                             </Grid>
@@ -213,14 +220,6 @@ export const DetalheDeProduto: React.FC = () => {
                             </Grid>
                         </Grid>
 
-                        <Grid container direction='row' padding={2} spacing={2}>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <AutoCompleteCategorias isExternalLoading={isLoading}/>
-                            </Grid>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="Fornecedor" name="fornecedor_id" disabled={isLoading} onChange={e => setNome(e.target.value)} />
-                            </Grid>
-                        </Grid>
 
                     </Grid>
 
