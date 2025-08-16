@@ -29,5 +29,23 @@ const entradasEstoque: IEntradaEstoque[] = [
         produto_id: 3,
         quantidade: 20,
         entrada_data: '2025-05-26',
+    },
+    {
+        id: 4,
+        produto_id: 1,
+        quantidade: 70,
+        entrada_data: '2025-07-15',
+    },
+    {
+        id: 5,
+        produto_id: 5,
+        quantidade: 200,
+        entrada_data: '2025-06-01',
+    },
+    {
+        id: 6,
+        produto_id: 7,
+        quantidade: 150,
+        entrada_data: '2025-06-05',
     }
 ]

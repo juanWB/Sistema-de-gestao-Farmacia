@@ -9,7 +9,7 @@ interface IListagemCategorias {
 const getAll = async(filter = ''):Promise<IListagemCategorias[] | Error> => {
     try{
         
-        const { data } = await Api.get(`/categorias?nome_like=${filter}`);
+        const { data } = await Api.get(`/categorias?filter_like=${filter}`);
         
         if(data){
             return data;

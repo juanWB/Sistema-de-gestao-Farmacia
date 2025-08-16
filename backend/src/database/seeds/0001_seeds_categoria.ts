@@ -23,5 +23,41 @@ const categorias: ICategoria[] = [
     {
         id: 3,
         nome: 'Fitness',
+    },
+    {
+        id: 4,
+        nome: 'Higiene Pessoal',
+    },
+    {
+        id: 5,
+        nome: 'Cuidados com a Pele',
+    },
+    {
+        id: 6,
+        nome: 'Vitaminas e Suplementos',
+    },
+    {
+        id: 7,
+        nome: 'Infantil',
+    },
+    {
+        id: 8,
+        nome: 'Primeiros Socorros',
+    },
+    {
+        id: 9,
+        nome: 'Saúde Bucal',
+    },
+    {
+        id: 10,
+        nome: 'Bem-Estar Sexual',
+    },
+    {
+        id: 11,
+        nome: 'Perfumaria',
+    },
+    {
+        id: 12,
+        nome: 'Dermocosméticos',
     }
 ]
