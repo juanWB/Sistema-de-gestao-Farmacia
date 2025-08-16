@@ -1,8 +1,9 @@
 import { z } from "zod";
-import { validation } from "../../shared/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-import { FornecedorProvider } from "../../database/providers/fornecedorProviders";
+
+import { validation } from "../../shared/middleware/Validation";
+import { EntradaEstoqueProvider } from "../../database/providers/entradaEstoqueProviders";
 
 
 interface IParamProps {
@@ -29,7 +30,7 @@ export const deleteEntradaEstoque = async(req: Request<IParamProps>, res: Respon
         return
     }
 
-    const result = await FornecedorProvider.deleteFornecedorProvider(id);
+    const result = await EntradaEstoqueProvider.deleteEntradaEstoqueProvider(id);
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
