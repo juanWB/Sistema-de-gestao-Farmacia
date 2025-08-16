@@ -2,23 +2,24 @@ import { z } from "zod";
 import { validation } from "../../shared/middleware/Validation";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-import { FornecedorProvider } from "../../database/providers/fornecedorProviders";
+import { EntradaEstoqueProvider } from "../../database/providers/entradaEstoqueProviders";
 
 
 interface IParamsProps{
     id?: number;
 }
 
-export const getFornecedorByIdValidation = validation((getSchema) => ({
+export const getEntradaEstoqueByIdValidation = validation((getSchema) => ({
     params: getSchema<IParamsProps>(z.object({
         id: z.coerce.number({
+            required_error: "O id é obrigatório",
             invalid_type_error: "O id precisa ser um número."
         }).positive('Deve ser maior que 0.').int('Deve ser um inteiro')
     }))
 }));
 
 
-export const getFornecedorById = async(req: Request<IParamsProps>, res: Response) => {
+export const getEntradaEstoqueById = async(req: Request<IParamsProps>, res: Response) => {
     const {id} = req.params
 
     if(!id){
@@ -30,7 +31,7 @@ export const getFornecedorById = async(req: Request<IParamsProps>, res: Response
       return
     }
 
-    const result = await FornecedorProvider.getFornecedorByIdProvider(id);
+    const result = await EntradaEstoqueProvider.getEntradaEstoqueByIdProvider(id);
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
