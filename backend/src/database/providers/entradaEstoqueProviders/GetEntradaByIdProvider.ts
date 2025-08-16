@@ -6,7 +6,7 @@ import { IEntradaEstoque } from "../../models";
 
 export const getEntradaEstoqueByIdProvider = async(id: number):Promise<IEntradaEstoque | Error> => {
     try{
-        const [result] = await Knex(ETableNames.fornecedor).where('id', id).select('*');
+        const [result] = await Knex(ETableNames.saidaEstoque).where('id', id).select('*');
 
         if(result){
             logger.info('getEntradaEstoqueByIdProvider executado com sucesso.');
@@ -14,9 +14,9 @@ export const getEntradaEstoqueByIdProvider = async(id: number):Promise<IEntradaE
         }
         
         logger.warn(`getEntradaEstoqueByIdProvider retornou valor inválido: ${result}`);
-        return new Error('fornecedor não encontrado');
+        return new Error('Saida do estoque não encontrado');
     }catch(err){
         logger.error(`Erro em getEntradaEstoqueByIdProvider: ${JSON.stringify(err)}`);
-        return new Error('Erro ao buscar fornecedor');
+        return new Error('Erro ao buscar Saida do estoque');
     }
 }
