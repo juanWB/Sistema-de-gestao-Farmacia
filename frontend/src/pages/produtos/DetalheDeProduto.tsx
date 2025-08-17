@@ -6,55 +6,23 @@ import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 import { FerramentasDeDetalhes } from "../../shared/components";
 import { VTextField, VForm, useVFormRef } from "../../shared/forms";
 import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
-import { produtoService } from "../../shared/service/api/produtos/ProdutoService";
 import { AutoCompleteFornecedores, AutoCompleteCategorias } from "./component";
-
-const formValidationSchema = z.object({
-    nome: z.string({
-        required_error: 'Campo obrigatório.',
-        invalid_type_error: 'Campo obrigatório'
-    }).nonempty("Campo obrigatório")
-        .min(3, "O nome precisa ter 3 no mínimo caracteres")
-        .max(100, "O nome não pode ultrapassar 100 caracteres.")
-        .regex(/^[a-zA-ZÀ-ÿ\s]+$/, "Apenas letras e espaços são permitidos")
-        .trim(),
-    preco: z.coerce.number({
-        required_error: 'Campo obrigatório.',
-        invalid_type_error: 'Campo obrigatório',
-    }).positive('O preço precisar ser maior do que 0.'),
-    validade: z.string({
-        required_error: 'Campo obrigatório.',
-        invalid_type_error: 'Campo obrigatório'
-    })
-        .nonempty('Campo obrigatório')
-        .transform((str) => new Date(str)),
-    quantidade: z.coerce.number({
-        required_error: 'Campo obrigatório.',
-        invalid_type_error: 'Campo obrigatório'
-    }).nonnegative('O campo quantidade não pode ser menor que 0').int('O campo quantidade precisar ser um inteiro.'),
-    categoria_id: z.coerce.number({
-        required_error: 'Campo obrigatório.',
-        invalid_type_error: 'Campo obrigatório'
-    }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.'),
-    fornecedor_id: z.coerce.number({
-        required_error: 'Campo obrigatório.',
-        invalid_type_error: 'Campo obrigatório'
-    }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.')
-});
-
-type TProductProps = z.infer<typeof formValidationSchema>;
+import { FormValidationProdutosSchema , type TProductProps } from "../../shared/zodSchema";
+import { produtoService } from "../../shared/service/api/produtos/ProdutoService";
+import { VDatePicker } from "../../shared/forms/VDatePicker";
+import { formatDate } from "../../shared/utils/FormatFields";
 
 export const DetalheDeProduto: React.FC = () => {
-    const { id = 'novo' } = useParams<'id'>();
     const navigate = useNavigate();
+    const { id = 'novo' } = useParams<{id: string}>();
 
-    const [isLoading, setIsLoading] = useState(false);
     const [nome, setNome] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+
     const { formRef, save, saveAndClose, isSaveAndClose } = useVFormRef();
 
     useEffect(() => {
         if (id !== 'novo') {
-
             setIsLoading(true);
 
             produtoService.getById(Number(id))
@@ -77,16 +45,22 @@ export const DetalheDeProduto: React.FC = () => {
                 preco: '',
                 validade: '',
                 quantidade: '',
-                categoria_id: '',
-                fornecedor_id: '',
+                categoria_id: undefined,
+                fornecedor_id: undefined,
             });
         }
-    }, [id, navigate, formRef]);
+    }, [id]);
 
-    const handleDelete = async (id: number) => {
+    const handleDelete = async (idParam: string) => {
+         const productId = Number(idParam);
+            if (isNaN(productId)) {
+                alert('ID do produto inválido');
+                return;
+            }
+
         if (confirm('Realmente deseja deletar o registro?')) {
             try {
-                const result = await produtoService.deleteById(id);
+                const result = await produtoService.deleteById(productId);
 
                 if (result instanceof Error) {
                     return alert(result.message);
@@ -103,9 +77,50 @@ export const DetalheDeProduto: React.FC = () => {
 
     const handleSave = async (dados: TProductProps) => {
         let dadosValidados: TProductProps;
-
+        const formatedDate = formatDate(dados.validade);
+        console.log(formatedDate);
         try {
-            dadosValidados = formValidationSchema.parse(dados);
+            dadosValidados = FormValidationProdutosSchema.parse({ ...dados, validade: formatedDate });
+
+            if (id === 'novo') {
+                try {
+                    console.log(dadosValidados.validade + ' detalhe produto')
+                    const result = await produtoService.create(dadosValidados);
+
+                    if (result instanceof Error) {
+                        alert("Error ao criar registro")
+                    } else {
+                        if (isSaveAndClose()) {
+                            navigate(`/produtos`);
+
+                        } else {
+                            navigate(`/produtos/detalhes/${result}`);
+                        }
+                    }
+
+                } catch (error) {
+                    console.log(error);
+                }
+            } else {
+                try {
+                   console.log(formatedDate);
+                   const result = await produtoService.updateById(Number(id), dadosValidados);
+
+                    if (result instanceof Error) {
+                        return alert("Error ao criar registro")
+                    }
+
+                    if (isSaveAndClose()) {
+                        navigate(`/produtos`);
+
+                    } else {
+                        navigate(`/produtos/detalhes/${result}`);
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+
         } catch (error) {
             if (error instanceof z.ZodError) {
                 const errorValidation: Record<string, string> = {};
@@ -116,44 +131,6 @@ export const DetalheDeProduto: React.FC = () => {
                 formRef.current?.setErrors(errorValidation);
             }
         }
-
-
-        if (id === 'novo') {
-            try {
-                const result = await produtoService.create(dadosValidados!);
-
-                if (result instanceof Error) {
-                    alert("Error ao criar registro")
-                } else {
-                    if (isSaveAndClose()) {
-                        navigate(`/produtos`);
-
-                    } else {
-                        navigate(`/produtos/detalhes/${result}`);
-                    }
-                }
-
-            } catch (error) {
-                console.log(error);
-            }
-        } else {
-            try {
-                const result = await produtoService.updateById(Number(id), dadosValidados!);
-
-                if (result instanceof Error) {
-                    return alert("Error ao criar registro")
-                }
-
-                if (isSaveAndClose()) {
-                    navigate(`/produtos`);
-
-                } else {
-                    navigate(`/produtos/detalhes/${result}`);
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        }
     }
 
     return (
@@ -162,19 +139,19 @@ export const DetalheDeProduto: React.FC = () => {
             barraDeFerramentas={
                 <FerramentasDeDetalhes
                     mostrarBotaoSalvarEFechar
-                    mostrarBotaoNovo={id !== 'nova'}
-                    mostrarBotaoApagar={id !== 'nova'}
+                    mostrarBotaoNovo={id !== 'novo'}
+                    mostrarBotaoApagar={id !== 'novo'}
 
                     aoClicarSalvar={save}
                     aoClicarSalvarEFechar={saveAndClose}
                     aoClicarVoltar={() => navigate('/produtos')}
-                    aoClicarApagar={() => handleDelete(Number(id))}
+                    aoClicarApagar={() => handleDelete(id)}
                     aoClicarNovo={() => navigate('/produtos/detalhes/novo')}
                 />
             }
         >
 
-            <VForm ref={formRef} onSubmit={(data) => handleSave(data)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            <VForm ref={formRef} onSubmit={(data) => handleSave(data)}>
                 <Box
                     margin={2}
                     component={Paper}
@@ -198,7 +175,7 @@ export const DetalheDeProduto: React.FC = () => {
                                 <VTextField label="Nome" name="nome" disabled={isLoading} onChange={e => setNome(e.target.value)} />
                             </Grid>
                             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="Preço" name="preco" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                                <VTextField label="Preço" name="preco" disabled={isLoading} />
                             </Grid>
                         </Grid>
 
@@ -213,10 +190,10 @@ export const DetalheDeProduto: React.FC = () => {
 
                         <Grid container direction='row' padding={2} spacing={2}>
                             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="DD/MM/AAAA" name="validade" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                                <VDatePicker label="Validade" name="validade" disabled={isLoading}/>
                             </Grid>
                             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }} >
-                                <VTextField label="Quantidade" name="quantidade" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                                <VTextField label="Quantidade" name="quantidade" disabled={isLoading} />
                             </Grid>
                         </Grid>
 

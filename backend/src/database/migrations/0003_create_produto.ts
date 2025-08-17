@@ -9,10 +9,10 @@ export async function up(knex: Knex): Promise<void> {
       table.decimal("preco", 10, 2).notNullable()
       table.date("validade").notNullable();
       table.integer("quantidade").notNullable()
-      table.bigInteger("categoria_id").unsigned().references('id').inTable(ETableNames.categoria).onDelete('RESTRICT');
-      table.bigInteger("fornecedor_id").unsigned().references('id').inTable(ETableNames.fornecedor).onDelete('RESTRICT');
+      table.bigInteger("categoria_id").unsigned().references('id').inTable(ETableNames.categoria).onDelete('CASCADE');
+      table.bigInteger("fornecedor_id").unsigned().references('id').inTable(ETableNames.fornecedor).onDelete('CASCADE');
 
-
+      
       table.comment(
         "Tabela para armazenar os dados de produtos da farmácia."
       );

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useAuthContext } from "../../contexts";
 import { ZodError } from "zod";
 import { AxiosError } from "axios";
-import { CadastroSchema, EntrarSchema } from "../../zodSchena";
+import { CadastroSchema, EntrarSchema } from "../../zodSchema";
 
 interface ILoginsProps {
     children: React.ReactNode

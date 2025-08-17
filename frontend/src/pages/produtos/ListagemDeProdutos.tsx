@@ -52,21 +52,21 @@ export const ListagemDeProdutos: React.FC = () => {
         });
     }, [busca, pagina, debounce]);
 
-    const handleDelete = async(id: number) => {
-        if(confirm('Realmente deseja deletar o registro?')){
-            try{
+    const handleDelete = async (id: number) => {
+        if (confirm('Realmente deseja deletar o registro?')) {
+            try {
                 const result = await produtoService.deleteById(id);
 
-                 if(result instanceof Error){
+                if (result instanceof Error) {
                     return alert(result.message);
-                 }
+                }
 
-                 setRows(oldRows => {
-                   return [...oldRows].filter(rows => rows.id !== id)
-                 });
-                 alert('Registro deletado com sucesso!');
-            }catch(error){
-                console.log(`${(error as {message: string}).message} - Error ao deletar registro`);
+                setRows(oldRows => {
+                    return [...oldRows].filter(rows => rows.id !== id)
+                });
+                alert('Registro deletado com sucesso!');
+            } catch (error) {
+                console.log(`${(error as { message: string }).message} - Error ao deletar registro`);
             }
         }
     }
@@ -95,7 +95,7 @@ export const ListagemDeProdutos: React.FC = () => {
                     <CircularProgress size={60} />
                 </Stack>
             ) : (
-                <TableContainer component={Paper} variant="outlined" sx={{ m: 2, width: 'auto' }}>
+                <TableContainer component={Paper} variant="outlined" sx={{ m: 1, width: 'auto' }}>
                     <Table>
                         <TableHead>
                             <TableRow>
@@ -112,10 +112,10 @@ export const ListagemDeProdutos: React.FC = () => {
                                 <TableRow key={row.id}>
                                     <TableCell>
                                         <IconButton onClick={() => handleDelete(row.id)}>
-                                            <Delete/>
+                                            <Delete />
                                         </IconButton>
                                         <IconButton onClick={() => navigate(`/produtos/detalhes/${row.id}`)}>
-                                            <Edit/>
+                                            <Edit />
                                         </IconButton>
                                     </TableCell>
                                     <TableCell>{row.nome}</TableCell>
@@ -125,7 +125,7 @@ export const ListagemDeProdutos: React.FC = () => {
                             ))}
 
                         </TableBody>
-                        
+
                         {totalCount === 0 && !isLoading && (
                             <TableFooter>
                                 <TableRow>
@@ -141,27 +141,27 @@ export const ListagemDeProdutos: React.FC = () => {
                             </TableFooter>
                         )}
 
-                    <TableFooter>
-                        {isLoading && rows.length > 0 && (
+                        <TableFooter>
+                            {isLoading && rows.length > 0 && (
                                 <TableRow>
                                     <TableCell colSpan={4}>
-                                        <LinearProgress variant="indeterminate"/>
+                                        <LinearProgress variant="indeterminate" />
                                     </TableCell>
                                 </TableRow>
-                        )}
+                            )}
 
-                         {(totalCount > 0 && Enviroments.LIMITE_DE_LINHAS) && (
+                            {(totalCount > 0 && Enviroments.LIMITE_DE_LINHAS) && (
                                 <TableRow>
                                     <TableCell colSpan={4}>
                                         <Pagination
-                                            onChange={(_, newPage) => setSearchParams({busca, page: newPage.toString()}, {replace: true})}
+                                            onChange={(_, newPage) => setSearchParams({ busca, pagina: newPage.toString() }, { replace: true })}
                                             count={Math.ceil(totalCount / Enviroments.LIMITE_DE_LINHAS)}
                                             page={pagina}
                                         />
                                     </TableCell>
                                 </TableRow>
-                        )}
-                    </TableFooter>
+                            )}
+                        </TableFooter>
 
                     </Table>
                 </TableContainer>

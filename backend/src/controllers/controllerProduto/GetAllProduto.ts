@@ -23,8 +23,8 @@ export const getAllProdutosValidation = validation((getSchema) => ({
 }))
 
 export const getAllProdutos = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
-    const result = await ProdutoProvider.getProdutoProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.id || 0);
-    const count = await ProdutoProvider.count();
+    const result = await ProdutoProvider.getProdutoProvider(req.query.page || 1, req.query.limit = 5, req.query.filter || '', Number(req.query.id) || 0);
+    const totalCount = await ProdutoProvider.count();
     
 
      if(result instanceof Error){
@@ -36,16 +36,19 @@ export const getAllProdutos = async(req: Request<{}, {}, {}, IQueryProps>, res: 
         return
     }
 
-    if (count instanceof Error) {
+    if (totalCount instanceof Error) {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       errors: {
-        default: count.message,
+        default: totalCount.message,
       },
     });
 
     return;
     }
 
-    res.status(StatusCodes.OK).json(result)
+    res.setHeader('access-control-expose-headers', 'x-total-count')
+    res.setHeader('x-total-count', totalCount)
+
+    res.status(StatusCodes.OK).json(result);
     return;
 }

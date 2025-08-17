@@ -16,7 +16,7 @@ type TFornecedorComCount = {
 
 const getAll = async (page: number, filter= ''): Promise<TFornecedorComCount | Error> => {
   try {
-    const urlRelativa = `/fornecedores?_page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&filter=${filter}`;
+    const urlRelativa = `/fornecedores?page=${page}&limit=${Enviroments.LIMITE_DE_LINHAS}&filter=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 

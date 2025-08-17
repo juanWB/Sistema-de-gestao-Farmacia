@@ -4,8 +4,7 @@ import { StatusCodes } from "http-status-codes";
 import { Request, Response } from "express";
 import { IProduto } from "../../database/models";
 import { ProdutoProvider } from "../../database/providers/produtoProviders";
-
-
+import dayjs from "dayjs";
 
 interface IBodyProps extends Omit<IProduto, 'id'>{};
 
@@ -23,14 +22,7 @@ export const createProdutoValidation = validation((getSchema) => ({
             required_error: 'Campo obrigatório.',
             invalid_type_error: 'Campo obrigatório',
         }).positive('O preço precisar ser maior do que 0.'),
-        validade:z.string({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
-        })
-        .nonempty('Campo obrigatório')
-        .regex(/^\d{4}-\d{2}-\d{2}$/, 'O formato deve ser YYYY-MM-DD')
-        .transform((str) => new Date(str))
-        .refine((date) => !isNaN(date.getTime()), { message: 'Data inválida' }),
+        validade:z.coerce.string(),
         quantidade: z.coerce.number({
             required_error: 'Campo obrigatório.',
             invalid_type_error: 'Campo obrigatório'
@@ -47,7 +39,10 @@ export const createProdutoValidation = validation((getSchema) => ({
 }))
 
 export const createProduto = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
-    const result = await ProdutoProvider.createProdutoProvider(req.body);
+    
+    const formatedData = dayjs(req.body.validade).startOf('day').toDate();
+
+    const result = await ProdutoProvider.createProdutoProvider({...req.body, validade: formatedData});
 
     if(result instanceof Error){
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

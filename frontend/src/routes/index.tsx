@@ -39,14 +39,14 @@ export const AppRoutes = () => {
             <Route path='/produtos' element={<ListagemDeProdutos />} />
             <Route path='/produtos/detalhes/:id' element={<DetalheDeProduto />} />
 
-            <Route path='/fornecedores' element={<ListagemDeProdutos />} />
-            <Route path='/fornecedores/detalhes/:id' element={<DetalheDeProduto />} />
+            <Route path='/fornecedores' element={<></>} />
+            <Route path='/fornecedores/detalhes/:id' element={<></>} />
 
-            <Route path='/entradas' element={<ListagemDeProdutos />} />
-            <Route path='/entradas/detalhes/:id' element={<DetalheDeProduto />} />
+            <Route path='/entradas' element={<></>} />
+            <Route path='/entradas/detalhes/:id' element={<></>} />
 
-            <Route path='/saidas' element={<ListagemDeProdutos />} />
-            <Route path='/saidas/detalhes/:id' element={<DetalheDeProduto />} />
+            <Route path='/saidas' element={<></>} />
+            <Route path='/saidas/detalhes/:id' element={<></>} />
 
             <Route path='*' element={<Navigate to={'/pagina-inicial'} />} />
         </Routes>

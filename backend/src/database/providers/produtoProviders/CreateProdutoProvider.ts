@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { logger } from "../../../shared/service/logger";
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
@@ -21,6 +22,13 @@ export const createProdutoProvider = async(produto: Omit<IProduto, 'id'>):Promis
         
         if(countFornecedor === 0)return new Error('Fornecedor não encontrada.');
 
+         const validadeFormatada = produto.validade
+                ? dayjs(produto.validade).format("YYYY-MM-DD")
+                : null;
+        
+                console.log(validadeFormatada + " create provider");
+
+        produto = {...produto, validade: validadeFormatada!};
         const [result] = await Knex(ETableNames.produto).insert(produto).returning('id');
         
         if(typeof result === 'object'){

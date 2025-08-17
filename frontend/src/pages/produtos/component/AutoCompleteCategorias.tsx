@@ -63,6 +63,8 @@ export const AutoCompleteCategorias: React.FC<IAutoCompleteCategoriasProps> = ({
         <Autocomplete
             options={opcoes}
 
+            autoComplete
+
             openText="Abrir"
             closeText="Fechar"
             noOptionsText="Sem opções"

@@ -2,49 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 
-import { produtoService } from "../../shared/service/api/produtos/ProdutoService";
+import { fornecedorService } from "../../shared/service/api/fornecedores/FornecedorService";
 import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
 import { FerramentasDeDetalhes } from "../../shared/components";
 import { VTextField, VForm, useVFormRef } from "../../shared/forms";
 import z from "zod";
-import { AutoCompleteCategorias } from "./component/AutoCompleteCategorias";
-
-const formValidationSchema = z.object({
-        nome: z.string({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
-        }).nonempty("Campo obrigatório")
-        .min(3, "O nome precisa ter 3 no mínimo caracteres")
-        .max(100, "O nome não pode ultrapassar 100 caracteres.")
-        .regex(/^[a-zA-ZÀ-ÿ\s]+$/, "Apenas letras e espaços são permitidos")
-        .trim(),
-        preco: z.coerce.number({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório',
-        }).positive('O preço precisar ser maior do que 0.'),
-        validade:z.string({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
-        })
-        .nonempty('Campo obrigatório')
-        .regex(/^\d{4}-\d{2}-\d{2}$/, 'O formato deve ser YYYY-MM-DD')
-        .transform((str) => new Date(str))
-        .refine((date) => !isNaN(date.getTime()), { message: 'Data inválida' }),
-        quantidade: z.coerce.number({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
-        }).nonnegative('O campo quantidade não pode ser menor que 0').int('O campo quantidade precisar ser um inteiro.'),
-        categoria_id: z.coerce.number({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
-        }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.'),
-        fornecedor_id: z.coerce.number({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
-        }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.')
-});
-
-type TProductProps = z.infer<typeof formValidationSchema>;
+import { FormValidationFornecedoresSchema, type TFornecedoresProps } from "../../shared/zodSchema";
 
 export const DetalheDeProduto: React.FC = () => {
     const { id = 'novo' } = useParams<'id'>();
@@ -59,14 +22,14 @@ export const DetalheDeProduto: React.FC = () => {
 
             setIsLoading(true);
 
-            produtoService.getById(Number(id))
+            fornecedorService.getById(Number(id))
                 .then(result => {
 
                     setIsLoading(false);
 
                     if (result instanceof Error) {
                         alert(result.message);
-                        navigate('/produtos');
+                        navigate('/fornecedores');
                     } else {
                         setNome(result.nome);
                         console.log(result);
@@ -88,26 +51,26 @@ export const DetalheDeProduto: React.FC = () => {
     const handleDelete = async (id: number) => {
         if (confirm('Realmente deseja deletar o registro?')) {
             try {
-                const result = await produtoService.deleteById(id);
+                const result = await fornecedorService.deleteById(id);
 
                 if (result instanceof Error) {
                     return alert(result.message);
                 }
 
                 alert('Registro deletado com sucesso!');
-                navigate('/produtos');
+                navigate('/fornecedores');
             } catch (error) {
                 console.log(`${(error as { message: string }).message} - Error ao deletar registro`);
-                navigate('/produtos');
+                navigate('/fornecedores');
             }
         }
     }
 
-    const handleSave = async (dados: TProductProps) => {
-        let dadosValidados: TProductProps;
+    const handleSave = async (dados: TFornecedoresProps) => {
+        let dadosValidados: TFornecedoresProps;
 
         try{
-            dadosValidados =  formValidationSchema.parse(dados);
+            dadosValidados =  FormValidationFornecedoresSchema.parse(dados);
         }catch(error){
             if(error instanceof z.ZodError){
                 const errorValidation: Record<string, string> = {};
@@ -122,16 +85,16 @@ export const DetalheDeProduto: React.FC = () => {
 
         if (id === 'novo') {
             try {
-                const result = await produtoService.create(dadosValidados!);
+                const result = await fornecedorService.create(dadosValidados!);
 
                 if (result instanceof Error) {
                     alert("Error ao criar registro")
                 } else {
                     if (isSaveAndClose()) {
-                        navigate(`/produtos`);
+                        navigate(`/fornecedores`);
 
                     } else {
-                        navigate(`/produtos/detalhes/${result}`);
+                        navigate(`/fornecedores/detalhes/${result}`);
                     }
                 }
 
@@ -140,17 +103,17 @@ export const DetalheDeProduto: React.FC = () => {
             }
         } else {
             try {
-                const result = await produtoService.updateById(Number(id), dadosValidados!);
+                const result = await fornecedorService.updateById(Number(id), dadosValidados!);
 
                 if (result instanceof Error) {
                     return alert("Error ao criar registro")
                 }
 
                 if (isSaveAndClose()) {
-                    navigate(`/produtos`);
+                    navigate(`/fornecedores`);
 
                 } else {
-                    navigate(`/produtos/detalhes/${result}`);
+                    navigate(`/fornecedores/detalhes/${result}`);
                 }
             } catch (error) {
                 console.log(error);
@@ -160,7 +123,7 @@ export const DetalheDeProduto: React.FC = () => {
 
     return (
         <LayoutBaseDePagina
-            titulo={id === 'novo' ? 'Novo produto' : nome}
+            titulo={id === 'novo' ? 'Novo fornecedore' : nome}
             barraDeFerramentas={
                 <FerramentasDeDetalhes
                     mostrarBotaoSalvarEFechar
@@ -169,9 +132,9 @@ export const DetalheDeProduto: React.FC = () => {
 
                     aoClicarSalvar={save}
                     aoClicarSalvarEFechar={saveAndClose}
-                    aoClicarVoltar={() => navigate('/produtos')}
+                    aoClicarVoltar={() => navigate('/fornecedores')}
                     aoClicarApagar={() => handleDelete(Number(id))}
-                    aoClicarNovo={() => navigate('/produtos/detalhes/novo')}
+                    aoClicarNovo={() => navigate('/fornecedores/detalhes/novo')}
                 />
             }
         >

@@ -18,7 +18,7 @@ type TProdutoComCount = {
 
 const getAll = async (page: number, filter: string | ""): Promise<TProdutoComCount | Error> => {
   try {
-    const urlRelativa = `/produtos?page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&filter_like=${filter}`;
+    const urlRelativa = `/produtos?page=${page}&limit=${Enviroments.LIMITE_DE_LINHAS}&filter=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -76,6 +76,7 @@ const create = async (produto: Omit<IListagemProduto, "id">): Promise<number | E
 
 const updateById = async (id: number, produto: Omit<IListagemProduto, 'id'>): Promise<void | Error> => {
   try {
+    console.log(produto.validade);
     const result = await Api.put(`/produtos/${id}`, produto);
 
     if(result instanceof Error){

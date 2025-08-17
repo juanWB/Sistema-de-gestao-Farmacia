@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { logger } from "../../../shared/service/logger";
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
@@ -20,12 +21,20 @@ export const updateProdutoProvider = async(id: number, produto: Omit<IProduto, '
         
         if(countFornecedor === 0)return new Error('Fornecedor não encontrada.');
 
+        console.log(produto.validade + " provider");
+
+        const validadeFormatada = produto.validade
+        ? dayjs(produto.validade).format("YYYY-MM-DD")
+        : null;
+
+        console.log(validadeFormatada + " provider");
+
         const [result] = await Knex(ETableNames.produto)
-        .where('id',id)
+        .where('id', id)
         .update({'nome': produto.nome,
             'preco': produto.preco,
             'quantidade': produto.quantidade,
-            'validade': produto.validade})
+            'validade': validadeFormatada})
             .returning<IProduto[]>('*');
 
         if(result){
@@ -33,10 +42,10 @@ export const updateProdutoProvider = async(id: number, produto: Omit<IProduto, '
             return result;
         }
 
-       logger.warn(`UpdateProdutoProvider falhou em atualizar categoria com id ${id}`);
+       logger.warn(`UpdateProdutoProvider falhou em atualizar produto com id ${id}`);
        return new Error("Error ao atualizar Produto")
     }catch(err){
-       logger.error(`UpdateProdutoProvider falhou em atualizar categoria: ${JSON.stringify(err)}`);
+       logger.error(`UpdateProdutoProvider falhou em atualizar produto: ${JSON.stringify(err)}`);
        return new Error("Error ao atualizar Produto")
     }
 }

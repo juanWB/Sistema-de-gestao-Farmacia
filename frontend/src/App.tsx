@@ -1,28 +1,35 @@
 import { AppRoutes } from './routes'
-import { MenuLateral } from './shared/components/index'
 import { BrowserRouter } from 'react-router-dom'
-import { AppThemeProvider, AuthContextProvider, DrawerProvider } from './shared/contexts/index'
+
+import 'dayjs/locale/en-gb';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+
+import { MenuLateral } from './shared/components/index'
 import { Login } from './shared/components/login/Login'
+import { AppThemeProvider, AuthContextProvider, DrawerProvider } from './shared/contexts/index'
 export const App = () => {
 
   return (
-    <AuthContextProvider>
+    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='en-gb'>
+      <AuthContextProvider>
 
-      <AppThemeProvider>
-        <Login>
-          <DrawerProvider>
+        <AppThemeProvider>
+          <Login>
+            <DrawerProvider>
 
-            <BrowserRouter>
-              <MenuLateral>
-                <AppRoutes />
-              </MenuLateral>
-            </BrowserRouter>
+              <BrowserRouter>
+                <MenuLateral>
+                  <AppRoutes />
+                </MenuLateral>
+              </BrowserRouter>
 
-          </DrawerProvider>
-        </Login>
-      </AppThemeProvider>
+            </DrawerProvider>
+          </Login>
+        </AppThemeProvider>
 
-    </AuthContextProvider >
+      </AuthContextProvider >
+    </LocalizationProvider>
   )
 }
 
