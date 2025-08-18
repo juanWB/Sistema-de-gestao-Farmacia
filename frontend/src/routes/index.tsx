@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDrawerContext } from '../shared/contexts';
 import { useEffect } from 'react';
-import { AddBox, IndeterminateCheckBox, Inventory2, LocalShipping } from '@mui/icons-material';
+import { AddBox, DashboardCustomize, IndeterminateCheckBox, Inventory2, LocalShipping } from '@mui/icons-material';
 import { Dashboard, DetalheDeProduto, ListagemDeProdutos } from '../pages';
 import { ListagemDeFornecedores } from '../pages/fornecedores/ListagemDeFornecedores';
 import { DetalheDeFornecedor } from '../pages/fornecedores/DetalheDeFornecedores';
@@ -14,6 +14,11 @@ export const AppRoutes = () => {
 
     useEffect(() => {
         setDrawerOptions([
+             {
+                icon: <DashboardCustomize color='primary' />,
+                label: 'Página inicial',
+                path: '/dashboard'
+            },
             {
                 icon: <Inventory2 color='primary' />,
                 label: 'Produtos',

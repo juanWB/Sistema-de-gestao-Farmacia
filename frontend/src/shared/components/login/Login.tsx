@@ -24,7 +24,6 @@ export const Login: React.FC<ILoginsProps> = ({ children }) => {
     const [senha, setSenha] = useState('');
     const [senhaError, setSenhaError] = useState('');
 
-
     const handleSubmit = async () => {
         setNomeError('');
         setEmailError('');

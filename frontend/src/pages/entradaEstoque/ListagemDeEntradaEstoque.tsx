@@ -135,7 +135,7 @@ export const ListagemDeEntradasEstoque: React.FC = () => {
                                             <Edit />
                                         </IconButton>
                                     </TableCell>
-                                    <TableCell>{produtosMap[row.produto_id] || row.produto_id}</TableCell>
+                                    <TableCell>{produtosMap[row.produto_id]}</TableCell>
                                     <TableCell>{formatDateForField(row.entrada_data!)}</TableCell>
                                     <TableCell>{row.quantidade}</TableCell>
                                 </TableRow>

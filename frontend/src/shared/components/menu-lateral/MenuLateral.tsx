@@ -1,4 +1,4 @@
-import { Avatar, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useTheme } from "@mui/material"
+import {Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useTheme } from "@mui/material"
 import { Box, useMediaQuery } from "@mui/system";
 import logo from "./assets/logo.png";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
@@ -58,11 +58,7 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
 
                     <Divider />
 
-                    <Box sx={{ width: "90%", height: theme.spacing(10), display: 'flex', alignItems: "center", margin: "10px", marginBottom: "15px" }} >
-                        <Avatar />
-                    </Box>
-
-                    <Box flex={1}>
+                    <Box flex={1} marginTop={2}>
                         <List component='nav'>
                             {drawerOptions.map(drawerOptions => (
                                 <ListItemLink
