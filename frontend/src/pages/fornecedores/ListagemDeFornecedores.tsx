@@ -1,21 +1,22 @@
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { useState, useEffect, useMemo } from "react";
 
-import { produtoService, type IListagemProduto } from "../../shared/service/api/produtos/ProdutoService";
 import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina"
 import { FerramentasDeListagem } from "../../shared/components"
 import { useDebounce } from "../../shared/hooks/UseDebounce";
 import { CircularProgress, IconButton, LinearProgress, Pagination, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material";
 import { Enviroments } from "../../shared/enviroments";
 import { Delete, Edit } from "@mui/icons-material";
+import { fornecedorService, type IListagemFornecedor } from "../../shared/service/api/fornecedores/FornecedorService";
+import { formatCnpj, formatTelefone } from "../../shared/utils/FormatFields";
 
 
-export const ListagemDeProdutos: React.FC = () => {
+export const ListagemDeFornecedores: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const buscaParam = searchParams.get('busca') || '';
     const [busca, setBusca] = useState(buscaParam);
 
-    const [rows, setRows] = useState<IListagemProduto[]>([]);
+    const [rows, setRows] = useState<IListagemFornecedor[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [totalCount, setTotalCount] = useState(0);
 
@@ -37,7 +38,7 @@ export const ListagemDeProdutos: React.FC = () => {
 
         debounce(() => {
 
-            produtoService.getAll(pagina, busca)
+            fornecedorService.getAll(pagina, busca)
                 .then((result) => {
                     setIsLoading(false);
                     if (result instanceof Error) {
@@ -55,7 +56,7 @@ export const ListagemDeProdutos: React.FC = () => {
     const handleDelete = async(id: number) => {
         if(confirm('Realmente deseja deletar o registro?')){
             try{
-                const result = await produtoService.deleteById(id);
+                const result = await fornecedorService.deleteById(id);
 
                  if(result instanceof Error){
                     return alert(result.message);
@@ -73,13 +74,13 @@ export const ListagemDeProdutos: React.FC = () => {
 
     return (
         <LayoutBaseDePagina
-            titulo="Produtos"
+            titulo="Fornecedores"
             barraDeFerramentas={
                 <FerramentasDeListagem
                     mostrarCampoBusca
                     mostrarButton
                     textoCampoBusca={busca}
-                    aoClicarEmNovo={() => navigate('/produtos/detalhes/novo')}
+                    aoClicarEmNovo={() => navigate('/fornecedores/detalhes/novo')}
                     aoMudarTextoDeBusca={handleBuscaChange}
                 />
             }
@@ -101,8 +102,8 @@ export const ListagemDeProdutos: React.FC = () => {
                             <TableRow>
                                 <TableCell>Ações</TableCell>
                                 <TableCell>Nome</TableCell>
-                                <TableCell>Preço</TableCell>
-                                <TableCell>Quantidade</TableCell>
+                                <TableCell>CNPJ</TableCell>
+                                <TableCell>Telefone</TableCell>
                             </TableRow>
                         </TableHead>
 
@@ -114,13 +115,13 @@ export const ListagemDeProdutos: React.FC = () => {
                                         <IconButton onClick={() => handleDelete(row.id)}>
                                             <Delete/>
                                         </IconButton>
-                                        <IconButton onClick={() => navigate(`/produtos/detalhes/${row.id}`)}>
+                                        <IconButton onClick={() => navigate(`/fornecedores/detalhes/${row.id}`)}>
                                             <Edit/>
                                         </IconButton>
                                     </TableCell>
                                     <TableCell>{row.nome}</TableCell>
-                                    <TableCell>{row.preco}</TableCell>
-                                    <TableCell>{row.quantidade}</TableCell>
+                                    <TableCell>{formatCnpj(row.cnpj)}</TableCell>
+                                    <TableCell>{formatTelefone(row.telefone)}</TableCell>
                                 </TableRow>
                             ))}
 
@@ -154,7 +155,7 @@ export const ListagemDeProdutos: React.FC = () => {
                                 <TableRow>
                                     <TableCell colSpan={4}>
                                         <Pagination
-                                            onChange={(_, newPage) => setSearchParams({busca, page: newPage.toString()}, {replace: true})}
+                                            onChange={(_, newPage) => setSearchParams({busca, pagina: newPage.toString()}, {replace: true})}
                                             count={Math.ceil(totalCount / Enviroments.LIMITE_DE_LINHAS)}
                                             page={pagina}
                                         />

@@ -1,21 +1,21 @@
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { useState, useEffect, useMemo } from "react";
 
-import { produtoService, type IListagemProduto } from "../../shared/service/api/produtos/ProdutoService";
+import { CircularProgress, IconButton, LinearProgress, Pagination, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material";
+import { entradaService, type IListagemEntrada } from "../../shared/service/api/entradaEstoque/EntradaService";
 import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina"
 import { FerramentasDeListagem } from "../../shared/components"
 import { useDebounce } from "../../shared/hooks/UseDebounce";
-import { CircularProgress, IconButton, LinearProgress, Pagination, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material";
 import { Enviroments } from "../../shared/enviroments";
 import { Delete, Edit } from "@mui/icons-material";
 
 
-export const ListagemDeProdutos: React.FC = () => {
+export const ListagemDeEntradasEstoque: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const buscaParam = searchParams.get('busca') || '';
     const [busca, setBusca] = useState(buscaParam);
 
-    const [rows, setRows] = useState<IListagemProduto[]>([]);
+    const [rows, setRows] = useState<IListagemEntrada[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [totalCount, setTotalCount] = useState(0);
 
@@ -37,7 +37,7 @@ export const ListagemDeProdutos: React.FC = () => {
 
         debounce(() => {
 
-            produtoService.getAll(pagina, busca)
+            entradaService.getAll(pagina, busca)
                 .then((result) => {
                     setIsLoading(false);
                     if (result instanceof Error) {
@@ -45,7 +45,7 @@ export const ListagemDeProdutos: React.FC = () => {
                         return
                     } else {
                         console.log(result);
-                        setRows(result.data);
+                        setRows([result.data]);
                         setTotalCount(result.totalCount);
                     }
                 });
@@ -55,7 +55,7 @@ export const ListagemDeProdutos: React.FC = () => {
     const handleDelete = async(id: number) => {
         if(confirm('Realmente deseja deletar o registro?')){
             try{
-                const result = await produtoService.deleteById(id);
+                const result = await entradaService.deleteById(id);
 
                  if(result instanceof Error){
                     return alert(result.message);
@@ -73,13 +73,13 @@ export const ListagemDeProdutos: React.FC = () => {
 
     return (
         <LayoutBaseDePagina
-            titulo="Produtos"
+            titulo="Entradas"
             barraDeFerramentas={
                 <FerramentasDeListagem
                     mostrarCampoBusca
                     mostrarButton
                     textoCampoBusca={busca}
-                    aoClicarEmNovo={() => navigate('/produtos/detalhes/novo')}
+                    aoClicarEmNovo={() => navigate('/entradas/detalhes/nova')}
                     aoMudarTextoDeBusca={handleBuscaChange}
                 />
             }
@@ -100,8 +100,8 @@ export const ListagemDeProdutos: React.FC = () => {
                         <TableHead>
                             <TableRow>
                                 <TableCell>Ações</TableCell>
-                                <TableCell>Nome</TableCell>
-                                <TableCell>Preço</TableCell>
+                                <TableCell>Produto</TableCell>
+                                <TableCell>Data</TableCell>
                                 <TableCell>Quantidade</TableCell>
                             </TableRow>
                         </TableHead>
@@ -114,12 +114,12 @@ export const ListagemDeProdutos: React.FC = () => {
                                         <IconButton onClick={() => handleDelete(row.id)}>
                                             <Delete/>
                                         </IconButton>
-                                        <IconButton onClick={() => navigate(`/produtos/detalhes/${row.id}`)}>
+                                        <IconButton onClick={() => navigate(`/entradas/detalhes/${row.id}`)}>
                                             <Edit/>
                                         </IconButton>
                                     </TableCell>
-                                    <TableCell>{row.nome}</TableCell>
-                                    <TableCell>{row.preco}</TableCell>
+                                    <TableCell>{row.produto_id}</TableCell>
+                                    <TableCell>{''}</TableCell>
                                     <TableCell>{row.quantidade}</TableCell>
                                 </TableRow>
                             ))}

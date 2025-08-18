@@ -1,7 +1,7 @@
 import { Enviroments } from "../../../enviroments";
 import { Api } from "../axiosConfig";
 
-interface IListagemFornecedor {
+export interface IListagemFornecedor {
   id: number;
   nome: string;
   cnpj: string;

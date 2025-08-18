@@ -1,7 +1,7 @@
 import { Enviroments } from "../../../enviroments";
 import { Api } from "../axiosConfig";
 
-interface IListagemEntrada {
+export interface IListagemEntrada {
   id: number;
   produto_id: number;
   quantidade: number;
@@ -15,7 +15,7 @@ type TEntradaComTotalCount = {
 
 const getAll = async (page: number, filter = ""):Promise<TEntradaComTotalCount | Error> => {
   try {
-    const urlRelativa = `/entradas&_page=${page}&_limit=${Enviroments.LIMITE_DE_LINHAS}&entrada_data=${filter}`;
+    const urlRelativa = `/entradas?page=${page}&limit=${Enviroments.LIMITE_DE_LINHAS}&filter=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 

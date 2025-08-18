@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 
@@ -8,13 +8,14 @@ import { FerramentasDeDetalhes } from "../../shared/components";
 import { VTextField, VForm, useVFormRef } from "../../shared/forms";
 import z from "zod";
 import { FormValidationFornecedoresSchema, type TFornecedoresProps } from "../../shared/zodSchema";
+import { formatCnpj, formatTelefone } from "../../shared/utils/FormatFields";
 
-export const DetalheDeProduto: React.FC = () => {
+export const DetalheDeFornecedor: React.FC = () => {
     const { id = 'novo' } = useParams<'id'>();
     const navigate = useNavigate();
 
-    const [isLoading, setIsLoading] = useState(false);
     const [nome, setNome] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const { formRef, save, saveAndClose, isSaveAndClose } = useVFormRef();
 
     useEffect(() => {
@@ -33,17 +34,15 @@ export const DetalheDeProduto: React.FC = () => {
                     } else {
                         setNome(result.nome);
                         console.log(result);
-                        formRef.current?.setData(result);
+                        formRef.current?.setData({...result, cnpj: formatCnpj(result.cnpj), telefone: formatTelefone(result.telefone)});
                     }
                 })
         } else {
             formRef.current?.setData({
                 nome: '',
-                preco: '',
-                validade: '',
-                quantidade: '',
-                categoria_id: '',
-                fornecedor_id: '',
+                cnpj: '',
+                telefone: '',
+                endereco: '',
             });
         }
     }, [id, navigate, formRef]);
@@ -69,54 +68,54 @@ export const DetalheDeProduto: React.FC = () => {
     const handleSave = async (dados: TFornecedoresProps) => {
         let dadosValidados: TFornecedoresProps;
 
-        try{
-            dadosValidados =  FormValidationFornecedoresSchema.parse(dados);
-        }catch(error){
-            if(error instanceof z.ZodError){
-                const errorValidation: Record<string, string> = {};
-                error.errors.map((err) => {
-                    errorValidation[err.path.toString()] = err.message;
-                });
-                console.log(errorValidation);
-                formRef.current?.setErrors(errorValidation);
-            }
-        }
+        try {
+            dadosValidados = FormValidationFornecedoresSchema.parse(dados);
 
+            if (id === 'novo') {
+                try {
+                    const result = await fornecedorService.create(dadosValidados);
 
-        if (id === 'novo') {
-            try {
-                const result = await fornecedorService.create(dadosValidados!);
+                    if (result instanceof Error) {
+                        alert("Error ao criar registro")
+                    } else {
+                        if (isSaveAndClose()) {
+                            navigate(`/fornecedores`);
 
-                if (result instanceof Error) {
-                    alert("Error ao criar registro")
-                } else {
+                        } else {
+                            navigate(`/fornecedores/detalhes/${result}`);
+                        }
+                    }
+
+                } catch (error) {
+                    console.log(error);
+                }
+            } else {
+                try {
+                    const result = await fornecedorService.updateById(Number(id), dadosValidados!);
+
+                    if (result instanceof Error) {
+                        return alert("Error ao criar registro")
+                    }
+
                     if (isSaveAndClose()) {
                         navigate(`/fornecedores`);
 
                     } else {
                         navigate(`/fornecedores/detalhes/${result}`);
                     }
+                } catch (error) {
+                    console.log(error);
                 }
-
-            } catch (error) {
-                console.log(error);
             }
-        } else {
-            try {
-                const result = await fornecedorService.updateById(Number(id), dadosValidados!);
 
-                if (result instanceof Error) {
-                    return alert("Error ao criar registro")
-                }
-
-                if (isSaveAndClose()) {
-                    navigate(`/fornecedores`);
-
-                } else {
-                    navigate(`/fornecedores/detalhes/${result}`);
-                }
-            } catch (error) {
-                console.log(error);
+        } catch (error) {
+            if (error instanceof z.ZodError) {
+                const errorValidation: Record<string, string> = {};
+                error.errors.map((err) => {
+                    errorValidation[err.path.toString()] = err.message;
+                });
+                console.log(errorValidation);
+                formRef.current?.setErrors(errorValidation);
             }
         }
     }
@@ -163,31 +162,20 @@ export const DetalheDeProduto: React.FC = () => {
                                 <VTextField label="Nome" name="nome" disabled={isLoading} onChange={e => setNome(e.target.value)} />
                             </Grid>
                             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="Preço" name="preco" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                                <VTextField label="CNPJ" name="cnpj" disabled={isLoading} />
                             </Grid>
                         </Grid>
 
                         <Grid container direction='row' padding={2} spacing={2}>
                             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="DD/MM/AAAA" name="validade" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                                <VTextField label="Telefone" name="telefone" disabled={isLoading} />
                             </Grid>
                             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }} >
-                                <VTextField label="Quantidade" name="quantidade" disabled={isLoading} onChange={e => setNome(e.target.value)} />
-                            </Grid>
-                        </Grid>
-
-                        <Grid container direction='row' padding={2} spacing={2}>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <AutoCompleteCategorias isExternalLoading={isLoading}/>
-                            </Grid>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="Fornecedor" name="fornecedor_id" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                                <VTextField label="Endereço" name="endereco" disabled={isLoading} />
                             </Grid>
                         </Grid>
 
                     </Grid>
-
-
 
                 </Box>
 

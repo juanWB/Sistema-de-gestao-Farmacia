@@ -2,34 +2,13 @@ import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 
+import { formValidationEntradaSchema, type TEntradaEstoqueProps } from "../../shared/zodSchema";
 import { entradaService } from "../../shared/service/api/entradaEstoque/EntradaService";
 import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
 import { VTextField, VForm, useVFormRef } from "../../shared/forms";
 import { FerramentasDeDetalhes } from "../../shared/components";
 import z from "zod";
-
-const formValidationSchema = z.object({
-        produto_id: z.coerce.number({
-            required_error: 'Campo obrigatório.',
-            invalid_type_error: 'Campo obrigatório'
-        }).positive('O id precisar ser maior do que 0.').int('O id precisar ser um inteiro.'),
-        quantidade: z.coerce.number({
-                required_error: 'Campo obrigatório.',
-                invalid_type_error: 'Campo obrigatório'
-            })
-            .nonnegative('O campo quantidade não pode ser menor que 0')
-            .int('O campo quantidade precisar ser um inteiro.'),
-        entrada_data:z.string({
-                required_error: 'Campo obrigatório.',
-                invalid_type_error: 'Campo obrigatório'
-            })
-            .nonempty('Campo obrigatório')
-            .regex(/^\d{2}-\d{2}-\d{4}$/, 'O formato deve ser YYYY-MM-DD')
-            .transform((str) => new Date(str))
-            .refine((date) => !isNaN(date.getTime()), { message: 'Data inválida' }), 
-});
-
-type TEntradaEstoqueProps = z.infer<typeof formValidationSchema>;
+import { VDatePicker } from "../../shared/forms/VDatePicker";
 
 export const DetalheDeEntradaEstoque: React.FC = () => {
     const { id = 'nova' } = useParams<'id'>();
@@ -87,7 +66,7 @@ export const DetalheDeEntradaEstoque: React.FC = () => {
         let dadosValidados: TEntradaEstoqueProps;
 
         try{
-            dadosValidados =  formValidationSchema.parse(dados);
+            dadosValidados =  formValidationEntradaSchema.parse(dados);
         }catch(error){
             if(error instanceof z.ZodError){
                 const errorValidation: Record<string, string> = {};
@@ -186,7 +165,7 @@ export const DetalheDeEntradaEstoque: React.FC = () => {
 
                         <Grid container direction='row' padding={2} spacing={2}>
                             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="DD/MM/AAAA" name="entrada_data" disabled={isLoading} />
+                            <VDatePicker label="Data de entrada" name="entrada_data" disabled={true}/>
                             </Grid>
                         </Grid>
 

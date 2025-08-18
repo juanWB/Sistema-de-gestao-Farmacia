@@ -40,7 +40,7 @@ export const getAllFornecedor = async (
 ) => {
   const result = await FornecedorProvider.getFornecedorProvider(
     req.query.page || 1,
-    (req.query.limit = 10),
+    (req.query.limit = 5),
     req.query.filter || "",
     req.query.id || 0
   );

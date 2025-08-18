@@ -1,3 +1,4 @@
+import dayjs, { Dayjs } from "dayjs"
 
 export const formatCnpj = (value: string) => {
     const onlyNumbers = value.replace(/\D/g, '').slice(0, 14);
@@ -10,14 +11,6 @@ export const formatCnpj = (value: string) => {
         .replace(/\.(\d{3})(\d)/, '.$1/$2')
         .replace(/(\d{4})(\d)/, '$1-$2');
 };
-
-export const formatCep = (value: string) => {
-    const onlyNumbers = value.replace(/\D/g, '').slice(0, 8); 
-
-    if (onlyNumbers.length <= 5) return onlyNumbers;
-    
-    return onlyNumbers.replace(/^(\d{5})(\d{0,3})$/, '$1-$2');
-}
 
 export const formatTelefone = (value: string) => {
     const onlyNumbers = value.replace(/\D/g, '').slice(0,11)
@@ -37,7 +30,6 @@ export const formatTelefone = (value: string) => {
     return `(${onlyNumbers.slice(0, 2)}) ${onlyNumbers.slice(2, 7)}-${onlyNumbers.slice(7)}`;
 }     
 
-import dayjs, { Dayjs } from "dayjs"
 
 export const formatDate = (date: Dayjs | string | Date) => {
    console.log(date);
