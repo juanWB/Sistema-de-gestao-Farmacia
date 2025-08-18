@@ -11,10 +11,10 @@ export const deleteFornecedorProvider = async(id: number):Promise<void | Error> 
             logger.info(`Fornecedor deletado com id ${id} sucesso`);
             return;
         }
-        logger.warn(`DeleteFornecedorProvider falhou ao tentar deletar categoria com id ${id}`);
+        logger.warn(`DeleteFornecedorProvider falhou ao tentar deletar fornecedor com id ${id}`);
         return new Error("Error ao tentar deletar fornecedor")
     }catch(err){
-        logger.error(`DeleteFornecedorProvider falhou ao tentar deletar categoria: ${JSON.stringify(err)}`);
+        logger.error(`DeleteFornecedorProvider falhou ao tentar deletar fornecedor: ${JSON.stringify(err)}`);
         return new Error("Error ao tentar deletar fornecedor")
     }
 }

@@ -8,6 +8,8 @@ import { FerramentasDeListagem } from "../../shared/components"
 import { useDebounce } from "../../shared/hooks/UseDebounce";
 import { Enviroments } from "../../shared/enviroments";
 import { Delete, Edit } from "@mui/icons-material";
+import { formatDateForField } from "../../shared/utils/FormatFields";
+import { produtoService } from "../../shared/service/api/produtos/ProdutoService";
 
 
 export const ListagemDeEntradasEstoque: React.FC = () => {
@@ -15,6 +17,7 @@ export const ListagemDeEntradasEstoque: React.FC = () => {
     const buscaParam = searchParams.get('busca') || '';
     const [busca, setBusca] = useState(buscaParam);
 
+    const [produtosMap, setProdutosMap] = useState<Record<number, string>>({});
     const [rows, setRows] = useState<IListagemEntrada[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [totalCount, setTotalCount] = useState(0);
@@ -45,28 +48,42 @@ export const ListagemDeEntradasEstoque: React.FC = () => {
                         return
                     } else {
                         console.log(result);
-                        setRows([result.data]);
+                        const { data } = result;
+                        setRows(data);
                         setTotalCount(result.totalCount);
                     }
                 });
         });
     }, [busca, pagina, debounce]);
 
-    const handleDelete = async(id: number) => {
-        if(confirm('Realmente deseja deletar o registro?')){
-            try{
+    useEffect(() => {
+        produtoService.getAll(pagina, '')
+            .then(result =>{
+                if(!(result instanceof Error)){
+                    const map = result.data.reduce((acc: Record<number, string>, produto) => {
+                        acc[produto.id] = produto.nome;
+                        return acc;
+                    }, {});
+                    setProdutosMap(map);
+                }
+            })
+    },[pagina]);
+
+    const handleDelete = async (id: number) => {
+        if (confirm('Realmente deseja deletar o registro?')) {
+            try {
                 const result = await entradaService.deleteById(id);
 
-                 if(result instanceof Error){
+                if (result instanceof Error) {
                     return alert(result.message);
-                 }
+                }
 
-                 setRows(oldRows => {
-                   return [...oldRows].filter(rows => rows.id !== id)
-                 });
-                 alert('Registro deletado com sucesso!');
-            }catch(error){
-                console.log(`${(error as {message: string}).message} - Error ao deletar registro`);
+                setRows(oldRows => {
+                    return [...oldRows].filter(rows => rows.id !== id)
+                });
+                alert('Registro deletado com sucesso!');
+            } catch (error) {
+                console.log(`${(error as { message: string }).message} - Error ao deletar registro`);
             }
         }
     }
@@ -101,7 +118,7 @@ export const ListagemDeEntradasEstoque: React.FC = () => {
                             <TableRow>
                                 <TableCell>Ações</TableCell>
                                 <TableCell>Produto</TableCell>
-                                <TableCell>Data</TableCell>
+                                <TableCell>Entrada/Data</TableCell>
                                 <TableCell>Quantidade</TableCell>
                             </TableRow>
                         </TableHead>
@@ -112,20 +129,20 @@ export const ListagemDeEntradasEstoque: React.FC = () => {
                                 <TableRow key={row.id}>
                                     <TableCell>
                                         <IconButton onClick={() => handleDelete(row.id)}>
-                                            <Delete/>
+                                            <Delete />
                                         </IconButton>
                                         <IconButton onClick={() => navigate(`/entradas/detalhes/${row.id}`)}>
-                                            <Edit/>
+                                            <Edit />
                                         </IconButton>
                                     </TableCell>
-                                    <TableCell>{row.produto_id}</TableCell>
-                                    <TableCell>{''}</TableCell>
+                                    <TableCell>{produtosMap[row.produto_id] || row.produto_id}</TableCell>
+                                    <TableCell>{formatDateForField(row.entrada_data!)}</TableCell>
                                     <TableCell>{row.quantidade}</TableCell>
                                 </TableRow>
                             ))}
 
                         </TableBody>
-                        
+
                         {totalCount === 0 && !isLoading && (
                             <TableFooter>
                                 <TableRow>
@@ -141,27 +158,27 @@ export const ListagemDeEntradasEstoque: React.FC = () => {
                             </TableFooter>
                         )}
 
-                    <TableFooter>
-                        {isLoading && rows.length > 0 && (
+                        <TableFooter>
+                            {isLoading && rows.length > 0 && (
                                 <TableRow>
                                     <TableCell colSpan={4}>
-                                        <LinearProgress variant="indeterminate"/>
+                                        <LinearProgress variant="indeterminate" />
                                     </TableCell>
                                 </TableRow>
-                        )}
+                            )}
 
-                         {(totalCount > 0 && Enviroments.LIMITE_DE_LINHAS) && (
+                            {(totalCount > 0 && Enviroments.LIMITE_DE_LINHAS) && (
                                 <TableRow>
                                     <TableCell colSpan={4}>
                                         <Pagination
-                                            onChange={(_, newPage) => setSearchParams({busca, page: newPage.toString()}, {replace: true})}
+                                            onChange={(_, newPage) => setSearchParams({ busca, pagina: newPage.toString() }, { replace: true })}
                                             count={Math.ceil(totalCount / Enviroments.LIMITE_DE_LINHAS)}
                                             page={pagina}
                                         />
                                     </TableCell>
                                 </TableRow>
-                        )}
-                    </TableFooter>
+                            )}
+                        </TableFooter>
 
                     </Table>
                 </TableContainer>

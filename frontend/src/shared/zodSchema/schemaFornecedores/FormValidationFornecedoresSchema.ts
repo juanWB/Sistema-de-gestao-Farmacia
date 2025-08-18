@@ -17,7 +17,7 @@ export const FormValidationFornecedoresSchema = z.object({
     .max(18,  'O CNPJ precisa ter no máximo 18 caracteres.'),
     telefone: z.coerce.string()
     .min(10, 'O telefone precisa ter no mínimo 10 caracteres.')
-    .max(11,  'O telefone precisa ter no máximo 18 caracteres.')
+    .max(15,  'O telefone precisa ter no máximo 15 caracteres.')
     .trim(),
     endereco: z.coerce.string({
         required_error: 'Campo obrigatório.',

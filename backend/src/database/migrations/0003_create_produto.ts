@@ -10,7 +10,7 @@ export async function up(knex: Knex): Promise<void> {
       table.date("validade").notNullable();
       table.integer("quantidade").notNullable()
       table.bigInteger("categoria_id").unsigned().references('id').inTable(ETableNames.categoria).onDelete('CASCADE');
-      table.bigInteger("fornecedor_id").unsigned().references('id').inTable(ETableNames.fornecedor).onDelete('CASCADE');
+      table.bigInteger("fornecedor_id").unsigned().references('id').inTable(ETableNames.fornecedor).onDelete('SET NULL');
 
       
       table.comment(

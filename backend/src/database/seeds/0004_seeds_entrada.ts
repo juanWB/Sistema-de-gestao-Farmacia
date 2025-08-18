@@ -41,11 +41,5 @@ const entradasEstoque: IEntradaEstoque[] = [
         produto_id: 5,
         quantidade: 200,
         entrada_data: '2025-06-01',
-    },
-    {
-        id: 6,
-        produto_id: 7,
-        quantidade: 150,
-        entrada_data: '2025-06-05',
     }
 ]

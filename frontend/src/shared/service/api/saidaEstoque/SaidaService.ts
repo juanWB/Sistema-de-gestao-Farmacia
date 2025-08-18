@@ -1,24 +1,21 @@
 import { Enviroments } from "../../../enviroments";
 import { Api } from "../axiosConfig";
 
-export interface IListagemProduto {
+export interface IListagemSaida {
   id: number;
-  nome: string;
-  preco: number;
-  validade: Date | string;
+  produto_id: number;
   quantidade: number;
-  categoria_id: number;
-  fornecedor_id: number;
+  saida_data?: Date | string;
 }
 
-type TProdutoComCount = {
-  data: IListagemProduto[];
+type TSaidaComTotalCount = {
+  data: IListagemSaida[];
   totalCount: number;
 };
 
-const getAll = async (page?: number, filter?: string | ""): Promise<TProdutoComCount | Error> => {
+const getAll = async (page: number, filter = ""):Promise<TSaidaComTotalCount | Error> => {
   try {
-    const urlRelativa = `/produtos?page=${page}&limit=${Enviroments.LIMITE_DE_LINHAS}&filter=${filter}`;
+    const urlRelativa = `/saidas?page=${page}&limit=${Enviroments.LIMITE_DE_LINHAS}&filter=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -40,9 +37,9 @@ const getAll = async (page?: number, filter?: string | ""): Promise<TProdutoComC
   }
 };
 
-const getById = async (id: number): Promise<IListagemProduto | Error> => {
+const getById = async (id: number): Promise<IListagemSaida | Error> => {
   try {
-    const { data } = await Api.get(`/produtos/${id}`);
+    const { data } = await Api.get(`/saidas/${id}`);
 
     if (data) {
       return data;
@@ -57,27 +54,24 @@ const getById = async (id: number): Promise<IListagemProduto | Error> => {
   }
 };
 
-const create = async (produto: Omit<IListagemProduto, "id">): Promise<number | Error> => {
+const create = async (saida: Omit<IListagemSaida, 'id' | 'saida_data'>): Promise<number | Error> => {
   try {
-    const { data } = await Api.post<IListagemProduto>("/produtos", produto);
+    const { data } = await Api.post<IListagemSaida>("/saidas", saida);
 
-    if (data) {
+    if(data){
       return data.id;
     }
 
-    return new Error("Error ao criar registro");
+    return new Error("Erro ao criar registro");
   } catch (error) {
     console.error(error);
-    return new Error(
-      (error as { message: string }).message || "Error ao criar registro"
-    );
+    return new Error("Erro ao criar registro");
   }
 };
 
-const updateById = async (id: number, produto: Omit<IListagemProduto, 'id'>): Promise<void | Error> => {
+const updateById = async (id: number, saida: Omit<IListagemSaida, 'id' | 'saida_data'>): Promise<void | Error> => {
   try {
-    console.log(produto.validade);
-    const result = await Api.put(`/produtos/${id}`, produto);
+    const result = await Api.put(`/saidas/${id}`, saida);
 
     if(result instanceof Error){
       return new Error("Error ao atualizar registro");
@@ -94,7 +88,7 @@ const updateById = async (id: number, produto: Omit<IListagemProduto, 'id'>): Pr
 
 const deleteById = async (id: number):Promise<void | Error> => {
 try {
-    const result = await Api.delete(`/produtos/${id}`);
+    const result = await Api.delete(`/saidas/${id}`);
 
     if(result instanceof Error){
       return new Error("Error ao deletar registro");
@@ -109,10 +103,11 @@ try {
   }    
 };
 
-export const produtoService = {
+
+export const saidaService = {
   create,
   getAll,
   getById,
   deleteById,
-  updateById,
+  updateById
 };

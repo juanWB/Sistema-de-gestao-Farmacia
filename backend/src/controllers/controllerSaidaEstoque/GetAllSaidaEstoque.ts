@@ -22,7 +22,7 @@ export const getAllSaidasValidation = validation((getSchema) => ({
 
 export const getAllSaidas = async(req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
     
-    const result = await SaidaProvider.getSaidaProvider(req.query.page || 1, req.query.limit = 10, req.query.filter || '', req.query.produto_id || 0);
+    const result = await SaidaProvider.getSaidaProvider(req.query.page || 1, req.query.limit = 5, req.query.filter || '', req.query.produto_id || 0);
     const totalCount = await SaidaProvider.count();
 
      if(result instanceof Error){

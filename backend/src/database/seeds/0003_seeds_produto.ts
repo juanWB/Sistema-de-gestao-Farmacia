@@ -41,7 +41,7 @@ const produtos: IProduto[] = [
     },
     {
         id: 4,
-        nome: 'Vitamina C 500mg',
+        nome: 'Vitamina C',
         preco: 25.50,
         validade: '2027-01-01',
         quantidade: 80,
@@ -59,7 +59,7 @@ const produtos: IProduto[] = [
     },
     {
         id: 6,
-        nome: 'Protetor Solar FPS 50',
+        nome: 'Protetor Solar',
         preco: 49.90,
         validade: '2025-12-20',
         quantidade: 50,
@@ -68,7 +68,7 @@ const produtos: IProduto[] = [
     },
     {
         id: 7,
-        nome: 'Fralda Infantil P',
+        nome: 'Fralda Infantil',
         preco: 39.99,
         validade: '2026-08-08',
         quantidade: 200,
@@ -95,7 +95,7 @@ const produtos: IProduto[] = [
     },
     {
         id: 10,
-        nome: 'Perfume Floral 100ml',
+        nome: 'Perfume Floral',
         preco: 89.90,
         validade: '2027-04-04',
         quantidade: 40,

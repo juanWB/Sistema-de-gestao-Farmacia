@@ -10,11 +10,7 @@ export const formValidationEntradaSchema = z.object({
                 invalid_type_error: 'Campo obrigatório'
             })
             .nonnegative('O campo quantidade não pode ser menor que 0')
-            .int('O campo quantidade precisar ser um inteiro.'),
-        entrada_data:z.string({
-                required_error: 'Campo obrigatório.',
-                invalid_type_error: 'Campo obrigatório'
-            }), 
+            .int('O campo quantidade precisar ser um inteiro.'), 
 });
 
 export type TEntradaEstoqueProps = z.infer<typeof formValidationEntradaSchema>;

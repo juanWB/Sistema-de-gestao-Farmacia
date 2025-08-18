@@ -7,6 +7,7 @@ import { ListagemDeFornecedores } from '../pages/fornecedores/ListagemDeForneced
 import { DetalheDeFornecedor } from '../pages/fornecedores/DetalheDeFornecedores';
 import { ListagemDeEntradasEstoque } from '../pages/entradaEstoque/ListagemDeEntradaEstoque';
 import { DetalheDeEntradaEstoque } from '../pages/entradaEstoque/DetalheDeEntradaEstoque';
+import { ListagemDeSaidasEstoque } from '../pages/saidaEstoque/ListagemDeSaidaEstoque';
 
 export const AppRoutes = () => {
     const { setDrawerOptions } = useDrawerContext();
@@ -49,8 +50,8 @@ export const AppRoutes = () => {
             <Route path='/entradas' element={<ListagemDeEntradasEstoque/>} />
             <Route path='/entradas/detalhes/:id' element={<DetalheDeEntradaEstoque/>} />
 
-            <Route path='/saidas' element={<></>} />
-            <Route path='/saidas/detalhes/:id' element={<></>} />
+            <Route path='/saidas' element={<ListagemDeSaidasEstoque/>} />
+            <Route path='/saidas/detalhes/:id' element={<DetalheDeEntradaEstoque/>} />
 
             <Route path='*' element={<Navigate to={'/pagina-inicial'} />} />
         </Routes>

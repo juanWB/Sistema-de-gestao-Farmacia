@@ -65,60 +65,57 @@ export const DetalheDeFornecedor: React.FC = () => {
         }
     }
 
-    const handleSave = async (dados: TFornecedoresProps) => {
-        let dadosValidados: TFornecedoresProps;
+    const handleSave = (dados: TFornecedoresProps) => {
+    let dadosValidados: TFornecedoresProps;
 
-        try {
-            dadosValidados = FormValidationFornecedoresSchema.parse(dados);
+    try {
+        dadosValidados = FormValidationFornecedoresSchema.parse(dados);
 
-            if (id === 'novo') {
-                try {
-                    const result = await fornecedorService.create(dadosValidados);
-
+        if (id === 'novo') {
+            fornecedorService.create(dadosValidados)
+                .then(result => {
                     if (result instanceof Error) {
-                        alert("Error ao criar registro")
-                    } else {
-                        if (isSaveAndClose()) {
-                            navigate(`/fornecedores`);
-
-                        } else {
-                            navigate(`/fornecedores/detalhes/${result}`);
-                        }
-                    }
-
-                } catch (error) {
-                    console.log(error);
-                }
-            } else {
-                try {
-                    const result = await fornecedorService.updateById(Number(id), dadosValidados!);
-
-                    if (result instanceof Error) {
-                        return alert("Error ao criar registro")
-                    }
-
-                    if (isSaveAndClose()) {
+                        alert("Erro ao criar registro");
+                        return;
+                    } else if (isSaveAndClose()) {
                         navigate(`/fornecedores`);
-
-                    } else {
+                    } else if( typeof result === 'number'){
                         navigate(`/fornecedores/detalhes/${result}`);
                     }
-                } catch (error) {
+                })
+                .catch(error => {
                     console.log(error);
-                }
-            }
-
-        } catch (error) {
-            if (error instanceof z.ZodError) {
-                const errorValidation: Record<string, string> = {};
-                error.errors.map((err) => {
-                    errorValidation[err.path.toString()] = err.message;
                 });
-                console.log(errorValidation);
-                formRef.current?.setErrors(errorValidation);
-            }
+
+        } else {
+            const idNumber = Number(id);
+            fornecedorService.updateById(idNumber, dadosValidados)
+                .then(result => {
+                    if (result instanceof Error) {
+                        console.log("Erro ao atualizar registro");
+                        return;
+                    } else if (isSaveAndClose()) {
+                        navigate(`/fornecedores`);
+                    } else {
+                        navigate(`/fornecedores/detalhes/${idNumber}`);
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            const errorValidation: Record<string, string> = {};
+            error.errors.forEach(err => {
+                errorValidation[err.path.toString()] = err.message;
+            });
+            console.log(errorValidation);
+            formRef.current?.setErrors(errorValidation);
         }
     }
+}
 
     return (
         <LayoutBaseDePagina
@@ -126,8 +123,8 @@ export const DetalheDeFornecedor: React.FC = () => {
             barraDeFerramentas={
                 <FerramentasDeDetalhes
                     mostrarBotaoSalvarEFechar
-                    mostrarBotaoNovo={id !== 'nova'}
-                    mostrarBotaoApagar={id !== 'nova'}
+                    mostrarBotaoNovo={id !== 'novo'}
+                    mostrarBotaoApagar={id !== 'novo'}
 
                     aoClicarSalvar={save}
                     aoClicarSalvarEFechar={saveAndClose}

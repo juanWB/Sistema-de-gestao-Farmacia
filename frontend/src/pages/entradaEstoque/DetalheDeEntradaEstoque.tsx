@@ -1,14 +1,14 @@
 import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
+import z from "zod";
 
 import { formValidationEntradaSchema, type TEntradaEstoqueProps } from "../../shared/zodSchema";
 import { entradaService } from "../../shared/service/api/entradaEstoque/EntradaService";
 import { LayoutBaseDePagina } from "../../shared/layouts/LayoutBaseDePagina";
+import { AutoCompleteProdutos } from "./component/AutoCompleteProdutos";
 import { VTextField, VForm, useVFormRef } from "../../shared/forms";
 import { FerramentasDeDetalhes } from "../../shared/components";
-import z from "zod";
-import { VDatePicker } from "../../shared/forms/VDatePicker";
 
 export const DetalheDeEntradaEstoque: React.FC = () => {
     const { id = 'nova' } = useParams<'id'>();
@@ -19,10 +19,11 @@ export const DetalheDeEntradaEstoque: React.FC = () => {
 
     useEffect(() => {
         if (id !== 'nova') {
-
+            const ValidId = Number(id);
+            console.log(ValidId + ' DETALHE DE ENTRADA')
             setIsLoading(true);
 
-            entradaService.getById(Number(id))
+            entradaService.getById(Number(ValidId))
                 .then(result => {
 
                     setIsLoading(false);
@@ -38,7 +39,6 @@ export const DetalheDeEntradaEstoque: React.FC = () => {
         } else {
             formRef.current?.setData({
                 produto_id: undefined,
-                entrada_data: '',
                 quantidade: ''
             });
         }
@@ -62,60 +62,58 @@ export const DetalheDeEntradaEstoque: React.FC = () => {
         }
     }
 
-    const handleSave = async (dados: TEntradaEstoqueProps) => {
-        let dadosValidados: TEntradaEstoqueProps;
+    const handleSave = (dados: TEntradaEstoqueProps) => {
+    let dadosValidados: TEntradaEstoqueProps;
 
-        try{
-            dadosValidados =  formValidationEntradaSchema.parse(dados);
-        }catch(error){
-            if(error instanceof z.ZodError){
-                const errorValidation: Record<string, string> = {};
-                error.errors.map((err) => {
-                    errorValidation[err.path.toString()] = err.message;
-                });
-                console.log(errorValidation);
-                formRef.current?.setErrors(errorValidation);
-            }
-        }
-
+    try {
+        dadosValidados = formValidationEntradaSchema.parse(dados);
 
         if (id === 'nova') {
-            try {
-                const result = await entradaService.create(dadosValidados!);
-
-                if (result instanceof Error) {
-                    alert("Error ao criar registro")
-                } else {
-                    if (isSaveAndClose()) {
+            entradaService.create(dadosValidados)
+                .then(result => {
+                    if (result instanceof Error) {
+                        alert("Erro ao criar registro");
+                        return;
+                    } else if (isSaveAndClose()) {
                         navigate(`/entradas`);
-
-                    } else {
+                    } else if( typeof result === 'number'){
                         navigate(`/entradas/detalhes/${result}`);
                     }
-                }
+                })
+                .catch(error => {
+                    console.log(error);
+                });
 
-            } catch (error) {
-                console.log(error);
-            }
         } else {
-            try {
-                const result = await entradaService.updateById(Number(id), dadosValidados!);
+            const idNumber = Number(id);
+            entradaService.updateById(idNumber, dadosValidados)
+                .then(result => {
+                    if (result instanceof Error) {
+                        alert("Erro ao atualizar registro");
+                        return;
+                    } else if (isSaveAndClose()) {
+                        navigate(`/entradas`);
+                    } else {
+                        navigate(`/entradas/detalhes/${idNumber}`);
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
 
-                if (result instanceof Error) {
-                    return alert("Error ao criar registro")
-                }
-
-                if (isSaveAndClose()) {
-                    navigate(`/entradas`);
-
-                } else {
-                    navigate(`/entradas/detalhes/${result}`);
-                }
-            } catch (error) {
-                console.log(error);
-            }
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            const errorValidation: Record<string, string> = {};
+            error.errors.forEach(err => {
+                errorValidation[err.path.toString()] = err.message;
+            });
+            console.log(errorValidation);
+            formRef.current?.setErrors(errorValidation);
         }
     }
+}
+
 
     return (
         <LayoutBaseDePagina
@@ -156,16 +154,10 @@ export const DetalheDeEntradaEstoque: React.FC = () => {
 
                         <Grid container direction='row' padding={2} spacing={2}>
                             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="Produto" name="produto_id" disabled={isLoading} />
+                                <AutoCompleteProdutos isExternalLoading={isLoading} />
                             </Grid>
                             <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="quantidade" name="quantidade" disabled={isLoading} />
-                            </Grid>
-                        </Grid>
-
-                        <Grid container direction='row' padding={2} spacing={2}>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                            <VDatePicker label="Data de entrada" name="entrada_data" disabled={true}/>
+                                <VTextField label="Quantidade" name="quantidade" disabled={isLoading} />
                             </Grid>
                         </Grid>
 

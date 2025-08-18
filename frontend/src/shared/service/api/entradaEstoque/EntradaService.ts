@@ -5,11 +5,11 @@ export interface IListagemEntrada {
   id: number;
   produto_id: number;
   quantidade: number;
-  entrada_data: Date | string;
+  entrada_data?: Date | string;
 }
 
 type TEntradaComTotalCount = {
-  data: IListagemEntrada;
+  data: IListagemEntrada[];
   totalCount: number;
 };
 
@@ -54,9 +54,9 @@ const getById = async (id: number): Promise<IListagemEntrada | Error> => {
   }
 };
 
-const create = async (entrada: Omit<IListagemEntrada, 'id'>): Promise<number | Error> => {
+const create = async (entrada: Omit<IListagemEntrada, 'id' | 'entrada_data'>): Promise<number | Error> => {
   try {
-    const { data } = await Api.post<IListagemEntrada>("/entrada", entrada);
+    const { data } = await Api.post<IListagemEntrada>("/entradas", entrada);
 
     if(data){
       return data.id;
@@ -69,7 +69,7 @@ const create = async (entrada: Omit<IListagemEntrada, 'id'>): Promise<number | E
   }
 };
 
-const updateById = async (id: number, entrada: Omit<IListagemEntrada, 'id'>): Promise<void | Error> => {
+const updateById = async (id: number, entrada: Omit<IListagemEntrada, 'id' | 'entrada_data'>): Promise<void | Error> => {
   try {
     const result = await Api.put(`/entradas/${id}`, entrada);
 

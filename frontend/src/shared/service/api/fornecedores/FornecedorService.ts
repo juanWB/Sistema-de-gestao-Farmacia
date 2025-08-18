@@ -14,7 +14,10 @@ type TFornecedorComCount = {
   totalCount: number;
 };
 
-const getAll = async (page: number, filter= ''): Promise<TFornecedorComCount | Error> => {
+const getAll = async (
+  page = 1,
+  filter = ""
+): Promise<TFornecedorComCount | Error> => {
   try {
     const urlRelativa = `/fornecedores?page=${page}&limit=${Enviroments.LIMITE_DE_LINHAS}&filter=${filter}`;
 
@@ -55,9 +58,14 @@ const getById = async (id: number): Promise<IListagemFornecedor | Error> => {
   }
 };
 
-const create = async (fornecedor: Omit<IListagemFornecedor, "id">): Promise<number | Error> => {
+const create = async (
+  fornecedor: Omit<IListagemFornecedor, "id">
+): Promise<number | Error> => {
   try {
-    const { data } = await Api.post<IListagemFornecedor>("/fornecedores", fornecedor);
+    const { data } = await Api.post<IListagemFornecedor>(
+      "/fornecedores",
+      fornecedor
+    );
 
     if (data) {
       return data.id;
@@ -72,11 +80,17 @@ const create = async (fornecedor: Omit<IListagemFornecedor, "id">): Promise<numb
   }
 };
 
-const updateById = async (id: number, fornecedor: Omit<IListagemFornecedor, "id">): Promise<void | Error> => {
+const updateById = async (
+  id: number,
+  fornecedor: Omit<IListagemFornecedor, "id">
+): Promise<void | Error> => {
   try {
-    await Api.put(`/fornecedores/${id}`, fornecedor);
+    const result = await Api.put(`/fornecedores/${id}`, fornecedor);
+    if (result instanceof Error) {
+      return new Error("Error ao atualizar registro");
+    }
 
-    return new Error("Error ao atualizar registro");
+    return;
   } catch (error) {
     console.error(error);
     return new Error(
@@ -87,12 +101,17 @@ const updateById = async (id: number, fornecedor: Omit<IListagemFornecedor, "id"
 
 const deleteById = async (id: number): Promise<void | Error> => {
   try {
-    await Api.delete(`/fornecedores/${id}`);
+    const result = await Api.delete(`/fornecedores/${id}`);
+    if (result instanceof Error) {
+      return new Error("Error ao atualizar registro");
+    }
 
-    return new Error("Error ao deletar registro");
+    return;
   } catch (error) {
     console.error(error);
-    return new Error((error as { message: string }).message || "Error ao deletar registro");
+    return new Error(
+      (error as { message: string }).message || "Error ao deletar registro"
+    );
   }
 };
 

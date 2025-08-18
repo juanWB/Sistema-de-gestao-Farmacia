@@ -36,7 +36,7 @@ export const AutoCompleteFornecedores: React.FC<IAutoCompleteFornecedoresProps> 
 
         debounce(() => {
 
-            fornecedorService.getAll(1, busca)
+            fornecedorService.getAll(1, busca.trim())
                 .then((result) => {
                     setIsLoading(false);
                     if (result instanceof Error) {

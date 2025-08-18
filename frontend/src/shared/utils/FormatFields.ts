@@ -32,7 +32,11 @@ export const formatTelefone = (value: string) => {
 
 
 export const formatDate = (date: Dayjs | string | Date) => {
-   console.log(date);
    const formatedDate =  dayjs(date).format('YYYY-MM-DD');
+   return formatedDate;
+};
+
+export const formatDateForField = (date: Dayjs | string | Date) => {
+   const formatedDate =  dayjs(date).format('DD/MM/YYYY');
    return formatedDate;
 };

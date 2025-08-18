@@ -1,7 +1,7 @@
 import { Autocomplete, CircularProgress, TextField } from "@mui/material"
 import { useEffect, useMemo, useState } from "react"
 import { useDebounce } from "../../../shared/hooks/UseDebounce";
-import { categoriaService } from "../../../shared/service/api/categorias/CategoriaService";
+import { produtoService } from "../../../shared/service/api/produtos/ProdutoService";
 import { useField } from "@unform/core";
 
 type TAutoCompleteOption = {
@@ -9,12 +9,12 @@ type TAutoCompleteOption = {
     label: string;
 }
 
-interface IAutoCompleteCategoriasProps {
+interface IAutoCompleteProdutosProps {
     isExternalLoading: boolean;
 }
 
-export const AutoCompleteCategorias: React.FC<IAutoCompleteCategoriasProps> = ({ isExternalLoading }) => {
-    const { fieldName, registerField, defaultValue, clearError, error } = useField('categoria_id');
+export const AutoCompleteProdutos: React.FC<IAutoCompleteProdutosProps> = ({ isExternalLoading }) => {
+    const { fieldName, registerField, defaultValue, clearError, error } = useField('produto_id');
 
     const [opcoes, setOpcoes] = useState<TAutoCompleteOption[]>([]);
     const [selectedId, setSelectedId] = useState<number | undefined>(defaultValue);
@@ -36,7 +36,7 @@ export const AutoCompleteCategorias: React.FC<IAutoCompleteCategoriasProps> = ({
 
         debounce(() => {
 
-            categoriaService.getAll(busca)
+            produtoService.getAll(1, busca)
                 .then((result) => {
                     setIsLoading(false);
                     if (result instanceof Error) {
@@ -44,7 +44,7 @@ export const AutoCompleteCategorias: React.FC<IAutoCompleteCategoriasProps> = ({
                         return
                     } else {
                         console.log(result);
-                        setOpcoes(result.map(result => ({ id: result.id, label: result.nome })));
+                        setOpcoes(result.data.map(result => ({ id: result.id, label: result.nome })));
                     }
                 });
         });
@@ -84,7 +84,7 @@ export const AutoCompleteCategorias: React.FC<IAutoCompleteCategoriasProps> = ({
                 <TextField
                     {...params}
 
-                    label={'Categoria'}
+                    label={'Produto'}
                     error={!!error}
                     helperText={error}
                 />

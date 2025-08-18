@@ -28,21 +28,13 @@ export const createFornecedorValidation = validation((getSchema) => ({
           required_error: "Campo obrigatório.",
           invalid_type_error: "Campo obrigatório",
         })
-        .nonempty("Campo obrigatório")
-        .transform((val) => val.replace(/\D/g, ""))
-        .refine((val) => val.length === 14, {
-          message: "CNPJ inválido, precisa ter exatamente 14 dígitos",
-        }),
+        .nonempty("Campo obrigatório"),
       telefone: z
         .string({
           required_error: "Campo obrigatório.",
           invalid_type_error: "Campo obrigatório",
         })
-        .nonempty("Campo obrigatório")
-        .transform((val) => val.replace(/[^\d]/g, ""))
-        .refine((val) => val.length >= 10 && val.length <= 15, {
-          message: "Telefone inválido, precisa ter enter 10 e 14 dígitos",
-        }),
+        .nonempty("Campo obrigatório"),
       endereco: z
         .string({
           required_error: "Campo obrigatório.",
