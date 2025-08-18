@@ -151,7 +151,7 @@ export const DetalheDeProduto: React.FC = () => {
             }
         >
 
-            <VForm ref={formRef} onSubmit={(data) => handleSave(data)}>
+            <VForm ref={formRef} onSubmit={(data) => handleSave(data)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                 <Box
                     margin={2}
                     component={Paper}
