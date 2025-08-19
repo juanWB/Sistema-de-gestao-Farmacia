@@ -28,7 +28,7 @@ const cadastrar = async(nome: string, email: string, senha: string):Promise<numb
             return data;
         }
         
-        return new Error('Error na tentativa de cadastro')
+        return new Error(' Error na tentativa de cadastro')
     }catch(error){
         console.log(error);
         return new Error((error as {message: string}).message + 'Error na tentativa de cadastro');
