@@ -91,7 +91,7 @@ export const ListagemDeEntradasEstoque: React.FC = () => {
             titulo="Entradas"
             barraDeFerramentas={
                 <FerramentasDeListagem
-                    mostrarCampoBusca
+                    mostrarCampoBusca={false}
                     mostrarButton
                     textoCampoBusca={busca}
                     aoClicarEmNovo={() => navigate('/entradas/detalhes/nova')}

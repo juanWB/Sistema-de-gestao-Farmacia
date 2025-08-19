@@ -92,7 +92,7 @@ export const ListagemDeSaidasEstoque: React.FC = () => {
             titulo="Saidas"
             barraDeFerramentas={
                 <FerramentasDeListagem
-                    mostrarCampoBusca
+                    mostrarCampoBusca={false}
                     mostrarButton
                     textoCampoBusca={busca}
                     aoClicarEmNovo={() => navigate('/saidas/detalhes/nova')}
