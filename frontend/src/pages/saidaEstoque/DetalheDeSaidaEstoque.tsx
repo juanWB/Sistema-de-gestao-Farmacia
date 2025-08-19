@@ -114,58 +114,64 @@ export const DetalheDeSaidaEstoque: React.FC = () => {
 }
 
 
-    return (
-        <LayoutBaseDePagina
-            titulo={'Saidas no estoque'}
-            barraDeFerramentas={
-                <FerramentasDeDetalhes
-                    mostrarBotaoSalvarEFechar
-                    mostrarBotaoNovo={id !== 'nova'}
-                    mostrarBotaoApagar={id !== 'nova'}
+return (
+    <LayoutBaseDePagina
+        titulo={'Saidas no estoque'}
+        barraDeFerramentas={
+            <FerramentasDeDetalhes
+                mostrarBotaoSalvarEFechar
+                mostrarBotaoNovo={id !== 'nova'}
+                mostrarBotaoApagar={id !== 'nova'}
 
-                    aoClicarSalvar={save}
-                    aoClicarSalvarEFechar={saveAndClose}
-                    aoClicarVoltar={() => navigate('/saidas')}
-                    aoClicarApagar={() => handleDelete(Number(id))}
-                    aoClicarNovo={() => navigate('/saidas/detalhes/nova')}
-                />
-            }
-        >
+                aoClicarSalvar={save}
+                aoClicarSalvarEFechar={saveAndClose}
+                aoClicarVoltar={() => navigate('/saidas')}
+                aoClicarApagar={() => handleDelete(Number(id))}
+                aoClicarNovo={() => navigate('/saidas/detalhes/nova')}
+            />
+        }
+    >
 
-            <VForm ref={formRef} onSubmit={(data) => handleSave(data)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                <Box
-                    margin={2}
-                    component={Paper}
-                    display='flex'
-                    flexDirection='column'
-                >
-                    <Grid container direction='column' padding={2} spacing={2}>
+        <VForm ref={formRef} onSubmit={(data) => handleSave(data)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            <Box
+                margin={{ xs: 1, sm: 2 }}
+                component={Paper}
+                display='flex'
+                flexDirection='column'
+            >
+                <Grid container direction='column' padding={{ xs: 1, sm: 2 }} spacing={2}>
 
-                        {isLoading && (<Grid>
-                            <LinearProgress variant="indeterminate" />
-                        </Grid>)}
-
+                    {isLoading && (
                         <Grid>
-                            <Typography variant="h6">
-                                Geral
-                            </Typography>
+                            <LinearProgress variant="indeterminate" />
                         </Grid>
+                    )}
 
-                        <Grid container direction='row' padding={2} spacing={2}>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <AutoCompleteProdutos isExternalLoading={isLoading} />
-                            </Grid>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="Quantidade" name="quantidade" disabled={isLoading} />
-                            </Grid>
-                        </Grid>
-
+                    <Grid>
+                        <Typography variant="h6">
+                            Geral
+                        </Typography>
                     </Grid>
 
-                </Box>
+                    <Grid container spacing={2}>
+                        <Grid size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                            <AutoCompleteProdutos 
+                                isExternalLoading={isLoading}
+                            />
+                        </Grid>
+                        <Grid size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                            <VTextField 
+                                label="Quantidade" 
+                                name="quantidade" 
+                                disabled={isLoading} 
+                                fullWidth
+                            />
+                        </Grid>
+                    </Grid>
 
-            </VForm>
-
-        </LayoutBaseDePagina>
-    )
+                </Grid>
+            </Box>
+        </VForm>
+    </LayoutBaseDePagina>
+)
 }

@@ -63,56 +63,56 @@ export const DetalheDeEntradaEstoque: React.FC = () => {
     }
 
     const handleSave = (dados: TEntradaEstoqueProps) => {
-    let dadosValidados: TEntradaEstoqueProps;
+        let dadosValidados: TEntradaEstoqueProps;
 
-    try {
-        dadosValidados = formValidationEntradaSchema.parse(dados);
+        try {
+            dadosValidados = formValidationEntradaSchema.parse(dados);
 
-        if (id === 'nova') {
-            entradaService.create(dadosValidados)
-                .then(result => {
-                    if (result instanceof Error) {
-                        alert("Erro ao criar registro");
-                        return;
-                    } else if (isSaveAndClose()) {
-                        navigate(`/entradas`);
-                    } else if( typeof result === 'number'){
-                        navigate(`/entradas/detalhes/${result}`);
-                    }
-                })
-                .catch(error => {
-                    console.log(error);
+            if (id === 'nova') {
+                entradaService.create(dadosValidados)
+                    .then(result => {
+                        if (result instanceof Error) {
+                            alert("Erro ao criar registro");
+                            return;
+                        } else if (isSaveAndClose()) {
+                            navigate(`/entradas`);
+                        } else if (typeof result === 'number') {
+                            navigate(`/entradas/detalhes/${result}`);
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+
+            } else {
+                const idNumber = Number(id);
+                entradaService.updateById(idNumber, dadosValidados)
+                    .then(result => {
+                        if (result instanceof Error) {
+                            alert("Erro ao atualizar registro");
+                            return;
+                        } else if (isSaveAndClose()) {
+                            navigate(`/entradas`);
+                        } else {
+                            navigate(`/entradas/detalhes/${idNumber}`);
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+
+        } catch (error) {
+            if (error instanceof z.ZodError) {
+                const errorValidation: Record<string, string> = {};
+                error.errors.forEach(err => {
+                    errorValidation[err.path.toString()] = err.message;
                 });
-
-        } else {
-            const idNumber = Number(id);
-            entradaService.updateById(idNumber, dadosValidados)
-                .then(result => {
-                    if (result instanceof Error) {
-                        alert("Erro ao atualizar registro");
-                        return;
-                    } else if (isSaveAndClose()) {
-                        navigate(`/entradas`);
-                    } else {
-                        navigate(`/entradas/detalhes/${idNumber}`);
-                    }
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        }
-
-    } catch (error) {
-        if (error instanceof z.ZodError) {
-            const errorValidation: Record<string, string> = {};
-            error.errors.forEach(err => {
-                errorValidation[err.path.toString()] = err.message;
-            });
-            console.log(errorValidation);
-            formRef.current?.setErrors(errorValidation);
+                console.log(errorValidation);
+                formRef.current?.setErrors(errorValidation);
+            }
         }
     }
-}
 
 
     return (
@@ -135,16 +135,18 @@ export const DetalheDeEntradaEstoque: React.FC = () => {
 
             <VForm ref={formRef} onSubmit={(data) => handleSave(data)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                 <Box
-                    margin={2}
+                    margin={{ xs: 1, sm: 2 }}
                     component={Paper}
                     display='flex'
                     flexDirection='column'
                 >
-                    <Grid container direction='column' padding={2} spacing={2}>
+                    <Grid container direction='column' padding={{ xs: 1, sm: 2 }} spacing={2}>
 
-                        {isLoading && (<Grid>
-                            <LinearProgress variant="indeterminate" />
-                        </Grid>)}
+                        {isLoading && (
+                            <Grid>
+                                <LinearProgress variant="indeterminate" />
+                            </Grid>
+                        )}
 
                         <Grid>
                             <Typography variant="h6">
@@ -152,21 +154,25 @@ export const DetalheDeEntradaEstoque: React.FC = () => {
                             </Typography>
                         </Grid>
 
-                        <Grid container direction='row' padding={2} spacing={2}>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <AutoCompleteProdutos isExternalLoading={isLoading} />
+                        <Grid container spacing={2}>
+                            <Grid  size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                                <AutoCompleteProdutos
+                                    isExternalLoading={isLoading}
+                                />
                             </Grid>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="Quantidade" name="quantidade" disabled={isLoading} />
+                            <Grid  size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                                <VTextField
+                                    label="Quantidade"
+                                    name="quantidade"
+                                    disabled={isLoading}
+                                    fullWidth
+                                />
                             </Grid>
                         </Grid>
 
                     </Grid>
-
                 </Box>
-
             </VForm>
-
         </LayoutBaseDePagina>
     )
 }

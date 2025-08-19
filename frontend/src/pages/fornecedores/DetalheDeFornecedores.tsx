@@ -117,7 +117,7 @@ export const DetalheDeFornecedor: React.FC = () => {
     }
 }
 
-    return (
+return (
         <LayoutBaseDePagina
             titulo={id === 'novo' ? 'Novo fornecedore' : nome}
             barraDeFerramentas={
@@ -137,16 +137,18 @@ export const DetalheDeFornecedor: React.FC = () => {
 
             <VForm ref={formRef} onSubmit={(data) => handleSave(data)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                 <Box
-                    margin={2}
+                    margin={{ xs: 1, sm: 2 }}
                     component={Paper}
                     display='flex'
                     flexDirection='column'
                 >
-                    <Grid container direction='column' padding={2} spacing={2}>
+                    <Grid container direction='column' padding={{ xs: 1, sm: 2 }} spacing={2}>
 
-                        {isLoading && (<Grid>
-                            <LinearProgress variant="indeterminate" />
-                        </Grid>)}
+                        {isLoading && (
+                            <Grid>
+                                <LinearProgress variant="indeterminate" />
+                            </Grid>
+                        )}
 
                         <Grid>
                             <Typography variant="h6">
@@ -154,30 +156,48 @@ export const DetalheDeFornecedor: React.FC = () => {
                             </Typography>
                         </Grid>
 
-                        <Grid container direction='row' padding={2} spacing={2}>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="Nome" name="nome" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                        <Grid container spacing={2}>
+                            <Grid size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                                <VTextField 
+                                    label="Nome" 
+                                    name="nome" 
+                                    disabled={isLoading} 
+                                    onChange={e => setNome(e.target.value)}
+                                    fullWidth
+                                />
                             </Grid>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="CNPJ" name="cnpj" disabled={isLoading} />
+                            <Grid size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                                <VTextField 
+                                    label="CNPJ" 
+                                    name="cnpj" 
+                                    disabled={isLoading}
+                                    fullWidth
+                                />
                             </Grid>
                         </Grid>
 
-                        <Grid container direction='row' padding={2} spacing={2}>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="Telefone" name="telefone" disabled={isLoading} />
+                        <Grid container spacing={2}>
+                            <Grid size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                                <VTextField 
+                                    label="Telefone" 
+                                    name="telefone" 
+                                    disabled={isLoading}
+                                    fullWidth
+                                />
                             </Grid>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }} >
-                                <VTextField label="Endereço" name="endereco" disabled={isLoading} />
+                            <Grid size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                                <VTextField 
+                                    label="Endereço" 
+                                    name="endereco" 
+                                    disabled={isLoading}
+                                    fullWidth
+                                />
                             </Grid>
                         </Grid>
 
                     </Grid>
-
                 </Box>
-
             </VForm>
-
         </LayoutBaseDePagina>
     )
 }

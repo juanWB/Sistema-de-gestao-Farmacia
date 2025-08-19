@@ -153,12 +153,12 @@ export const DetalheDeProduto: React.FC = () => {
 
             <VForm ref={formRef} onSubmit={(data) => handleSave(data)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                 <Box
-                    margin={2}
+                    margin={{ xs: 1, sm: 2 }}
                     component={Paper}
                     display='flex'
                     flexDirection='column'
                 >
-                    <Grid container direction='column' padding={2} spacing={2}>
+                    <Grid container direction='column' padding={{ xs: 1, sm: 2 }} spacing={2}>
 
                         {isLoading && (<Grid>
                             <LinearProgress variant="indeterminate" />
@@ -170,42 +170,66 @@ export const DetalheDeProduto: React.FC = () => {
                             </Typography>
                         </Grid>
 
-                        <Grid container direction='row' padding={2} spacing={2}>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="Nome" name="nome" disabled={isLoading} onChange={e => setNome(e.target.value)} />
+                        <Grid container spacing={2}>
+                            <Grid size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                                <VTextField 
+                                    label="Nome" 
+                                    name="nome" 
+                                    disabled={isLoading} 
+                                    onChange={e => setNome(e.target.value)} 
+                                    fullWidth
+                                />
                             </Grid>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VTextField label="Preço" name="preco" disabled={isLoading} />
-                            </Grid>
-                        </Grid>
-
-                        <Grid container direction='row' padding={2} spacing={2}>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 1.9 }}>
-                                <AutoCompleteCategorias isExternalLoading={isLoading} />
-                            </Grid>
-                            <Grid marginLeft={1.5} size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 1.9 }}>
-                                <AutoCompleteFornecedores isExternalLoading={isLoading} />
-                            </Grid>
-                        </Grid>
-
-                        <Grid container direction='row' padding={2} spacing={2}>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }}>
-                                <VDatePicker label="Validade" name="validade" disabled={isLoading}/>
-                            </Grid>
-                            <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 2 }} >
-                                <VTextField label="Quantidade" name="quantidade" disabled={isLoading} />
+                            <Grid size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                                <VTextField 
+                                    label="Preço" 
+                                    name="preco" 
+                                    disabled={isLoading} 
+                                    fullWidth
+                                />
                             </Grid>
                         </Grid>
 
+                        <Grid container spacing={2}>
+                            <Grid size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                                <AutoCompleteCategorias 
+                                    isExternalLoading={isLoading} 
+                                    
+                                />
+                            </Grid>
+                            <Grid size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                                <AutoCompleteFornecedores 
+                                    isExternalLoading={isLoading} 
+                                />
+                            </Grid>
+                        </Grid>
+
+                        <Grid container spacing={2}>
+                            <Grid size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                                <VDatePicker 
+                                    label="Validade" 
+                                    name="validade" 
+                                    disabled={isLoading}
+                                    slotProps={{
+                                        textField: {
+                                            fullWidth: true
+                                        }
+                                    }}
+                                />
+                            </Grid>
+                            <Grid size={{xs:12, sm:12, md:6, lg:4, xl:2}}>
+                                <VTextField 
+                                    label="Quantidade" 
+                                    name="quantidade" 
+                                    disabled={isLoading} 
+                                    fullWidth
+                                />
+                            </Grid>
+                        </Grid>
 
                     </Grid>
-
-
-
                 </Box>
-
             </VForm>
-
         </LayoutBaseDePagina>
     )
 }
