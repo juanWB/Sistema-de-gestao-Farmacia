@@ -7,9 +7,10 @@ interface IFerramentasDeDetalhes {
 
     mostrarBotaoNovo?: boolean;
     mostrarBotaoSalvar?: boolean;
-    mostrarBotaoSalvarEFechar?: boolean;
     mostrarBotaoApagar?: boolean;
     mostrarBotaoVoltar?: boolean;
+    mostrarBotaoMenu?:boolean;
+    mostrarBotaoSalvarEFechar?: boolean;
 
     mostrarBotaoNovoCarregando?: boolean;
     mostrarBotaoSalvarCarregando?: boolean;
@@ -30,6 +31,7 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhes> = ({
 
     mostrarBotaoVoltar = true,
     mostrarBotaoSalvarEFechar = false,
+    mostrarBotaoMenu = true,
     mostrarBotaoSalvar = true,
     mostrarBotaoNovo = true,
     mostrarBotaoApagar = true,
@@ -147,11 +149,11 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhes> = ({
 
             {mostrarBotaoVoltarCarregando && (<Skeleton width={100} height={60} />)}
 
-            {smDown && (
+            {(smDown && mostrarBotaoMenu) && (
                 <Box width={'100%'} display={'flex'} justifyContent={'end'}>
 
 
-                    <ButtonGroup variant="contained" >
+                    <ButtonGroup variant="contained">
                         <Button>Opções</Button>
                         <Button
                             onClick={handleToggleMenu} >

@@ -69,7 +69,7 @@ export const Dashboard = () => {
     return (
         <LayoutBaseDePagina
             titulo="Página inicial"
-            barraDeFerramentas={<FerramentasDeDetalhes mostrarBotaoNovo={false} mostrarBotaoSalvar={false} mostrarBotaoVoltar={false} mostrarBotaoApagar={false} />} >
+            barraDeFerramentas={<FerramentasDeDetalhes mostrarBotaoMenu={false} mostrarBotaoNovo={false} mostrarBotaoSalvar={false} mostrarBotaoVoltar={false} mostrarBotaoApagar={false} />} >
 
             <Box width='100%' display='flex'>
                 <Grid container width='100%' spacing={2} margin={1.5}>
