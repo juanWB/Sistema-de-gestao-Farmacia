@@ -5,7 +5,7 @@ import { Knex } from "../../knex";
 export const count = async(filter = ''):Promise<number | Error> => {
   try { 
     const [{ count }] = await Knex(ETableNames.entradaEstoque)
-        .where('entrada_data', 'like', `%${filter}%`)
+        .where('id', 'like', `%${filter}%`)
         .count<[{ count: number }]>('* as count');  
 
     if(Number.isInteger(Number(count))){
