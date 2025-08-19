@@ -1,5 +1,5 @@
 import { Box, Button, Card, CardActions, CardContent, CircularProgress, Link, TextField, Typography } from "@mui/material"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthContext } from "../../contexts";
 import { ZodError } from "zod";
 import { AxiosError } from "axios";
@@ -23,6 +23,15 @@ export const Login: React.FC<ILoginsProps> = ({ children }) => {
 
     const [senha, setSenha] = useState('');
     const [senhaError, setSenhaError] = useState('');
+
+    useEffect(() =>{
+        setNomeError('');
+        setEmailError('');
+        setSenhaError('');
+        setNome('');
+        setEmail('');
+        setSenha('');
+    },[isRegistered]);
 
     const handleSubmit = async () => {
         setNomeError('');
@@ -126,7 +135,7 @@ export const Login: React.FC<ILoginsProps> = ({ children }) => {
             {isRegistered ? (<Card sx={{
                 marginTop: '50px',
                 width: '300px',
-                height: '400px',
+                height: '450px',
                 border: '1px solid #F0EFE7',
                 borderRadius: '6px',
                 boxShadow: '4px 3px 32px 0px rgba(188,188,188,0.75)'
@@ -225,7 +234,7 @@ export const Login: React.FC<ILoginsProps> = ({ children }) => {
                         </Box>
                     </CardContent>
                     <CardActions>
-                        <Box width='100vw' display='flex' alignContent='center' justifyContent='center' marginTop={2}>
+                        <Box width='100vw' display='flex' alignItems='center' justifyContent='center' flexDirection='column' gap={2} marginTop={2}>
                             <Button
                                 variant="contained"
                                 disabled={isLoading}
@@ -234,6 +243,7 @@ export const Login: React.FC<ILoginsProps> = ({ children }) => {
                             >
                                 Cadastrar
                             </Button>
+                            <Link component='button' onClick={() => {setIsRegistered(true); onChangeForm()}}>Já possuo uma conta</Link>
                         </Box>
                     </CardActions>
                 </Card>
