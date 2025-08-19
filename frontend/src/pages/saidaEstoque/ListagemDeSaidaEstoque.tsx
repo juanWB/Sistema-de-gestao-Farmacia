@@ -36,6 +36,7 @@ export const ListagemDeSaidasEstoque: React.FC = () => {
     }, [searchParams]);
 
     useEffect(() => {
+
         setIsLoading(true)
 
         debounce(() => {
@@ -53,21 +54,19 @@ export const ListagemDeSaidasEstoque: React.FC = () => {
                         setTotalCount(result.totalCount);
                     }
                 });
+
+            produtoService.getAll(pagina, '')
+                .then(result => {
+                    if (!(result instanceof Error)) {
+                        const map = result.data.reduce((acc: Record<number, string>, produto) => {
+                            acc[produto.id] = produto.nome;
+                            return acc;
+                        }, {});
+                        setProdutosMap(map);
+                    }
+                })
         });
     }, [busca, pagina, debounce]);
-
-    useEffect(() => {
-        produtoService.getAll(pagina, '')
-            .then(result =>{
-                if(!(result instanceof Error)){
-                    const map = result.data.reduce((acc: Record<number, string>, produto) => {
-                        acc[produto.id] = produto.nome;
-                        return acc;
-                    }, {});
-                    setProdutosMap(map);
-                }
-            })
-    },[pagina]);
 
     const handleDelete = async (id: number) => {
         if (confirm('Realmente deseja deletar o registro?')) {

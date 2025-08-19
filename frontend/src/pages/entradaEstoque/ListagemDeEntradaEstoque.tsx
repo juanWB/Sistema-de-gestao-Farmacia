@@ -53,11 +53,8 @@ export const ListagemDeEntradasEstoque: React.FC = () => {
                         setTotalCount(result.totalCount);
                     }
                 });
-        });
-    }, [busca, pagina, debounce]);
 
-    useEffect(() => {
-        produtoService.getAll(pagina, '')
+            produtoService.getAll(pagina, '')
             .then(result =>{
                 if(!(result instanceof Error)){
                     const map = result.data.reduce((acc: Record<number, string>, produto) => {
@@ -67,7 +64,8 @@ export const ListagemDeEntradasEstoque: React.FC = () => {
                     setProdutosMap(map);
                 }
             })
-    },[pagina]);
+        });
+    }, [busca, pagina, debounce]);
 
     const handleDelete = async (id: number) => {
         if (confirm('Realmente deseja deletar o registro?')) {
