@@ -2,11 +2,9 @@ import { logger } from "../../../shared/service/logger";
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 
-export const count = async(filter = ''):Promise<number | Error> => {
+export const count = async():Promise<number | Error> => {
   try { 
-    const [{ count }] = await Knex(ETableNames.entradaEstoque)
-        .where('id', 'like', `%${filter}%`)
-        .count<[{ count: number }]>('* as count');  
+    const [{ count }] = await Knex(ETableNames.entradaEstoque).count<[{ count: number }]>('* as count');  
 
     if(Number.isInteger(Number(count))){
       logger.info(`[EntradaEstoque] Count executado com sucesso. Total encontrado: ${count}`);
