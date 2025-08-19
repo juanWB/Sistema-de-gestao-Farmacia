@@ -19,14 +19,14 @@ describe("FornecedorController - GetById", () => {
 
   describe("Busca fornecedor de forma válida", () => {
     it("Busca um fornecedor por um id", async () => {
-      const responseFornecedor = await serverTest.post("/fornecedor").send({
+      const responseFornecedor = await serverTest.post("/fornecedores").send({
         nome: "Atacamax",
         cnpj: "12.345.678/9123-45",
         telefone: "(81) - 998837891",
         endereco: "Rua Major",
       }).set({ Authorization: `Bearer ${accessToken}` });
 
-      const res = await serverTest.get(`/fornecedor/${responseFornecedor.body}`).set({ Authorization: `Bearer ${accessToken}` });
+      const res = await serverTest.get(`/fornecedores/${responseFornecedor.body}`).set({ Authorization: `Bearer ${accessToken}` });
       expect(res.status).toBe(StatusCodes.OK);
       expect(typeof res.body).toEqual("object");
     });
@@ -34,7 +34,7 @@ describe("FornecedorController - GetById", () => {
 
   describe("Tenta fornecedor sem token de acesso", () => {
     it("Busca um fornecedor por um id", async () => {
-      const responseFornecedor = await serverTest.post("/fornecedor").send({
+      const responseFornecedor = await serverTest.post("/fornecedores").send({
         nome: "Atacamax",
         cnpj: "12.345.678/9123-45",
         telefone: "(81) - 998837891",
@@ -42,7 +42,7 @@ describe("FornecedorController - GetById", () => {
       }).set({ Authorization: `Bearer ${accessToken}` });
 
       const res = await serverTest
-        .get(`/fornecedor/${responseFornecedor.body}`);
+        .get(`/fornecedores/${responseFornecedor.body}`);
       
       expect(res.status).toBe(StatusCodes.UNAUTHORIZED);
       expect(res.body).toHaveProperty("errors.default");
@@ -100,7 +100,7 @@ describe("FornecedorController - GetById", () => {
 
     testCases.forEach(({ description, params, expectedError }) => {
       it(description, async () => {
-        const response = await serverTest.get(`/fornecedor/${params.id}`).set({ Authorization: `Bearer ${accessToken}` });
+        const response = await serverTest.get(`/fornecedores/${params.id}`).set({ Authorization: `Bearer ${accessToken}` });
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedError);

@@ -19,7 +19,7 @@ describe("ProdutoController - Delete", () => {
 
   describe("Deleção válida", () => {
     it("Deve retornar 204 ao deletar categoria existente", async () => {
-      const responseFornecedor = await serverTest.post("/fornecedor").send({
+      const responseFornecedor = await serverTest.post("/fornecedores").send({
         nome: "Atacado",
         cnpj: "12.345.678/9123-45",
         telefone: "(81) - 998837891",
@@ -27,7 +27,7 @@ describe("ProdutoController - Delete", () => {
       }).set({ Authorization: `Bearer ${accessToken}` });
 
       const responseProduto = await serverTest
-        .post("/produto")
+        .post("/produtos")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -39,7 +39,7 @@ describe("ProdutoController - Delete", () => {
 
       expect(responseProduto.statusCode).toEqual(StatusCodes.CREATED);
 
-      const response = await serverTest.delete(`/produto/${responseProduto.body}`).set({ Authorization: `Bearer ${accessToken}` });
+      const response = await serverTest.delete(`/produtos/${responseProduto.body}`).set({ Authorization: `Bearer ${accessToken}` });
 
       expect(response.statusCode).toEqual(StatusCodes.NO_CONTENT);
     });
@@ -47,7 +47,7 @@ describe("ProdutoController - Delete", () => {
 
   describe("Validação de token de acesso", () => {
     it("Tenta deletar produto sem token de acesso", async () => {
-      const responseFornecedor = await serverTest.post("/fornecedor").send({
+      const responseFornecedor = await serverTest.post("/fornecedores").send({
         nome: "Atacado",
         cnpj: "12.345.678/9123-44",
         telefone: "(81) - 998837891",
@@ -55,7 +55,7 @@ describe("ProdutoController - Delete", () => {
       }).set({ Authorization: `Bearer ${accessToken}` });
 
       const responseProduto = await serverTest
-        .post("/produto")
+        .post("/produtos")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -67,7 +67,7 @@ describe("ProdutoController - Delete", () => {
 
       expect(responseProduto.statusCode).toBe(StatusCodes.CREATED);
 
-      const response = await serverTest.delete(`/produto/${responseProduto.body}`);
+      const response = await serverTest.delete(`/produtos/${responseProduto.body}`);
 
       expect(response.statusCode).toEqual(StatusCodes.UNAUTHORIZED);
       expect(response.body).toHaveProperty('errors.default');
@@ -125,7 +125,7 @@ describe("ProdutoController - Delete", () => {
 
     testCases.forEach(({ description, params, expectedError }) => {
       it(description, async () => {
-        const response = await serverTest.delete(`/produto/${params.id}`).set({ Authorization: `Bearer ${accessToken}` });
+        const response = await serverTest.delete(`/produtos/${params.id}`).set({ Authorization: `Bearer ${accessToken}` });
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedError);

@@ -21,7 +21,7 @@ describe("ProdutoController - Create", () => {
     it("Cria um produto com parametros corretos.", async () => {
 
       const responseFornecedor = await serverTest
-        .post("/fornecedor")
+        .post("/fornecedores")
         .send({
           nome: "Atacado",
           cnpj: "12.345.678/9123-45",
@@ -29,7 +29,7 @@ describe("ProdutoController - Create", () => {
           endereco: "Rua Major",
         }).set({ Authorization: `Bearer ${accessToken}` });
 
-      const res = await serverTest.post("/produto").send({
+      const res = await serverTest.post("/produtos").send({
         nome: "Sabonete",
         preco: "1.99",
         validade: "2025-01-01",
@@ -46,7 +46,7 @@ describe("ProdutoController - Create", () => {
     it("Tenta criar um produto sem token de acesso.", async () => {
 
       const responseFornecedor = await serverTest
-        .post("/fornecedor")
+        .post("/fornecedores")
         .send({
           nome: "Atacado",
           cnpj: "12.345.678/9123-45",
@@ -54,7 +54,7 @@ describe("ProdutoController - Create", () => {
           endereco: "Rua Major",
         }).set({ Authorization: `Bearer ${accessToken}` });
 
-      const res = await serverTest.post("/produto").send({
+      const res = await serverTest.post("/produtos").send({
         nome: "Sabonete",
         preco: "1.99",
         validade: "2025-01-01",
@@ -224,7 +224,7 @@ describe("ProdutoController - Create", () => {
 
     testCases.forEach(({ description, data, expectedError }) => {
       it(description, async () => {
-        const response = await serverTest.post("/produto").send(data).set({ Authorization: `Bearer ${accessToken}` });
+        const response = await serverTest.post("/produtos").send(data).set({ Authorization: `Bearer ${accessToken}` });
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedError);

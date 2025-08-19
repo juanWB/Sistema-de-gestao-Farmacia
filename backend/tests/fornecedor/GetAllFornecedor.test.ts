@@ -26,12 +26,12 @@ describe("GetAll - Fornecedor", () => {
     };
 
     const response = await serverTest
-      .post("/fornecedor")
+      .post("/fornecedores")
       .send(fornecedor)
      .set({ Authorization: `Bearer ${accessToken}` });
 
     const res = await serverTest
-      .get("/fornecedor")
+      .get("/fornecedores")
      .set({ Authorization: `Bearer ${accessToken}` });
 
     expect(res.statusCode).toEqual(StatusCodes.OK);
@@ -47,12 +47,12 @@ describe("GetAll - Fornecedor", () => {
     };
 
     const response = await serverTest
-      .post("/fornecedor")
+      .post("/fornecedores")
       .send(fornecedor)
      .set({ Authorization: `Bearer ${accessToken}` });
 
     const res = await serverTest
-      .get("/fornecedor");
+      .get("/fornecedores");
 
     expect(res.statusCode).toEqual(StatusCodes.UNAUTHORIZED);
     expect(res.body).toHaveProperty("errors.default");

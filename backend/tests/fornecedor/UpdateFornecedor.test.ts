@@ -28,11 +28,11 @@ describe("FornecedorController - Update", () => {
       }
 
       const response1 = await serverTest
-        .post("/fornecedor")
+        .post("/fornecedores")
         .send(fornecedor)
         .set({ Authorization: `Bearer ${accessToken}` });
 
-      const res = await serverTest.put("/fornecedor/1").send({
+      const res = await serverTest.put("/fornecedores/1").send({
         nome: "Atacamax",
         cnpj: "12345678912345",
         telefone: "81998837891",
@@ -156,7 +156,7 @@ describe("FornecedorController - Update", () => {
     testCases.map(({ description, params, data, expectedErrors }) => {
       it(description, async () => {
         const response = await serverTest
-                              .put(`/fornecedor/${params.id}`)
+                              .put(`/fornecedores/${params.id}`)
                               .send(data)
                               .set({ Authorization: `Bearer ${accessToken}` });
 

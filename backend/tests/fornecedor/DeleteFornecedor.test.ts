@@ -25,14 +25,14 @@ describe("FornecedorController - Delete", () => {
         telefone: "81998837891",
         endereco: "Rua Major",
       };
-      const res = await serverTest.post("/fornecedor")
+      const res = await serverTest.post("/fornecedores")
         .send(fornecedorValido)
         .set({ Authorization: `Bearer ${accessToken}` });
 
       expect(res.statusCode).toEqual(StatusCodes.CREATED);
 
       const response = await serverTest.delete(
-        `/fornecedor/${res.body}`
+        `/fornecedores/${res.body}`
       ).set({ Authorization: `Bearer ${accessToken}` });
 
       expect(response.statusCode).toEqual(StatusCodes.NO_CONTENT);
@@ -47,13 +47,13 @@ describe("FornecedorController - Delete", () => {
         telefone: "81998837891",
         endereco: "Rua Major",
       };
-      const res = await serverTest.post("/fornecedor")
+      const res = await serverTest.post("/fornecedores")
         .send(fornecedorValido)
         .set({ Authorization: `Bearer ${accessToken}` });
 
       expect(res.statusCode).toEqual(StatusCodes.CREATED);
 
-      const response = await serverTest.delete(`/fornecedor/${res.body}`);
+      const response = await serverTest.delete(`/fornecedores/${res.body}`);
 
       expect(response.statusCode).toEqual(StatusCodes.UNAUTHORIZED);
       expect(response.body).toHaveProperty('errors.default');
@@ -110,7 +110,7 @@ describe("FornecedorController - Delete", () => {
 
     testCases.forEach(({ description, params, expectedError }) => {
       it(description, async () => {
-        const response = await serverTest.delete(`/fornecedor/${params}`).set({ Authorization: `Bearer ${accessToken}` });
+        const response = await serverTest.delete(`/fornecedores/${params}`).set({ Authorization: `Bearer ${accessToken}` });
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(response.body).toEqual(expectedError);

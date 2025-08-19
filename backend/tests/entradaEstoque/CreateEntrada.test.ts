@@ -18,7 +18,7 @@ describe("EntradaEstoqueController - Create", () => {
   let produtoId: number | undefined = undefined;
   beforeAll(async () => {
     const responseFornecedor = await serverTest
-      .post("/fornecedor")
+      .post("/fornecedores")
       .send({
         nome: "Atacamax",
         cnpj: "12.345.678/9123-45",
@@ -28,7 +28,7 @@ describe("EntradaEstoqueController - Create", () => {
       .set({ Authorization: `Bearer ${accessToken}` });
 
     const responseProduto = await serverTest
-      .post("/produto")
+      .post("/produtos")
       .send({
         nome: "Sabonete",
         preco: "1.99",
@@ -45,7 +45,7 @@ describe("EntradaEstoqueController - Create", () => {
   describe("Criação válida", () => {
     it("Cria uma entrada no estoque com parametros corretos.", async () => {
       const res = await serverTest
-        .post("/entrada")
+        .post("/entradas")
         .send({
           quantidade: 2,
           entrada_data: "2000-06-17",
@@ -59,7 +59,7 @@ describe("EntradaEstoqueController - Create", () => {
 
   describe("Validação de token de acesso", () => {
     it("Tenta criar entrada sem token de acesso", async() => {
-      const res = await serverTest.post("/entrada").send({
+      const res = await serverTest.post("/entradas").send({
         quantidade: 2,
         entrada_data: "2000-06-17",
         produto_id: produtoId,
@@ -124,7 +124,7 @@ describe("EntradaEstoqueController - Create", () => {
     testCases.forEach(({ description, data, expectedError }) => {
       it(description, async () => {
         const response = await serverTest
-          .post("/entrada")
+          .post("/entradas")
           .send(data)
           .set({ Authorization: `Bearer ${accessToken}` });
 

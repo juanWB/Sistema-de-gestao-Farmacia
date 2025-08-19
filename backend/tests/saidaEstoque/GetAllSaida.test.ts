@@ -19,7 +19,7 @@ describe("GetAll - SaidaEstoque", () => {
 
   it("Busca todas saidas no estoque", async () => {
     const resFornercedor = await serverTest
-      .post("/fornecedor")
+      .post("/fornecedores")
       .send({
         nome: "Atacado",
         cnpj: "12.345.678/9123-45",
@@ -29,7 +29,7 @@ describe("GetAll - SaidaEstoque", () => {
       .set({ Authorization: `Bearer ${accessToken}` });
 
     const resCreateProduto = await serverTest
-      .post("/produto")
+      .post("/produtos")
       .send({
         nome: "Sabonete",
         preco: "1.99",
@@ -41,7 +41,7 @@ describe("GetAll - SaidaEstoque", () => {
       .set({ Authorization: `Bearer ${accessToken}` });
 
     await serverTest
-      .post("/saida")
+      .post("/saidas")
       .send({
         produto_id: resCreateProduto.body,
         quantidade: 2,
@@ -50,7 +50,7 @@ describe("GetAll - SaidaEstoque", () => {
       .set({ Authorization: `Bearer ${accessToken}` });
 
     const res = await serverTest
-      .get("/saida")
+      .get("/saidas")
       .set({ Authorization: `Bearer ${accessToken}` });
 
     expect(res.statusCode).toEqual(StatusCodes.OK);
@@ -59,7 +59,7 @@ describe("GetAll - SaidaEstoque", () => {
 
   it("Tenta buscar todas saidas no estoque sem token de acesso", async () => {
     const resFornercedor = await serverTest
-      .post("/fornecedor")
+      .post("/fornecedores")
       .send({
         nome: "Atacado",
         cnpj: "12.345.678/9123-45",
@@ -69,7 +69,7 @@ describe("GetAll - SaidaEstoque", () => {
       .set({ Authorization: `Bearer ${accessToken}` });
 
     const resCreateProduto = await serverTest
-      .post("/produto")
+      .post("/produtos")
       .send({
         nome: "Sabonete",
         preco: "1.99",
@@ -81,7 +81,7 @@ describe("GetAll - SaidaEstoque", () => {
       .set({ Authorization: `Bearer ${accessToken}` });
 
     await serverTest
-      .post("/saida")
+      .post("/saidas")
       .send({
         produto_id: resCreateProduto.body,
         quantidade: 2,
@@ -89,7 +89,7 @@ describe("GetAll - SaidaEstoque", () => {
       })
       .set({ Authorization: `Bearer ${accessToken}` });
 
-    const res = await serverTest.get("/saida");
+    const res = await serverTest.get("/saidas");
 
     expect(res.statusCode).toEqual(StatusCodes.UNAUTHORIZED);
     expect(res.body).toHaveProperty("errors.default");

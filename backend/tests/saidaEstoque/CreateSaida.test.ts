@@ -20,7 +20,7 @@ describe("SaidaEstoqueController - Create", () => {
   describe("Criação válida", () => {
     it("Cria uma saida no estoque com parametros corretos.", async () => {
       const resFornercedor = await serverTest
-        .post("/fornecedor")
+        .post("/fornecedores")
         .send({
           nome: "Atacamax",
           cnpj: "12.345.678/9123-45",
@@ -30,7 +30,7 @@ describe("SaidaEstoqueController - Create", () => {
         .set({ Authorization: `Bearer ${accessToken}` });
 
       const resCreateProduto = await serverTest
-        .post("/produto")
+        .post("/produtos")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -42,7 +42,7 @@ describe("SaidaEstoqueController - Create", () => {
         .set({ Authorization: `Bearer ${accessToken}` });
 
       const res = await serverTest
-        .post("/saida")
+        .post("/saidas")
         .send({
           produto_id: resCreateProduto.body,
           quantidade: 2,
@@ -57,7 +57,7 @@ describe("SaidaEstoqueController - Create", () => {
   describe("Validação de token de acesso", () => {
     it("Tenta criar uma saida do estoque sem token de acesso.", async () => {
       const resFornercedor = await serverTest
-        .post("/fornecedor")
+        .post("/fornecedores")
         .send({
           nome: "Atacamax",
           cnpj: "12.345.678/9123-45",
@@ -67,7 +67,7 @@ describe("SaidaEstoqueController - Create", () => {
         .set({ Authorization: `Bearer ${accessToken}` });
 
       const resCreateProduto = await serverTest
-        .post("/produto")
+        .post("/produtos")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -79,7 +79,7 @@ describe("SaidaEstoqueController - Create", () => {
         .set({ Authorization: `Bearer ${accessToken}` });
 
       const res = await serverTest
-        .post("/saida")
+        .post("/saidas")
         .send({
           produto_id: resCreateProduto.body,
           quantidade: 2,
@@ -145,7 +145,7 @@ describe("SaidaEstoqueController - Create", () => {
     testCases.forEach(({ description, data, expectedError }) => {
       it(description, async () => {
         const response = await serverTest
-          .post("/saida")
+          .post("/saidas")
           .send(data)
           .set({ Authorization: `Bearer ${accessToken}` });
 

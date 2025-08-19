@@ -20,7 +20,7 @@ describe("ProdutoController - GetById", () => {
   describe("Busca produto de forma válida", () => {
     it("Busca um produto por um id", async () => {
       const responseFornecedor = await serverTest
-        .post("/fornecedor")
+        .post("/fornecedores")
         .send({
           nome: "Atacamax",
           cnpj: "12.345.678/9123-45",
@@ -30,7 +30,7 @@ describe("ProdutoController - GetById", () => {
         .set({ Authorization: `Bearer ${accessToken}` });
 
       const res1 = await serverTest
-        .post("/produto")
+        .post("/produtos")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -42,7 +42,7 @@ describe("ProdutoController - GetById", () => {
         .set({ Authorization: `Bearer ${accessToken}` });
 
       const res = await serverTest
-        .get(`/produto/1`)
+        .get(`/produtos/1`)
         .set({ Authorization: `Bearer ${accessToken}` });
       expect(res.status).toBe(StatusCodes.OK);
       expect(typeof res.body).toEqual("object");
@@ -52,7 +52,7 @@ describe("ProdutoController - GetById", () => {
   describe("Validação de token de acesso", () => {
     it("Tenta buscar um produto sem token de acesso", async () => {
       const responseFornecedor = await serverTest
-        .post("/fornecedor")
+        .post("/fornecedores")
         .send({
           nome: "Atacamax",
           cnpj: "12.345.678/9123-45",
@@ -62,7 +62,7 @@ describe("ProdutoController - GetById", () => {
         .set({ Authorization: `Bearer ${accessToken}` });
 
       const res1 = await serverTest
-        .post("/produto")
+        .post("/produtos")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -74,7 +74,7 @@ describe("ProdutoController - GetById", () => {
         .set({ Authorization: `Bearer ${accessToken}` });
 
       const res = await serverTest
-        .get(`/produto/${res1.body}`);
+        .get(`/produtos/${res1.body}`);
 
       expect(res.statusCode).toBe(StatusCodes.UNAUTHORIZED);
       expect(res.body).toHaveProperty("errors.default");
@@ -133,7 +133,7 @@ describe("ProdutoController - GetById", () => {
     testCases.forEach(({ description, params, expectedError }) => {
       it(description, async () => {
         const response = await serverTest
-          .get(`/produto/${params.id}`)
+          .get(`/produtos/${params.id}`)
           .set({ Authorization: `Bearer ${accessToken}` });
 
         expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);

@@ -20,7 +20,7 @@ describe("Update - Produto", () => {
   describe("Criação válida", () => {
     it("Atualiza um produto por um id", async () => {
       const responseFornecedor = await serverTest
-        .post("/fornecedor")
+        .post("/fornecedores")
         .send({
           nome: "Atacado",
           cnpj: "12.345.678/9123-45",
@@ -30,7 +30,7 @@ describe("Update - Produto", () => {
         .set({ Authorization: `Bearer ${accessToken}` });
 
       const resCreateProduto = await serverTest
-        .post("/produto")
+        .post("/produtos")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -42,7 +42,7 @@ describe("Update - Produto", () => {
         .set({ Authorization: `Bearer ${accessToken}` });
 
       const res = await serverTest
-        .put(`/produto/${resCreateProduto.body}`)
+        .put(`/produtos/${resCreateProduto.body}`)
         .send({
           nome: "Sabão",
           preco: "1.99",
@@ -61,7 +61,7 @@ describe("Update - Produto", () => {
   describe("Validação de token de acesso", () => {
     it("Tenta atualizar produto sem token de acesso", async () => {
       const responseFornecedor = await serverTest
-        .post("/fornecedor")
+        .post("/fornecedores")
         .send({
           nome: "Atacado",
           cnpj: "12.345.678/9123-45",
@@ -71,7 +71,7 @@ describe("Update - Produto", () => {
         .set({ Authorization: `Bearer ${accessToken}` });
 
       const resCreateProduto = await serverTest
-        .post("/produto")
+        .post("/produtos")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -83,7 +83,7 @@ describe("Update - Produto", () => {
         .set({ Authorization: `Bearer ${accessToken}` });
 
       const res = await serverTest
-        .put(`/produto/${resCreateProduto.body}`)
+        .put(`/produtos/${resCreateProduto.body}`)
         .send({
           nome: "Sabão",
           preco: "1.99",
@@ -101,7 +101,7 @@ describe("Update - Produto", () => {
   describe("Validações de entrada", () => {
     it("Tenta atualizar um produto por um id composto por letras", async () => {
       const res = await serverTest
-        .put("/produto/1as")
+        .put("/produtos/1as")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -118,7 +118,7 @@ describe("Update - Produto", () => {
 
     it("Tenta atualizar um produto por um id 0", async () => {
       const res = await serverTest
-        .put("/produto/0")
+        .put("/produtos/0")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -135,7 +135,7 @@ describe("Update - Produto", () => {
 
     it("Tenta atualizar um produto por um id negativo", async () => {
       const res = await serverTest
-        .put("/produto/-1")
+        .put("/produtos/-1")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -152,7 +152,7 @@ describe("Update - Produto", () => {
 
     it("Tenta atualizar um produto com quantidade negativa.", async () => {
       const res = await serverTest
-        .put("/produto/1")
+        .put("/produtos/1")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -169,7 +169,7 @@ describe("Update - Produto", () => {
 
     it("Tenta atualizar um produto com categoria 0.", async () => {
       const res = await serverTest
-        .put("/produto/1")
+        .put("/produtos/1")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -186,7 +186,7 @@ describe("Update - Produto", () => {
 
     it("Tenta atualizar um produto com fornecedor 0.", async () => {
       const res = await serverTest
-        .put("/produto/1")
+        .put("/produtos/1")
         .send({
           nome: "Sabonete",
           preco: "1.99",
@@ -203,7 +203,7 @@ describe("Update - Produto", () => {
 
     it("Tenta atualizar um produto com preco negativo.", async () => {
       const res = await serverTest
-        .put("/produto/1")
+        .put("/produtos/1")
         .send({
           nome: "Sabonete",
           preco: "-1.99",
@@ -220,7 +220,7 @@ describe("Update - Produto", () => {
 
     it("Tenta atualizar um produto com nome vazio.", async () => {
       const res = await serverTest
-        .put("/produto/1")
+        .put("/produtos/1")
         .send({
           nome: "",
           preco: "1.99",
