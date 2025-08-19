@@ -7,7 +7,7 @@ Sistema full-stack para controle de produtos, fornecedores, categorias, entradas
 ## 🌐 Produção
 
 O sistema já está disponível em produção:  
-👉 [Acessar aplicação](https://seu-link-deploy-aqui.com)  <!-- substitua pelo link real -->
+👉 [Acessar aplicação](https://sistema-de-gestao-farmacia.vercel.app)  <!-- substitua pelo link real -->
 
 ---
 
